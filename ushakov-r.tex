@@ -1,0 +1,91 @@
+\begin{englishtitle}
+\title{Nonlinear Analysis
+Mixed Boundary Value Problem for the Sophie Germain Equation
+}
+% First author
+\author{A.L. Ushakov }
+%Name FamilyName2\inst{2}}
+\institute{South Ural State University (National Research University), Chelyabinsk,   Russia\\
+    \email{ushakov\_al@inbox.ru}}
+    
+\maketitle
+
+\begin{abstract}
+A mixed boundary value problem for the Sophie Germain equation is considered. A fictitious continuation of this problem across the boundary with Dirichlet boundary conditions is carried out. The finite element method is used to approximate the continued problem. A generalization of the fictitious component method is proposed for the numerical solution of the problem under consideration. The numerical method for solving the problem is implemented as an iterative algorithm with the choice of its parameters while minimizing the residuals. The algorithm automatically selects the iterative parameters and provides a stopping criterion. Conditions sufficient for the convergence of the algorithm are indicated. Nonlinear analysis is used to optimize the rate of convergence of an iterative process. The iterative process converges at the rate of an infinitely decreasing geometric progression. The developed method is asymptotically optimal.
+\keywords{Sophie Germain equation, mixed boundary value problem, fictitious component method %\emph{etc.}
+}
+\end{abstract}
+\end{englishtitle}
+
+\iffalse
+
+
+
+\documentclass[12pt]{llncs}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage[russian]{nla}
+
+%\usepackage[english,russian]{nla}
+
+% \graphicspath{{pics/}} %Set the subfolder with figures (png, pdf).
+
+%\usepackage{showframe}
+\begin{document}
+%\selectlanguage{russian}
+\fi
+
+\title{Нелинейный анализ
+смешанной краевой задачи для уравнения Софи Жермен}
+% Первый автор
+\author{А.~Л.~Ушаков}
+%  \and
+% Второй автор
+%  И.~О.~Фамилия\inst{2}
+%  \and
+% Третий автор
+%  И.~О.~Фамилия\inst{2}
+%} % обязательное поле
+\institute{Южно-Уральский государственный университет\\ (национальный исследовательский университет) \\ (ЮУрГУ (НИУ)), Челябинск, Россия\\
+    \email{ushakov\_al@inbox.ru}}
+
+\maketitle
+
+\begin{abstract}
+Рассматривается смешанная краевая задача для уравнения Софи Жермен. Проводится фиктивное продолжение этой задачи через границу с краевыми условиями Дирихле. Применяется метод конечных элементов для аппроксимации продолженной задачи. Предлагается обобщение метода фиктивных компонент для численного решения рассматриваемой задачи. Численный метод решения задачи реализуется в виде итерационного алгоритма с выбором его параметров при минимизации невязок. В алгоритме производится автоматический выбор итерационных параметров и приводится критерий остановки. Указываются условия достаточные для сходимости алгоритма. Нелинейный анализ применяется для оптимизации скорости сходимости итерационного процесса. Итерационный процесс сходится со скоростью бесконечно убывающей геометрической прогрессии. Разработанный метод является асимптотически оптимальным.
+
+\keywords{уравнение Софи Жермен, смешанная краевая задача, метод фиктивных компонент}
+\end{abstract}
+
+\section{Основные результаты} % не обязательное поле
+
+Рассматривается математическую модель перемещений точек пластины под действием давления. Это смешанная краевая задача для уравнения Софи Жермен при общих предположениях обеспечивающих существование и единственность ее решения [1, 2]. Проводится фиктивное продолжение этой задачи в вариационной форме через участок границы с однородными краевыми условиями Дирихле [3]. Применяются кусочно-параболические конечные элементы для аппроксимации продолженной задачи, Предлагается обобщение метода фиктивных компонент не использующее построение явных операторов продолжения сеточных функций для численного решения рассматриваемой задачи [4]. Реализуется численный метод решения задачи в виде  итерационного алгоритма с выбором его параметров на основе метода минимальных невязок. В алгоритме указывается способ автоматического выбора итерационных параметров и критерий остановки итерационного процесса при достижении заранее задаваемых  допустимых погрешностей искомого решения рассматриваемой задачи, на основе данных получаемых в процессе вычислений. Указываются  условия достаточные для сходимости метода на основе возможности продолжения  функций с сохранением их более сильной нормы, чем энергетическая норма, возникающей задачи. Можно отметить, что решаемая задача является линейной и стационарной, но метод ее решения нелинейный и нестационарный. Нелинейный анализ применяется для оптимизации скорости сходимости итерационного процесса при обобщении метода фиктивных компонент. Последовательность относительных ошибок предлагаемого итерационного процесса мажорируется бесконечно убывающей геометрической прогрессией. Разработанный метод имеет скорость сходимости не зависящую от параметров дискретизации, является асимптотически оптимальным по вычислительным затратам. Численное решение задачи сводится к численному решению систем линейных алгебраических уравнений, получаемых при аппроксимации краевых задач для уравнения Пуассона в прямоугольной области для которых известны оптимальные по вычислительным затратам маршевые методы [5]. Теоретические результаты подтверждаются вычислительными экспериментами на ЭВМ.
+
+% Список литературы.
+\begin{thebibliography}{99}
+\bibitem{1} Aubin J.-P. Approximation of elliptic boundary-value problems. New York: Wiley-Interscience, 1972.
+% Format for Journal Reference
+%Author1 N., Author2 N.  {\it Article title}. Journal. Year. Vol.~Volume, No~Number. Pp.~Page numbers.
+% Format for books
+\bibitem{2} Оганесян Л.А., Руховец Л.А. Вариационно-разностные методы решения эллиптических уравнений. Ереван: изд–во АН АрмССР, 1979.
+%Author N. Book title. Place: Publisher, year.
+% Format for Russian Journal Reference
+\bibitem{3} Ushakov A.L. {\it Research of the boundary value problem for the Sophie Germain Equationinin in a cyber-physical system}. Studies in Systems, Decision and Control. Springer, 2021. Vol.~338. Pp.~51–63.
+%Фамилия И.О. {\it Название статьи}. Журнал. Год. Т.~том,  \textnumero~номер. С.~страницы.
+\bibitem{31} Мацокин А.М., Непомнящих С.В. {\it Метод фиктивного пространства и явные операторы продолжения}. Ж. вычисл. матем. и матем. физ. 1993.  Т.~33, \textnumero~1.  С.~52–68.
+%Фамилия И.О. Название статьи. Журнал. Год. Т.~том,  \textnumero~номер. С.~страницы.
+\bibitem{32} Bank R.E., Rose D.J. {\it Marching algorithms for elliptic boundary value problems}. SIAM J. on Numer. Anal. 1977. Vol.~14, No~5, Pp.~792–829.
+%Фамилия И.О. {\it Название статьи}. Журнал. Год. Т.~том,  \textnumero~номер. С.~страницы.
+\end{thebibliography}
+
+
+
+
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

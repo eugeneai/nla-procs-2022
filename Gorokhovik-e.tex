@@ -1,0 +1,173 @@
+\iffalse
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the template file for the 6th International conference
+% NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+% June 25-30, 2018
+% Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The preparation of the article is based on the standard llncs class
+% (Lecture Notes in Computer Sciences), which is adjusted with style
+% file of the conference.
+%
+% There are two ways of compilation of the file into PDF
+% 1. Use pdfLaTeX (pdflatex), (LaTeX+DVIPS will not work);
+% 2. Use LuaLaTeX (XeLaTeX will work too).
+% When using LuaLaTeX You will need TTF or OTF CMU fonts
+% (Computer Modern Unicode). The fonts are installed with 'cm-unicode' package in
+% a distribution of LaTeX % (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+% either by downloading and installing these fonts system wide, the address of their page is
+% http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+% The second option won't work in XeLaTeX.
+%
+% For MiKTeX (LaTeX distribution for Windows),
+%  1. Package 'cm-unicode' is installed manually with the MiKTeX administration Console.
+%  2. For the compilation of this example, namely, the stub figure, one will also need to
+% download package 'pgf' manually. This package uses in the popular
+% package tikz.
+%  3. Tests showed that the rest of the required packages MiKTeX loads automatically (if
+%     it is allowed). The 'auto download' option is
+%     configured in 'Settings' section in MiKTeX Console.
+%
+%
+% The easiest way to compile an article is to use pdfLaTeX, but
+% the final layout of the book will be compiled with LuaLaTeX,
+% as a result will be of better quality thanks to the package 'microtype' and
+% use vector OTF instead of standard raster fonts of pdfLaTeX.
+%
+% In the case of questions and problems with the article compilation,
+% write letters to e-mail: eugeneai@irnok.net, Cherkashin Evgeny.
+%
+% New version of the correcting style file will be available at the website:
+%     https://github.com/eugeneai/nla-style
+%     file - nla.sty
+%
+% Further instructions are in the text body of the template. The template itself
+% is an article example.
+%
+% The LaTeX2e format is used!
+
+% 12 points font size is used.
+
+
+
+\documentclass[12pt]{llncs}
+
+% The correcting style file is added.
+\usepackage{todonotes}
+
+\usepackage{nla} % This package is needed for compiling
+                 % this template, it should be removed
+                 % from your article.
+
+% Many popular packages (amsXXX, graphicx, etc.) are already imported in the style file.
+% If there is a conflict with your packages, try disabling them and compile
+% the text.
+%
+% It would be convenient in the layout of the proceedings if the file names
+% of the figures of different authors do not clash.
+% To minimize the clash, the drawings can be placed in a separate subfolder
+% named after the author or the title of the paper.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % specifies the folder with images in png, pdf formats.
+% or
+% \graphicspath{{great-problem-solving-paper-pics/}}.
+
+\begin{document}
+
+\fi
+
+\title{Separation of Convex Sets by Halfspaces with Applications to Convex Optimization Problems\thanks{The work is supported by the National Program for Scientific Research of
+the Republic of Belarus for 2021--2025 ``Convergence--2025'', project No.~1.3.01.}}
+% First author
+\author{Gorokhovik Valentin}
+  
+
+\institute{Institute of Mathematics of the National Academy of Sciences of Belarus, Minsk, Belarus\\
+  \email{gorokh@im.bas-net.by}}
+  
+\maketitle
+
+\begin{abstract}
+We introduce the class of step-affine functions defined on a real vector space and establish the duality
+between step-affine functions and half-spaces, i.e., convex sets whose complements are convex as well. Using
+this duality, we prove that two convex sets are disjoint if and only if they are separated by some step-affine
+function. This criterion is actually the analytic version of the Kakutani-Tukey criterion of the separation of
+disjoint convex sets by halfspaces. As applications of these results, we derive a minimality criterion for solutions
+of convex vector optimization problems considered in real vector spaces without topology and an optimality
+criterion for admissible points in classical convex programming problems not satisfying the Slater regularity
+condition.
+
+\keywords{convex sets, separation, halfspaces, vector optimization, convex programming problem}
+\end{abstract}
+
+\section{The main results}
+
+The main tools that usually are used to derive optimality
+conditions for admissible solutions of convex optimization
+problems are the theorems on separation of convex subsets by
+hyper\-pla\-nes. In most cases there is a gap between necessary
+optimality conditions and sufficient ones obtained in such a way.
+To overcome this gap some regularity conditions (like the Slater
+regularity condition in the convex programming problem) are
+additionally assumed. The main purpose of this talk is to present
+a characterization of optimal solutions of convex optimization
+problems which holds without any additional assumptions of
+regularity. To this end we use the theorem on separation of convex
+sets by halfspaces and its analytical versions.
+
+A subset $H$ of a real vector space $X$ is called a halfspace if
+both $H$ and its complement $X \setminus H$ are convex. In the
+thirties of the last century S. Kakutani \cite{Kakutani} and J.W. Tukey \cite{Tukey} proved
+independently the following general separation theorem: any two
+convex subsets of $X,$ say $A$ and $B,$  are disjoint if and only
+if there exists a halfspace $H$ in $X$ such that $A \subset H$ and
+$B \subset {X \setminus H}$. For the case when $X$ is a
+finite-dimensional  vector space J.-E. Martinez-Legaz and
+I.~Singer \cite{M-L_S88} found an analytical version of this theorem. However
+their approach can not be extended directly to the
+infinite-dimensional case. In the talk we present such analytical
+version of the Kakutani---Tukey theorem that is suitable both for
+finite-dimensional and infinite-dimensional cases and then we
+apply it to the study of convex optimization problems. We begin
+with a study of geometric structure and classification of
+infinite-dimensional halfspaces. Then we introduce and study a new
+class of real-valued functions called step-affine and show that
+functions of this class are dual counterparts of halfspaces. Using
+this duality we reformulate the Kakutani---Tukey theorem in an
+analytical form as a theorem on separation of convex sets by
+step-affine functions. As applications of this theorem we derive
+an analytical characterization of optimality for a convex vector
+optimization problem. Besides we prove a criterion of optimality
+for a convex programming problem which extends the well-known
+Kuhn--Tucker criterion to the problems not holding the Slater
+regularity condition.
+
+More detailed presentation of above results can be found in \cite{G1,G2}.
+
+%
+
+\begin{thebibliography}{9} % or {99}, if there is more than ten references.
+\bibitem{Kakutani}
+Kakutani S. Ein Beweis des Satzen von M.~Eidelheit \"{u}ber konvexe Mengen. Proc. Imp. Acad. Tokio. 1938. Vol.~14. Pp.~93--94.
+
+\bibitem{Tukey}
+Tukey J.W. Some notes on the separation of convex sets. Portugaliae Math. 1942 Vol.~3. Pp.~95--102.
+
+\bibitem{M-L_S88}
+Martinez-Legaz J.-E., Singer I. The structure of hemispaces in ${\mathbb R}^n$. Linear Algebra Appl. 1988. Vol.~110. Pp.~117--179.
+
+\bibitem{G1} Gorokhovik V.V., Shinkevich E.A. Geometric structure and classification of infinite-dimensional halfspaces.  Algebraic Analysis and Related Topics. Banach Center Publications. Vol.~53. Warsaw: Institute of Mathematics PAN, 2000. Pp.~121--138.
+
+\bibitem{G2}  Gorokhovik V.V. Step-affine functions, halfspaces, and separation of convex sets with applications to convex optimization problems. Proc. Steklov Inst. Math. 2021. Vol.~313, Suppl.~1. Pp.~S83--S99.
+    
+
+\end{thebibliography}
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

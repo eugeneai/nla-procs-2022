@@ -1,0 +1,233 @@
+\begin{englishtitle}
+		\title{On Necessary Conditions  if  Limits are Minimized
+		%for Minimizing the Limits
+		}
+		% First author
+		\author{Dmitry Khlopin}
+		\institute{IMM UrB RAS,  Yekaterinburg, Russia\\
+			\email{khlopin@imm.uran.ru}
+		}
+		% etc
+		
+		\maketitle
+		
+		\begin{abstract}
+	
+	An infinite-horizon optimal control problem	with asymptotic terminal constraints at infinity is considered. Under overtaking criteria the necessary boundary condition for co-state arcs at infinity is shown by	the stability of normal cones with respect to lower/upper limits.
+
+\keywords{Infinite-horizon control problem, necessary conditions, Pontryagin maximum principle, overtaking optimal control} % в конце списка точка не ставится
+\end{abstract}
+	\end{englishtitle}
+	
+
+\iffalse
+\documentclass[12pt]{llncs}  % Необходимо использовать шрифт 12 пунктов.
+
+% При использовании pdfLaTeX добавляется стандартный набор русификации babel.
+% Если верстка производится в LuaLaTeX, то следующие три строки надо
+% закомментировать, русификация будет произведена в корректирующем стиле автоматом.
+\usepackage[T2A]{fontenc}
+\usepackage[cp1251]{inputenc} % Кодировка utf-8, win1251 (cp1251) не тестировалась.
+\usepackage[english,russian]{babel}
+
+% Для верстки в LuaLaTeX текст готовится строго в utf-8!
+
+% В операционной системе Windows для редактирования в кодировки utf-8
+% можно использовать программы notepad++ https://notepad-plus-plus.org/,
+% techniccenter http://www.texniccenter.org/,
+% SciTE (самая маленькая по объему программа) http://www.scintilla.org/SciTEDownload.html
+% Подойдет также и встроенный в свежий дистрибутив MiKTeX редактор
+% TeXworks.
+
+% Добавляется корректирующий стилевой файл строго после babel, если он был включен.
+% В параметре необходимо указать russian, что установит не совсем стандартные названия
+% разделов текста, настроит переносы для русского языка как основного и т.п.
+
+\usepackage{todonotes} % Удрать из вашей статьи, нужен для верстки данного шаблона.
+
+\usepackage[russian]{nla}
+
+% \graphicspath{{pics/}} %Set the subfolder with figures (png, pdf).
+
+%\usepackage{showframe}
+\begin{document}
+%\selectlanguage{russian}
+\fi
+
+\title{О необходимых условиях при минимизации пределов %\thanks{Работа выполнена при поддержке РФФИ (РНФ, другие фонды), проект \textnumero~00-00-00000.}
+}
+% Первый автор
+\author{Д.~В.~Хлопин
+%  \and
+%% Второй автор
+%  И.~О.~Фамилия\inst{2}
+%  \and
+%% Третий автор
+%  И.~О.~Фамилия\inst{2}
+} % обязательное поле
+\institute{ИММ УрО РАН, Екатеринбург, Россия\\
+  \email{khlopin@imm.uran.ru}
+%  \and
+%Институт (название в краткой форме), Город, Страна\\
+%\email{email}
+}
+% Другие авторы...
+
+\maketitle
+
+\begin{abstract}
+	   Для задачи оптимального управления на бесконечном промежутке  показано необходимое краевое условие на сопряженную переменную, не требующее каких-либо дополнительных предположений. Это условие основано на устойчивости  нормальных конусов при переходе к верхнему/нижнему пределу. 
+	   
+\keywords{управление на бесконечном промежутке, необходимые условия, принцип максимума Понтрягина, обгоняющее управление}
+\end{abstract}
+
+
+
+	Рассмотрим задачу управления на бесконечном промежутке:
+$$
+\begin{array}{l}
+	\min \int_{0}^\infty f_0(\tau,y(\tau),u(\tau))\, d\tau,\\[1em]
+\dot{y}(t)=f(t,y(t),u(t)),  \quad y(0)=x_0\in\mathbb{R}^m
+,\quad
+\ \mathop{\hbox{ \rm{Limsup}}}_{\theta\uparrow\infty} \{l(y(\theta))\}\subset \mathcal{C}_\infty.
+\end{array}
+$$
+%при помощи выбора борелевского  для 
+%с целью 
+
+Будем полагать, что $\mathcal{C}_\infty$ и $U$  замкнуты в $\mathbb{R}^m$ и некотором конечномерном евклидовом пространстве, функция $l:\mathbb{R}^m\to\mathbb{R}$ непрерывна, 
+отображения  $f:\mathbb{R}_+\times\mathbb{R}^m\times U\to\mathbb{R}^m$ и
+$f_0:\mathbb{R}_+\times\mathbb{R}^m\times U\to\mathbb{R}$
+непрерывны по $(x,u)$ и борелевские по~$t$. 
+Для простоты формулировки пусть также для каждого борелевского управления $u\in B(\mathbb{R}_+;U)$ найдется такая локально суммируемая функция $C_u\in B(\mathbb{R}_+;\mathbb{R}_+)$, что  для любых $(t,x)\in\mathbb{R}_+\times\mathbb{R}^m$ 
+\[ \|f(t,x,u(t))\|^2+|f_0(t,x,u(t))|^2+\Big\|\frac{\partial f}{\partial x}(t,x,u(t))\Big\|^2+\Big\|\frac{\partial f_0}{\partial x}(t,x,u(t))\Big\|^2\leq C_u(t)(1+||x||).\]
+Тогда каждое~$u\in B(\mathbb{R}_+;U)$  при любом начальном условии $y(0)=\bar{x}$ задает на $\mathbb{R}_+$ единственное  решение ${ \mathrm{y}}(\bar{x},u;\cdot)$, а значит и для всех $\theta>0$ накопленный к моменту $\theta$ платеж
+\[      	J(\bar{x},u;\theta)=\int_{0}^{\theta} f_0\big(t,{ \mathrm{y}}(\bar{x},u;t),u(t)\big)\,dt\qquad\forall
+\bar{x}\in\mathbb{R}^m,u\in B(\mathbb{R}_+;U),\theta\in\mathbb{R}_+. \]
+
+Введем также
+ %функцию Гамильтона---Понтрягина
+%$H:{\mathbb{R}^m}\times{\mathbb{R}^m}^*\times {U}\times{\mathbb{R}_+}\times{\mathbb{R}_+}\to{\mathbb{R}}$
+%правилом: 
+%для всех $(x,\psi,u,\lambda,t)\in{\mathbb{R}^{m}}\times{\mathbb{R}^{m,*}}\times {U}\times{\mathbb{R}_+}\times{\mathbb{R}_+}$ 
+гамильтониан
+$
+H(x,\psi,u,\lambda,t)=\psi f\big(t,x,u\big)-\lambda
+f_0\big(t,x,u\big).
+$
+
+{\bf Теорема 1}.	
+{\it 	 Пусть допустимый процесс $(\hat{y},\hat{u})$ слабо обгоняюще оптимален, то есть
+	\[  \limsup_{\theta\uparrow\infty}\ 
+	\big[J(x_0, u; \theta)-J(x_0, \hat{u}; \theta)\big]
+	\geq 0\qquad \forall u\in B(\mathbb{R}_+,U).\]
+%\en
+
+	Тогда найдется ненулевая пара $({\psi},{\lambda})\in C(\mathbb{R}_+,\mathbb{R}^{m,*})\times\{0,1\}$,
+	удовлетворяющая
+	\begin{align*}
+	\sup_{\upsilon\in
+		U}H\big(\hat{y}(t),{\psi}(t),\upsilon,\lambda,t\big)
+	=
+	H\big(\hat{y}(t),{\psi}(t),\hat{u}(t),\lambda,t\big) \textrm{\ п.в.,}\qquad \textrm{(условие максимума)}\\
+	\dot{\psi}(t)=-\frac{\partial
+		{H}}{\partial x}\big(\hat{y}(t),{\psi}(t),\hat{u}(t),\lambda,t\big)  \textrm{\ п.в.},\qquad\textrm{(сопряженная система)}\\
+	-{\psi}(0)\in \mathop{\hbox{  \rm{co}}} N(x;\mathcal{C}_{ \mathrm{as}})+\mathop{\hbox{  \rm{co}}}
+	\mathop{\hbox{  \rm{Limsup}}}_{\substack
+		{x_n\to x_0,\ \lambda_n\downarrow {\lambda},\ \theta_n\uparrow\infty\\ {J}(x_n,\hat{u};\theta_n)-{J}(x_0,\hat{u};\theta_n)\to 0}
+	}
+	\Big\{\lambda_n\frac{\partial {J}}{\partial x}(x_n,\hat{u};\theta_n)
+	\Big\},\quad\textrm{(краевое условие)}
+	\end{align*}
+%	для почти всех неотрицательных $t>0$
+%	удовлетворяющая условию максимума
+%	\begin{equation*}%\label{H}
+%	\sup_{\upsilon\in		U}H\big(\hat{y}(t),{\psi}(t),\upsilon,\lambda,t\big)
+%	=H\big(\hat{y}(t),{\psi}(t),\hat{u}(t),\lambda,t\big),
+%	\end{equation*}
+%	и сопряженной системе 
+%	\begin{equation*}
+%	\dot{\psi}(t)=-\frac{\partial
+%		{H}}{\partial x}\big(\hat{y}(t),{\psi}(t),\hat{u}(t),\lambda,t\big),
+%	%	\label{maxH}
+%	\end{equation*}
+%	 а также удовлетворяющая краевому условию
+%	\begin{equation*}
+%	-{\psi}(0)\in \mathop{\hbox{  \rm{co}}} N(x;\mathcal{C}_{ \mathrm{as}})+\mathop{\hbox{  \rm{co}}}
+%	\mathop{\hbox{  \rm{Limsup}}}_{\substack
+%		{x_n\to x_0,\ \lambda_n\downarrow {\lambda},\ \theta_n\uparrow\infty\\ {J}(x_n,\hat{u};\theta_n)-{J}(x_0,\hat{u};\theta_n)\to 0}
+%	}
+%	\Big\{\lambda_n\frac{\partial {J}}{\partial x}(x_n,\hat{u};\theta_n)
+%	\Big\},
+%	\end{equation*}
+	где   
+	$\mathcal{C}_{ \mathrm{as}}=\big\{x\in\mathbb{R}^m\,\big|\,
+	\mathop{\hbox{  \rm{Limsup}}}_{\theta\to \infty} \{l({ \mathrm{y}}(x,\hat{u};\theta))\}\subset \mathcal{C}_{\infty}\big\}$ ---
+  множество тех  позиций, начинаясь с которых порождаемая $\hat{u}$ траектория, соблюдает терминальное условие.
+	
+  Более того, если процесс $(\hat{y},\hat{u})$ также обгоняюще оптимален, то есть
+  \[ \liminf_{\theta\uparrow\infty}\ 
+  \big[J(x_0, u; \theta)-J(\hat{y}(0), \hat{u}; \theta)\big]
+  \geq 0\qquad \forall u\in B(\mathbb{R}_+,U),\]
+  то для $(\hat{y},\hat{u})$ можно считать выполненным и  более сильное краевое условие
+	\begin{equation*}
+%-{\psi}(0)\in N(x_0;\mathcal{C}_{ \mathrm{as}})+\bigcap_{\{(\theta_n)_{n\in\mathbb{N}}\in\mathbb{R}_+{}^\mathbb{N}\,|\,\theta_n\uparrow\infty\}}
+%\mathop{\hbox{  \rm{Limsup}}}_{\substack
+%	{x_n\to x_0,\ \lambda_n\downarrow {\lambda}\\ {J}(x_n,\hat{u};\theta_n)-{J}(x_0,\hat{u};\theta_n)\to 0}
+%}
+%\Big\{\lambda_n\frac{\partial {J}}{\partial x}(x_n,\hat{u};\theta_n)
+%\Big\}.
+\label{khlopin_ALL2}
+\end{equation*}
+}
+
+
+ Без условия трансверсальности необходимость принципа максимума Понтрягина хорошо известна; см. \cite{Halkin}. Основная особенность теоремы выше ---  краевые условия, необходимость которых не требует каких-либо асимптотических предположений. 
+ 
+ %Отметим, что в ряде случаев условие $(1)$ можно и упростить, 
+ %например, при $\mathcal{C}_{\infty}=\mathbb{R}^m$   нормальный %конус в условии~$(1)$ становится нулевым и его можно опустить. 
+ %Если  градиенты по $x$ от  ${J}(x,\hat{u};\theta)$ равномерно %ограничены по $(x,\theta)$, то можно присвоить $\lambda=1$ и не %брать  в $(1)$ выпуклую оболочку, дополнительно в верхнем %пределе потребовав  $x_n\in\mathcal{C}_{ \mathrm{as}}$.
+ 
+ 
+  
+  	Само доказательство теоремы~1 проводится также, как и \cite[Theorem~4.1,Theorem~4.6]{arxiv}, требуется лишь  для оценок сверху  предельных нормальных конусов верхних и нижних пределов множеств вместо \cite[Lemma~6.1,6.7]{arxiv},
+  	%\cite[Theorem~3.1]{Mnghia},\cite[Theorem~4.8]{Peres},
+  	\cite[Theorem~6.2]{Ledyaev} применить
+	
+	{\bf Теорема 2.} {\it       Пусть даны подмножества  $\Omega_\theta\subset\mathbb{R}^m$  $(\theta> 0)$ и 
+		точка $z\in\mathbb{R}^m$. Тогда,
+				\begin{align*}
+		N\Big(z;\mathop{  \rm{Liminf}}_{\theta\uparrow\infty}\Omega_\theta\Big)\subset 
+			\mathop{\hbox{  \rm{co}}}
+		\mathop{  \rm{Limsup}}_{{z}_n\to z,\theta_n\uparrow\infty}  {N}({z}_n;\Omega_{\theta_n}).
+		\end{align*}
+		Более того, если при всех  $\theta> 0$
+		точка $z$ принадлежит замыканию $\Omega_\theta$, то
+				\begin{align*}
+%		N\Big(z; \mathop{  \rm{Limsup}}_{\theta\uparrow\infty} \Omega_\theta\Big)
+%		\subset
+%		\bigcap_{\{(\theta_n)_{n\in\mathbb{N}}\in\mathbb{R}_+^\mathbb{N}\,|\,\theta_n\uparrow\infty\}}
+%		        \mathop{  \rm{Limsup}}_{{z}_n\to {z}}{N}({z}_n;\Omega_{\theta_n}).
+%		        %\qquad\forall z\in\cup_{\theta>0} \mathop{  \rm{cl}}\Omega_\theta.
+		\end{align*}
+	}
+	
+	\begin{thebibliography}{99}
+\bibitem{Halkin}
+Halkin H. {\it   Necessary conditions for optimal control problems with infinite horizons}. Econometrica. 1974. Vol.~42. P.~267--272.
+
+\bibitem{arxiv}
+Khlopin~D.V. {\it Necessary conditions in infinite-horizon control problem
+	that need no asymptotic assumptions}. arXiv preprint arXiv:1910.12092
+
+\bibitem{Ledyaev}
+ Ledyaev Y.S., Treiman J.S. {\it Sub-and supergradients of envelopes, semicontinuous clo-
+sures, and limits of sequences of functions.} Russ. Math. Surv. 2012. Vol.~67. P.~345--373.
+	\end{thebibliography}
+	
+	
+	
+	
+	
+	
+%\end{document}

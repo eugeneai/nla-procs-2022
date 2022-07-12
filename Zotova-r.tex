@@ -1,0 +1,251 @@
+\begin{englishtitle} % Настраивает LaTeX на использование английского языка
+% Этот титульный лист верстается аналогично.
+\title{Laplace Cascade Method}
+% First author
+\author{E.~I.~Zotova\inst{1}
+  \and
+  R.~D.~Murtazina\inst{2}
+ }
+\institute{USATU, Ufa, Russia\\
+  \email{zot-kate83@yandex.ru}
+  \and
+USATU, Ufa, Russia\\
+\email{reginaufa@yandex.ru}}
+% etc
+
+\maketitle
+
+\begin{abstract}
+The equation $z_{xy}+mxz_{x}+nyz_{y}+(2m-n+mnxy)z=0$ is integrated by the Laplace cascade method.
+
+\keywords{invariant, cascade integration method, Laplace transforms} % в конце списка точка не ставится
+\end{abstract}
+\end{englishtitle}
+
+\iffalse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  This is the template file for the 6th International conference
+%  NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+%  June 25-30, 2018
+%  Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  Верстка статьи осуществляется на основе стандартного класса llncs
+%  (Lecture Notes in Computer Sciences), который корректируется стилевым
+%  файлом конференции.
+%
+%  Скомпилировать файл в PDF можно двумя способами:
+%  1. Использовать pdfLaTeX (pdflatex), (LaTeX+DVIPS не работает);
+%  2. Использовать LuaLaTeX (XeLaTeX будет работать тоже).
+%  При использовании LuaLaTeX потребуются TTF- или OTF-шрифты CMU
+%  (Computer Modern Unicode). Шрифты устанавливаются либо пакетом
+%  дистрибутива LaTeX cm-unicode
+%              (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+%  либо загрузкой и установкой в операционной системе, адрес страницы:
+%              http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+%  Второй вариант не будет работать в XeLaTeX.
+%
+%  В MiKTeX (дистрибутив LaTeX для ОС Windows):
+%  1. Пакет cm-unicode устанавливается вручную в программе MiKTeX Console.
+%  2. Для верстки данного примера, а именно, картинки-заглушки необходимо,
+%     также вручную, загрузить пакет pgf. Этот пакет используется популярным
+%     пакетом tikz.
+%  3. Тест показал, что остальные пакеты MiKTeX грузит автоматически (если
+%     ему разрешено автоматически грузить пакеты). Режим автозагрузки
+%     настраивается в разделе Settings в MiKTeX Console.
+%
+%
+%  Самый простой способ сверстать статью - использовать pdfLaTeX, но
+%  окончательный вариант верстки сборника будет собран в LuaLaTeX,
+%  так как результат получится лучшего качества, благодаря пакету microtype и
+%  использованию векторных шрифтов OTF вместо растровых pdfLaTeX.
+%
+%  В случае возникновения вопросов и проблем с версткой статьи,
+%  пишите письма на электронную почту: eugeneai@irnok.net, Черкашин Евгений.
+%
+%  Новые варианты корректирующего стиля будут доступны на сайте:
+%        https://github.com/eugeneai/nla-style
+%        файл - nla.sty
+%
+%  Дальнейшие инструкции - в тексте данного шаблона. Он одновременно
+%  является примером статьи.
+%
+%  Формат LaTeX2e!
+
+\documentclass[12pt]{llncs}  % Необходимо использовать шрифт 12 пунктов.
+
+% При использовании pdfLaTeX добавляется стандартный набор русификации babel.
+% Если верстка производится в LuaLaTeX, то следующие три строки надо
+% закомментировать, русификация будет произведена в корректирующем стиле автоматом.
+\usepackage{iftex}
+
+\ifPDFTeX
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} % Кодировка utf-8, cp1251 и т.д.
+\usepackage[english,russian]{babel}
+\fi
+
+% Для верстки в LuaLaTeX текст готовится строго в utf-8!
+
+% В операционной системе Windows для редактирования в кодировке utf-8
+% можно использовать программы notepad++ https://notepad-plus-plus.org/,
+% techniccenter http://www.texniccenter.org/,
+% SciTE (самая маленькая по объему программа) http://www.scintilla.org/SciTEDownload.html
+% Подойдет также и встроенный в свежий дистрибутив MiKTeX редактор
+% TeXworks.
+
+% Добавляется корректирующий стилевой файл строго после babel, если он был включен.
+% В параметре необходимо указать russian, что установит не совсем стандартные названия
+% разделов текста, настроит переносы для русского языка как основного и т.п.
+
+\usepackage{todonotes} % Этот пакет нужен для верстки данного шаблона, его
+                       % надо убрать из вашей статьи.
+
+\usepackage[russian]{nla}
+
+% Многие популярные пакеты (amsXXX, graphicx и т.д.) уже импортированы в корректирующий стиль.
+% Если возникнут конфликты с вашими пакетами, попробуйте их отключить и сверстать
+% текст как есть.
+%
+%
+
+
+% Было б удобно при верстке сборника, чтобы названия рисунков разных авторов не пересекались.
+% Чтоб минимизировать такое пересечение, рисунки можно поместить в отдельную подпапку с
+% названием - фамилией автора или названием статьи.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % Указание папки с изображениями в форматах png, pdf.
+% или
+% \graphicspath{{great-problem-solving-paper-pics/}}.
+
+
+\begin{document}
+
+% Текст оформляется в соответствии с классом article, используя дополнения
+% AMS.
+%
+\fi
+
+\title{Каскадный метод Лапласа}
+% Первый автор
+\author{Е.~И.~Зотова\inst{1}  % \inst ставит циферку над автором.
+  \and  % разделяет авторов, в тексте выглядит как запятая.
+% Второй автор
+  Р.~Д.~Муртазина\inst{2}
+  % \and
+} % обязательное поле
+
+% Аффилиации пишутся в следующей форме, соединяя каждый институт при помощи \and.
+\institute{УГАТУ, Уфа, Россия \\
+  \email{zot-kate83@yandex.ru}
+  \and   % Разделяет институты и присваивает им номера по порядку.
+УГАТУ, Уфа, Россия\\
+  \email{reginaufa@yandex.ru}
+% \and Другие авторы...
+}
+
+\maketitle
+
+\begin{abstract}
+В работе проинтегрировано уравнение $$z_{xy}+mxz_{x}+nyz_{y}+(2m-n+mnxy)z=0$$ каскадным методом Лапласа.
+
+\keywords{инвариант, метод каскадного интегрирования, преобразования Лапласа} % в конце списка точка не ставится
+\end{abstract}
+
+%\section{Основные результаты} % не обязательное поле
+
+
+
+Уравнение $		u_{xy}+a(x, y)u_{x}+b(x, y)u_{y}+c(x, y)u=0$
+ можно записать в двух равносильных формах
+	$$
+		\begin{array}{l}
+			u_{xy}+au_{x}+bu_{y}+(a_{x}+ab-h)u=\left( \dfrac{\partial}{\partial x}+b\right) \left(\dfrac{\partial}{\partial y}+a\right)u-hu=0,\\
+			u_{xy}+au_{x}+bu_{y}+(a_{x}+ab-k)u=\left(\dfrac{\partial}{\partial y}+a\right)\left(\dfrac{\partial}{\partial x}+b\right)u-ku=0.
+		\end{array}
+	$$
+	Поэтому исходное уравнение  эквивалентно каждой из систем
+$$
+\begin{array}{l}
+		\left(\dfrac{\partial}{\partial y}+a\right)u=u_{1},\qquad \left(\dfrac{\partial}{\partial x}+b\right)u_{1}-hu=0,\\
+		\left(\dfrac{\partial}{\partial x}+b\right)u=u_{-1},\qquad \left(\dfrac{\partial}{\partial y}+a\right)u_{-1}-ku=0,
+		\end{array}
+$$
+показыващих, что если хотя бы один из инвариантов $h$ или $k$ тождественно равен нулю, то исходное уравнение интегрируется в квадратурах.
+
+Таким образом, $X$- преобразование Лапласа генерирует из исходного уравения $E_{0}$ уравнения $E_{i}$ вида
+$$
+	 	\dfrac{\partial^{2}u_{i}}{\partial x\partial y}+a_{i}\dfrac{\partial u_{i}}{\partial x}+\dfrac{\partial u_{i}}{\partial y}+c_{i}u_{i}=0,\qquad i= 1, 2,\ldots,
+$$
+коэффициенты и инварианты которых связаны между собой соотношениями
+$$
+	  	\begin{array}{l}
+	  		a_{i}=a_{i-1}-(\ln h_{i-1})_{y},\quad b_{i}=b_{i-1},\quad c_{i}=a_{i}b_{i}-(b_{i})_{y}-h_{i-1},\\
+	  		h_{i}=2h_{i-1}-k_{i-1}-(\ln h_{i-1})_{xy},\quad 	k_{i}=h_{i-1}.
+	  	\end{array}
+$$
+Здесь $a_{0}=a$, $b_{0}=b$, $c_{0}=c$. Аналогично $y$- преобразование Лапласа дает цепочку уравнений $E_{-i}$
+$$
+  	 	\dfrac{\partial^{2}u_{-i}}{\partial x\partial y}+a_{-i}\dfrac{\partial u_{-i}}{\partial x}+\dfrac{\partial u_{-i}}{\partial y}+c_{-i}u_{-i}=0,\qquad i= 1, 2,\ldots,
+$$
+	  где
+$$
+	  	\begin{array}{l}
+	  		a_{-i-1}=a_{-i},\quad b_{-i-1}=b_{-i}-(\ln k_{-i})_{x},\quad c_{-i-1}=a_{-i-1}b_{-i-1}-(a_{-i})_{x}-k_{-i},\\
+	  		h_{-i-1}=k_{-i},\quad 	k_{-i-1}=2k_{-i}-h_{-i}-(\ln k_{-i})_{xy}.
+	  	\end{array}
+$$
+	  
+		Для уравнений $E_i$ и $E_{-i}$ системы первого порядка имеют вид
+$$
+\begin{array}{l}
+	  		\left(\dfrac{\partial}{\partial y}+a_{i}\right)u_{i}=u_{i+1},\qquad  \left(\dfrac{\partial}{\partial x}+b\right)u_{i+1}-h_{i}u_{i}=0,\\
+  	  	\left(\dfrac{\partial}{\partial x}+b_{-i}\right)u_{-i}=u_{-i-1},\qquad  \left(\dfrac{\partial}{\partial y}+a\right)u_{-i-1}-k_{-i}u_{-i}=0,
+				\end{array}
+$$
+ а  их инварианты $h_i$, $k_i$ и $h_{-i}$, $k_{-i}$ выражаются через инварианты предыдущих уравнений 
+$$
+\begin{array}{l}
+ 	  	h_i=(i+1)h-ik-\dfrac{\partial^{2}}{\partial x\partial y}\ln (h^ih_1^{i-1}\ldots h_{i-2}^{2} h_{i-1}),\\
+ 	  	k_{i}=ih-(i-1)k-\dfrac{\partial^{2}}{\partial x\partial y}\ln (h^{i-1} h_1^{i-2}\ldots h_{i-3}^{2} h_{i-2}),\\
+ 	  		h_{-i}=ih_{-1}-(i-1)-\dfrac{\partial^{2}}{\partial x\partial y}\ln (h^{i-1}_{-1}h_{-2}^{i-2}\ldots h_{-i+2}^{2} h_{-i+1}),\\
+ 	  		k_{-i}=h_{-i-1}=(i+1)h_{-1}-ih-\dfrac{\partial^{2}}{\partial x\partial y}\ln (h^i_{-1}h_{-2}^{i-1}\ldots h_{-i+1}^{2} h_{-i}).
+ 	  	\end{array}
+ 	  $$ 
+
+Общее решение уравнения
+$$
+z_{xy}+mxz_{x}+nyz_{y}+(2m-n+mnxy)z=0
+$$
+имеет вид 
+$$
+z=\dfrac{e^{-nxy}}{n-m}\dfrac{\partial}{\partial x}\left(e^{(n-m)xy}\left(X(x)+\int Y(y)e^{(m-n)xy}dy \right) \right).
+$$
+
+
+\begin{thebibliography}{9} % или {99}, если ссылок больше десяти.
+
+\bibitem{Zot_Sokolov} Соколов~В.В. Алгебраические структуры в теории интегрируемых систем. Новосибирск:~Наука,~2021.
+
+\bibitem{Zot_Murt}	Муртазина~Р.Д., Кудашева~Е.Г., Низамова~А.Д., Сидельникова~Н.А. Дифференциальные уравнения в частных производных второго порядка. Устойчивость течения жидкостей в канале с линейным профилем температуры. М.:~Русайнс,~2021.
+
+
+\bibitem{Zot_Zhiber}	Жибер~А.В., Муртазина~Р.Д., Хабибуллин~И.Т., Шабат~А.Б.  Характеристические кольца Ли и нелинейные интегрируемые уравнения. М.:~Юрайт,~2022.
+
+
+\end{thebibliography}
+
+% После библиографического списка в русскоязычных статьях необходимо оформить
+% англоязычный заголовок.
+
+
+
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

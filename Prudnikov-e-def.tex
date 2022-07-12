@@ -1,0 +1,407 @@
+\iffalse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the template file for the 6th International conference
+% NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+% June 25-30, 2022
+% Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The preparation of the article is based on the standard llncs class
+% (Lecture Notes in Computer Sciences), which is adjusted with style
+% file of the conference.
+%
+% There are two ways of compilation of the file into PDF
+% 1. Use pdfLaTeX (pdflatex), (LaTeX+DVIPS will not work);
+% 2. Use LuaLaTeX (XeLaTeX will work too).
+% When using LuaLaTeX You will need TTF or OTF CMU fonts
+% (Computer Modern Unicode). The fonts are installed with 'cm-unicode' package in
+% a distribution of LaTeX % (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+% either by downloading and installing these fonts system wide, the address of their page is
+% http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+% The second option won't work in XeLaTeX.
+%
+% For MiKTeX (LaTeX distribution for Windows),
+%  1. Package 'cm-unicode' is installed manually with the MiKTeX administration Console.
+%  2. For the compilation of this example, namely, the stub figure, one will also need to
+% download package 'pgf' manually. This package uses in the popular
+% package tikz.
+%  3. Tests showed that the rest of the required packages MiKTeX loads automatically (if
+%     it is allowed). The 'auto download' option is
+%     configured in 'Settings' section in MiKTeX Console.
+%
+%
+% The easiest way to compile an article is to use pdfLaTeX, but
+% the final layout of the book will be compiled with LuaLaTeX,
+% as a result will be of better quality thanks to the package 'microtype' and
+% use vector OTF instead of standard raster fonts of pdfLaTeX.
+%
+% In the case of questions and problems with the article compilation,
+% write letters to e-mail: eugeneai@irnok.net, Cherkashin Evgeny.
+%
+% New version of the correcting style file will be available at the website:
+%     https://github.com/eugeneai/nla-style
+%     file - nla.sty
+%
+% Further instructions are in the text body of the template. The template itself
+% is an article example.
+%
+% The LaTeX2e format is used!
+
+% 12 points font size is used.
+\documentclass[12pt]{llncs}
+
+% The correcting style file is added.
+\usepackage{todonotes}
+
+\usepackage{nla} % This package is needed for compiling
+                 % this template, it should be removed
+                 % from your article.
+
+
+
+\newcommand{\nid}{\noindent}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\br}{\begin{right}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\vhi}{\varphi}
+\newcommand{\infi}{\infty}
+\newcommand{\pr}{\parallel}
+\newcommand{\vl}{\mid}
+\newcommand{\llra}{\; \longleftrightarrow \;}
+\newcommand{\lar}{\leftarrow}
+\newcommand{\rar}{\rightarrow}
+\newcommand{\grad}{\nabla}
+\newcommand{\lapl}{\triangle}
+\newcommand{\lrar}{\longrightarrow}
+\newcommand{\uar}{\uparrow}
+\newcommand{\dar}{\downarrow}
+\newcommand{\overl}{\overline}
+\newcommand{\underl}{\underline}
+\newcommand{\p}{\partial}
+\newcommand{\rrr}{R^n_+}
+\newcommand{\ball}[2]{\B^n_#1 (#2)}
+\newcommand{\sphere}[2]{S^{n-1}_#1 (#2)}
+\newcommand{\subcl}{\p_{Cl} \, f(x_0)}
+\newcommand{\bint}{\mbox{int} \,}
+\newcommand{\bargmin}{\mbox{arg min} \,}
+\newcommand{\bcone}{\mbox{cone} \,}
+\newcommand{\bco}{\mbox{conv} \,}
+\newcommand{\bepi}{\mbox{epi} \,}
+\newcommand{\bdom}{\mbox{dom} \,}
+\newcommand{\blim}{\mbox{lim} \,}
+\newcommand{\bsup}{\mbox{sup} \,}
+\newcommand{\bmax}{\mbox{max} \,}
+\newcommand{\bmin}{\mbox{min} \,}
+\newcommand{\binf}{\mbox{inf} \,}
+\newcommand{\exs}{\exists}
+\newcommand{\all}{\,\, \forall}
+\newcommand{\meq}{\geq}
+\newcommand{\g}{\gamma}
+
+\newcommand{\la}{\lambda}
+\newcommand{\La}{\Lambda}
+\newcommand{\al}{\alpha}
+\newcommand{\bet}{\beta}
+\newcommand{\del}{\delta}
+\newcommand{\Del}{\Delta}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\bx}{\bar{x}}
+
+\newcommand{\nid}{\noindent}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\br}{\begin{right}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\vhi}{\varphi}
+\newcommand{\infi}{\infty}
+\newcommand{\pr}{\parallel}
+\newcommand{\vl}{\mid}
+\newcommand{\llra}{\; \longleftrightarrow \;}
+\newcommand{\lar}{\leftarrow}
+\newcommand{\rar}{\rightarrow}
+\newcommand{\grad}{\nabla}
+\newcommand{\lapl}{\triangle}
+\newcommand{\lrar}{\longrightarrow}
+\newcommand{\uar}{\uparrow}
+\newcommand{\dar}{\downarrow}
+\newcommand{\overl}{\overline}
+\newcommand{\underl}{\underline}
+\newcommand{\p}{\partial}
+\newcommand{\rrr}{R^n_+}
+\newcommand{\ball}[2]{\B^n_#1 (#2)}
+\newcommand{\sphere}[2]{S^{n-1}_#1 (#2)}
+\newcommand{\subcl}{\p_{Cl} \, f(x_0)}
+\newcommand{\bint}{\mbox{int} \,}
+\newcommand{\bargmin}{\mbox{arg min} \,}
+\newcommand{\bcone}{\mbox{cone} \,}
+\newcommand{\bco}{\mbox{conv} \,}
+\newcommand{\bepi}{\mbox{epi} \,}
+\newcommand{\bdom}{\mbox{dom} \,}
+\newcommand{\blim}{\mbox{lim} \,}
+\newcommand{\bsup}{\mbox{sup} \,}
+\newcommand{\bmax}{\mbox{max} \,}
+\newcommand{\bmin}{\mbox{min} \,}
+\newcommand{\binf}{\mbox{inf} \,}
+\newcommand{\exs}{\exists}
+\newcommand{\all}{\,\, \forall}
+\newcommand{\meq}{\geq}
+\newcommand{\g}{\gamma}
+
+\newcommand{\la}{\lambda}
+\newcommand{\La}{\Lambda}
+\newcommand{\al}{\alpha}
+\newcommand{\bet}{\beta}
+\newcommand{\del}{\delta}
+\newcommand{\Del}{\Delta}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\bx}{\bar{x}}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{as}{Assumption}[section]
+\newtheorem{lem}{Lemma}[section]
+
+%\theoremstyle{definition}
+\newtheorem{defi}{Definition}[section]
+\newtheorem{ex}{Example}[section]
+%\theoremstyle{remark}
+\newtheorem{rem}{Remark}[section]
+\newcommand{\avin}[6]{#3^{-1} \; \int^#2_#1 \, \grad #6(r(#4, \tau, #5))d\tau}
+\newcommand{\curve}{r(x_0,\cdot,g)}
+\newcommand{\incl}{\subset}
+
+
+\fi
+
+
+
+
+% Many popular packages (amsXXX, graphicx, etc.) are already imported in the style file.
+% If there is a conflict with your packages, try disabling them and compile
+% the text.
+%
+% It would be convenient in the layout of the proceedings if the file names
+% of the figures of different authors do not clash.
+% To minimize the clash, the drawings can be placed in a separate subfolder
+% named after the author or the title of the paper.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % specifies the folder with images in png, pdf formats.
+% or
+% \graphicspath{{great-problem-solving-paper-pics/}}.
+
+%\begin{document}
+
+% Text should be formatted in accordance with the 'article' class, using extensions like
+% AMS.
+%
+\title{Constructions of the Subdifferentials and Codifferentials}
+% First author
+\author{Igor Prudnikov 
+}
+\institute{Scientific Center of Smolensk State Medical University, Smolensk, Russia\\
+  \email{pim\underline{ }10@hotmail.com}
+ }
+% etc
+
+\maketitle
+
+\begin{abstract}
+%Insert your english abstract here. Include 3-6 keywords below.
+
+\keywords{positively homogeneous functions,
+quasidifferentiable functions, Generalized Gradients,
+codifferentiable functions, subdifferential of the first and
+second order, Clarke subdifferential, second
+codifferential, generalized matrices of second derivatives}
+\end{abstract}
+
+% at the end of the list, there should be no final dot
+\section{The main results}
+
+
+The author studies the  codifferentiable  and twice codifferentiable
+functions introduced by Professor V.F. Demyanov, and how to calculate their
+subdifferentials and codifferentials. The first and second subdifferentials,
+introduced by the author,
+are used to compute the first and second codifferential at a point. One
+condition is given when a function is continuously codifferentiable.
+The proved theorems give the rules for calculation the subdifferentials
+and continuous codifferentials.
+
+By definition, a function $ f (\cdot): \mathbb{R}^ n \rightarrow
+\mathbb{R} $  is called quasidifferentiable at $x$ if the
+decomposition \begin{equation} f (x + \Delta) = f (x) + \max_ {v \in
+\underline{\partial} f (x)} (v, \Delta) + \min_ {w \in \overline{\partial} f
+(x) } (w, \Delta) + o_x (\Delta) \label{quasidiff6} \end{equation} is correct
+where the sets $\underline{\partial} f (x)$ and $ \overline{\partial} f (x) $
+are called {\em the subdifferential} and {\em the
+superdifferential} correspondingly \cite{demvas1}. The pair
+$[\underline{\partial} f (x), \overline{\partial} f (x)]$ is called the
+quasidifferential of $f(\cdot)$ at $x$.
+
+We will call the function $f(\cdot)$ twice quasidifferentiable at
+$x$ if the following decomposition
+$$
+f (x + \Delta) = f (x) + \max_ {[v, A] \in \underline {\partial} ^ 2 f
+(x)} [(v, \Delta) + \frac {1} {2} (A \Delta, \Delta)]
+$$
+\begin{equation} + \min_ {[w, B] \in \overline {\partial} ^ 2 f (x)} [(w, \Delta) +
+\frac {1} {2} (B \Delta, \Delta)] + o_x (\Delta ^ 2),
+\label{quasidiff9b} \end{equation} is correct, where $ \Delta ^ 2 = \| \Delta
+\| ^ 2 $, $ o_x (\Delta ^ 2) \rightarrow 0 $, $ \frac {o_x (\alpha ^ 2
+\Delta^ 2)} {\alpha ^ 2} \rightarrow 0 $ as $ \Delta \rightarrow 0 $ and $ \alpha \rightarrow
++0 $.
+
+We will call the sets $ \underline {\partial} ^ 2 f (x) $ and $\overline
+{\partial} ^ 2 f (x) $ {\em the second subdifferential} and {\em the
+second superdifferential} of the function $ f (\cdot) $ at the
+point $ x $ correspondingly, which are the convex compact sets. We
+will call the pair $[\underline {\partial} ^ 2 f (x), \overline {\partial} ^ 2
+f (x)]$ the second quasidifferential of $f(\cdot)$ at $x$.
+
+
+Demyanov V.F. and Rubinov A.M. have introduced \cite{demrub}
+codifferentiable and twice codifferentiable functions. They called
+$ f (\cdot): \mathbb{R}^ n \rightarrow \mathbb{R} $ {\em
+codifferentiable} at a point $ x $ if there exist convex compact
+sets $ \underline {d} f (x), \overline {d} f (x) $ from $
+\mathbb{R}^ {n + 1} $, called the {\em hypodifferential} and {\em
+hyperdifferential} respectively, for which the decomposition  \begin{equation}
+f (x + \Delta) = f (x) + \max_ {[a, v] \in \underline {d} f (x)}
+[a + (v, \Delta)] + \min_ {[b, w] \in \overline {d} f (x)} [b +
+(w, \Delta)] + o_x (\Delta), \label {quasidiff1} \end{equation} is true and
+{\em twice codifferentiable} at a point $ x $ if there exist
+convex compacts $ \underline {d} ^ 2 f (x), \overline {d} ^ 2 f
+(x) $ of $ \mathbb {R} ^ 1 \times \mathbb {R} ^ {n} \times \mathbb
+{R} ^ {n \times n} $, called  {\em the second hypodifferential}
+and {\em second hyperdifferential} respectively, for which the
+representation $$ f (x + \Delta) = f (x) + \max_ {[a, v, A] \in
+\underline {d} ^ 2 f (x)} [a + (v, \Delta) + \frac {1} {2} (A
+\Delta, \Delta)] + $$ \begin{equation} + \min_ {[b, w, B] \in \overline {d} ^ 2
+f (x)} [b + (w, \Delta)) + \frac {1} {2} (B \Delta, \Delta)] + o_x
+(\Delta ^ 2), \label{quasidiff2} \end{equation} is true where $ \Delta ^ 2 =
+\| \Delta \| ^ 2 $, $ o_x (\Delta) \rightarrow 0 $, $ o_x (\Delta ^ 2)
+\rightarrow 0 $ with $ \Delta \rightarrow 0 $, $ \frac {o_x (\alpha \Delta)} {\alpha}
+\rightarrow 0 $ and $ \frac {o_x (\alpha ^ 2 \Delta ^ 2)} {\alpha ^ 2} \rightarrow 0 $
+with $ \alpha \rightarrow +0 $.
+
+The pairs of sets $ D  f (x) = [\underline {d} f (x), \overline
+{d} f (x)] $ and $ D ^ 2 f (x) = [\underline {d} ^ 2 f (x),
+\overline {d} ^ 2 f (x)] $ according to the Demyanov's terminology
+are called {\em the first} and {\em the second codifferentials} of
+$ f $ at $ x $.  We suppose that the function $ o_x (\Delta^2)$ in
+(\ref{quasidiff2}) is uniformly infinitesimal with respect to $
+\Delta^2  $ for small $ \Delta.  $
+
+The author's problem is to define and construct the continuous
+first and second codifferential of  $ f (\cdot) $ at $ x $, using
+subdifferentials of the first and second orders, introduced by the
+author in \cite{pimfirstsecondsubdiff}. Let us denote the author's
+subdifferential of the first order of $f(\cdot)$ at $x$ by $Df(x)$.
+
+
+\begin{theorem} Any quasidifferentiable Lipschitz function $ f (\cdot):
+\mathbb {R} ^ n \rightarrow \mathbb {R} $, the SVMs $\underline {\partial} f
+(\cdot)$, $\overline {\partial} f (\cdot)$ of which  are upper
+semi-continuous at $ x $ and, consequently, the SVM $ D f (\cdot)
+$ is upper semicontinuous at $x$, is continuously codifferentiable
+at $ x $. \label{homogthm5} \end{theorem}
+
+\begin{theorem}
+Any twice quasidifferentiable Lipschitz function $ f : \mathbb {R}
+^ n \rightarrow \mathbb {R} $, the second quasidifferential $
+[\underline{\partial}^2 f (\cdot), \overline {\partial}^2 f (\cdot)]$ of which
+is upper semicontinuous at $ x $, is twice continuously
+codifferentiable at $ x $.
+\end{theorem}
+
+Let us give an example of a Lipschitz quasidifferentiable function
+$ f (\cdot) $ for which $ Df (\cdot) $ is not upper semicontinuous
+and the function $ f (\cdot) $ is not continuously
+codifferentiable.
+
+\begin{example} \hspace {-2mm}. The graph of the function $ f: \mathbb
+{R} \rightarrow \mathbb {R} $ consists of the segments,  located between
+the curves $ -x ^ 2, + x ^ 2 $, with the slopes $ \pm 1 $. The
+function $ f (\cdot) $  is not representable as the difference of
+two convex functions in a neighborhood of the point zero, since $
+\vee ^ a _0 f '= \infty $ for an arbitrary $ a
+> 0. $ It is easy to see that $ \partial _ {Cl} f (0) = [-1, + 1], \,
+D f (0) = \{0 \}.$ The SVM $ Df (\cdot) $ is not upper
+semi-continuous at zero. The function $ f (\cdot) $ is
+quasidifferentiable, but not continuously codifferentiable at
+zero. \label{ex1322} \end{example}
+
+
+% The figures and tables are drawn according to the standard class 'article'.
+%\begin{figure}[htb]
+%  \centering
+
+% Two picture formats are supported:
+%\includegraphics[width=0.7\linewidth]{figure.pdf} % Raster format
+%\includegraphics[width=0.7\linewidth]{figure.png} % Vector and raster format
+%
+% Vector drawings can be drawn in Inkscape editor
+% https://inkscape.org/ru/download/
+% The usual format of the editor is SVG, so the drawings must be exported in
+% PDF or PNG (with a resolution of minimum 150 dpi, and maximum of 300 dpi).
+%  \begin{center}
+%    \missingfigure[figwidth=0.7\linewidth]{Remove me from the article!} \end{center}
+%  \caption{Caption of the figure}\label{fig:example}
+%\end{figure}
+
+% At the end of the text, acknowledgments are expressed, if you haven't
+% made a footnote from the title. For example, we can write
+%The research is carried on with support of RFBR (RNF, other funds), project No.~00-00-00000.
+
+\begin{thebibliography}{8}
+
+\bibitem{demvas1} Demyanov V.F., Vasilyev L.V. Nondifferentiable
+optimization.  Nauka, Moscow, 1981. 384 P.
+
+\bibitem{demrub} Demyanov V.F., Rubinov A.M. Foundation of
+nonsmooth analysis and quasidifferentiable calculus. M.: Nauka.
+1990. 432 p.
+
+\bibitem{lowapp2} Proudnikov I.M. New constructions for local
+approximation of Lipschitz functions.I.  Nonlinear analysis. 2003. Vol.
+53, no. 3.  Pp. 373--390.
+\bibitem{lowapp2a} Proudnikov I.M.  New constructions for local
+approximation of Lipschitz functions. II.  Nonlinear Analysis 2007.
+ V. 66, no. 7.  Pp. 1443--1453.
+
+\bibitem{pimfirstsecondsubdiff}{Proudnikov I.M.} The Subdifferentials
+of the First and Second Orders for Lipschitz Functions. J. of
+Optimization Theory and Application. 2016. Vol. 171, no.3. Pp.
+906--930.
+
+\bibitem{demyanovdixon} {Demyanov V.F., Dixon L.C.W} (Eds)
+Quasidifferential calculus. Mathematical Programming Study.  
+Vol. 29.   221 p.
+\bibitem{demyanovpallaschke} {Demyanov V.F., Pallaschke D.} (Eds)
+Nondifferentiable optimization: Motivations and applications.
+Lecture Notes in Economics and mathematical systems.   Berlin:
+Springer -- Verlag. 1985.   Vol. 255.   349 p.
+\bibitem{shapiro1} {Shapiro A.} Quasidifferential calculus and
+first-order optimality conditions in nonsmooth optimization. In
+\cite{demyanovdixon}. Pp. 176--202.
+\bibitem{shapiro2} {Shapiro A.} On optimality conditions in
+quasidifferentiable optimization. SIAM J. Control Optimiz.  
+1984.   Vol. 28.   Pp. 61--617.
+\end{thebibliography}
+
+
+
+
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

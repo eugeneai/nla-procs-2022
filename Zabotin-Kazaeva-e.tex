@@ -1,0 +1,121 @@
+\iffalse
+
+% This is samplepaper.tex, a sample chapter demonstrating the
+% LLNCS macro package for Springer Computer Science proceedings;
+% Version 2.20 of 2017/10/04
+%
+\documentclass[12pt]{llncs}
+\usepackage{iftex}
+\usepackage{nla,amsmath,amssymb}
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+%
+% If you use the hyperref package, please uncomment the following line
+% to display URLs in blue roman font according to Springer's eBook style:
+% \renewcommand\UrlFont{\color{blue}\rmfamily}
+
+\begin{document}
+%
+
+\fi
+
+\title{Variant of the Objective Function Parametrization Method for a Convex Programming Problem}
+%
+\titlerunning{Variant of the objective...}
+% If the paper title is too long for the running head, you can set
+% an abbreviated paper title here
+%
+\author{I.Ya. Zabotin  \and
+K.E. Kazaeva  \and
+O.N. Shulgina }
+%
+\authorrunning{I Ya Zabotin, K E Kazaeva, O N Shulgina}
+% First names are abbreviated in the running head.
+% If there are more than two authors, 'et al.' is used.
+%
+\institute{Kazan (Volga Region) Federal University, Kazan, Russia \\
+\email{iyazabotin@mail.ru}, \email{k.e.kazaeva@gmail.com}}
+%
+\maketitle              % typeset the header of the contribution
+%
+%\begin{abstract}
+%
+%\keywords{First keyword  \and Second keyword \and Another keyword.}
+%\end{abstract}
+%
+%
+%
+This article proposes a method of conditional minimization of a convex function, which is ideologically close to the well\,-\,known method of parametrizing the objective function functions (e.g., \cite{1,2}). In the mentioned well\,-\,known method, each iteration point is found by solving the minimization problem of some auxiliary function on the entire space or on the set of simple structure. These auxiliary functions are based on a parameterized objective function and constraint functions. The parameter values vary from step to step, but they do not have to exceed the optimal value of the objective function. To satisfy this requirement, it is necessary to solve an auxiliary problem precisely at each step. This circumstance indicates that the method is hard to implement. In contrast to the mentioned well\,-\,known method, the method proposed here does not have such problems with the choice of parameter values.
+
+The problem
+$$\min \left\{ {f\left( x \right):\:x \in D} \right\},
+$$
+is solved, where $D = \left\{ {x \in {R_n}:\:F\left( x \right) \leqslant 0} \right\}$, the functions $f(x)$ and $F(x)$ are convex in ${R_n}$, the set $D$ is bounded,
+$${f^*} = \min \left\{ {f\left( x \right):\:x \in D} \right\} < 0.
+$$
+
+Assume that ${X^*} = \left\{ {x \in D:\:f\left( x \right) = {f^*}} \right\}$, ${F^ + }\left( x \right) = \max \left\{ {F\left( x \right),\;0} \right\}$, \break $K = \left\{ {0,1, \ldots } \right\}$. 
+
+The proposed method for solving this problem generates a sequence of approximations $x_k$, $k \in K$, as follows. Choose a convex closed set ${D_0} \subseteq {R_n}$, which satisfies the inclusion $D \subset {D_0}$, and the numbers ${\delta _0} > 0$, ${\alpha _0} = 0$. Set $i = 0$, $k = 0$.
+
+\begin{itemize}
+	\item [1.] It is assumed that
+	$${f_i}\left( x \right) = f\left( x \right) + {\alpha _i},\quad {\Phi _i}\left( x \right) = \max \left\{ {{f_i}\left( x \right),\;{F^ + }\left( x \right)} \right\}.
+	$$
+	
+	\item [2.] If
+	$$\Phi _i^* = \min \left\{ {{\Phi _i}\left( x \right):\:x \in {D_0}} \right\} = 0,
+	$$
+	then set ${i_k} = i$, ${x_k} = {y_{{i_k}}} = \operatorname{argmin} \left\{ {{\Phi _i}\left( x \right):\:x \in {D_0}} \right\}$, $r = {i_k}$, ${\alpha _{i + 1}} = {\alpha _i} + {\delta _{i + 1}}$, where ${\delta _{i + 1}} = {\delta _i}$, the value of $k$ is increased by one and proceeds to step 3. Otherwise, i.e. on occasion
+	\begin{equation}\label{F1}
+		\Phi _i^* > 0
+	\end{equation}
+	${\alpha _{i + 1}} = {\alpha _r} + {\delta _{i + 1}}$ is assumed, where ${\delta _{i + 1}} = {\delta _i}/p$, $p > 1$, and step 3 is performed.
+	
+	\item [3.] The value of $i$ is increased by one, and the process proceeds to step 1.
+\end{itemize} 
+
+We emphasize that due to the condition ${f^*} < 0$, when $i = 0$, the equality $\Phi _0^* = 0$ holds. Consequently, for the first of the numbers $i > 0$, at which inequality \eqref{F1} holds, the value of ${\alpha _r}$ will be already determined.
+
+Also, note that if at the $i$\,-\,th step of the process of solving the problem
+\begin{equation}\label{F2}
+	\min \left\{ {{\Phi _i}\left( x \right):\:x \in {D_0}} \right\}
+\end{equation}
+it turns out that inequality \eqref{F1} is guaranteed, then the value of $\Phi _i^*$ and the point $y_i$ the minimum of the function ${\Phi _i}\left( x \right)$ at $D_0$ might be not found. If there is a point ${y_i} \in {D_0}$ such that ${\Phi _i}\left( {{y_i}} \right) = 0$, while solving problem \eqref{F2}, then $\Phi _0^* = 0$ due to the inequality ${\Phi _i}\left( x \right) \geqslant 0$, $x \in {R_n}$, and the point $y_i$ can be taken as the point ${x_k}$ of the main sequence.
+
+Let us explore some features of the method. Set
+$$Y_i^* = \operatorname{Argmin} \left\{ {{\Phi _i}\left( x \right):\:x \in {D_0}} \right\},\quad {y_i} \in Y_i^*,\quad i \in K.
+$$
+It is easy to prove that if ${\Phi _i}\left( {{y_i}} \right) = 0$, then ${y_i} \in D$.
+
+\begin{theorem}
+	\label{theor_01}
+	Suppose that for some $i \in K$ the relations ${\Phi _i}\left( {{y_i}} \right) > 0$, ${F^ + }\left( {{y_i}} \right) = 0$ are satisfied for a point $y_i$. Then ${y_i} \in {X^*}$. 
+\end{theorem}
+
+Let ${K^*} = \left\{ {k \in K:\:\Phi _{{i_k}}^* = 0,\;{\Phi _{{i_k} + 1}} > 0} \right\}$. According to the method of specifying the sequence $\left\{ {{\delta _i}} \right\}$, $i \in K$, the set ${K^*}$ is infinite.
+
+\begin{theorem}
+	\label{theor_02}
+	Any limit point of the sequence $\left\{ {{x_k}} \right\}$, $k \in {K^*}$, belongs to the set ${X^*}$. 
+\end{theorem}
+
+A procedure based on the principles of cutting methods is proposed. It allows for each fixed $i \in K$ to determine the fulfillment of relations \eqref{F1}, \eqref{F2} in a finite number of steps.
+
+%
+% ---- Bibliography ----
+%
+% BibTeX users should specify bibliography style 'splncs04'.
+% References will then be sorted and formatted in the correct style.
+%
+%\bibliographystyle{splncs04}
+%\bibliography{biblio}
+%
+\begin{thebibliography}{99}
+\bibitem{1}
+Evtushenko Yu. Methods of Solving Extremal Problems and Their Application in Optimization Systems. Moscow: Nauka, p. 432.
+
+\bibitem{2}
+Sukharev A. G., Timokhov A. V., Fedorov V. V. Course of optimization methods (in Russian). Moscow: Nauka, 1986. 328p.
+\end{thebibliography}
+%\end{document}

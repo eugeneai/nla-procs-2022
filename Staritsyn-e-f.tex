@@ -1,0 +1,224 @@
+
+\iffalse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the template file for the 6th International conference
+% NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+% June 25-30, 2018
+% Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The preparation of the article is based on the standard llncs class
+% (Lecture Notes in Computer Sciences), which is adjusted with style
+% file of the conference.
+%
+% There are two ways of compilation of the file into PDF
+% 1. Use pdfLaTeX (pdflatex), (LaTeX+DVIPS will not work);
+% 2. Use LuaLaTeX (XeLaTeX will work too).
+% When using LuaLaTeX You will need TTF or OTF CMU fonts
+% (Computer Modern Unicode). The fonts are installed with 'cm-unicode' package in
+% a distribution of LaTeX % (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+% either by downloading and installing these fonts system wide, the address of their page is
+% http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+% The second option won't work in XeLaTeX.
+%
+% For MiKTeX (LaTeX distribution for Windows),
+%  1. Package 'cm-unicode' is installed manually with the MiKTeX administration Console.
+%  2. For the compilation of this example, namely, the stub figure, one will also need to
+% download package 'pgf' manually. This package uses in the popular
+% package tikz.
+%  3. Tests showed that the rest of the required packages MiKTeX loads automatically (if
+%     it is allowed). The 'auto download' option is
+%     configured in 'Settings' section in MiKTeX Console.
+%
+%
+% The easiest way to compile an article is to use pdfLaTeX, but
+% the final layout of the book will be compiled with LuaLaTeX,
+% as a result will be of better quality thanks to the package 'microtype' and
+% use vector OTF instead of standard raster fonts of pdfLaTeX.
+%
+% In the case of questions and problems with the article compilation,
+% write letters to e-mail: eugeneai@irnok.net, Cherkashin Evgeny.
+%
+% New version of the correcting style file will be available at the website:
+%     https://github.com/eugeneai/nla-style
+%     file - nla.sty
+%
+% Further instructions are in the text body of the template. The template itself
+% is an article example.
+%
+% The LaTeX2e format is used!
+
+% 12 points font size is used.
+\documentclass[12pt]{llncs}
+
+% The correcting style file is added.
+\usepackage{todonotes}
+
+\newcommand{\mc}{\mathcal}
+\newcommand{\mean}[1]{{\left\langle #1\right\rangle}}
+\newcommand{\Id}{\mathinner{\mathrm{Id}}}
+\newcommand{\pint}[1]{\mathaccent23{#1}}
+\newcommand{\C}[1]{\mathbf{C}^{#1}}
+\newcommand{\Cc}[1]{\mathbf{C}_c^{#1}}
+\newcommand{\Cloc}[1]{{\mathbf{C}_{{\rm{loc}}}^{#1}}}
+\newcommand{\BV}{\mathbf{BV}}
+\newcommand{\PC}{\mathbf{PC}}
+\renewcommand{\L}[1]{{\mathbf{L}^#1}}
+\newcommand{\Lloc}[1]{{\mathbf{L}_{loc}^{#1}}}
+\renewcommand{\H}[1]{{\mathbf{H}^{{#1}}}}
+\newcommand{\W}[2]{{\mathbf{W}^{#1,#2}}}
+\newcommand{\Wloc}[2]{{\mathbf{W}_{loc}^{#1,#2}}}
+\newcommand{\modulo}[1]{{\left|#1\right|}}
+\newcommand{\norma}[1]{{\left\|#1\right\|}}
+\newcommand{\caratt}[1]{{\chi_{\strut#1}}}
+\newcommand{\reali}{{\mathbb{R}}}
+\newcommand{\naturali}{{\mathbb{N}}}
+\newcommand{\interi}{{\mathbb{Z}}}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+% \renewcommand{\theta}{\vartheta}
+\renewcommand{\O}{\mathcal{O}(1)}
+\newcommand{\tv}{\mathinner{\rm TV}}
+\newcommand{\spt}{\mathop{\rm spt}}
+\newcommand{\sgn}{\mathop{\rm sgn}}
+\newcommand{\wto}{\rightharpoonup}
+\newcommand{\Lip}{\mathinner\mathbf{Lip}}
+\renewcommand{\d}[1]{\mathinner{\mathrm{d}{#1}}}
+\newcommand{\Var}{\mathop{\rm Var}\nolimits}
+\renewcommand{\div}{\mathop{\rm div}\nolimits}
+\newcommand{\epi}{\mathop{\rm epi}}
+\newcommand{\hyp}{\mathop{\rm hyp}}
+\newcommand{\cor}{\mathop{\rm Cor}}
+\newcommand{\intr}{\mathop{\rm int}}
+\newcommand{\diam}{\mathop{\rm diam}}
+\newcommand{\supp}{\mathop{\rm supp}}
+\newcommand{\comp}{\mathop{\rm comp}}
+\newcommand{\co}{\mathop{\rm co}}
+\newcommand{\Lie}{\mathop{\rm Lie}}
+\newcommand{\Vec}{\mathop{\rm Vec}}
+\newcommand{\argmin}{\mathop{\rm Argmin}}
+\newcommand{\argmax}{\mathop{\rm Argmax}}
+\newcommand{\proj}{\mathop{\rm proj}}
+\newcommand{\id}{\mathop{\rm id}}
+\newcommand{\R}{\mathbb{R}}
+\fi
+
+
+
+\iffalse
+\usepackage{nla} % This package is needed for compiling
+                 % this template, it should be removed
+                 % from your article.
+
+% Many popular packages (amsXXX, graphicx, etc.) are already imported in the style file.
+% If there is a conflict with your packages, try disabling them and compile
+% the text.
+%
+% It would be convenient in the layout of the proceedings if the file names
+% of the figures of different authors do not clash.
+% To minimize the clash, the drawings can be placed in a separate subfolder
+% named after the author or the title of the paper.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % specifies the folder with images in png, pdf formats.
+% or
+% \graphicspath{{great-problem-solving-paper-pics/}}.
+
+\begin{document}
+
+% Text should be formatted in accordance with the 'article' class, using extensions like
+% AMS.
+%
+\fi
+
+\title{Exact Cost Increment Formula \\ for Linear Problems of Optimal Ensemble Control \\ in the Space of Probability Measures}
+% First author
+\author{
+Nikolay Podogaev\inst{1}
+  \and
+Ilya Pravosudov\inst{1,3}
+  \and
+Maxim Staritsyn\inst{1,2}
+  \and
+Fernando Lobo Pereira\inst{2}
+}
+
+\institute{
+Matrosov Institute for System Dynamics and Control Theory of SB~RAS, Irkutsk, Russia\\
+  \email{nickpogo@gmail.com}
+  \and
+Faculdade de Engenharia, Universidade do Porto, Porto, Portugal\\
+\email{flp@fe.up.pt, starmaxmath@gmail.com}
+\and
+Irkutsk National Research Technical University,
+Irkutsk, Russia\\
+\email{ilya.prav.mail@gmail.com}
+}
+
+\maketitle
+
+\begin{abstract}
+We promote an approach to optimal mean-field control, which is centered around an exact representation of the increment (variation) of the objective functional, based on formal duality arguments. % between conservative and non-conservative transport PDEs. %Precisely, we consider a particular (in some sense, the most general) class of problems, where such a representation exists, which are problems of the ``linear-quadratic structure": the dynamics are linear in the state-measure, and the cost involve an integral along the square of the measure. 
+We show that the derived exact increment formula provides a construction of the measure-feedback control of ``potential decrease'', which can be used for numerical treatment of optimization problems at hand. We demonstrate the application of our approach to numerical analysis of several ensemble control problems of practical interest, discuss the principal feature of derived formula, and draw parallels with the classical Weierstrass increment formula from Calculus of Variation. %As we show, the increment formula .
+
+\keywords{Optimal control, ensemble control, transport equation, Kolmogorov-Fokker-Plank equation, exact formula for the cost increment, feedback control}
+\end{abstract}
+
+% at the end of the list, there should be no final dot
+\section{Problem statement} 
+
+In the talk, we deal with problems of optimal simultaneous control of the continuum of non-interacting indistinguishable agents distributed over $\mathbb{R}^n$ and represented by the mean-field (statistical ensemble) $t \mapsto \mu_t$. Here, $\mu_t$ are probability measures on $\mathbb{R}^n$ ($\mu_t \in \mathcal P(\mathbb{R}^n)$). Given a compactly supported initial distribution $\mu_0 =\vartheta\in \mathcal P(\mathbb{R}^n)$, the measure $\mu_t$ is assumed to be transported by a given vector field $f_u: \, \mathbb{R}^n \to \mathbb{R}^n$, linearly depending on the control parameter $u$, in the presence of a linear source/sink term modulated by a given control-linear function $g_u: \, \mathbb{R}^n \to \mathbb{R}$, {with or without diffusion}. 
+
+Precisely, we study the problem of minimization of the $\mu$-linear functional
+$$
+\min\mathcal I[u] = \int\ell(x) \, d \mu_T(x) + \frac{1}{2}\int_0^T |u|^2 \, d t
+$$
+subject to the $\mu$-linear dynamics
+$$
+\partial_t\mu_t + \nabla_x \cdot \left(v_{u(t)} \, \mu_t\right) = g_{\bar u(t)}\mu_t +  \alpha \nabla_{xx}^2 \mu_t, \quad \alpha\in\{0,1\},\label{eq:conteq}
+$$
+and poitwise constraints on the control signal
+\[
+u(t)\in U \quad \text{for a.e. }t \in I \doteq [0,T]; \quad U\subseteq \mathbb{R}^m \text{ is compact}.
+\]
+Here, $\partial_t$, $\nabla_x$ and $ \nabla_{xx}^2$ denote the partial derivative in time, gradient in $x$, and Laplacian operator, respectively (to be understood in the distributional sense), ``$\cdot$'' means the scalar product. 
+
+Given two control functions $u$ and $\bar u$, consider the difference
+\(
+\Delta_{u} \mathcal I[\bar u] \doteq \mathcal I[u] - \mathcal I[\bar u].
+\)
+Using simple formal arguments, we show that, under sufficient regularity of the input data, this difference can be represented as 
+\begin{align}
+\Delta_{u} \mathcal I[\bar u]& = - \int_0^T \Big(H\left(\mu_t, \bar p_t, u(t)\right)-H\left(\mu_t, \bar p_t, \bar u(t)\right)\Big) \, d t,\label{incr}
+\end{align}
+where
+\begin{equation*}
+H(\mu, \eta, u) \doteq \int (\nabla_x \eta \cdot f_u + \eta \, g_u) \, d \mu,\label{Ham} 
+\end{equation*}
+and $\bar p$ is a solution of the backward balance/Kolmogorov-Fokker-Plank equation
+\[
+\partial_t p_t + \nabla_x p_t \cdot v_{\bar u(t)}  = - g_{\bar u(t)} \, p_t -  \alpha \nabla_{xx}^2 p_t, \quad p_T = - \ell.
+\]
+Expression \eqref{incr} provides an \emph{exact representation} for the increment of the cost, which is fundamentally different from the familiar first variation \cite{Bonnet}. A right parallel, one can draw here, could be the classical Weierstrass formula from Calculus of Variations, which expresses the difference of the values of a functional between a curve from a geodesic family and an arbitrary curve via the integral of the co-called Weierstrass $E$-function, see, e.g., \cite[\S~12]{Young}.
+
+\section{Outline of the talk}
+
+
+In the talk, we show that formula \eqref{incr} suggests the structure of a $\mu$-feedback control that can be used to organize a sequential descent in the value of $\mathcal I$. We discuss the main advantages and pitfalls of this approach and  illustrate its ``modus operandi'' with several simple examples of a certain practical perspective. 
+
+% At the end of the text, acknowledgments are expressed, if you haven't
+% made a footnote from the title. For example, we can write
+%The research is carried on with support of RFBR (RNF, other funds), project No.~00-00-00000.
+
+\begin{thebibliography}{9} % or {99}, if there is more than ten references.
+\bibitem{Bonnet} B. Bonnet and H. Frankowska. Necessary Optimality Conditions for Optimal Control Problems in Wasserstein Spaces. Applied Mathematics \& Optimization. 2021. Vol. 84(S2). Pp. 1281--1330.
+
+\bibitem{Young}  L.~Young. Lectures on the calculus of variations and optimal control theory, 1969.
+
+\end{thebibliography}
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

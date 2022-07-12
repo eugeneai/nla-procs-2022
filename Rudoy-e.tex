@@ -1,0 +1,154 @@
+\iffalse
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the template file for the 6th International conference
+% NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+% June 25-30, 2018
+% Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The preparation of the article is based on the standard llncs class
+% (Lecture Notes in Computer Sciences), which is adjusted with style
+% file of the conference.
+%
+% There are two ways of compilation of the file into PDF
+% 1. Use pdfLaTeX (pdflatex), (LaTeX+DVIPS will not work);
+% 2. Use LuaLaTeX (XeLaTeX will work too).
+% When using LuaLaTeX You will need TTF or OTF CMU fonts
+% (Computer Modern Unicode). The fonts are installed with 'cm-unicode' package in
+% a distribution of LaTeX % (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+% either by downloading and installing these fonts system wide, the address of their page is
+% http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+% The second option won't work in XeLaTeX.
+%
+% For MiKTeX (LaTeX distribution for Windows),
+%  1. Package 'cm-unicode' is installed manually with the MiKTeX administration Console.
+%  2. For the compilation of this example, namely, the stub figure, one will also need to
+% download package 'pgf' manually. This package uses in the popular
+% package tikz.
+%  3. Tests showed that the rest of the required packages MiKTeX loads automatically (if
+%     it is allowed). The 'auto download' option is
+%     configured in 'Settings' section in MiKTeX Console.
+%
+%
+% The easiest way to compile an article is to use pdfLaTeX, but
+% the final layout of the book will be compiled with LuaLaTeX,
+% as a result will be of better quality thanks to the package 'microtype' and
+% use vector OTF instead of standard raster fonts of pdfLaTeX.
+%
+% In the case of questions and problems with the article compilation,
+% write letters to e-mail: eugeneai@irnok.net, Cherkashin Evgeny.
+%
+% New version of the correcting style file will be available at the website:
+%     https://github.com/eugeneai/nla-style
+%     file - nla.sty
+%
+% Further instructions are in the text body of the template. The template itself
+% is an article example.
+%
+% The LaTeX2e format is used!
+
+% 12 points font size is used.
+\documentclass[12pt]{llncs}
+
+% The correcting style file is added.
+\usepackage{todonotes}
+
+\usepackage{nla} % This package is needed for compiling
+                 % this template, it should be removed
+                 % from your article.
+
+% Many popular packages (amsXXX, graphicx, etc.) are already imported in the style file.
+% If there is a conflict with your packages, try disabling them and compile
+% the text.
+%
+% It would be convenient in the layout of the proceedings if the file names
+% of the figures of different authors do not clash.
+% To minimize the clash, the drawings can be placed in a separate subfolder
+% named after the author or the title of the paper.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % specifies the folder with images in png, pdf formats.
+% or
+% \graphicspath{{great-problem-solving-paper-pics/}}.
+
+\begin{document}
+
+% Text should be formatted in accordance with the 'article' class, using extensions like
+% AMS.
+%
+\fi
+\title{Asymptotic Mo\-del\-ling of   In\-ter\-faces in Kirchhoff-Love’s Pla\-tes theory\thanks{The work is supported by the Mathematical Center in Akademgorodok under agreement No. 075-15-2022-281 with the Ministry of Science and Higher Education of the Russian Federation.}
+}
+% First author
+\author{Evgeny Rudoy
+  }
+\institute{Sobolev Institute of Mathematics of SB RAS, Novosibirsk, Russia
+    \and
+  {Lavrentyev Institute of
+Hydrodynamics of SB RAS, Novosibirsk, Russia}\\
+\email{rem@hydro.nsc.ru}
+   }
+% etc
+
+
+
+\maketitle
+
+\begin{abstract}
+Within the framework of the Kirchhoff-Love theory, a thin
+homogeneous layer (called adhesive) of small width between two plates
+(called adherents) is considered. It is assumed that elastic properties
+of the adhesive layer depend on its width which is a small parameter of
+the problem. Our goal is to perform an asymptotic analysis as the
+parameter goes to zero. It is shown that depending on the softness or
+stiffness of the adhesive, there are seven distinct types of interface
+conditions. In all cases, we establish weak convergence of the solutions
+of the initial problem to the solutions of limiting ones in appropriate
+Sobolev spaces. The asymptotic analysis is based on variational
+properties of solutions of corresponding equilibrium problems.
+
+\keywords{Bonded structure;  Composite material;
+Interface conditions; Biharmonic equation; Asymptotic analysis}
+\end{abstract}
+
+% at the end of the list, there should be no final dot
+\section{The main results}
+
+
+Within  the framework of the Kirchhoff theory of  plates,  the problem of two  homogeneous plates  (called adherents)  connected  by  an adhesive layer is investigated. It is assumed that the elastic properties of the adhesive layer  depend on a small parameter  $\varepsilon$ characterizing width of the adhesive layer as $\varepsilon^R$, where $R$ is a real number.  The elastic properties of the adherents do not depend on $\varepsilon$ and remain constant.
+ The structure is in equilibrium under the action of applied forces while the plates are fixed on the parts of their external boundaries. The equilibrium problem is formulated in the form of a variational equality over a set of admissible deflections belonging to the  Sobolev spaces $H^2$. It means that the deflections of the plates are described by biharmonic equations (which correspond to pure bending, see, e.g., \cite{Destuynder,KhSok}). The deflections and their normal derivatives are supposed to be equal at the interfaces between the adhesive and adherents.
+
+ The main objective of the work is to justify with mathematical rigor the passing to the limit as $\varepsilon$  tends to zero. We show that there are seven distinct limit problems depending on $R$. For these  problems it is shown that the influence of adhesive on adherents can be expressed by special boundary conditions also depending on the type of the interface:  vacuous type ($R>3$), spring type ($R=3$), hinge   type ($R\in (1,3)$), torque     type  ($R=1$), ideal contact   type  ($R\in(-1,1)$), thin elastic inclusion type  ($R=-1$), thin rigid  inclusion    type  ($R<-1$).
+
+
+A general scheme for finding limit problems and interface conditions is as follows. Firstly, the initial problem is decomposed into three problems for each plate. The solutions of these problems are connected via boundary conditions from the initial one. Then we apply one-to-one coordinate transformations,  which represent rescaling for the adhesive layer and uniform translation  for the adherents. Basing on   analog of the Poincar\`{e}  inequality and the prescribed  Dirichlet
+boundary conditions on both adherents, we obtain the a priori estimates in $H^2$-spaces, that allow us to study weakly converging sequences of the solutions. After studying  the properties of weak limits, we identify sets of admissible deflections for the limit problems. At last,  we pass to the limit in the initial problem by constructing special  test functions for the variational equality \cite{Rudoy}.
+
+% At the end of the text, acknowledgments are expressed, if you haven't
+% made a footnote from the title. For example, we can write
+%The research is carried on with support of    RNF,   project No.~~22-21-00627.
+
+\begin{thebibliography}{9} % or {99}, if there is more than ten references.
+\bibitem{Destuynder} Destuynder P.,   Salaun M. Mathematical analysis of thin plate models. Springer-Verlag, Berlin, Heidelberg, 1996.
+
+\bibitem{KhSok} { Khludnev A.M., Sokolowski J.}
+Modelling and control in solid mechanics. Birkh\"{a}user Basel, 1997.
+
+
+
+\bibitem{Moreau1977} Moreau J.-J. Evolution problem associated with a moving convex set in a Hilbert space. J. Differential Eq.~1977. Vol.~26. Pp.~347--374.
+
+\bibitem{Rudoy}  Furtsev A.,   Rudoy E. Variational approach to modeling soft and stiff interfaces in the Kirchhoff-Love theory of plates. International Journal of Solids and Structures. 2020. Vol.~202. Pp.~562--574.
+
+
+
+\end{thebibliography}
+%\end{document}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

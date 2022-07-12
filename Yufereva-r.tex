@@ -1,0 +1,137 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the template file for the 6th International conference
+% NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+% June 25-30, 2018
+% Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\documentclass[12pt]{llncs}
+% The correcting style file is added.
+%\usepackage{todonotes}
+%\usepackage{nla}
+%
+%
+%-------------------------------------------
+%\RequirePackage{algorithm}
+%\RequirePackage{algpseudocode}
+
+
+%---------------------------------------------
+%\begin{document}
+%
+\title{Decentralized Computation of Wasserstein Barycenter over Time-Varying Networks\thanks{The work of A. Gasnikov was funded by Russian Science Foundation (project 18-71-10108).  The work of O. Yufereva was performed as part of research conducted in the Ural Mathematical Center with the financial support of the Ministry of Science and Higher Education of the Russian Federation (Agreement number 075-02-2022-874).}}
+%
+\titlerunning{Wasserstein Barycenter Problem}  % abbreviated title (for running head)
+%                                     also used for the TOC unless
+%                                     \toctitle is used
+%
+\author{Olga Yufereva\inst{1} \and
+Michael~Persiianov\inst{2} \and
+Pavel~Dvurechensky\inst{3} \and \\
+Alexander~Gasnikov\inst{2} \and
+Dmitry Kovalev\inst{4}}
+%
+\authorrunning{Olga Yufereva et al.} % abbreviated author list (for running head)
+%
+%%%% list of authors for the TOC (use if author list has to be modified)
+%\tocauthor{Ivar Ekeland, Roger Temam, Jeffrey Dean, David Grove,Craig Chambers, Kim B. Bruce, and Elisa Bertino}
+%
+\institute{N.\,N. Krasovski Institute of Mathematics and Mechanics, Yekaterinburg, 620108, Russia\\
+\email{olga.o.yufereva@gmail.com}
+\and
+Moscow Institute of Physics and Technology, Moscow 141701, Russia\\
+\and 
+Weierstrass Institute for Applied Analysis and Stochastics, Berlin 10117, Germany\\
+\and 
+King Abdullah University of Science and Technology, Thuwal 23955-6900, Kingdom of Saudi Arabia\\}
+%ОО Юферева, МИ Персиянов, ПЕ Двуреченский, АВ Гасников, ДА Ковалев
+
+\maketitle              % typeset the title of the contribution
+
+\begin{abstract}
+We propose a distributed computation algorithm for the Wasserstein barycenter problem for the case of time-varying communication networks. The study is motivated by features of the Wasserstein barycenter problem including the efficiency of distributed methods for it. However, no straightforward generalization of existent distributed methods for Wasserstein barycenter fits the case of time-varying networks. Our approach is novel and based on relaxation of non-smooth optimization problems and on a projected accelerated algorithm with inexact consensus-based projection. We prove non-asymptotic accelerated, in the sense of Nesterov convergence, rates and explicitly characterize their dependence on the parameters of the network and its dynamics. In the experiments, we demonstrate the efficiency of the proposed algorithm.
+%Inspired by recent advances in distributed algorithms for approximating Wasserstein barycenters, we propose a novel distributed algorithm for this problem. The main novelty is that we consider time-varying computational networks, which are motivated by examples when only a subset of sensors can make an observation at each time step, and yet, the goal is to average signals (e.g., satellite pictures of some area) by approximating their barycenter. We prove non-asymptotic accelerated in the sense of Nesterov convergence rates and explicitly characterize their dependence on the parameters of the network and its dynamics. Our approach is based on our novel distributed non-smooth optimization method on time-varying networks, which may be of separate interest. In the experiments, we demonstrate the efficiency of the proposed algorithm.
+\keywords{time-varying networks, Wasserstein barycenter, accelerated decentralized optimization, regularization technique}
+\end{abstract}
+
+\section*{Introduction}
+
+Starting with \cite{uribe2018distributed} it was observed that decentralized methods with dual oracle are well suited for Wasserstein barycenter (WB) problem. In the cycle of subsequent papers (e.g., \cite{dvurechenskii2018decentralize,kroshnin2019complexity,dvinskikh2020improved,rogozin2021decentralized}) different decentralized accelerated (randomized) algorithms were proposed for dual WB problem. However, since accelerated methods have potential functions that depend on target functions it is difficult to generalize directly algorithms from these works for time-varying networks. On the other hand, for time-varying networks \cite{kovalev2021adom} proposed ADOM with dual oracle, that is an optimal decentralized algorithm for smooth strongly convex unconstrained problems.
+Since WB problem
+is not smooth, is not strongly convex, and is not unconstrained, 
+ ADOM is not directly applicable for WB problem. 
+The main result of this paper is generalization of ADOM for general convex decentralized optimization problem (with simple constraints).
+
+
+\section{Problem setting}
+
+\subsection{Wasserstein barycenter problem}
+
+Since we deal with numerical experiments we take into consideration only finite-supported distributions. So most definitions below are simplified to this case.  
+For instance, as a probability distribution with support on a finite set of points  we take a vectors from $d$-dimensional simplex $S_1(d) =  \{p\in [0,1]^d \mid p\ensuremath{^{\top}} \mathbf{1}_d = 1\}$, where $\mathbf{1}_d = (1,\ldots,1)\ensuremath{^{\top}}$. Let $M$ be a non-negative symmetric matrix with zeros on the diagonal.  The matrix $M$ is called cost (or loss) matrix and its elements $[M]_{ij}$ represent the cost of moving a unit mass from $i$-th to $j$-th points of the support. For two probability distributions $p, q \in S_1(d)$, the set of {\it transport plans} between them is defined as \begin{align*}
+		U(p,q)  := \left\lbrace X \in \mathbb{R}_+^{d \times d} \mid X \mathbf{1} = p, X^T\mathbf{1} = q \right\rbrace.
+		\end{align*}
+Then  Wasserstein distances between $p,q\in S_1(d)$ is \[\mathcal{W} (p,q)  := \min_{X \in U(p,q)}  \langle M, X \rangle. \]
+It is more proper to call $\mathcal{W} (p,q)$ as Kantorovich-–Rubinstein metric \cite{vershik2013long}, but unfortunately it is less common.
+The Wasserstein barycenter of the family of  $q_i\in S_1(d)$ for $i=1,\ldots,m$ is defined as the solution to the following optimization problem 
+{\begin{align}
+		\label{w_barycenter}
+			 \frac{1}{m}\sum\limits_{i=1}^{m} \mathcal{W}_{q_i}(p) \to \min_{p \in S_1(d)}
+\end{align}}
+where $\mathcal{W}_{q_i}(p)$ is one-argument function that equals to $\mathcal{W}(q_i,p)$.  
+%===============================================================
+
+\subsection{Decentralized optimization problem over time-varying networks}
+
+Let a set $S$ be non-empty and convex, let functions $f_i\colon S\to S$  be convex for $i=1,\ldots,m$, and let networks $W_k$ be of $m$ nodes for $k=1,\ldots$. Consider a decentralized optimization problem 
+\[\frac{1}{m}\sum\limits_{i=1}^m f_i(x) \to \min\limits_{x\in S}\] 
+%that is to be solved by a stepwise procedure with communication networks $W_k$ at $k$-th step  
+where $m$  agents, interconnected at $k$-th step as nodes of the corresponding network $W_k$, are minimizing the sum of their individual functions $f_i\colon S\to S$. Each $f_i$ is assumed to be known only by agent $i$.  Each agent can perform computations based on its local state and data, and can directly communicate with its neighbors (according to $W_k$) only. Then $W_k$ are called communication networks.
+
+
+%=============================================================
+\section{Result}
+
+Assume that Laplacians $W_k$ of time-varying communication networks satisfy 
+\[\lambda_{\min}^{+} \leq \lambda_{\min}^{+}({W}_k) \leq \lambda_{\max}({W}_k) \leq \lambda_{\max} \qquad \forall k=1,2,\ldots\]
+for some $\lambda_{\min}^{+}, \lambda_{\max}>0$, where $\lambda_{\min}^{+}({W}_k)$ is the smallest positive eigenvalue of $W_k$ and $\lambda_{\max}({W}_k)$ is the biggest one.
+For finite-supported and bounded away from zero initial probability distributions $\{q_i\}_{i=1}^{m}$,
+we propose a method for distributed computation Wasserstein barycenter over communication matrices $W_k$; we prove that it approximates the minimum of the sum $\frac{1}{m}\sum\limits_{i=1}^{m}  \mathcal{W}_{q_i}(\cdot)$ and that it requires $n=\mathcal{O}\left(\frac{1}{\varepsilon}\ln \frac{1}{\varepsilon}\right)$ iteration for the accuracy  of $\varepsilon$.
+
+%\section{Acknowledgment} The work of A. Gasnikov was funded by Russian Science Foundation (project 18-71-10108).  The work of O. Yufereva was performed as part of research conducted in the Ural Mathematical Center with the financial support of the Ministry of Science and Higher Education of the Russian Federation (Agreement number 075-02-2022-874).
+
+
+\begin{thebibliography}{9}
+
+
+
+\bibitem{uribe2018distributed}  Uribe C.A.,  Dvinskikh D.,  Dvurechensky
+P.,  Gasnikov A., and  Nedic A.   Distributed
+computation of Wasserstein barycenters over networks.  In: 2018 IEEE
+Conference on
+Decision and Control (CDC), pp. 6544–6549, IEEE, 2018.
+\bibitem{dvurechenskii2018decentralize}     Dvurechensky
+P., Dvinskikh D., Gasnikov A., Uribe C.A., and  Nedic A.   Decentralize and randomize: Faster algorithm for Wasserstein barycenters.  In: Advances in Neural Information Processing Systems, Vol. 31, 2018.
+\bibitem{kroshnin2019complexity}  Kroshnin, A., Tupitsa, N., Dvinskikh, D., Dvurechensky, P., Gasnikov, A., and Uribe, C. On the complexity of approximating Wasserstein barycenters. In: International conference on machine learning, pp. 3530-3540, PMLR, 2019.
+\bibitem{dvinskikh2020improved}  Dvinskikh D., Tiapkin D. Improved complexity bounds in Wasserstein barycenter problem. In: International Conference on Artificial Intelligence and Statistics, pp. 1738--1746, PMLR, 2021.
+\bibitem{rogozin2021decentralized} Rogozin A., Beznosikov A., Dvinskikh D., Kovalev D., Dvurechensky P., and Gasnikov A.  Decentralized distributed optimization for saddle point problems. arXiv preprint arXiv:2102.07758. 2021
+\bibitem{kovalev2021adom}   Kovalev D.,   Shulgin E.,   Richtarik P.,   
+Rogozin A.V., and   Gasnikov A. ADOM: accelerated decentralized
+optimization method for time-varying networks. In: International
+Conference on Machine Learning, pp. 5784–5793, PMLR, 2021.
+\bibitem{vershik2013long} Vershik A.M.  Long history of the
+Monge-Kantorovich transportation problem.  The
+Mathematical Intelligencer.   2013. Vol. 35, no. 4. Pp. 1--9.
+\end{thebibliography}
+%
+% ---- Bibliography ----
+%
+%\bibliographystyle{abbrvnat}
+%\bibliographystyle{plain}
+%\bibliographystyle{ieeetr}
+%\bibliography{bibfile}
+
+
+
+%\end{document}

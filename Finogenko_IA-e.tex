@@ -1,0 +1,204 @@
+
+
+\iffalse
+% This is LLNCS.DEM the demonstration file of
+% the LaTeX macro package from Springer-Verlag
+% for Lecture Notes in Computer Science,
+% version 2.4 for LaTeX2e as of 16. April 2010
+%
+\documentclass[12pt]{llncs}
+\usepackage{iftex}
+\usepackage{nla}
+%\usepackage{showframe}
+%
+%
+\begin{document}
+%
+\fi
+\title{Method of Limiting Differential Inclusions for Discontinuous Systems\thanks{	The work was carried out within the framework of the state order of the Ministry of Education and Science of Russian Federation under the project ``The theory and methods for studying evolutionary equations and control systems with their applications'' (state registration number: 1210401300060-4).}}
+	
+	
+
+%
+\titlerunning{Method of Limiting Differential Inclusions}  % abbreviated title (for running head)
+%                                     also used for the TOC unless
+%                                     \toctitle is used
+%
+\author{Ivan A. Finogenko }
+%
+%\authorrunning{Ivar Ekeland et al.} % abbreviated author list (for running head)
+%
+%%%% list of authors for the TOC (use if author list has to be modified)
+%\tocauthor{Ivar Ekeland, Roger Temam, Jeffrey Dean, David Grove,
+%Craig Chambers, Kim B. Bruce, and Elisa Bertino}
+%
+\institute{Matrosov Institute of System Dynamics and Control Theory SB~RAS, Irkutsk, Russia,\\
+\email{fin2709@mail.ru}
+%\and
+%Universit\'{e} de Paris-Sud,
+%Laboratoire d'Analyse Num\'{e}rique, B\^{a}timent 425,\\
+%F-91405 Orsay Cedex, France}
+}
+
+\maketitle              % typeset the title of the contribution
+
+	
+
+	
+	
+	
+	
+	
+	\begin{abstract}Problems of asymptotic behavior of non-autonomous differential equations with discontinuous right-hand part  are considered. Particular attention is paid to the system with a matrix with the matrix at the derivatives and  the feedbacks of relay type. The main results are bound up with development of this method for discontinuous systems represented in the form of differential inclusions. In this case, specific methods of multivalued analysis and development of new methods for constructing limiting differential inclusions were required. The structure of the systems under scrutiny makes it possible, in particular, to study mechanical systems controlled by the E.S. Pyatnitsky decomposition principle, and systems with dry friction.	
+	\keywords{
+		limiting differential inclusion, Lyapunov function with semidefinite derivative, controlled mechanical systems, relay control, decomposition principle, dry friction}	
+		
+	\end{abstract}
+	
+	
+%	\end{IEEEkeywords}
+	
+	
+	
+	
+%\end{abstract}
+%
+
+For the differential equation 
+\begin{equation}
+\label{sFin-eq1}
+\dot{x}=f(t,x)
+\end{equation}
+with a function $f(t,x)$ measurable in the set of variables $(t,x)\in R^{1+n}$  Filippov's general extension of the function $f$ has the form
+$$
+F(t,x)=\cap_{\delta>0}\overline{co}\,f(t,x^{\delta}\backslash N_{0}(t)). 
+$$
+Here $N_{0}(t)$ is a set of zero measure on which the function $x\rightarrow f(t,x)$ is approximatively continuous. The solution of equation (\ref{sFin-eq1})  as the solution of the differential inclusion 
+\begin{equation}
+	\label{sFin-eq2}
+	\dot{x}\in F(t,x) 
+\end{equation}
+	is understood. %
+
+Let us introduce in consideration the following multivalued mapping $$F^{*}(x)=\bigcap_{b\geq 0}\overline{\mathrm{co}}\bigcup_{a\geq b} F(t+a,x). $$
+Note, the multivalued mapping $F^{*}$ does not depend on the variable $t$.
+The differential inclusion 
+\begin{equation}
+	\label{sFin-eq3}
+	\dot{x}\in F^{*}(x)
+\end{equation}
+is called the limiting for inclusion
+(\ref{sFin-eq2}). 
+
+Let us denote by
+$$
+\dot{V}^{*}(x)=\sup\{\langle \nabla V(x), y\rangle:y\in F^{*}(x)\}
+$$ 
+the upper derivative of the continuously differentiable function $V(x)$ due to the limiting inclusion
+(\ref{sFin-eq3}).
+
+Set $D$ is called semi-ivariant if for any point $y_{0}\in D$ there exists a solution $y(t)$ of inclusion 
+(\ref{sFin-eq3}) 
+with the initial condition $y(0)=y_{0}$ 
+such that $y(t)\in D$ for all $t\geq 0$. 
+
+\begin{theorem}
+Let  $V(x)$ be a continuously differentiable function and 
+for almost all $t$ and any $x\not\in N_{0}(t)$ the inequality
+$$
+\dot{V}(t,x)\stackrel{\Delta}{=}\langle\nabla_{x}V,f(t,x)\rangle\leq 0
+$$
+is satisfied. 
+Then
+for any bounded solution $x(t)$ of the equation
+(\ref{sFin-eq1})
+the set of all its $\omega$-limit points belongs to the largest semi-invariant subset of the set $ E^{*}=\{x\in R^{n}:V^{*}(x)=0\}$.  
+\end{theorem}
+
+Consider a controlled system with relay-type feedbacks of the form
+\begin{equation}
+	\label{sFin-eq4}
+	P(x)\dot{x}=R(t,x)+u,
+\end{equation}
+where $P(x)$ is a continuous, symmetric, positive definite $n\times n$ matrix, $R(t,x)=(R_{1},\ldots,R_{n})$
+--- continuous vector function, $u=(u_{1},\ldots,u_{n})$, $u_{i}(t,x)=-H_{i}(t,x)\,
+\mbox{sign}\,\phi_{i}(t,x)$ under the condition $\phi_{i}(t,x)\neq 0$, ${H_{i}(t,x)\geq 0 }$, $i=1,\ldots,n$. While using well-known methods of the theory of differential equations with a discontinuous right-hand side, equation
+(\ref{sFin-eq4})
+may be represented in the form of a differential inclusion
+\begin{equation}
+	\label{sFin-eq5}
+	P(x)\dot{x}\in R(t,x)+U(t,x),
+\end{equation}
+and after the transformation  Theorem 1 to the inclusion 
+(\ref{sFin-eq5}) 
+may be apply. 
+
+
+
+
+
+Lagrange equations for the system under consideration write in the expanded vector
+form as follows
+\begin{equation}
+	\label{sFin-eq6}
+	A(q)\ddot{q} = g(t,q,\dot{q}) + Q^{A}(t,q,\dot{q}) + u,
+\end{equation}
+where
+generalized controls satisfying the following constrants
+$|u_{i}|\leq H_{i}(t,q,\dot{q})$. 
+
+The structure of the controls is determined by the problem synthesis of controls for mechanical systems based on the decomposition principle of Pyatnitskii E. S,  
+which 
+would ensure that motions of the system 
+(\ref{sFin-eq6})
+would reach the target set 
+$$
+M=\{(t,q,\dot{q}): \dot{q}_{i}=f_{i}(t,q),\,i=1,\ldots,k\}.
+$$
+
+The controls are defined in the form  $u_{i}=-H_{i}\;\mbox{sign}\,(\dot{q}_{i}-f_{i}(t,q))$.
+
+
+
+Theorem 1 can also be applied to systems with Coulomb's sliding friction
+$$
+	A(q)\ddot{q}=g(q,\dot{q})+ Q^{A}(q,\dot{q})+Q^{T}(t,q,\dot{q }), 
+$$
+where the friction forces have the form $Q_{i}^{T}(t,q,\dot{q})= -f_{i}(t,q,\dot{q})|N_{i}(q,\dot{q}) | \mbox{sign}\,\dot{q}^{i}
+$.
+
+
+
+
+
+%
+
+
+
+
+
+
+
+
+
+%
+
+
+
+
+
+
+
+\begin{thebibliography}{5}
+	
+\bibitem{Fin1} Finogenko I.A. Limiting Differential Inclusions and the Principle of Invariance of Non-autonomous Systems. Siberian Math. J. 2014.  Vol. 55, no 2.   372--386.
+
+\bibitem{Fin2}  Finogenko I.A. The Invariance Principle for Non-autonomous Differential Equations with Discontinuous Right-hand Side.  Siberian Math. J. 2016.  Vol. 57, no 4.  715--725.  
+	
+\bibitem{Fin3} Finogenko I.A. Doklady Mathematics. 2021.  Vol. 104, no. 5. 306--310.	
+	
+
+	
+
+\end{thebibliography}
+%\end{document}

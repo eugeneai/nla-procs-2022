@@ -1,0 +1,174 @@
+\iffalse
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the template file for the 6th International conference
+% NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+% June 25-30, 2018
+% Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The preparation of the article is based on the standard llncs class
+% (Lecture Notes in Computer Sciences), which is adjusted with style
+% file of the conference.
+%
+% There are two ways of compilation of the file into PDF
+% 1. Use pdfLaTeX (pdflatex), (LaTeX+DVIPS will not work);
+% 2. Use LuaLaTeX (XeLaTeX will work too).
+% When using LuaLaTeX You will need TTF or OTF CMU fonts
+% (Computer Modern Unicode). The fonts are installed with 'cm-unicode' package in
+% a distribution of LaTeX % (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+% either by downloading and installing these fonts system wide, the address of their page is
+% http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+% The second option won't work in XeLaTeX.
+%
+% For MiKTeX (LaTeX distribution for Windows),
+%  1. Package 'cm-unicode' is installed manually with the MiKTeX administration Console.
+%  2. For the compilation of this example, namely, the stub figure, one will also need to
+% download package 'pgf' manually. This package uses in the popular
+% package tikz.
+%  3. Tests showed that the rest of the required packages MiKTeX loads automatically (if
+%     it is allowed). The 'auto download' option is
+%     configured in 'Settings' section in MiKTeX Console.
+%
+%
+% The easiest way to compile an article is to use pdfLaTeX, but
+% the final layout of the book will be compiled with LuaLaTeX,
+% as a result will be of better quality thanks to the package 'microtype' and
+% use vector OTF instead of standard raster fonts of pdfLaTeX.
+%
+% In the case of questions and problems with the article compilation,
+% write letters to e-mail: eugeneai@irnok.net, Cherkashin Evgeny.
+%
+% New version of the correcting style file will be available at the website:
+%     https://github.com/eugeneai/nla-style
+%     file - nla.sty
+%
+% Further instructions are in the text body of the template. The template itself
+% is an article example.
+%
+% The LaTeX2e format is used!
+
+% 12 points font size is used.
+\documentclass[12pt]{llncs}
+
+% The correcting style file is added.
+%\usepackage{refcheck}
+
+\usepackage{nla} % This package is needed for compiling
+                 % this template, it should be removed
+                 % from your article.
+
+% Many popular packages (amsXXX, graphicx, etc.) are already imported in the style file.
+% If there is a conflict with your packages, try disabling them and compile
+% the text.
+%
+% It would be convenient in the layout of the proceedings if the file names
+% of the figures of different authors do not clash.
+% To minimize the clash, the drawings can be placed in a separate subfolder
+% named after the author or the title of the paper.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % specifies the folder with images in png, pdf formats.
+% or
+% \graphicspath{{great-problem-solving-paper-pics/}}.
+
+\begin{document}
+
+% Text should be formatted in accordance with the 'article' class, using extensions like
+% AMS.
+%
+\fi
+\title{On the Linearization Method in Small-time Control Synthesis\thanks{The work was performed as part of research conducted
+		in the Ural Mathematical Center with the financial support
+		of the Ministry of Science and Higher Education of the Russian Federation
+		(Agreement number 075-02-2022-874).}}
+% First author
+\author{Ivan Osipov 
+}
+\institute{Department of Optimal Control, N.N. Krasovskii Institute of Mathematics and Mechanics,\\ Yekaterinburg, Russia\\
+  \email{i.o.osipov@imm.uran.ru}}
+% etc
+
+\maketitle
+
+\begin{abstract}
+The paper investigates a control affine nonlinear system under integral quadratic control constraints. The problem under consideration is a local synthesis of a control leading the system to the origin in a small time interval. We obtained sufficient conditions under which the solution obtained for the linearized system in the neighborhood of the origin also leads the initial nonlinear system to zero. 
+
+\keywords{nonlinear system, controllability set, integral constraints, linearization, Bellman equation, local synthesis, small-time}
+\end{abstract}
+
+% at the end of the list, there should be no final dot
+\section{Introduction}
+The paper deals with the local synthesis problem for a nonlinear system with an integral quadratic control constraint. The difference of the problem under consideration
+from the classical stabilization problem is that it is considered on a finite, moreover small time interval. 
+
+On the time interval $ 0 \leq t \leq T $ we consider the following system
+\begin{equation}\label{nonlinear}
+	\dot{x}(t)=f(x(t))+B u(t), \qquad \int_0^T u^{\top}(\tau) u(\tau) d\tau \leq \mu^2, \qquad \mu > 0.
+\end{equation} 
+Here $ x \in \mathbb{R}^n $ is the state vector, $ u \in \mathbb{R}^r $ is the control, $ T $ is some fixed positive number. Vector function $f(x)$ is twice continuously differentiable, $f(0)=0$, $B$ is $n \times r$ matrix. We denote the space of integrable scalar or vector functions on $ [0,T] $ by $ \mathbb{L}_2 = \mathbb{L}_2[0,T] $. 
+
+\begin{definition}
+The set of zero controllability $ N(T,\mu) $ of the system \eqref{nonlinear} in the state space at time $ T $ is the set of all initial states $ \widetilde{x}=x(0) \in \mathbb{R}^n $ of the system \eqref{nonlinear}, from which the system can be brought to the origin by controls $ u(\cdot) \in B_{\mathbb{L}_2}(0,\mu)  =\left\lbrace u:\lVert u(\cdot)\rVert^2_{\mathbb{L}_2} \leq \mu^2\right\rbrace  $ 
+	\begin{equation*}
+		N(T,\mu)=\{\widetilde{x}\in \mathbb{R}^n:\exists u(\cdot)\in B_{\mathbb{L}_2}(0,\mu),\; x( T,\widetilde{x},u(\cdot)) = 0\}.
+	\end{equation*}
+\end{definition}
+
+The synthesis problem consists in obtaining a control $u(t,x) $ that is able to move the system \eqref{nonlinear} to the origin of coordinates in a fixed small time $ T $ and satisfies the condition $ u(\cdot) \in B_{\mathbb{L}_2}(0,\mu) $. Obviously, the synthesis problem is solvable only for initial states $x(0) \in N(T,\mu)$.
+
+\section{Main result}
+
+On the state space of the system \eqref{nonlinear} and the time interval $ 0 \leq t \leq T $ we define the Bellman function $ V(t,x) $ that describes the minimum control resource required to lead the system (\ref{nonlinear}) from the initial state $x$ to the origin  $ V(t,x) = \min\limits_{u} \int_{0}^{t} u^{\top}(t) u(t)dt, \, \,x(0)=x,\,x(t)=0 $.
+So,	$N(T,\mu)  = \{x \in \mathbb{R}^n: V(T,x) \leq \mu^2\}$.  If $V(t,x)$ is continuously differentiable, then
+\begin{equation}\label{Bellman_eq}
+	\frac{\partial V(t,x)}{\partial t} = -\min\limits_{u} \{u^{\top} u + \left(\frac{\partial V(t,x)}{\partial x}\right)^{\top} \left(f(x)+B u\right) \}.
+\end{equation}
+
+The control delivering the minimum in the equation \eqref{Bellman_eq} has the form $
+u(t,x) =$ $-\frac{1}{2} B^{\top}\frac{\partial V(t,x)}{\partial x}.$ This control ensures that the system is moved to the origin using a resource not exceeding $\mu^2$. 
+
+One can avoid the difficulties  with integrating the equation \eqref{Bellman_eq} by replacing the function $V(t,x)$ with the Bellman function $V_0(t,x) = x^\top Q(t)x$ for the system linearized in the neigh\-bor\-hood of the origin in the formula for $u(t,x)$: $ \dot{x} = A x + B u$,  $ 0 \leq t \leq  T$, where $ A = \frac{\partial f}{\partial x}(0) $.
+
+ A symmetric positive definite matrix $Q(t)$ is the solution of the differential equation $\dot{Q} = Q B B^{\top} Q - A^{\top}Q - Q A$ ,
+and the corresponding feedback has the form $ u(t,x) = -B^{\top} Q(t) x$.  It can be shown that $Q(t)=W^{-1}(T-t)$, where $W(t)$ is  the controllability gramian of the system $\dot{x} = -A x - B u $, that is the initial conditions $ Q(0)=W^{-1}(T)$.
+
+The control aim is to move the system to the origin in a predetermined time, the origin of coordinates being the equilibrium position of the system. In contrast to the stabilization problem \cite{halil}, to apply the linearization method in the local synthesis problem, the controllability property of the linear system is insufficient and one has to use an additional constraint on the controllability gramian asymptotics in time. This constraint matches with a sufficient condition ensuring the asymptotic equivalence of the reachability sets (zero-controllabilty sets) of the nonlinear and linearized systems at small time intervals.
+
+\begin{conjecture}\label{cond1}
+	 The pair $(A,B)$ is completely controllable. There exists $ k > 0$ and $\alpha > 0$ such that $ k \nu_1(\tau) \geq \tau^{3-\alpha}  $
+	for sufficiently small positive $\tau$. Here $ \nu_1(\tau) $ is  the minimal eigenvalue of the matrix $ \frac{1}{\tau} W(\tau) $.
+\end{conjecture}
+
+Under the conjecture \ref{cond1} on the time interval $ [0; \tau] $, the reachability sets (null controllability sets) of the nonlinear and linearized systems are convex \cite{Gus1} and asymptotically equivalent \cite{GusOsipov,Osipov}. Introduce a system \eqref{nonlinear} with linear feedback control $ u(t,x) = -B^{\top} Q(t) x$:
+\begin{equation}\label{nonlinear_closed}
+	\dot{z} = f(z) - B B^{\top} Q(t) z, \qquad 0 \leq t \leq T, \qquad z(0) = z_0
+\end{equation}
+\begin{theorem}
+	 Let conjecture 1 be satisfied. There exists $T_1>0$ such that for any $0<T \leq T_1$ and any vector $z_0$ satisfying the inequality $z_0 Q(0)z_0=z_0 W^{-1}(T)z_0\leq \mu^2$, the solution $z(t)$ of the system \eqref{nonlinear_closed} tends to zero at $t \to T$. 
+\end{theorem}
+
+The paper contains several examples of the application of the theorem to local control synthesis for nonlinear systems with integral constraints.
+
+\begin{thebibliography}{9} % or {99}, if there is more than ten references.
+\bibitem{halil}
+Khalil K.H.  Nonlinear Systems, Pub.: Pearson, 3rd edition 2001, 768 p.
+
+\bibitem{Gus1}
+Gusev M.I. On Convexity of Reachable Sets of a Nonlinear System under Integral Constraints.
+IFAC-PapersOnLine. 2018. Vol.51, iss. 32. P.~207--212. doi: 10.1016/j.ifacol.2018.11.382
+
+\bibitem{GusOsipov}
+Gusev~M.I., Osipov~I.O. Asymptotic Behavior of Reachable Sets on Small Time Intervals. Proceedings of the Steklov Institute of Mathematics, 2020. Vol. 309, suppl.1. P. S52-S64
+
+\bibitem{Osipov}
+Osipov I.O. On the convexity of the reachable set with respect to a part of coordinates at small time intervals,  Vestn. Udmurtsk. Univ. Mat. Mekh. Komp. Nauki, 2021, vol. 31, issue 2, pp. 210--225.  https://doi.org/10.35634/vm210204 [in Russian]
+
+
+\end{thebibliography}
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

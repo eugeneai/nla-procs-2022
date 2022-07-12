@@ -1,0 +1,156 @@
+\begin{englishtitle}
+\title{On Solvability of the Cauchy Problem for one Pseudohyperbolic System}
+% First author
+\author{Lina Bondar\inst{1},
+Sanzhar Mingnarov\inst{2}}
+\institute{IM SO RAN, Novosibirsk, Russia\\
+  \email{b\underline{ }lina@ngs.ru}
+  \and
+NSU, Novosibirsk, Russia\\
+\email{s.mingnarov@g.nsu.ru}}
+% etc
+
+\maketitle
+
+\begin{abstract}
+The paper considers a system that occurs when modeling bending-torsional vibrations in a rod.
+We study the solvability of the Cauchy problem for such a system in the Sobolev space.
+
+\keywords{equations unsolvable for the highest derivative, pseudohyperbolic system, the Cauchy problem, anisotropic Sobolev space}
+\end{abstract}
+\end{englishtitle}
+
+
+\iffalse
+\documentclass[12pt]{llncs}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage[russian]{nla}
+
+%\usepackage[english,russian]{nla}
+
+% \graphicspath{{pics/}} %Set the subfolder with figures (png, pdf).
+
+%\usepackage{showframe}
+\begin{document}
+%\selectlanguage{russian}
+\fi
+
+\title{О разрешимости задачи Коши для одной псевдогиперболической системы}
+% Первый автор
+\author{Л.~Н.~Бондарь\inst{1}
+  \and
+% Второй автор
+  С.~Б.~Мингнаров\inst{2}
+  \and
+% Третий автор
+ % И.~О.~Фамилия\inst{2}
+} % обязательное поле
+\institute{ИМ СО РАН, Новосибирск, Россия\\
+  \email{b\underline{ }lina@ngs.ru}
+  \and
+НГУ, Новосибирск, Россия\\
+\email{s.mingnarov@g.nsu.ru}}
+% Другие авторы...
+
+\maketitle
+
+\begin{abstract}
+В работе рассматривается система, возникающая при моделировании изгибно-крутильных колебаний в стержне. 
+Исследуется разрешимость задачи Коши для такой системы в соболевском пространстве.
+
+\keywords{уравнения, не разрешенные относительно старшей производной по времени, псевдогиперболическая система, задача Коши, анизотропное соболевское пространство}
+\end{abstract}
+
+В докладе рассматривается 
+задача Коши для одной системы дифференциальных уравнений, не разрешенной относительно старшей производной по времени:
+$$
+\begin{array}{l}
+\left(
+\begin{array}{ll}
+(I-\alpha D_x^2)& \varepsilon D^2_x \\
+\varepsilon D^2_x &  (I-\beta D_x^2)
+\end{array} \right)
+ D_t^2U 
++ 
+c^2\left(
+\begin{array}{ll}
+1 & -\varepsilon \\
+-\varepsilon &  1
+\end{array} \right)
+ D_x^4U 
+-\delta^2 
+\left(
+\begin{array}{ll}
+1 & 0 \\
+0 &  0
+\end{array} \right)D_x^2U = F(t, x)
+\end{array} 
+\eqno(1)
+$$
+в полуплоскости $R^2_+=\{t>0,\,x\in R\}$,
+где $\alpha$, $\beta> 1$, $c> 0$, $0<\varepsilon <1$, $\delta\in R$. 
+Такие системы возникают при описании волновой динамики в стержне 
+(см., например, [1, 2]). 
+
+
+Рассматриваемая система (1) относится к классу псевдогиперболических уравнений, введенных Г.В. Демиденко в [3]. 
+
+В вырожденном случае, когда 
+$\varepsilon=0$, 
+система (1)
+распадается на два псевдогиперболических уравнения:
+$$
+(I-\alpha D_x^2)D_t^2u + c^2 D_x^4 u -\delta^2 D^2_x u =f_1(t,x),
+\eqno(2)
+$$
+$$
+(I-\beta D_x^2)D_t^2v + c^2 D_x^4 v =f_2(t,x).
+$$
+Уравнение (2) в литературе называется уравнением Власова (см.~[1, 2]), а также~--- уравнением Рэлея--Бишопа (см.~[4, 5]).
+Теоремы о разрешимости задачи Коши для псевдогиперболических уравнений см., например,~[3, 6--8].
+
+В работе доказывается однозначная разрешимость задачи Коши для псевдогиперболической системы (1) в анизотропных соболевских пространствах с весом.
+
+\begin{thebibliography}{99}
+
+\bibitem{1}                          
+Власов В.З. Тонкостенные упругие стержни. Стройиздат, 1940.
+
+\bibitem{2}                          
+Герасимов~С.~И., Ерофеев~В.~И. Задачи волновой динамики элементов конструкций. Саров: ФГУП ``РФЯЦ-ВНИИЭФ'', 2014.
+
+\bibitem{3}
+Демиденко~Г.~В., Успенский~С.~В. Уравнения и системы, не разрешенные относительно старшей производной. Новосибирск: Научная книга, 1998. 
+
+\bibitem{4}                          
+Bishop R.E.D. {\it Longitudinal waves in beams}. Aeronautical Quarterly. 1952. Vol.~3, Issue 4. Pp.~280--293.
+
+\bibitem{5}                          
+Rao J.S. Advanced Theory of Vibration. John Wiley \& Sons, 1992. 
+
+\bibitem{6}                          
+Demidenko~G.~V. {\it On solvability of the Cauchy problem for pseudohyper\-bolic equations}. Sib. Adv. Math. 2001. Vol~.11, No~4. Pp.~25--40. 
+
+\bibitem{7}                          
+Fedotov I., Volevich L. R. {\it The Cauchy problem for hyperbolic equations not resolved with respect to the highest time derivative}. Russ. J. Math. 
+Phys. 2006. Vol.~13, No~3. Pp.~278--292.
+
+\bibitem{8}                          
+Демиденко~Г.~В. {\it Условия разрешимости задачи Коши для псевдогиперболических уравнений}. Сиб. мат. журн. 
+2015. Т.~56, \textnumero~6. С.~1289--1303. 
+
+
+\end{thebibliography}
+
+
+
+
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

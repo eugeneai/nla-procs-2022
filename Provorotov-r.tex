@@ -1,0 +1,144 @@
+\begin{englishtitle}
+\title{Navier-Stokes Evolutionary System with Spatial Variable in a Network-like Domain}
+% First author
+\author{Vyacheslav Provotorov\inst{1},
+Semen Podvalny\inst{2}}
+\institute{Voronezh State University, Voronezh, Russia\\
+  \email{wwprov@mail.ru}
+  \and
+Voronezh State Technical University, Voronezh, Russia\\
+\email{spodvalny@yandex.ru}}
+% etc
+
+\maketitle
+
+\begin{abstract}
+The paper deals with the question of the existence of a weak solution of the Navier-Stokes $n$-dimensional system with distributed parameters in a coherent limited network-like domain, which is a geometric graph in the one-dimensional case ($n = 1 $). A space of admissible solutions is introduced and, using the Faedo-Galerkin method, the existence of a solution from the class of functions summable on a network-like domain is established.
+Taking into account the specificity of the Faedo-Galerkin method, when constructing approximations of a solution in the form of cutoff function, it is shown that such solutions are elements of the space of functions with summable derivatives from a time variable; for the elements of such a space, the analogue of the energy balance equation correctly.
+The obtained results are the basis for the study of various types of problems of optimal control of differential systems with a spatial variable changing in a network-like domain.
+
+
+
+\keywords{Navier-Stokes system, network-like domain}
+\end{abstract}
+\end{englishtitle}
+
+\iffalse
+\documentclass[12pt]{llncs}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage[russian]{nla}
+
+%\usepackage[english,russian]{nla}
+
+% \graphicspath{{pics/}} %Set the subfolder with figures (png, pdf).
+
+%\usepackage{showframe}
+\begin{document}
+%\selectlanguage{russian}
+\fi
+
+\title{Эволюционная система Навье-Стокса с пространственной переменной в сетеподобной области}
+% Первый автор
+\author{В.~В.~Провоторов\inst{1}
+  \and
+% Второй автор
+  С.~Л.~Подвальный\inst{2}
+} % обязательное поле
+\institute{Воронежский государственный университет, Воронеж, Россия\\
+  \email{wwprov@mail.ru}
+  \and
+Воронежский государственный технический университет, Воронеж, Россия\\
+\email{spodvalny@yandex.ru}}
+% Другие авторы...
+
+\maketitle
+
+\begin{abstract}
+В работе рассматривается вопрос существования слабого решения $n$-мерной  системы Навье-Стокса с распределенными параметрами в связной ограниченной сетеподобной области, представляющей собой геометрический граф в одномерном случае ($n=1$). Вводится пространство допустимых решений и, используя метод Фаэдо-Галеркина, устанавливается существование решения из класса суммируемых на сетеподобной области функций. Учитывая специфику метода Фаэдо-Галеркина при построении приближений решения в виде <<срезок>>, показывается, что такие решения являются элементами пространства функций с суммируемыми производными по временной переменной; для элементов такого пространства справедлив аналог уравнения энергетического баланса.  Полученные результаты лежат в основе исследования разного типа задач оптимального управления дифференциальными системами с пространственной переменной, изменяющейся  в сетеподобной области.
+
+\keywords{система Навье-Стокса, сетеподобная область}
+\end{abstract}
+
+
+
+Рассмотрим несколько упрощенное описание сетеподобной области изменения пространственных переменных системы Навье-Стокса. Обозначим через $\Im$ ограниченную область евклидова пространства $\mathbb{R}^n$ ($n\geq2$), имеющую сетеподобную структуру, аналогичную структуре графа [1]: $\Im=\left(\bigcup\limits_{m=1}^M\Im_m\right)\cup\left(\bigcup\limits_{l=1}^JS_l\right)$, где  $S_l$~---  поверхность, разделяющая смежные подобласти $\Im_m\subset\Im$ (для фиксированного $l$ число смежных областей не менее двух), $\partial\Im$~--- граница  $\Im$ ($S_l\cap\partial\Im=\emptyset$). Поверхность  примыкания $S_l$ смежных подобластей $\Im_m$ назовем узловым местом: $S_l=\bigcup\limits_{l^\prime} S_{l,\,l^\prime}$, $S_{l,\,l^\prime}\subset \partial \Im_{l^\prime}$; количество поверхностей $S_{l,\,l^\prime}$  на единицу меньше числа примыкающих подобластей, при этом $S^-_{l,\,l^\prime}$, $S^+_{l,\,l^\prime}$~--- поверхности, определяемые соответствующими нормалями $n^-_l$, $n^+_l$ к $S_{l,\,l^\prime}$.
+
+
+Для вектор-функции $Y(x,t)=\{y_1(x,t),y_2(x,t),...,y_n(x,t)\}$ ($x=\{x_1,x_2,...,x_n\}$), определенной в области $\Im_T=\Im\times(0,T)$ ($T<\infty$), рассмотрим систему
+\begin{equation}\label{eq1}
+{{\begin{array}{*{20}c}
+\frac{\partial Y}{\partial t}-\nu\triangle Y+\sum\limits_{i=1}^nY_i\frac{\partial Y}{\partial x_i}= f-grad\,p,
+ \end{array} }}
+\end{equation}
+\begin{equation}\label{eq2}
+{{\begin{array}{*{20}c}
+div Y=0\left(\sum\limits_{i=1}^n \frac{\partial Y}{\partial x_i}=0\right).
+ \end{array} }}
+\end{equation}
+В каждом узловом месте имеют место соотношения (условия примыкания [2])
+\begin{equation}\label{eq3}
+{{\begin{array}{*{20}c}
+Y|_{S^-_{l,\,l^\prime}}=Y|_{S^+_{l,\,l^\prime}},\,\,\,
+\sum \limits_{l}\frac{\partial Y}{\partial n^-_l}|_{S^-_{l,\,l^\prime}}+\sum \limits_{l}\frac{\partial Y}{\partial n^+_l}|_{S^+_{l,\,l^\prime}}=0,
+ \end{array} }}
+\end{equation}
+начальное  и граничное условия имеют вид
+\begin{equation}\label{eq4}
+{{\begin{array}{*{20}c}
+Y(x,0)=Y_0(x), \,\,x\in \Im, \,\,\,Y|_{\partial\Im}=0.
+ \end{array} }}
+\end{equation}
+В приложениях ([2], $n=3$) начально-краевая задача (1)--(4) описывает динамику несжимаемой жидкости с вязкостью $\nu>0$ в сетеподобной области $\Im$: (1), (2)~--- система Навье-Стокса, $Y(x,t)$, $x,t\in \overline{\Im}_T$~--- вектор скоростей гидравлического потока,  (3)~--- условия перетекания жидкости в узловых местах $\xi_{\,l}$. Используя классические пространства  $L_2(\Omega)$ и $W^1_2(\Omega)$, вводятся необходимые пространства. Пусть $\mathcal{V}=\{v:\overline{\Im}\rightarrow \mathbb{R}^n,\,\, v|_{\overline{\Im}_m}\in C^\infty(\overline{\Im}_m),\,\,m=\overline{1,M}\}$, при этом $v\in \mathcal{V}$ удовлетворяет условию (3) и второму условию (4); замыкание $\mathcal{V}$ в пространстве $(W^1_2(\Im))^n$  обозначим через $H^1(\Im)$.
+
+Пусть далее $\Re(\Im_{T})$~--- множество всех функций  $u(x,t)\in W^{1,0}(\Im_{T})$ ($W^{1,0}(\Im_{T})$~--- пространство функций $u(x,t)\in (L_{2}(\Im_{T}))^n$, для которых обобщенная производная  $\frac{\partial u(x,t)}{\partial x}\in (L_{2}(\Im_{T}))^n$), имеющих  конечную норму
+$\|u\|_{\Im_{T}}= \mathop{max}\limits_{0\leq t\leq T}\left\|u(\cdot,t)\right\|_{(L_{2}(\Im))^n}+\left\|\frac{\partial u}{\partial x}\right\|_{(L_{2}(\Im_{T}))^n}$ и  принадлежащие $H^1(\Im)$ следы на сечениях $\Im_{T}$ плоскостью $t=t_0$, причем $u(x,t)$ непрерывны по $t$ в норме $H^1(\Im)$ на $[0,T]$. Пусть
+$V_{\,0}^{1,0}(\Im_{T})$~--- замыкание $\Re(\Im_{T})$ в норме $\|u\|_{\Im_{T}}$.
+
+\textbf{Определение.} \emph{Слабым  решением задачи} (1)--(4) \emph{называется пара $\{Y,p\}$, при этом функция  $Y(x,t)\in V_{\,0}^{1,0}(\Im_{T})$  удовлетворяет интегральному тождеству}
+\[
+{{\begin{array}{*{20}c}
+(Y(x,t),\eta(x,t))-\int\limits_{\Im_t}Y(x,\tau)\frac{\partial\eta(x,\tau)}{\partial \tau}dxd\tau+
+\nu\int\limits_0^t\rho(Y,\eta)d\tau+\int\limits_0^t\varrho(Y,Y,\eta)d\tau=
+\\
+=(Y_0(x),\eta(x,0))+\int\limits_{\Im_t}f(x,\tau)\eta(x,\tau)dxd\tau
+\end{array} }}
+\]
+\emph{для любых $t\in[0,T]$ и любых $\eta(x,t)\in V_{\,0}^{1,0}(\Im_{T})$, а $p(x,t)$ принадлежит классу бесконечно дифференцируемых в $\Im_T$ функций с компактными носителями в $\Im_T$.}
+
+
+
+\section{Основной результат} % не обязательное поле
+
+
+\textbf{Теорема.} \emph{Существует по меньшей мере одно слабое   решение начально-краевой задачи } (1)--(4) \emph{при произвольном} (\emph{конечном}) $T>0$.
+
+Используя метод Фаэдо-Галеркина со специальным базисом в $H^1(\Im)$~--- системой обобщенных собственных функций $\{U_i(x)\}_{i\geq1}$, удовлетворяющей тождеству $\sum\limits_{i=1}^n \int\limits_\Im\frac{\partial U(x)}{\partial x_i}\frac{\partial \phi(x)}{\partial x_i}dx= \lambda \int\limits_\Im U(x)\phi(x)dx$ $\forall \,\phi(x)\in H^1(\Im)$, строятся приближения $Y_m(x,t)$ слабого решения системы (1)--(4): $Y_m(x,t)= \sum\limits_{i=1}^m g_{i\,m}(t)U_i(x)$ (скалярные функции $g_{i\,m}(t)$ абсолютно непрерывны на $[0,T]$). Дальнейшее доказательство основано на выводе уравнения энергетического баланса, априорных оценках норм $Y_m(x,t)$, установлении слабой компактности последовательности $\{Y_m(x,t)\}$ и сходимости ее в $V_{\,0}^{1,0}(\Im_{T})$.
+
+
+
+% Список литературы.
+\begin{thebibliography}{99}
+\bibitem{1}
+% Format for Journal Reference
+Podvalny S. L., Provotorov V. V., Podvalny E. S.  {\it The controllability of parabolic
+systems with delay and distributed parameters on the graph}. Procedia Computer Sciense.
+2017. Vol.~103. Pp.~324-330.
+\bibitem{2}
+% Format for Journal Reference
+Artemov M A,  Baranovskii E S, Zhabko A P,  Provotorov V V  {\it On a 3D model of non-isothermal flows in a pipeline network}. Journal of Physics. Conference Series.
+2019. Vol.~1203. Article ID 012094.
+\end{thebibliography}
+
+
+
+
+
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

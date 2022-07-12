@@ -1,0 +1,220 @@
+\begin{englishtitle} % Настраивает LaTeX на использование английского языка
+% Этот титульный лист верстается аналогично.
+\title{Optimal Object Trajectories under Unfriendly Observation\thanks{Работа выполнена в рамках исследований, проводимых в Уральском математическом центре при финансовой поддержке Министерства науки и высшего образования Российской Федерации (номер соглашения \textnumero~075-02-2022-874). }}
+% First author
+\author{V.I.~Berdyshev 
+  \and
+  V.B.~Kostousov 
+  \and
+  A.A.~Popov 
+}
+\institute{IMM UrB RAS, Ekaterinburg, Russia\\
+  \email{bvi@imm.uran.ru,  vkost@imm.uran.ru, aap@imm.uran.ru}
+%  \and
+%Affiliation, City, Country\\
+%\email{email@example.com}}
+% etc
+}
+
+\maketitle
+
+\begin{abstract}
+In applied problems associated with the construction of trajectories of autonomous moving objects, sometimes there are requirements for the maximum distance of the trajectory from undesirable stationary objects-observers.  Often observers have a means of observation that allows you to capture moving objects in a certain cone of observation, but outside the cone the observer does not see the object.
+Similar situations lead to statement of the problems of constructing optimal trajectories in a given corridor $ Y\subset X $.
+The report considers the problem of forming of such trajectory that maximizes the minimum distance from the observers in their field of view. The problem is investigated in the space $X=\mathbb{R}^n, (n=2,3)$.
+For a point object, an optimal corridor~$Y^* \subset Y$ is constructed. It is such a connected set that any continuous trajectory that passes in this corridor and connects the given start and end points is optimal.
+A similar problem is also solved on the plane for the case when the moving object is a solid, namely it is a circle \cite{Berdyshev}.
+For practical calculations, the report proposes algorithms for constructing an optimal corridor and the shortest optimal trajectory for a solid object on a plane.
+For these purposes the initial continuous conditions of the problem, such as the boundaries of the bounding corridor and observation cones, are projected onto a discrete regular grid.  After that a discrete implementation of the optimal corridor is constructed, its boundaries is built on the grid, and the shortest optimal trajectory of the solid object is found using the Dijkstra algorithm.
+
+\keywords{route planning in the presence of obstacles, optimal trajectory, observers, shortest path} % в конце списка точка не ставится
+\end{abstract}
+\end{englishtitle}
+
+
+\iffalse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  This is the template file for the 6th International conference
+%  NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+%  June 25-30, 2018
+%  Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  Верстка статьи осуществляется на основе стандартного класса llncs
+%  (Lecture Notes in Computer Sciences), который корректируется стилевым
+%  файлом конференции.
+%
+%  Скомпилировать файл в PDF можно двумя способами:
+%  1. Использовать pdfLaTeX (pdflatex), (LaTeX+DVIPS не работает);
+%  2. Использовать LuaLaTeX (XeLaTeX будет работать тоже).
+%  При использовании LuaLaTeX потребуются TTF- или OTF-шрифты CMU
+%  (Computer Modern Unicode). Шрифты устанавливаются либо пакетом
+%  дистрибутива LaTeX cm-unicode
+%              (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+%  либо загрузкой и установкой в операционной системе, адрес страницы:
+%              http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+%  Второй вариант не будет работать в XeLaTeX.
+%
+%  В MiKTeX (дистрибутив LaTeX для ОС Windows):
+%  1. Пакет cm-unicode устанавливается вручную в программе MiKTeX Console.
+%  2. Для верстки данного примера, а именно, картинки-заглушки необходимо,
+%     также вручную, загрузить пакет pgf. Этот пакет используется популярным
+%     пакетом tikz.
+%  3. Тест показал, что остальные пакеты MiKTeX грузит автоматически (если
+%     ему разрешено автоматически грузить пакеты). Режим автозагрузки
+%     настраивается в разделе Settings в MiKTeX Console.
+%
+%
+%  Самый простой способ сверстать статью - использовать pdfLaTeX, но
+%  окончательный вариант верстки сборника будет собран в LuaLaTeX,
+%  так как результат получится лучшего качества, благодаря пакету microtype и
+%  использованию векторных шрифтов OTF вместо растровых pdfLaTeX.
+%
+%  В случае возникновения вопросов и проблем с версткой статьи,
+%  пишите письма на электронную почту: eugeneai@irnok.net, Черкашин Евгений.
+%
+%  Новые варианты корректирующего стиля будут доступны на сайте:
+%        https://github.com/eugeneai/nla-style
+%        файл - nla.sty
+%
+%  Дальнейшие инструкции - в тексте данного шаблона. Он одновременно
+%  является примером статьи.
+%
+%  Формат LaTeX2e!
+
+\documentclass[12pt]{llncs}  % Необходимо использовать шрифт 12 пунктов.
+
+% При использовании pdfLaTeX добавляется стандартный набор русификации babel.
+% Если верстка производится в LuaLaTeX, то следующие три строки надо
+% закомментировать, русификация будет произведена в корректирующем стиле автоматом.
+\usepackage{iftex}
+
+\ifPDFTeX
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} % Кодировка utf-8, cp1251 и т.д.
+\usepackage[english,russian]{babel}
+\fi
+
+% Для верстки в LuaLaTeX текст готовится строго в utf-8!
+
+% В операционной системе Windows для редактирования в кодировке utf-8
+% можно использовать программы notepad++ https://notepad-plus-plus.org/,
+% techniccenter http://www.texniccenter.org/,
+% SciTE (самая маленькая по объему программа) http://www.scintilla.org/SciTEDownload.html
+% Подойдет также и встроенный в свежий дистрибутив MiKTeX редактор
+% TeXworks.
+
+% Добавляется корректирующий стилевой файл строго после babel, если он был включен.
+% В параметре необходимо указать russian, что установит не совсем стандартные названия
+% разделов текста, настроит переносы для русского языка как основного и т.п.
+
+%\usepackage{todonotes} % Этот пакет нужен для верстки данного шаблона, его
+                       % надо убрать из вашей статьи.
+
+\usepackage[russian]{nla}
+
+% Многие популярные пакеты (amsXXX, graphicx и т.д.) уже импортированы в корректирующий стиль.
+% Если возникнут конфликты с вашими пакетами, попробуйте их отключить и сверстать
+% текст как есть.
+%
+%
+
+
+% Было б удобно при верстке сборника, чтобы названия рисунков разных авторов не пересекались.
+% Чтоб минимизировать такое пересечение, рисунки можно поместить в отдельную подпапку с
+% названием - фамилией автора или названием статьи.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % Указание папки с изображениями в форматах png, pdf.
+% или
+% \graphicspath{{great-problem-solving-paper-pics/}}.
+
+\begin{document}
+
+% Текст оформляется в соответствии с классом article, используя дополнения
+% AMS.
+%
+\fi
+
+\title{Оптимальные траектории при недружественных наблюдателях}
+% Первый автор
+\author{В.~И.~Бердышев   % \inst ставит циферку над автором.
+  \and  % разделяет авторов, в тексте выглядит как запятая.
+% Второй автор
+  В.~Б.~Костоусов 
+  \and
+  А.~А.~Попов 
+} % обязательное поле
+
+% Аффилиации пишутся в следующей форме, соединяя каждый институт при помощи \and.
+\institute{Институт математики и механики им. Н.Н.Красовского УрО РАН, Екатеринбург, Россия \\
+  \email{bvi@imm.uran.ru,  vkost@imm.uran.ru, aap@imm.uran.ru}
+%  \and   % Разделяет институты и присваивает им номера по порядку.
+%Институт (название в краткой форме), Город, Страна\\
+%  \email{email@example.com}
+% \and Другие авторы...
+}
+
+\maketitle
+
+\begin{abstract}
+
+В прикладных задачах, связанных с построением траекторий автономных движущихся объектов, иногда возникают требования максимальной удаленности траектории от нежелательных неподвижных объектов-наблюдателей.
+Нередко такие объекты имеют средство наблюдения, позволяющее фиксировать движущиеся объекты в некотором конусе наблюдения, а за пределами этого конуса наблюдатель объекта не видит.
+Подобные ситуации приводят к постановкам задач построения оптимальных траекторий в заданном коридоре $Y\subset X$.
+В  докладе рассматривается задача формирования траектории в пространстве $X=\mathbb{R}^n, (n=2,3)$, максимизирующей минимум расстояния от наблюдателей в их поле зрения. Для точечного объекта строится оптимальный коридор~$Y^*\subset Y$~--- это такое связное множество, что любая непрерывная траектория, проходящая в этом коридоре и соединяющая заданные начальную и конечную точки, является оптимальной.  Аналогичная задача решается  на плоскости и для случая, когда движущийся объект~--- телесный, а именно представляет собой круг \cite{Berdyshev}.
+ В дискретной постановке для практических расчетов в докладе предлагаются алгоритмы построения оптимального коридора и кратчайшей оптимальной траектории для телесного объекта на плоскости. Исходные непрерывные условия задачи, такие как границы ограничивающего коридора и конусов наблюдения, проектируются на дискретную регулярную сетку, и на ней строятся дискретная реализация оптимального коридора, его границ, а также находится с помощью алгоритма Дейкстры кратчайшая оптимальная траектория телесного объекта.
+
+\keywords{планирование маршрута при наличии препятствий, оптимальная траектория, наблюдатели, кратчайший путь} % в конце списка точка не ставится
+\end{abstract}
+
+%\section{Основные результаты} % не обязательное поле
+%
+% Рисунки и таблицы оформляются по стандарту класса article. Например,
+
+%\begin{figure}[htb]
+%  \centering
+  % Поддерживаются два формата:
+  %\includegraphics[width=0.7\linewidth]{figure.pdf} % Растровый формат
+  %\includegraphics[width=0.7\linewidth]{figure.png} % Векторный и растровый формат
+  %
+  % Векторные рисунки можно рисовать в редакторе Inkscape
+  % https://inkscape.org/ru/download/
+  % Основной формат этого редактора - SVG, поэтому рисунки необходимо экспортировать в
+  % PDF или PNG (с разрешением - минимум 150 dpi, максимум - 300dpi).
+%  \begin{center}
+%    \missingfigure[figwidth=0.7\linewidth]{Уберите меня из статьи!}
+%  \end{center}
+%  \caption{Заголовок рисунка}\label{fig:example}
+%\end{figure}
+
+% Современные издательства требуют использовать кавычки-елочки << >>.
+
+% В конце текста можно выразить благодарности, если этого не было
+% сделано в ссылке с заголовка статьи, например,
+%Работа выполнена при поддержке РФФИ (РНФ, другие фонды), проект \textnumero~00-00-00000.
+%
+
+% Список литературы оформляется подобно ГОСТ-2008.
+% Примеры оформления находятся по этому адресу -
+%     https://narfu.ru/agtu/www.agtu.ru/fad08f5ab5ca9486942a52596ba6582elit.html
+%
+
+\begin{thebibliography}{9} % или {99}, если ссылок больше десяти.
+\bibitem{Berdyshev} Berdyshev V.~I., Kostousov V.B., Popov A.A. Optimal Trajectory in $R^2$ under Observation. Proc.~Steklov~Inst.~Mathematics. 2019. Vol.~304, Suppl.~1. Pp.~S31–S43.
+
+\end{thebibliography}
+
+% После библиографического списка в русскоязычных статьях необходимо оформить
+% англоязычный заголовок.
+
+
+
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

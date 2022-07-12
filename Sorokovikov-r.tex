@@ -1,0 +1,187 @@
+\begin{englishtitle} % Настраивает LaTeX на использование английского языка
+% Этот титульный лист верстается аналогично.
+\title{Combined Algorithms Based on Bioinspired and Local Search Methods for Solving Multiextremal Optimization Problems}
+% First author
+\author{Pavel Sorokovikov
+}
+\institute{Matrosov Institute for System Dynamics and Control Theory of SB RAS, Irkutsk, Russia\\
+  \email{pavel@sorokovikov.ru}
+}
+% etc
+
+\maketitle
+
+\begin{abstract}
+We offer an approach to the numerical study of the problems of finding the absolute optimum of multiextremal function, based on the use of globalized nature-inspired and local descent methods. Six hybrid non-convex optimization algorithms are developed and implemented. Modifications of differential evolution, genetic search, particle swarm, harmony search, biogeography, and firefly algorithms are used as nature-inspired methods. We have performed the numerical study of the properties of the proposed algorithms using a representative collection of multiextremal problems. The reached research results confirm the performance of the suggested algorithms.
+
+\keywords{non-convex optimization, multiextremal function, global optimum, bioinspired algorithms} % в конце списка точка не ставится
+\end{abstract}
+\end{englishtitle}
+
+\iffalse
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  This is the template file for the 6th International conference
+%  NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+%  June 25-30, 2018
+%  Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  Верстка статьи осуществляется на основе стандартного класса llncs
+%  (Lecture Notes in Computer Sciences), который корректируется стилевым
+%  файлом конференции.
+%
+%  Скомпилировать файл в PDF можно двумя способами:
+%  1. Использовать pdfLaTeX (pdflatex), (LaTeX+DVIPS не работает);
+%  2. Использовать LuaLaTeX (XeLaTeX будет работать тоже).
+%  При использовании LuaLaTeX потребуются TTF- или OTF-шрифты CMU
+%  (Computer Modern Unicode). Шрифты устанавливаются либо пакетом
+%  дистрибутива LaTeX cm-unicode
+%              (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+%  либо загрузкой и установкой в операционной системе, адрес страницы:
+%              http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+%  Второй вариант не будет работать в XeLaTeX.
+%
+%  В MiKTeX (дистрибутив LaTeX для ОС Windows):
+%  1. Пакет cm-unicode устанавливается вручную в программе MiKTeX Console.
+%  2. Для верстки данного примера, а именно, картинки-заглушки необходимо,
+%     также вручную, загрузить пакет pgf. Этот пакет используется популярным
+%     пакетом tikz.
+%  3. Тест показал, что остальные пакеты MiKTeX грузит автоматически (если
+%     ему разрешено автоматически грузить пакеты). Режим автозагрузки
+%     настраивается в разделе Settings в MiKTeX Console.
+%
+%
+%  Самый простой способ сверстать статью - использовать pdfLaTeX, но
+%  окончательный вариант верстки сборника будет собран в LuaLaTeX,
+%  так как результат получится лучшего качества, благодаря пакету microtype и
+%  использованию векторных шрифтов OTF вместо растровых pdfLaTeX.
+%
+%  В случае возникновения вопросов и проблем с версткой статьи,
+%  пишите письма на электронную почту: eugeneai@irnok.net, Черкашин Евгений.
+%
+%  Новые варианты корректирующего стиля будут доступны на сайте:
+%        https://github.com/eugeneai/nla-style
+%        файл - nla.sty
+%
+%  Дальнейшие инструкции - в тексте данного шаблона. Он одновременно
+%  является примером статьи.
+%
+%  Формат LaTeX2e!
+
+\documentclass[12pt]{llncs}  % Необходимо использовать шрифт 12 пунктов.
+
+% При использовании pdfLaTeX добавляется стандартный набор русификации babel.
+% Если верстка производится в LuaLaTeX, то следующие три строки надо
+% закомментировать, русификация будет произведена в корректирующем стиле автоматом.
+\usepackage{iftex}
+
+\ifPDFTeX
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} % Кодировка utf-8, cp1251 и т.д.
+\usepackage[english,russian]{babel}
+\fi
+
+% Для верстки в LuaLaTeX текст готовится строго в utf-8!
+
+% В операционной системе Windows для редактирования в кодировке utf-8
+% можно использовать программы notepad++ https://notepad-plus-plus.org/,
+% techniccenter http://www.texniccenter.org/,
+% SciTE (самая маленькая по объему программа) http://www.scintilla.org/SciTEDownload.html
+% Подойдет также и встроенный в свежий дистрибутив MiKTeX редактор
+% TeXworks.
+
+% Добавляется корректирующий стилевой файл строго после babel, если он был включен.
+% В параметре необходимо указать russian, что установит не совсем стандартные названия
+% разделов текста, настроит переносы для русского языка как основного и т.п.
+
+%\usepackage{todonotes} % Этот пакет нужен для верстки данного шаблона, его
+                       % надо убрать из вашей статьи.
+
+\usepackage[russian]{nla}
+
+% Многие популярные пакеты (amsXXX, graphicx и т.д.) уже импортированы в корректирующий стиль.
+% Если возникнут конфликты с вашими пакетами, попробуйте их отключить и сверстать
+% текст как есть.
+%
+%
+
+
+% Было б удобно при верстке сборника, чтобы названия рисунков разных авторов не пересекались.
+% Чтоб минимизировать такое пересечение, рисунки можно поместить в отдельную подпапку с
+% названием - фамилией автора или названием статьи.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % Указание папки с изображениями в форматах png, pdf.
+% или
+% \graphicspath{{great-problem-solving-paper-pics/}}.
+
+
+\begin{document}
+
+% Текст оформляется в соответствии с классом article, используя дополнения
+% AMS.
+%
+\fi
+
+\title{Комбинированные алгоритмы на основе биоинспирированных методов и методов локального поиска для решения многоэкстремальных задач оптимизации}
+% Первый автор
+\author{П.~С.~Сороковиков
+} % обязательное поле
+
+% Аффилиации пишутся в следующей форме, соединяя каждый институт при помощи \and.
+\institute{Институт динамики систем и теории управления имени В.М. Матросова СО РАН, Иркутск, Россия\\
+  \email{pavel@sorokovikov.ru}
+}
+
+\maketitle
+
+\begin{abstract}
+Предложен подход к численному исследованию задач поиска абсолютного оптимума многоэкстремальной функции, основанный на применении глобализованных биоинспирированных методов и методов локального спуска. Разработаны и реализованы шесть гибридных алгоритмов невыпуклой оптимизации. Модификации алгоритмов дифференциальной эволюции, генетического поиска, роя частиц, гармонического поиска, биогеографии и роя светлячков используются в качестве методов, инспирированных природой. Выполнено численное исследование свойств предложенных алгоритмов с использованием репрезентативной коллекции многоэкстремальных задач. Полученные результаты исследований подтверждают работоспособность разработанных алгоритмов.
+
+\keywords{невыпуклая оптимизация, многоэкстремальная функция, глобальный оптимум, биоинспирированные алгоритмы} % в конце списка точка не ставится
+\end{abstract}
+
+Задача поиска абсолютного оптимума многоэкстремального целевого функционала остается одной из самых сложных и актуальных в теории и приложениях математического программирования и оптимизации динамических систем. Как правило, надежные процедуры нелокальной оптимизации основаны на балансе между глобальным исследованием пространства поиска и локальным улучшением полученных приближений. Соответственно, одна итерация алгоритма нахождения абсолютного экстремума должна включать два этапа: глобальный поиск в допустимом множестве и локальное уточнение градиентными методами в областях, где вероятно наличие глобального оптимума. В работе предложен подход, использующий преимущества биоинспирированных алгоритмов для исследования допустимого множества и градиентных методов для локальной оптимизации, позволяющий строить вычислительные схемы, лежащие в основе эффективных методов исследования задач нелокального поиска.
+
+Предложенный подход к численному исследованию задач поиска абсолютного экстремума мультимодальных целевых функций основан на применении алгоритмов дифференциальной эволюции \cite{Storn}, генетического поиска \cite{Whitley}, роя частиц \cite{Liu}, гармонического поиска \cite{Geem}, биогеографии \cite{Simon}, роя светлячков \cite{Yang} и L-BFGS \cite{Mokhtari}. Предложены и реализованы в виде библиотеки алгоритмов шесть двухметодных вычислительных схем решения многоэкстремальных задач оптимизации.
+
+Разработанные алгоритмы исследовались на наборе тестовых задач и <<задач с содержательным смыслом>>, характеризующихся различным уровнем сложности. Все варианты алгоритмов, основанные на комбинациях с методом локального поиска L-BFGS, показали существенные улучшения по сравнению с исходными биоинспирированными алгоритмами. Предложенный подход позволяет строить вычислительные схемы, лежащие в основе эффективных методов исследования задач нелокального поиска. Приводятся результаты вычислительных экспериментов.
+
+
+% Список литературы оформляется подобно ГОСТ-2008.
+% Примеры оформления находятся по этому адресу -
+%     https://narfu.ru/agtu/www.agtu.ru/fad08f5ab5ca9486942a52596ba6582elit.html
+%
+
+\begin{thebibliography}{9} % или {99}, если ссылок больше десяти.
+
+\bibitem{Storn} Storn~R., Price~K. Differential evolution -- a simple and efficient heuristic for global optimization over continuous spaces. J.~of~Global~Optimization. 1997. Vol.~11. Pp.~341--359.
+
+\bibitem{Whitley} Whitley~D. A genetic algorithm tutorial. Statistics~and~computing. 1994. Vol.~4. Pp.~65--85.
+
+\bibitem{Liu} Liu~Y., Ling~X., Shi~Z., Lv~M., Fang~J., Zhang~L. A survey on particle swarm optimization algorithms for multimodal function optimization. J.~of~Software. 2011. Vol.~6. Pp.~2449--2455.
+
+\bibitem{Geem} Geem~Z.W., Kim~J.H., Loganathan~G.V. A new heuristic optimization algorithm: harmony search. Simulation. 2001. Vol.~76. Pp.~60--68.
+
+\bibitem{Simon} Simon~D. Biogeography-based optimization. IEEE~Transactions~on~Evolutionary Computation. 2008. Vol.~12. Pp.~702--713.
+
+\bibitem{Yang} Yang~X.S., He~X. Firefly algorithm: recent advances and applications. International~J.~of~Swarm Intelligence. 2013. Vol.~1. Pp.~36--50.
+
+\bibitem{Mokhtari} Mokhtari~A., Ribeiro~A. Global convergence of online limited memory BFGS. J.~of~Machine~Learning~Research. 2015. Vol.~16. Pp.~3151--3181.
+
+\end{thebibliography}
+
+% После библиографического списка в русскоязычных статьях необходимо оформить
+% англоязычный заголовок.
+
+
+
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

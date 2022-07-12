@@ -1,0 +1,147 @@
+
+\iffalse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the template file for the 6th International conference
+% NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+% June 25-30, 2018
+% Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The preparation of the article is based on the standard llncs class
+% (Lecture Notes in Computer Sciences), which is adjusted with style
+% file of the conference.
+%
+% There are two ways of compilation of the file into PDF
+% 1. Use pdfLaTeX (pdflatex), (LaTeX+DVIPS will not work);
+% 2. Use LuaLaTeX (XeLaTeX will work too).
+% When using LuaLaTeX You will need TTF or OTF CMU fonts
+% (Computer Modern Unicode). The fonts are installed with 'cm-unicode' package in
+% a distribution of LaTeX % (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+% either by downloading and installing these fonts system wide, the address of their page is
+% http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+% The second option won't work in XeLaTeX.
+%
+% For MiKTeX (LaTeX distribution for Windows),
+%  1. Package 'cm-unicode' is installed manually with the MiKTeX administration Console.
+%  2. For the compilation of this example, namely, the stub figure, one will also need to
+% download package 'pgf' manually. This package uses in the popular
+% package tikz.
+%  3. Tests showed that the rest of the required packages MiKTeX loads automatically (if
+%     it is allowed). The 'auto download' option is
+%     configured in 'Settings' section in MiKTeX Console.
+%
+%
+% The easiest way to compile an article is to use pdfLaTeX, but
+% the final layout of the book will be compiled with LuaLaTeX,
+% as a result will be of better quality thanks to the package 'microtype' and
+% use vector OTF instead of standard raster fonts of pdfLaTeX.
+%
+% In the case of questions and problems with the article compilation,
+% write letters to e-mail: eugeneai@irnok.net, Cherkashin Evgeny.
+%
+% New version of the correcting style file will be available at the website:
+%     https://github.com/eugeneai/nla-style
+%     file - nla.sty
+%
+% Further instructions are in the text body of the template. The template itself
+% is an article example.
+%
+% The LaTeX2e format is used!
+
+% 12 points font size is used.
+\documentclass[12pt]{llncs}
+
+% The correcting style file is added.
+\usepackage{todonotes}
+
+\usepackage{nla} % This package is needed for compiling
+                 % this template, it should be removed
+                 % from your article.
+
+% Many popular packages (amsXXX, graphicx, etc.) are already imported in the style file.
+% If there is a conflict with your packages, try disabling them and compile
+% the text.
+%
+% It would be convenient in the layout of the proceedings if the file names
+% of the figures of different authors do not clash.
+% To minimize the clash, the drawings can be placed in a separate subfolder
+% named after the author or the title of the paper.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % specifies the folder with images in png, pdf formats.
+% or
+% \graphicspath{{great-problem-solving-paper-pics/}}.
+
+\begin{document}
+
+% Text should be formatted in accordance with the 'article' class, using extensions like
+% AMS.
+%
+\fi
+
+\title{GRAPE Method for Open Quantum Systems Driven by Coherent and Incoherent Controls}
+% First author
+\author{Vadim~Petruhanov\inst{1}
+  \and
+ Alexander~Pechen\inst{2}
+}
+\institute{Steklov Mathematical Institute of Russian Academy of Sciences, Moscow, Russia;\\
+Moscow Institute of Physics and Technology, Dolgoprudny, Russia;\\
+  \email{vadim.petrukhanov@gmail.com}
+  \and
+Steklov Mathematical Institute of Russian Academy of Sciences, Moscow, Russia;\\
+National University of Science and Technology ``MISIS', Moscow', Russia;\\
+Moscow Institute of Physics and Technology, Dolgoprudny, Russia;\\
+\email{apechen@gmail.com}}
+% etc
+
+\maketitle
+
+\begin{abstract}
+In this work, we discuss our results on adoptation of the GRAPE optimization method for open quantum systems driven by coherent and incoherent controls. Analytic expressions for gradient and Hessian of the objective functional for piece-wise constant controls and for functional controls (in the $L^2$-space) are obtained for general $N$-level quantum systems. The case of one qubit (i.e., $N=2$) is solved in more details. For this case, we find eigenvalues and eigenvectors of the matrix determining controlled evolution of the system in order to diagonalize $3\times3$  matrix exponentials in the obtained expression for gradient. We find that for  constant controls the control space is divided into two domains with different dynamical behavior. Performance of the adopted GRAPE algorithm is illustrated for steering the system from some initial state to some target state. 
+
+\keywords{quantum control, optimal control, coherent control, incoherent control}
+\end{abstract}
+
+% at the end of the list, there should be no final dot
+\section{The main results}
+
+Quantum control studies methods for manipulation of quantum systems, and it is an important tool  essential for developing quantum techonologies~\cite{1}. Controlled quantum systems generally cannot be isolated from the environment, thus they are open quantum systems. Sometimes interaction with the environment can be used as an active source of control, for example, via incoherent control~\cite{2,3}. In some cases the optimal shape of the control can have analytical solution, however more often it is not the case and various numerical optimization methods are required.  Large class of methods are gradient-based numerical optimization algorithms, one of which is GRadient Ascent Pulse Engineering (GRAPE) developed originally for design of NMR pulse sequences~\cite{4} and later applied to various problems, e.g.~\cite{5,6}. 
+
+In this talk, we consider adoption of  GRAPE method to open quantum systems driven by coherent and incoherent controls~\cite{7}. We obtain analytic expression for gradient of Mayer-type objective functional with respect to piecewise constant controls for general $N$-level quantum systems.  The one-qubit system is  solved in more detail. The state of the system is represented by vector in the Bloch ball. Low dimension~$N = 3$ allows the corresponding $3\times3$ matrix exponentials to be analytically diagonalized; for that we compute eigenvalues and eigenvectors of the right-hand side matrix of the system evolution equation. Moreover, we find that in the case of constant coherent and incoherent controls $u\in\mathbb R$ and $n\in\mathbb R_+$, the half-plane $\mathbb R\times \mathbb R_+\ni(u,n)$ can be divided into two domains with different dynamics, similar to phase diagram. In suitable coordinates, the dividing these two domains curve is a plane cubic curve with casp. We illustrate the performance of the algorithm for the problem of steering the system from a given initial state to a given final state in a fixed time for the system consisted of one and two qubits. Additionally, we compute gradient and Hessian (in the sense of Fr\'{e}chet) of the objective functional with respect to controls in the functional space $L^2$, i.e., without piecewise constant assumption on the controls.
+
+This talk presents the work partially funded by Russian Federation represented by the
+Ministry of Science and Higher Education under grant No.075-15-2020-788 and the Russian Science Foundation under grant No.22-11-00330, https://rscf.ru/en/project/22-11-00330/. 
+
+\begin{thebibliography}{9} % or {99}, if there is more than ten references.
+\bibitem{1}
+Glaser~S.J., Boscain~U., Calarco~T., Koch~C.P., K\"{o}ckenberger~W., Kosloff~R., Kuprov~I., Luy~B., Schirmer~S., Schulte-Herbr\"{u}ggen~T., Sugny~D., Wilhelm~F.K. Training Schr\"{o}dinger's cat: quantum optimal control. Eur.~Phys.~J.~D.~2015. Vol.~69. Pp.~279.
+
+\bibitem{2}
+Pechen~A., Rabitz~H. Teaching the environment to control quantum systems. Phys. Rev. A.~2006. Vol.~73. Pp.~062102.
+
+\bibitem{3}
+Pechen~A.N. Engineering arbitrary pure and mixed quantum states. Phys. Rev. A.~2011. Vol.~84. Pp.~042106.
+
+\bibitem{4}
+Khaneja~N., Reiss~T., Kehlet~C., Schulte-Herbr\"{u}ggen~T., Glaser~S.J. Optimal control of coupled spin dynamics: design of NMR pulse sequences by gradient ascent algorithms. Journal of Magnetic Resonance.~2005. Vol.~172. Pp.~296--305.
+
+\bibitem{5}
+De~Fouquieres~P., Schirmer~S.G., Glaser~S.J., Kuprov I. Second order gradient ascent pulse engineering. Journal of Magnetic Resonance.~2011. Vol.~212. Pp.~412--417.
+
+\bibitem{6}
+Pechen~A.N., Tannor~D.J. Quantum control landscape for a Lambda-atom in the vicinity of second-order traps. Israel Journal of Chemistry.~2012. Vol.~52. Pp.~467--472.
+
+\bibitem{8}
+Petruhanov~V.N., Pechen~A.N., Optimal control for state preparation in two-qubit open quantum systems driven by coherent and incoherent controls via GRAPE approach (submitted).
+
+\bibitem{7}
+Petruhanov~V.N., Pechen~A.N. Gradient ascent pulse engineering for open quantum systems driven by coherent and incoherent controls (in preparation).
+
+\end{thebibliography}
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

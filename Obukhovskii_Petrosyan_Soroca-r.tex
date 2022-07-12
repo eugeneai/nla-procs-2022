@@ -1,0 +1,220 @@
+\begin{englishtitle} % Настраивает LaTeX на использование английского языка
+% Этот титульный лист верстается аналогично.
+\title{On the Solvability of a Nonlocal Boundary Value Problem for Fractional Differential Inclusions with Causal Multioperators\thanks{Исследование выполнено при финансовой поддержке РФФИ в рамках научного проекта \textnumero~19-31-60011 и гранта Президента РФ для государственной поддержки молодых российских ученых – кандидатов наук, проект МК-338.2021.1.1.}}
+% First author
+\author{V. Obukhovskii\inst{1}
+  \and
+  G. Petrosyan\inst{1,2}
+  \and
+  M. Soroka\inst{1}
+}
+\institute{Voronezh State Pedagogical University,  Voronezh, Russia\\
+  \email{valerio-ob2000@mail.ru, marya.afanasowa@yandex.ru}
+  \and
+Voronezh State University of Engineering Technologies, Voronezh, Russia\\
+\email{garikpetrosyan@yandex.ru}}
+% etc
+
+\maketitle
+
+\begin{abstract}
+We consider the solvability of a nonlocal boundary value problem for fractional differential inclusions  with causal multioperators based on the topological degree theory for multivalued condensing maps.
+
+\keywords{fractional derivative, differential inclusion, boundary value problem, condensing multioperator, measure of noncompactness, causal multioperator} % в конце списка точка не ставится
+\end{abstract}
+\end{englishtitle}
+
+\iffalse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  This is the template file for the 6th International conference
+%  NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+%  June 25-30, 2018
+%  Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  Верстка статьи осуществляется на основе стандартного класса llncs
+%  (Lecture Notes in Computer Sciences), который корректируется стилевым
+%  файлом конференции.
+%
+%  Скомпилировать файл в PDF можно двумя способами:
+%  1. Использовать pdfLaTeX (pdflatex), (LaTeX+DVIPS не работает);
+%  2. Использовать LuaLaTeX (XeLaTeX будет работать тоже).
+%  При использовании LuaLaTeX потребуются TTF- или OTF-шрифты CMU
+%  (Computer Modern Unicode). Шрифты устанавливаются либо пакетом
+%  дистрибутива LaTeX cm-unicode
+%              (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+%  либо загрузкой и установкой в операционной системе, адрес страницы:
+%              http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+%  Второй вариант не будет работать в XeLaTeX.
+%
+%  В MiKTeX (дистрибутив LaTeX для ОС Windows):
+%  1. Пакет cm-unicode устанавливается вручную в программе MiKTeX Console.
+%  2. Для верстки данного примера, а именно, картинки-заглушки необходимо,
+%     также вручную, загрузить пакет pgf. Этот пакет используется популярным
+%     пакетом tikz.
+%  3. Тест показал, что остальные пакеты MiKTeX грузит автоматически (если
+%     ему разрешено автоматически грузить пакеты). Режим автозагрузки
+%     настраивается в разделе Settings в MiKTeX Console.
+%
+%
+%  Самый простой способ сверстать статью - использовать pdfLaTeX, но
+%  окончательный вариант верстки сборника будет собран в LuaLaTeX,
+%  так как результат получится лучшего качества, благодаря пакету microtype и
+%  использованию векторных шрифтов OTF вместо растровых pdfLaTeX.
+%
+%  В случае возникновения вопросов и проблем с версткой статьи,
+%  пишите письма на электронную почту: eugeneai@irnok.net, Черкашин Евгений.
+%
+%  Новые варианты корректирующего стиля будут доступны на сайте:
+%        https://github.com/eugeneai/nla-style
+%        файл - nla.sty
+%
+%  Дальнейшие инструкции - в тексте данного шаблона. Он одновременно
+%  является примером статьи.
+%
+%  Формат LaTeX2e!
+
+\documentclass[12pt]{llncs}  % Необходимо использовать шрифт 12 пунктов.
+
+% При использовании pdfLaTeX добавляется стандартный набор русификации babel.
+% Если верстка производится в LuaLaTeX, то следующие три строки надо
+% закомментировать, русификация будет произведена в корректирующем стиле автоматом.
+\usepackage{iftex}
+
+\ifPDFTeX
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} % Кодировка utf-8, cp1251 и т.д.
+\usepackage[english,russian]{babel}
+\fi
+
+% Для верстки в LuaLaTeX текст готовится строго в utf-8!
+
+% В операционной системе Windows для редактирования в кодировке utf-8
+% можно использовать программы notepad++ https://notepad-plus-plus.org/,
+% techniccenter http://www.texniccenter.org/,
+% SciTE (самая маленькая по объему программа) http://www.scintilla.org/SciTEDownload.html
+% Подойдет также и встроенный в свежий дистрибутив MiKTeX редактор
+% TeXworks.
+
+% Добавляется корректирующий стилевой файл строго после babel, если он был включен.
+% В параметре необходимо указать russian, что установит не совсем стандартные названия
+% разделов текста, настроит переносы для русского языка как основного и т.п.
+
+\usepackage{todonotes} % Этот пакет нужен для верстки данного шаблона, его
+                       % надо убрать из вашей статьи.
+
+\usepackage[russian]{nla}
+
+% Многие популярные пакеты (amsXXX, graphicx и т.д.) уже импортированы в корректирующий стиль.
+% Если возникнут конфликты с вашими пакетами, попробуйте их отключить и сверстать
+% текст как есть.
+%
+%
+
+
+% Было б удобно при верстке сборника, чтобы названия рисунков разных авторов не пересекались.
+% Чтоб минимизировать такое пересечение, рисунки можно поместить в отдельную подпапку с
+% названием - фамилией автора или названием статьи.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % Указание папки с изображениями в форматах png, pdf.
+% или
+% \graphicspath{{great-problem-solving-paper-pics/}}.
+
+
+\begin{document}
+
+% Текст оформляется в соответствии с классом article, используя дополнения
+% AMS.
+%
+\fi
+
+\title{О разрешимости нелокальной краевой задачи для дифференциальных включений дробного порядка с каузальными мультиоператорами}
+% Первый автор
+\author{В.~В.~Обуховский\inst{1}  % \inst ставит циферку над автором.
+  \and  % разделяет авторов, в тексте выглядит как запятая.
+% Второй автор
+  Г.~Г.~Петросян\inst{1,2}
+  \and
+% Третий автор
+  М.~С.~Сорока\inst{1}
+} % обязательное поле
+
+% Аффилиации пишутся в следующей форме, соединяя каждый институт при помощи \and.
+\institute{Воронежский государственный педагогический университет (ВГПУ), Воронеж, Россия \\
+  \email{valerio-ob2000@mail.ru, marya.afanasowa@yandex.ru}
+  \and   % Разделяет институты и присваивает им номера по порядку.
+Воронежский государственный университет инженерных технологий (ВГУИТ), Воронеж, Россия\\
+  \email{garikpetrosyan@yandex.ru}
+% \and Другие авторы...
+}
+
+\maketitle
+
+\begin{abstract}
+Рассматривается разрешимость нелокальной краевой задачи для дифференциальных включений дробного порядка с каузальными мультиоператорами на основе теории топологической степени для многозначных уплотняющих отображений.
+
+\keywords{дробная производная, дифференциальное включение, краевая задача, уплотняющий мультиоператор, мера некомпактности, каузальный мультиоператор} % в конце списка точка не ставится
+\end{abstract}
+
+\section{Основные результаты} % не обязательное поле
+
+В сепарабельном банаховом пространстве $E$ мы рассматриваем нелокальную краевую задачу для дифференциальных включений дробного порядка следующего вида:
+$$
+^{C}D^{q}_{0}[x(t)-k(t,x_t)]\in Ax(t)+Q(x)(t), \, t\in [0,T],
+$$
+$$
+x(s)+g(x)(s)=\upsilon(s), \, s\in (-\infty,0],
+$$
+где $^{C}D^{q}_{0}, 0<q<1,$ -- дробная производная Капуто, $A: D(A)\subset E\to E$ -- линейный замкнутый оператор, порождающий ограниченную $C_0$-полугруппу. Обозначим через $C=C([0,T];E)$ пространство всех непрерывных функций на отрезке $[0,T],$ $\mathcal{B}$ -- фазовое пространство бесконечных запаздываний Хейла--Като и будем считать $\mathcal{C}=\mathcal{C}((-\infty,T];E)$ нормированным пространством функций, сужение которых на $(-\infty,0]$ принадлежит $\mathcal{B},$ а сужение на $[0,T]$ принадлежит $C.$ Мы полагаем, что $Q:\mathcal{C} \Rightarrow L^p ([0,T];E)$ -- многозначный мультиоператор, $k:[0,T]\times \mathcal{B} \to E$ и $g: \mathcal{C} \to \mathcal{B},$ $x_t\in \mathcal{B}$ -- предыстория функции до момента $t$ и $\upsilon \in \mathcal{B}$ -- заданная функция.
+
+Для разрешения задачи мы в пространстве $\mathcal{C}$ конструируем разрешающий многозначный интегральный оператор и сводим исходную задачу к задаче о существовании неподвижных точек построенного мультиоператора. Для доказательства существования неподвижных точек используется теория мер некомпактности и уплотняющих многозначных отображений.
+
+
+
+
+
+
+
+
+
+ 
+
+\begin{thebibliography}{9} % или {99}, если ссылок больше десяти.
+
+\bibitem{pg 1} Афанасова~М.С., Обуховский~В.В., Петросян~Г.Г. Об обобщенной краевой задаче для управляемой системы с обратной связью и бесконечным запаздыванием~// Вестник Удмуртского университета. Математика. Механика. Компьютерные науки. 2021. Т.~31, №~2. С.~167--185.
+
+\bibitem{pg 2} Ахмеров~Р.Р., Каменский~М.И.  Ко второй теореме Н.Н. Боголюбова в принципе усреднения для функционально-дифференциальных уравнений нейтрального типа~// Дифференциальные уравнения. 1974. Т.~10, №~3. С.~537--540.
+
+\bibitem{pg 3} Каменский~М.И., Макаренков~О.Ю., Нистри~П. Об одном подходе в теории обыкновенных дифференциальных уравнений с малым параметром~// Доклады Академии наук. 2003. Т.~388, №~4. С.~439--442.
+
+\bibitem{pg 4} Каменский~М.И., Пенкин~О.М., Покорный Ю.В. О полугруппе в задаче диффузии на пространственной сети~// Доклады Академии наук. 1999. Т.~368, №~2. С.~157--159.
+
+
+\bibitem{pg 5} Gurova~I.N., Kamenskii~M.I. On the method of semidiscre\-ti\-za\-tion in the problem on periodic solutions to quasilinear autonomous parabolic equations~// Differential Equations. 1996. Vol.~32. Pp.~106--112.
+
+
+\bibitem{pg 6} Johnson~R., Nistri~P., Kamenskii~M. On periodic solutions of a damped wave equation in a thin domain using degree theoretic methods~// Journal of Diffe\-ren\-tial Equations. 1997. Vol.~140. Pp.~186--208.
+
+\bibitem{pg 7} Kamenskii~M., Makarenkov~O., Nistri~P. An alternative approa\-ch to study bifurcation from a limit cycle in periodically perturbed autonomous systems~// Journal of Dynamics and Diffe\-ren\-tial Equations. 2011. Vol.~23. Pp.~425--435.
+
+
+\bibitem{pg 8} Kamenskii~M.I., Obukhovskii~V.V. Condensing multi\-ope\-ra\-tors and periodic solutions of parabolic functional-differe\-ntial inc\-lu\-sions in Banach spaces~// Nonlinear Analysis. 1993. Vol.~20. Pp.~781--792.
+
+\bibitem{pg 9} Kamenskii~M.I., Nistri~P., Zecca~P., Obukhovskii V.V. Optimal feedback control for a semilinear evolution equation~// Journal of Optimi\-za\-tion Theory and Applications. 1994. Vol.~82. Pp.~503--517.
+
+
+\end{thebibliography}
+
+% После библиографического списка в русскоязычных статьях необходимо оформить
+% англоязычный заголовок.
+
+
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

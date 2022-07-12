@@ -1,0 +1,126 @@
+\begin{englishtitle} % Настраивает LaTeX на использование английского языка
+% Этот титульный лист верстается аналогично.
+\title{Estimation Problem for Discrete Systems with Information Delays\thanks{Работа выполнена в рамках исследований, проводимых в Уральском математическом центре
+при финансовой поддержке Министерства науки и высшего образования Российской Федерации
+(номер соглашения \textnumero~075-02-2022-874).}}
+% First author
+\author{Boris Ananyev  \and Polina Yurovskikh 
+}
+\institute{IMM UB RAS, Yekaterinburg, Russia\\
+  \email{abi@imm.uran.ru, polina2104@list.ru}}
+% etc
+
+\maketitle
+\begin{abstract}
+We consider an estimation problem for a linear stationary discrete system under
+uncertainty with measurement delay. The problem is an approximation of the
+corresponding problem for a continuous system. Restrictions on disturbances are
+integral, on the initial state are geometric. The problem consists in constructing
+information sets based on measurement data containing the true state of the system, and
+is solved using cone programming methods. Convergence in the Hausdorff metric of the
+set of the discrete problem to the corresponding set of the continuous system is
+proved.
+\keywords{discrete system, delay, guaranteed estimation, support function, conic optimization} % в конце списка точка не ставится
+\end{abstract}
+\end{englishtitle}
+
+\iffalse
+
+
+\documentclass[12pt]{llncs}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage[russian]{nla}
+\usepackage[active]{srcltx}
+\begin{document}
+\fi
+
+\title{Задача оценивания дискретных систем с запаздыванием в измерении
+}
+\author{Б.~И.~Ананьев   \and П.~А.~Юровских 
+} % обязательное поле
+\institute{ИММ УрО РАН, Екатеринбург, Россия\\
+  \email{abi@imm.uran.ru, polina2104@list.ru}}
+\maketitle
+\begin{abstract}
+Рассматривается задача оценивания для линейной стационарной дискретной системы в
+условиях неопределенности с запаздыванием в измерении. Данная задача представляет собой
+аппроксимацию соответствующей проблемы для непрерывной системы. Ограничения на
+возмущения -- интегральные, на начальное состояние -- геометрические. Рассматриваемая
+задача состоит в построении информационных множеств по данным измерения, содержащих
+истинное состояние системы, и она решается с помощью методов конического
+программирования. Доказывается сходимость в метрике Хаусдорфа множеств дискретной
+задачи к соответствующему множеству непрерывной системы. \keywords{дискретная система,
+запаздывание, гарантированное оценивание, опорная функция, коническая оптимизация}
+\end{abstract}
+
+Пусть задана дискретная система с наблюдением
+\begin{equation}\label{Yurovskikh-eq1}
+	\begin{gathered}
+		x_k=Ax_{k-1} + bv_k, \ \ x_k\in\mathbb{R}^n, \ \ k\in1:N, \\
+		y_k=Gx_{k-1} + cv_k + G_1x_{k-s},\ \ y_k\in\mathbb{R}^m,
+	\end{gathered}	
+\end{equation}
+где $s\in \mathbb{N}$ --- задержка в получении наблюдений, $A,b,G,G_1$ --- матрицы
+соответствующих размерностей. Неизвестные возмущения $v_k$ и начальное состояние $x_0$
+подчинены ограничениям
+\begin{equation}\label{Yurovskikh-eq2}
+	\sum_{k=1}^N|v_k|^2\leq 1, \ \ x_0\in X_0,
+\end{equation}
+где $X_0 = \{x\in\mathbb{R}^n:|x_{(j)}-x_{(j)}^c| \leq \mu_{(j)}\}$ --- бокс,  $x_{(j)}^c
+> 0 $,  $ \mu_{(j)} > 0$, $j = \{1,\ldots,n\}$.
+\begin{definition}\label{Yurovskikh-Dfn2}
+Семейство $\mathcal{X}^N(y)\subset\mathbb{R}^n$ назовем \emph{информационным множеством
+(сокращенно ИМ)}, если оно состоит из всех векторов $x_N$, для каждого из которых
+существует порождающая совместимая пара $(x_0,v_\bullet)$ при $1:N$, удовлетворяющая
+ограничениям \eqref{Yurovskikh-eq2}.
+\end{definition}
+
+Из определения \ref{Yurovskikh-Dfn2} вытекает, что
+$
+	\mathcal{X}^N (y) = \{x_N \in \mathbb{R}^n | \min_v J^N(x_N,v_{1:N})\leq 1 - \sum_{k=1}^N |y_k|^2_C\},
+$
+где функционал представим в виде $J^N(x_N,v_{1:N}) = \sum_{k=1}^N |v_k|^2_{C_1} -|Gx_{k-1}|^2_C -
+ |G_1x_{k-s}|^2_C - 2(cv_k)'CGx_{k-1} - 2(cv_k)'CG_1x_{k-s} - 2(G_1x_{k-s})'CGx_{k-1}  \leq p$. К виду функционала
+можно прийти, используя ортогональное разложение $v_k=c'Ccv_k+C_1v_k$ в пространстве
+$\mathbb{R}^q$, где $C_1=I_q-c'Cc$ --- ортогональная проекция на подпространство
+ker$\,c$.
+
+Поскольку замкнутое выпуклое множество однозначно определяется своей опорной функцией,
+определим для  информационного множества системы \eqref{Yurovskikh-eq1} с ограничениями
+\eqref{Yurovskikh-eq2} величину
+\begin{equation}\label{Yurovskikh-eq5}
+	\rho(l,\mathcal{X}^N(y)) = \max_{x_N} l'x_N, \ \ x_N \in \mathcal{X}^N(y), \ l  \in\mathbb{R}^{n}.
+\end{equation}
+При фиксированном $l$ значение опорной функции можно найти как решение задачи конического
+программирования
+\begin{equation}\label{Yurovskikh-eq7}
+	\begin{gathered}
+		||Q r|| \leq p, \ \
+		Mr \leq w, \ \
+		Hr = h,
+	\end{gathered}
+\end{equation}
+где $r = (x_0, x_1, \dots, x_N, v_1,\dots,v_N )' \in \mathbb{R}^{n+(n+q)N}$. Суммарным
+ограничениям \eqref{Yurovskikh-eq2} соответствует первое неравенство из
+\eqref{Yurovskikh-eq7}, геометрическим ограничениям --- второе неравенство, а последнее
+равенство описывает динамику системы  \eqref{Yurovskikh-eq1}.
+
+В докладе приводится связь параметров непрерывной и дискретной задач и рассматриваются
+примеры. Результаты работы продолжают исследования \cite{Yurovskikh-Ananyev} и используют
+методы из \cite{Yurovskikh-Luenberger}.
+
+\begin{thebibliography}{9} % или {99}, если ссылок больше десяти.
+\bibitem{Yurovskikh-Ananyev} {   Ананьев~Б.И., Юровских~П.А.} О задаче оценивания с
+    раздельными ограничениями на начальные состояния и возмущения~// Тр. Ин-та математики
+    и механики УрО РАН. 2022. Т.~28, №~1. C.~27--39.
+
+\bibitem{Yurovskikh-Luenberger} {  Luenberger~D.G, Ye~Y.} Conic Linear Programming. In:
+    Linear and Nonlinear Prog\-ramming~// International Series in Operations Research and
+    Management Science, 2016, vol 228. Springer, Cham.
+    https://doi.org/10.1007/978-3-319-18842-3 6
+\end{thebibliography}
+
+
+%\end{document}

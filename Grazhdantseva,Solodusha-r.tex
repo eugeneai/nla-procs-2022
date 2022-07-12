@@ -1,0 +1,131 @@
+\begin{englishtitle}
+\title{On an Analytical Solution of a Nonlinear Partial Differential Equation\thanks{Работа выполнена в рамках государственного задания (проект FWEU-2021-0006, тема №~AAAA-A21-121012090034-3) программы фундаментальных исследований РФ на 2021-2030 гг.}}
+\author{E.Yu. Grazhdantseva\inst{1},
+	S.V. Solodusha\inst{2}}
+\institute{Irkutsk State  University, Institute of Mathematics and Information Technologies, Irkutsk, Russia; Melentiev Energy Systems Institute Siberian Branch of the Russian Academy of Sciences, Irkutsk, Russia\\
+	\email{grelyur@mail.ru}
+	\and
+	Melentiev Energy Systems Institute Siberian Branch of the Russian Academy of Sciences, Irkutsk, 664033 Russia\\
+	\email{solodusha@isem.irk.ru}}
+% etc
+
+\maketitle
+
+\begin{abstract}
+The self-similar solution written  for a nonlinear differential equation in partial derivatives of the first order.
+
+\keywords{partial derivative, self-similar solution}
+\end{abstract}
+\end{englishtitle}
+
+\iffalse
+\documentclass[12pt]{llncs}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage[russian]{nla}
+
+%\usepackage[english,russian]{nla}
+
+% \graphicspath{{pics/}} %Set the subfolder with figures (png, pdf).
+
+%\usepackage{showframe}
+\begin{document}
+%\selectlanguage{russian}
+\fi
+
+\title{Об одном аналитическом решении нелинейного дифференциального уравнения в частных производных}
+% Первый автор
+\author{Е.~Ю.~Гражданцева\inst{1}
+	\and
+	% Второй автор
+	С.~В.~Солодуша\inst{2}
+} % обязательное поле
+\institute{ИГУ, Институт математики и информационных технологий, Иркутск, Россия;\\
+	Институт систем энергетики им. Л.\,А.\,Мелентьева СО РАН, Иркутск, Россия\\
+	\email{grelyur@mail.ru}
+	\and
+	Институт систем энергетики им. Л.\,А.\,Мелентьева, Иркутск, Россия;\\
+	ИГУ, Институт математики и информационных технологий, Иркутск, Россия\\
+	\email{solodusha@isem.irk.ru}}
+% Другие авторы...
+
+\maketitle
+
+\begin{abstract}
+Для нелинейного дифференциального уравнения в частных производных первого порядка выписано автомодельное решение.
+
+\keywords{частная производная, автомодельное решение}
+\end{abstract}
+
+\section{Основные результаты} % не обязательное поле
+
+Рассматривается нелинейное дифференциальное уравнение в частных производных
+$$\alpha \frac{\partial u}{\partial t} + \beta \frac{\partial u}{\partial x} +\gamma u^2 =0,  \eqno(1)$$
+где 
+$u=u(x,t): D \to R$
+- функция независимых переменных
+$(x,t),$
+$D=\{(x,t): x \in R, t \in R, t>0 \},$
+$\alpha, \beta, \gamma $
+- действительные числа.
+
+Уравнение (1) имеет автомодельное решение [1] типа
+$\displaystyle u(x,t)=\frac{1}{t} W(y),$
+( здесь 
+$\displaystyle y=\frac{x}{t},$ 
+$ W(y)$ 
+- решение уравнения 
+$(\beta - \alpha y) W' +\gamma W^2 -\alpha W =0,$)
+которое имеет вид
+$$u(x,t)= \frac{\alpha}{\gamma t - C (\beta t - \alpha x)},\eqno(2) $$
+где
+$C$ - произвольная постоянная.
+
+Однако, при 
+$\gamma =0$
+уравнение (1) представляет собой простейшее дифференциальное уравнение в частных производных, общее решение которого определяется формулой [2]
+$$u(x,t)=\varphi (\beta t -\alpha x), \eqno(3)$$
+где
+$\varphi (z)$
+является произвольной дифференцируемой функцией.
+А при 
+$\gamma \ne 0$
+уравнение (1) классифицируется как квазилинейное уравнение, которому сопоставляется система обыкновенных дифференциальных уравнений (характеристических уравнений)
+$$\displaystyle \frac{dt}{\alpha}=\frac{dx}{\beta}=\frac{du}{\gamma u^2}, \eqno(4)$$
+решением которой являются первые интегралы 
+$\beta t -\alpha x=C_1$ 
+и
+$\displaystyle \gamma t +\frac{\alpha}{u} = C_2,$ 
+что позволяет выписать решение уравнения (1) в неявной форме (как общий интеграл системы обыкновенных дифференциальных уравнений (4))
+$$\Phi\left(\beta t -\alpha x, \gamma t +\frac{\alpha}{u}\right) =0, \eqno(5) $$
+где
+$\Phi (\xi, \eta)$
+- произвольная дифференцируемая функция.
+Очевидно, что (3) является следствием (5) при
+$\gamma =0.$
+
+Таким образом, полученное автомодельное решение (2)  описывает подкласс точных решений типа  (5) для уравнения (1) .
+
+
+% Список литературы.
+\begin{thebibliography}{99}
+\bibitem{1}
+% Format for books
+Полянин~А.Д., Зайцев~В.Ф., Журов~А.И. Методы решения нелинейных уравнений математической физики и механики. М.:~ФИЗМАТЛИТ,~2005.
+
+\bibitem{2}
+Филиппов~А.Ф. Сборник задач по дифференциальным уравнениям: учебное пособие для вузов. М.:~Наука,~1992.
+\end{thebibliography}
+
+
+
+
+
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

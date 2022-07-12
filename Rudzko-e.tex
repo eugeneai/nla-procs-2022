@@ -1,0 +1,100 @@
+\iffalse
+
+\documentclass[12pt]{llncs}
+\usepackage{todonotes}
+\usepackage{nla} 
+
+\begin{document}
+\fi
+
+\title{Classical Solution of the First Mixed Problem for the Telegraph Equation with a Nonlinear Potential}
+\author{Viktor Korzyuk\inst{1,2}
+  \and
+  Jan Rudzko\inst{1}
+}
+\institute{Belarusian State University, Minsk, Belarus\\
+  \email{korzyuk@bsu.by}
+  \and
+Institute of Mathematics, National Academy of Sciences of Belarus, Minsk, Belarus\\
+\email{janycz@yahoo.com}}
+
+\maketitle
+
+\begin{abstract}
+For the telegraph equation with a nonlinear potential given in the first quadrant, we consider a mixed problem in which the Cauchy conditions are specified on the spatial half-line and the Dirichlet condition is specified on the time half-line. The solution is constructed by the method of characteristics in an implicit analytical form as a solution of some integral equations. The solvability of these equations, as well as the dependence on the initial data and the smoothness of their solutions, is studied. For the problem in question, the uniqueness of the
+solution is proved and the conditions under which its classical solution exists are established.
+\keywords{telegraph equation, nonlinear potential, nonlinear wave equation, classical solution, mixed problem, matching conditions, method of characteristics}
+\end{abstract}
+
+\section{The main results}
+In the domain $Q=(0, \infty) \times (0, \infty)$ of two independent variables $(t,x) \in Q \subset \mathbb{R}^2$, consider the one-dimensional nonlinear equation
+\begin{equation}\label{korzyuk_eq_base}
+    \Box u(t,x) - \lambda(t, x) f(t, x, u(t, x)) = F(t,x),
+\end{equation}
+where $\Box = \partial_t^2 - a^2 \partial_x^2$ is the d’Alembert operator ($a > 0$ for definiteness), $F$ and $\lambda$ are functions given on the set $\overline{Q}$, and $f$ is a function given on the set $[0, \infty) \times [0, \infty) \times \mathbb{R}$ and satisfying the Lipschitz condition with constant $L$ in the third variable; i.e. $|f(t,x,z_1) - f(t,x,z_2)| \leq L |z_1 - z_2|$. Equation (\ref{korzyuk_eq_base}) is equipped with the initial condition
+\begin{equation}\label{korzyuk_cauchy_base}
+    u(0, x) = \varphi(x), \partial_t u(0, x) = \psi(x), x \in [0, \infty),
+\end{equation}
+and the boundary condition
+\begin{equation}\label{korzyuk_gran_base}
+    u(t, 0) = \mu(t), t \in [0, \infty),
+\end{equation}
+where $\varphi$, $\psi$ and $\mu$ are functions given on the half-line $[0, \infty)$.
+
+{\bf Theorem}. {\it Let the conditions $\lambda \in C^1(\overline{Q})$, $f \in C^1(\overline{Q} \times \mathbb{R})$, $F \in C^1(\overline{Q})$, $\varphi \in C^2([0,\infty))$, $\psi \in C^1([0,\infty))$, and $\mu \in C^2([0,\infty))$ be satisfied, and let the function $f$ satisfy the Lipschitz condition
+with constant $L$ with respect to the third variable. The first mixed problem (\ref{korzyuk_eq_base}) -- (\ref{korzyuk_gran_base}) has a unique
+solution $u$, in the class $C^2(\overline{Q})$ if and only if conditions \begin{align}
+\mu(0) &= \varphi(0), \label{korzyuk_d0_u_sogl} \\
+\mu'(0) &= \psi(0), \label{korzyuk_d1_u_sogl} \\
+\mu ''(0) = \frac{1}{2} \lambda (0,0) (f(0,0,\mu (0))+&f(0,0,\varphi (0)))+F(0,0)+a^2 \varphi ''(0), \label{korzyuk_d2_u_sogl}
+\end{align}
+are satisfied. }
+
+If the given functions of problem (\ref{korzyuk_eq_base}) -- (\ref{korzyuk_gran_base}) do not satisfy the homogeneous matching conditions (\ref{korzyuk_d0_u_sogl}), (\ref{korzyuk_d1_u_sogl}) and (\ref{korzyuk_d2_u_sogl}), then the solution of problem (\ref{korzyuk_eq_base}) -- (\ref{korzyuk_gran_base}) is reduced to solving the corresponding matching problem in which the matching conditions are given on the characteristic $x - a t = 0$.
+
+The following conditions can be taken for the matching conditions:
+\begingroup
+\allowdisplaybreaks
+\begin{align}\label{korzyuk_usl_sop}
+    &[(u)^+ - (u)^-](t, x = a t) = \varphi(0) - \mu(0),  \notag \\ 
+    &[(\partial_t u)^+ - (\partial_t u)^-](t, x = a t) = \psi(0) - \mu'(0) + \notag \\ &+ \frac{1}{4 a} \int\limits_{0}^{2 a t} \lambda \left(\frac{z}{2 a},\frac{z}{2}\right) \left[ f\left(\frac{z}{2 a},\frac{z}{2},(u)^+\left(\frac{z}{2
+    a},\frac{z}{2}\right)\right)-f\left(\frac{z}{2 a},\frac{z}{2},(u)^-\left(\frac{z}{2
+    a},\frac{z}{2}\right)\right)\right] dz, \notag \\
+    &[(\partial_t^2 u)^+ - (\partial_t^2 u)^-](t, x = a t) = F(0, 0) + \frac{\lambda(0, 0)}{2} \left( f(0, 0, (u)^+(0, 0)) + f(0, 0, (u)^-(0, 0)) \right) + \notag \\ &+ 
+    \frac{\lambda(t, a t)}{2} \left(f(t, a t, (u)^+(t, a t)) - f(t, a t, (u)^-(t, a t)) \right) - \mu''(0) + a^2 \varphi''(0) + \frac{1}{8 a} \times \notag \\
+    &\times \int\limits_0^{2 a t} \Bigg\{ \left(a \partial_x \lambda \left(\frac{z}{2 a},\frac{z}{2}\right)-\partial_t \lambda \left(\frac{z}{2
+    a},\frac{z}{2}\right)\right) \left( f\left(\frac{z}{2 a},\frac{z}{2},(u)^-\left(\frac{z}{2
+    a},\frac{z}{2}\right)\right) - f\left(\frac{z}{2 a},\frac{z}{2},(u)^+\left(\frac{z}{2
+    a},\frac{z}{2}\right)\right)\right) + \notag \\ 
+    &+\lambda \left(\frac{z}{2 a},\frac{z}{2}\right) \times \bigg[ \left((\partial_t u)^+\left(\frac{z}{2 a},\frac{z}{2}\right)-a (\partial_x u)^+\left(\frac{z}{2
+    a},\frac{z}{2}\right)\right) \partial_y f\left(\frac{z}{2
+    a},\frac{z}{2},y = (u)^+\left(\frac{z}{2 a},\frac{z}{2}\right)\right)-\notag \\ & \quad\quad\quad\quad\quad\quad\quad - a
+    \partial_x f\left(\frac{z}{2 a},\frac{z}{2},(u)^+\left(\frac{z}{2
+    a},\frac{z}{2}\right)\right)+\partial_t f\left(\frac{z}{2
+    a},\frac{z}{2},(u)^+\left(\frac{z}{2 a},\frac{z}{2}\right)\right) \bigg] - \notag \\
+    &-\lambda \left(\frac{z}{2 a},\frac{z}{2}\right) \times \bigg[ \left((\partial_t u)^-\left(\frac{z}{2 a},\frac{z}{2}\right)-a (\partial_x u)^-\left(\frac{z}{2
+    a},\frac{z}{2}\right)\right) \partial_y f\left(\frac{z}{2
+    a},\frac{z}{2},y = (u)^-\left(\frac{z}{2 a},\frac{z}{2}\right)\right)-\notag \\ & \quad\quad\quad\quad\quad\quad\quad - a
+    \partial_x f\left(\frac{z}{2 a},\frac{z}{2},(u)^-\left(\frac{z}{2
+    a},\frac{z}{2}\right)\right)+\partial_t f\left(\frac{z}{2
+    a},\frac{z}{2},(u)^-\left(\frac{z}{2 a},\frac{z}{2}\right)\right) \bigg] \Bigg\} \ dz.
+\end{align}
+\endgroup
+Here by $()^\pm$ we have denoted the limit values of the function and its partial derivatives calculated on different sides of the characteristic $x - a t = 0$; i.e., $(\partial_t^p u)^\pm(t, x = a t) = \lim\limits_{\delta \to 0+} \partial_t^p u (t, a t \pm \delta)$. 
+
+Now problem (\ref{korzyuk_eq_base}) -- (\ref{korzyuk_gran_base}) can be stated using the matching conditions (\ref{korzyuk_usl_sop}) as follows.
+
+{\bf Problem (\ref{korzyuk_eq_base}) -- (\ref{korzyuk_gran_base}) with matching conditions on characteristics.} Find a classical solution of Eq. (\ref{korzyuk_eq_base}) with the Cauchy conditions (\ref{korzyuk_cauchy_base}), the boundary conditions (\ref{korzyuk_gran_base}), and the matching
+conditions (\ref{korzyuk_usl_sop}).
+
+\begin{thebibliography}{9} % or {99}, if there is more than ten references.
+\bibitem{Korzyuk2018} Korzyuk~V.~I., Kozlovskaya~I.~S., Sokolovich~V.~Yu. Classical solution of the mixed problem in the quarter of the plane for the wave equation. Doklady of the National Academy of Sciences of Belarus. 2018. Vol.~62, no.~6. Pp. 647--651.~[In Russian]
+
+\bibitem{Korzyuk2021} Korzyuk~V.~I., Equations of mathematical physics: textbook. 2nd~ed. Lenand, Moscow, 2021.~[In Russian]
+
+\bibitem{Korzyuk2022} Korzyuk~V.~I., Rudzko~J.~V. Classical solution of the first mixed problem for the telegraph equation with a nonlinear potential. Differential Equations. 2022. Vol.~58, no.~2. Pp. 175--186.
+
+\bibitem{Stolyarchuk2020} Stolyarchuk~I.~I. Classical solutions of mixed problems for the Klein--Gordon--Fock equation. Cand. Sci. (Phys.--Math.) Dissertation. Grodno, 2020.~[In Russian]
+
+\end{thebibliography}
+%\end{document}

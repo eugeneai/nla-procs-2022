@@ -1,0 +1,247 @@
+\iffalse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the template file for the 6th International conference
+% NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+% June 25-30, 2018
+% Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The preparation of the article is based on the standard llncs class
+% (Lecture Notes in Computer Sciences), which is adjusted with style
+% file of the conference.
+%
+% There are two ways of compilation of the file into PDF
+% 1. Use pdfLaTeX (pdflatex), (LaTeX+DVIPS will not work);
+% 2. Use LuaLaTeX (XeLaTeX will work too).
+% When using LuaLaTeX You will need TTF or OTF CMU fonts
+% (Computer Modern Unicode). The fonts are installed with 'cm-unicode' package in
+% a distribution of LaTeX % (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+% either by downloading and installing these fonts system wide, the address of their page is
+% http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+% The second option won't work in XeLaTeX.
+%
+% For MiKTeX (LaTeX distribution for Windows),
+%  1. Package 'cm-unicode' is installed manually with the MiKTeX administration Console.
+%  2. For the compilation of this example, namely, the stub figure, one will also need to
+% download package 'pgf' manually. This package uses in the popular
+% package tikz.
+%  3. Tests showed that the rest of the required packages MiKTeX loads automatically (if
+%     it is allowed). The 'auto download' option is
+%     configured in 'Settings' section in MiKTeX Console.
+%
+%
+% The easiest way to compile an article is to use pdfLaTeX, but
+% the final layout of the book will be compiled with LuaLaTeX,
+% as a result will be of better quality thanks to the package 'microtype' and
+% use vector OTF instead of standard raster fonts of pdfLaTeX.
+%
+% In the case of questions and problems with the article compilation,
+% write letters to e-mail: eugeneai@irnok.net, Cherkashin Evgeny.
+%
+% New version of the correcting style file will be available at the website:
+%     https://github.com/eugeneai/nla-style
+%     file - nla.sty
+%
+% Further instructions are in the text body of the template. The template itself
+% is an article example.
+%
+% The LaTeX2e format is used!
+
+% 12 points font size is used.
+\documentclass[12pt]{llncs}
+
+% The correcting style file is added.
+\usepackage{todonotes}
+
+\usepackage{nla} % This package is needed for compiling
+                 % this template, it should be removed
+                 % from your article.
+
+% Many popular packages (amsXXX, graphicx, etc.) are already imported in the style file.
+% If there is a conflict with your packages, try disabling them and compile
+% the text.
+%
+% It would be convenient in the layout of the proceedings if the file names
+% of the figures of different authors do not clash.
+% To minimize the clash, the drawings can be placed in a separate subfolder
+% named after the author or the title of the paper.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % specifies the folder with images in png, pdf formats.
+% or
+% \graphicspath{{great-problem-solving-paper-pics/}}.
+
+\begin{document}
+
+% Text should be formatted in accordance with the 'article' class, using extensions like
+% AMS.
+%
+
+\fi
+
+\title{On Nonconvex Optimal Control Problems\thanks{The research is supported by the Ministry of Education and Science of the Russian Federation (state registration No. 121041300065-9).}}
+% First author
+\author{Alexander Strekalovsky}
+\institute{Matrosov Institute for System Dynamics and Control Theory of SB of RAS, Irkutsk, Russia\\ 
+\email{strekal@icc.ru}}
+% etc
+
+
+\maketitle
+
+\begin{abstract}
+We address an optimal control (OC) problem along a state-linear control system  with inequality constraints given by the Bolza functionals with state-DC data. Therefore, the problem turns out to be nonconvex, i.e. possesses a large number of locally optimal controls and Pontryaguin's extremals. 
+Using the Exact Penalization Theory, the original Problem is reduced to an auxiliary penalized Problem, which is also state-DC. 
+For the latter OC problem were developed new Global Optimality Conditions which possess the classical constructive property the effectiveness of that is demonstrated by examples. 
+
+\keywords{state-convex and state-DC functionals, nonconvex optimal control problem,  exact penalty, Global Optimality Conditions, constructive property}
+\end{abstract}
+% at the end of the list, there should be no final dot
+
+
+%\section{Statement of the problem}
+Here we address the nonconvex Optimal Control (OC) Problem as follows
+\begin{equation}\label{eq:1}
+   \lefteqn{\hspace{-3.20cm}({\cal P})}
+%\left.
+%\begin{array}{c}
+ J_0 (x(\cdot),u(\cdot)) \downarrow \min\limits_u, \;\;\; 
+ J_i (x(\cdot),u(\cdot)) \leq 0, \;\; i\in I:=\{1,...m\}.
+%\end{array}
+%\right\}
+\end{equation}
+along the next state-linear Control System (StLCS)
+\begin{equation}\label{eq:2}
+\left.
+  \begin{array}{c}
+    \dot{x}(t) = A(t)x(t) + B(u(t),t) \;\;\; \mathop{\forall}\limits^{\circ} t \in T:= ]t_0,t_1[, \\
+    x(t_0) = x_0,\;\; -\infty <t_0<t_1< +\infty;
+  \end{array}
+\right \}
+\end{equation}
+\begin{equation}\label{eq:3}
+  u(\cdot) \in {\cal U} := \{u(\cdot) \in L^r_{\infty}(T) \mid u(t) \in U \;\; \mathop{\forall}\limits^{\circ} t \in T \};
+\end{equation}
+ under standard assumptions \cite{3ChernAnanResh2008,5KurzhVar2014}.
+Here the sign $\mathop{\forall}\limits^{\circ}$ denotes "almost everywhere"$\;$in the sense of the Lebesque measure, and we consider the absolutely continuous solution 
+$
+x(\cdot)=x(\cdot,u) \in AC_n (T)
+$
+to StLCS~(\ref{eq:2}). Besides, the functionals $J_i (\cdot),\;\;i \in \{0\} \cup I$, have the Bolza form
+\begin{equation}\label{eq:4}
+J_i(u): = J_i (x(\cdot),u(\cdot)):=\varphi_{1i}(x(t_1)) + \int\limits_T \varphi_i (x(t),u(t),t) dt,
+\end{equation}
+where the functions  $\varphi_{1i}: I\!\!R^n \rightarrow I\!\!R$ are DC, i.e.
+%\begin{equation}\label{eq:5}
+$ \varphi_{1i}(x):=g_{1i}(x)-h_{1i}(x), \; x \in \Omega_1 \subset I\!\!R^n,$
+%\end{equation}
+where the reachable set ${\cal R}(t_1)$ belongs to $\Omega_1$, and the functions $g_{1i}(\cdot)$, $h_{1i}(\cdot)$ are convex on $\Omega_1$.
+
+
+In addition, the functions $\varphi_i(x,u,t)$ are also state-DC, i.e. have the next DC-decomposition\linebreak
+%\begin{equation}\label{eq:6}
+$ \varphi_{i}(x,u,t):=g_{i}(x,u,t)-h_{i}(x,t),\;\; i \in \{0\} \cup I,$
+%\end{equation}
+$\forall x \in \Omega(t), \; \forall(u,t) \in U \times T$, ${\cal R}(t) \subset \Omega(t), t \in T$, 
+where  the functions $g_i(\cdot)$ and  $h_i(\cdot)$ are state-convex.
+
+Finally, we assume the data from above is state-differentiable. Clearly, the feasible region of Problem $({\cal P})$--(\ref{eq:1})--(\ref{eq:3})
+and Problem $({\cal P})$ itself turn out to be nonconvex, i.e. it may possess a large number of locally optimal, stationary and critical (say, in the sense of the Pontryaguins Principle (PMP)) controls, which may be rather far from the set of globally optimal controls.
+
+To overcome these drawbacks, we apply the popular tools of the Exact Penalization Theory  %\cite{16Eremin1966,17Zangwill1967} 
+introducing the penalty functional
+%\begin{equation}\label{eq:7}
+$\mbox{\Large $\pi$}(u):=\mbox{\Large $\pi$}(x(\cdot),u(\cdot)):=\max\{0,J_1(u),...,J_m(u)\},$
+%\end{equation}
+ the penalized cost functional
+%\begin{equation}\label{eq:8}
+$J_\sigma (u) := J_0 (u)+\sigma\mbox{\Large $\pi$}(u),$
+%\end{equation}
+and addressing the auxiliary (penalized) problem
+\begin{equation}\label{eq:9}
+   \lefteqn{\hspace{-2.85cm}({\cal P}_\sigma)}
+%\left.
+%\begin{array}{c}
+J_\sigma (u)  \downarrow \min\limits_u, \;\;\; u(\cdot) \in {\cal U},
+%\end{array}
+%\right\}
+\end{equation}
+along the control system (\ref{eq:1})--(\ref{eq:2}). As well-known, if there exists the so-called threshold value $\sigma_*$ of the penalty parameter, when %\cite{12JBHULemar1993,17Zangwill1967,18Zaslav2013,19Burke1991,20Dolg2016,21DolgFom2019}
+\begin{equation}\label{eq:10}
+{\cal V}({\cal P})={\cal V}({\cal P}_\sigma),\;\; {\rm Sol}({\cal P})={\rm Sol}({\cal P}_\sigma)\;\;\forall \sigma > \sigma_*,
+\end{equation}
+then  Problems $({\cal P})$ and $({\cal P}_\sigma)$ turns out to be equivalent. Furthermore, we carry out the DC-decomposition of the goal  functional $J_\sigma(u)$ and get
+  \begin{equation}\label{eq:11}
+%\begin{array}{c}
+	J_\sigma (u):=G_\sigma (x(\cdot),u(\cdot))-F_\sigma (x(\cdot)),
+%\end{array}
+\end{equation}
+that the functionals $G_\sigma(x,u)$ and $F_\sigma(x)$ are state-convex.
+
+Employing the
+DC structure of the penalized Problem $({\cal P}_\sigma)$--(\ref{eq:9}), we develop the new Global Optimality Conditions (GOCs) for Problems $({\cal P}_\sigma)$ and $({\cal P})$, which have the following properties.
+
+First,they reduce the solution of the nonconvex OC Problem $({\cal P})$--(\ref{eq:1})--(\ref{eq:3}) to a solving  of Problem $({\cal P}_\sigma)$, that, in turn, is also reduced to the investigation of the family of the (partially)
+linearized and state-convex problems of the form \cite{24Strek2013,25Strek2021,26Strek2019}
+\begin{equation}%\label{eq:12}
+\lefteqn{\hspace{-1.2cm}
+	({\cal P}_\sigma L (y))\colon}
+	\left.
+	\begin{array}{c}
+		\quad\;\Phi_{\sigma y} (x(\cdot,u),u(\cdot))\!:=\!G_\sigma(x(\cdot,u),u(\cdot))\!-\!\langle \langle \nabla F_\sigma (y(\cdot)), x(\cdot,u) \rangle \rangle\!\downarrow \min\limits_u(\cdot),  u(\cdot) \in {\cal U},
+	\end{array}\right.%\}
+\end{equation}
+depending on the pair $(y(\cdot),\beta)\in AC_n(T)\times I\!\! R$, which fulfills the following equation
+$$% \begin{equation*}%\label{eq:13}
+	F_\sigma (y(\cdot))=\beta-\zeta,\;\;\zeta:=J_0(w),
+$$%\end{equation}
+where the control $w(\cdot)\in {\cal U}$ (feasible in Problem $({\cal P})$) and the corresponding state\linebreak  $z(t)=x(t,w),\;t\in T$ are under scrutiny.
+
+
+Furthermore, the GOCs possess the classical constructive (algorithmic) property: once the GOC are violated, then one can find a feasible control $\overline{u}(\cdot)\in {\cal U}$, which is better (in the original  Problem $({\cal P})$--(\ref{eq:1})--(\ref{eq:3})) than this one in question \cite{24Strek2013,25Strek2021,26Strek2019}.
+
+Examples demonstrate  the effectiveness of the constructive property of the GOCs.
+
+
+
+
+
+
+% At the end of the text, acknowledgments are expressed, if you haven't
+% made a footnote from the title. For example, we can write
+%The research is carried on with support of RFBR (RNF, other funds), project No.~00-00-00000.
+
+\begin{thebibliography}{9} % or {99}, if there is more than ten references.
+
+\bibitem{3ChernAnanResh2008}
+	Chernousko F.L., Ananievski I.M., Reshmin S.A. Control of nonlinear dynamical systems: methods and applications. Springer, Berlin, 2008.
+	
+\bibitem{5KurzhVar2014}
+	Kurzhanski A.B., Varaiya, P. Dynamics and control of trajectory tubes: theory and computation. Birkhauser, Boston, 2014.
+	
+\bibitem{24Strek2013}
+    Strekalovsky A.S. Global optimality conditions for optimal control problems with functions of A.D. Alexandrov. J. Optim. Theory Appl. 2013. Vol. 159. Pp. 297--321.
+    
+\bibitem{25Strek2021} Strekalovsky A.S. On Global Optimality Conditions for D.c. Minimization Problems With D.c. Constraints. J. Appl. Numer. Optim. 2021. Vol.~3, No.~1. Pp. 175--196
+
+\bibitem{26Strek2019} Strekalovsky A.S. Global optimality conditions and exact penalization. Optim.	Lett.  2019.~Vol.~13. Pp. 597--615.
+    
+%\bibitem{DLions1976} Duvaut D., Lions J.L. Inequalities in Mechanics and Phisics. Springer, Berlin, 1976.
+%
+%\bibitem{Gur1997}  Gurman V.I. The Extension Principle in Optimal Control Problems. 2nd~ed. Fizmatlit, Moscow, 1997.~[In Russian]
+%
+%\bibitem{Moreau1977} Moreau J.-J. Evolution problem associated with a moving convex set in a Hilbert space. J. Differential Eq.~1977. Vol.~26. Pp.~347--374.
+%
+%\bibitem{BrKr2013}  Brokate M., Krej\u{c}\'{\i} P. Optimal control of ODE systems involving a rate independent variational inequality. Disc. Cont. Dyn. Syst. Ser.~B. 2013. Vol.~18, no~2. Pp.~331--348.
+%
+%\bibitem{Karpinski2014} Kapinski J., Deshmukh J, Sankaranarayanan S., Arechiga N. Simulation-guided Lyapunov analysis for hybrid dynamical systems. In Proceedings of the 17th International Conference on Hybrid Systems: Computation and Control (HSCC 2014), Berlin, Germany, 2014. Pp.~133--142.
+%
+%\bibitem{Forsman1991} Forsman K. Construction of Lyapunov functions using Grobner bases. In Proceedings of the 30th IEEE Conference on Decision and Control, Brighton, UK, 1991. Vol.~1. Pp.~798--799.
+
+\end{thebibliography}
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

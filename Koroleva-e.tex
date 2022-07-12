@@ -1,0 +1,166 @@
+\iffalse
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the template file for the 6th International conference
+% NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+% June 25-30, 2018
+% Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The preparation of the article is based on the standard llncs class
+% (Lecture Notes in Computer Sciences), which is adjusted with style
+% file of the conference.
+%
+% There are two ways of compilation of the file into PDF
+% 1. Use pdfLaTeX (pdflatex), (LaTeX+DVIPS will not work);
+% 2. Use LuaLaTeX (XeLaTeX will work too).
+% When using LuaLaTeX You will need TTF or OTF CMU fonts
+% (Computer Modern Unicode). The fonts are installed with 'cm-unicode' package in
+% a distribution of LaTeX % (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+% either by downloading and installing these fonts system wide, the address of their page is
+% http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+% The second option won't work in XeLaTeX.
+%
+% For MiKTeX (LaTeX distribution for Windows),
+%  1. Package 'cm-unicode' is installed manually with the MiKTeX administration Console.
+%  2. For the compilation of this example, namely, the stub figure, one will also need to
+% download package 'pgf' manually. This package uses in the popular
+% package tikz.
+%  3. Tests showed that the rest of the required packages MiKTeX loads automatically (if
+%     it is allowed). The 'auto download' option is
+%     configured in 'Settings' section in MiKTeX Console.
+%
+%
+% The easiest way to compile an article is to use pdfLaTeX, but
+% the final layout of the book will be compiled with LuaLaTeX,
+% as a result will be of better quality thanks to the package 'microtype' and
+% use vector OTF instead of standard raster fonts of pdfLaTeX.
+%
+% In the case of questions and problems with the article compilation,
+% write letters to e-mail: eugeneai@irnok.net, Cherkashin Evgeny.
+%
+% New version of the correcting style file will be available at the website:
+%     https://github.com/eugeneai/nla-style
+%     file - nla.sty
+%
+% Further instructions are in the text body of the template. The template itself
+% is an article example.
+%
+% The LaTeX2e format is used!
+
+% 12 points font size is used.
+\documentclass[12pt]{llncs}
+
+% The correcting style file is added.
+\usepackage{todonotes}
+
+\usepackage{nla} % This package is needed for compiling
+                 % this template, it should be removed
+                 % from your article.
+
+% Many popular packages (amsXXX, graphicx, etc.) are already imported in the style file.
+% If there is a conflict with your packages, try disabling them and compile
+% the text.
+%
+% It would be convenient in the layout of the proceedings if the file names
+% of the figures of different authors do not clash.
+% To minimize the clash, the drawings can be placed in a separate subfolder
+% named after the author or the title of the paper.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % specifies the folder with images in png, pdf formats.
+% or
+% \graphicspath{{great-problem-solving-paper-pics/}}.
+
+\begin{document}
+
+% Text should be formatted in accordance with the 'article' class, using extensions like
+% AMS.
+%
+\fi
+
+\title{ On the Weak Solution of the Electro-Hydrodynamical Boundary Value Problem for the Unit Cell of Cation-exchange Membrane\thanks{The research is supported by RNF, project No.~20-19-00670.}}
+% First author
+\author{Yulia O. Koroleva 
+ % \and
+%  Name FamilyName2\inst{2}
+%  \and
+%  Name FamilyName3\inst{1}
+}
+\institute{Gubkin State University of Oil and Gas,\\
+ HSE, Moscow, Russia
+  \email{koroleva.y@gubkin.ru}
+  %\and
+%Affiliation, City, Country\\
+%\email{email@example.com}
+}
+% etc
+
+\maketitle
+
+\begin{abstract}
+We study a model problem on the filtration of a conducting fluid through a porous layer. A porous medium is presented as an
+assemblage of identical spherical cells. Each cell consists of a porous core and liquid shell.
+The common case of finite Debye radius in comparison to the cell radius is analyzed. We derive apriori estimates for flow characteristics which show the specific behavior of the fluid. The boundedness of velocity field and pressure defined in the weak sense is justified by the derived estimates.
+
+\keywords{fluid flow, porous medium, weak solution, Debye radius}
+\end{abstract}
+
+% at the end of the list, there should be no final dot
+\section{The main results}
+
+
+Based on the cell method developed by Happel and thermodynamics of irreversible processes (Onsager’s approach), a new method is proposed for calculating the density of solvent – $U,$ solute – $J,$ and electric current – $I$ fluxes through an ion-exchange membrane under the simultaneous action of external pressure gradients $p,$ chemical $\mu$ (electrolyte concentration $C$), and electric potential $\varphi$ \cite{Fil1}. In \cite{Fil1}, the cell model of an ion-exchange membrane consisting of porous charged particles-balls of the same radius is constructed, the problem of finding the kinetic coefficients $L_{ij}$ of the Onsager matrix is posed and solved in general, and an exact algebraic formula for the hydrodynamic permeability $L_{11}$ of the membrane is obtained. In \cite{Fil2}, the electroosmotic permeability $L_{12}$ and the specific electrical conductivity $L_{22}$ of the ion exchange membrane were calculated. In \cite{Fil3}, new formulas are obtained for the integral diffusion permeability $L_{33}$ and electrodiffusion coefficient $L_{23}$ of a charged membrane in equilibrium with an aqueous solution of a binary electrolyte. The cell model was successfully verified using experimental data on the electrical conductivity and electroosmotic permeability of an aqueous solution of hydrochloric acid through the pristine cation-exchange membrane MF-4SC and that modified by halloysite nanotubes and platinum or iron nanoparticles \cite{Fil4}. It is shown that with an increase in the equilibrium concentration of the electrolyte, the total permeability of the membrane also increases due to both barofiltration and electroosmotic transfer of the solvent. Some related statements of problems were investigated in papers \cite{rel2}--\cite{rel3}. The described problem depends on the parameter which is called Debye radius which is the thickness of electric double layer. The results mentioned in \cite{Fil1}--\cite{Fil4} were obtained under the assumption of zero Debye length. In the current research the estimates are derived for the weak solution to the considered boundary-value problem for arbitrarily value of the Debye constant. The boundedness of the velocity filed, pressure and concentrations was established.  The asymptotics of the solution depending on the Debye radius was investigated.
+\vspace{2cm}
+
+
+\begin{center}
+\begin{figure}[ht]
+\centering
+%\includegraphics[width=7cm]{cell.eps}
+\includegraphics[width=0.5\linewidth]{Koroleva_cell2.png}
+\caption{The structure of the membrane}
+ \end{figure}
+\end{center}
+%\end{figure}
+
+
+
+% At the end of the text, acknowledgments are expressed, if you haven't
+% made a footnote from the title. For example, we can write
+The research is carried on with support of RNF,  project No.~20-19-00670.
+
+\begin{thebibliography}{9}
+ % or {99}, if there is more than ten references.
+%\bibitem{DLions1976} Duvaut D., Lions J.L. Inequalities in Mechanics and Phisics. Springer, Berlin, 1976.
+%
+%\bibitem{Gur1997}  Gurman V.I. The Extension Principle in Optimal Control Problems. 2nd~ed. Fizmatlit, Moscow, 1997.~[In Russian]
+%
+%\bibitem{Moreau1977} Moreau J.-J. Evolution problem associated with a moving convex set in a Hilbert space. J. Differential Eq.~1977. Vol.~26. Pp.~347--374.
+\bibitem{Fil1} Filippov A.N.  A Cell Model of an Ion-Exchange Membrane. Hydrodynamic Permeability. Colloid J.~2018. Vol.~80. Pp.~716--727.
+
+\bibitem{Fil2} Filippov A.N.  A Cell Model of an Ion-Exchange Membrane. Electrical Conductivity and Electroosmotic Permeability. Colloid J.~2018. Vol.~80. Pp.~728--738.
+
+\bibitem{Fil3} Filippov A.N.  Cell Model of an Ion-Exchange Membrane. Electrodiffusion Coefficient and Diffusion Permeability. Colloid J.~2021. Vol.~83. Pp.~387--398.
+
+\bibitem{Fil4} Filippov A.N., Shkirskaya S.A.  Verification of the Cell (Heterogeneous) Model of an Ion-Exchange Membrane and Its Comparison with the Homogeneous Model. Colloid J.~2019. Vol.~81. Pp.~597--606.
+
+\bibitem{rel2}  Constantin P., Ignatova M.,  Lee F.-N. Nernst–Planck–Navier–Stokes Systems far
+from Equilibriu.  Arch. Rational Mech. Anal.~2021. Vol.~240. Pp.~1147--1168.
+
+\bibitem{rel3}  Constantin P., Ignatova M.,  Lee F.-N.  Interior Electroneutrality in
+Nernst–Planck–Navier–Stokes Systems. Arch. Rational Mech. Anal.~2021. Vol.~42. Pp.~1091--1118.
+
+%\bibitem{BrKr2013}  Brokate M., Krej\u{c}\'{\i} P. Optimal control of ODE systems involving a rate independent variational inequality. Disc. Cont. Dyn. Syst. Ser.~B. 2013. Vol.~18, no~2. Pp.~331--348.
+%
+%\bibitem{Karpinski2014} Kapinski J., Deshmukh J, Sankaranarayanan S., Arechiga N. Simulation-guided Lyapunov analysis for hybrid dynamical systems. In Proceedings of the 17th International Conference on Hybrid Systems: Computation and Control (HSCC 2014), Berlin, Germany, 2014. Pp.~133--142.
+%
+%\bibitem{Forsman1991} Forsman K. Construction of Lyapunov functions using Grobner bases. In Proceedings of the 30th IEEE Conference on Decision and Control, Brighton, UK, 1991. Vol.~1. Pp.~798--799.
+
+\end{thebibliography}
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,266 @@
+\begin{englishtitle} % Настраивает LaTeX на использование английского языка
+% Этот титульный лист верстается аналогично.
+\title{Optimal Control of Manipulator\thanks{Работа выполнена при финансовой поддержке Российского Научного Фонда, проект \textnumero~22-21-00714.}}
+% First author
+\author{Jury Dolgy 
+  \and
+  Ilya Chupin
+  %\and
+  %Name FamilyName3\inst{1}
+}
+\institute{Ural Federal university, Ekaterinburg, Russia\\
+  \email{jury.dolgy@urfu.ru, mr.tchupin@yandex.ru}}
+% etc
+
+\maketitle
+
+\begin{abstract}
+The development of effective methods and algorithms for manipulator control is associated with optimizing the execution time of a work operation. In \cite{Chernousko}, when solving performance problems for various models of manipulators, the Pontryagin maximum principle is used. The problem of finding the switching moments of relay controls for the flat movement of the load in \cite{Akulenko} is solved under the condition of slow rotation of the manipulator arm. In this paper, we propose a method for solving the latter problem without additional restrictions.
+
+\keywords{optimal control, Pontryagin maximum principle, manipulator} % в конце списка точка не ставится
+\end{abstract}
+\end{englishtitle}
+
+\iffalse
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  This is the template file for the 6th International conference
+%  NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+%  June 25-30, 2018
+%  Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  Верстка статьи осуществляется на основе стандартного класса llncs
+%  (Lecture Notes in Computer Sciences), который корректируется стилевым
+%  файлом конференции.
+%
+%  Скомпилировать файл в PDF можно двумя способами:
+%  1. Использовать pdfLaTeX (pdflatex), (LaTeX+DVIPS не работает);
+%  2. Использовать LuaLaTeX (XeTeX не будет работать).
+%  При использовании LuaLaTeX потребуются TTF- или OTF-шрифты CMU
+%  (Computer Modern Unicode). Шрифты устанавливаются либо пакетом
+%  дистрибутива LaTeX cm-unicode
+%              (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+%  либо загрузкой и установкой в операционной системе, адрес страницы:
+%  http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+%
+%  В MiKTeX (дистрибутив LaTeX для ОС Windows):
+%  1. Пакет cm-unicode устанавливается вручную в программе MiKTeX Console.
+%  2. Для верстки данного примера, а именно, картинки-заглушки необходимо,
+%     также вручную, загрузить пакет pgf. Этот пакет используется популярным
+%     пакетом tikz.
+%  3. Тест показал, что остальные пакеты MiKTeX грузит автоматически (если
+%     ему разрешено автоматически грузить пакеты). Режим автозагрузки
+%     настраивается в разделе Settings в MiKTeX Console.
+%
+%
+%  Самый простой способ сверстать статью - использовать pdfLaTeX, но
+%  окончательный вариант верстки сборника будет собран в LuaLaTeX,
+%  так как результат получится лучшего качества.
+%
+%  В случае возникновения вопросов и проблем с версткой статьи,
+%  пишите письма на электронную почту: eugeneai@irnko.net, Черкашин Евгений
+%
+%  Новые варианты корректирующего стиля будут доступны на сайте:
+%        https://github.com/eugeneai/nla-style
+%        файл - nla.sty
+%
+%  Дальнейшие инструкции - в тексте данного шаблона. Он одновременно
+%  является примером статьи.
+%
+%  Формат LaTeX2e!
+
+\documentclass[12pt]{llncs}  % Необходимо использовать шрифт 12 пунктов.
+
+% При использовании pdfLaTeX добавляется стандартный набор русификации babel.
+% Если верстка производится в LuaLaTeX, то следующие три строки надо
+% закомментировать, русификация будет произведена в корректирующем стиле автоматом.
+\usepackage[T2A]{fontenc}
+\usepackage[cp1251]{inputenc} % Кодировка utf-8, win1251 (cp1251) не тестировалась.
+\usepackage[english,russian]{babel}
+
+% Для верстки в LuaLaTeX текст готовится строго в utf-8!
+
+% В операционной системе Windows для редактирования в кодировки utf-8
+% можно использовать программы notepad++ https://notepad-plus-plus.org/,
+% techniccenter http://www.texniccenter.org/,
+% SciTE (самая маленькая по объему программа) http://www.scintilla.org/SciTEDownload.html
+% Подойдет также и встроенный в свежий дистрибутив MiKTeX редактор
+% TeXworks.
+
+% Добавляется корректирующий стилевой файл строго после babel, если он был включен.
+% В параметре необходимо указать russian, что установит не совсем стандартные названия
+% разделов текста, настроит переносы для русского языка как основного и т.п.
+
+%\usepackage{todonotes} % Удрать из вашей статьи, нужен для верстки данного шаблона.
+
+\usepackage[russian]{nla}
+
+% Многие популярные пакеты (amsXXX, graphicx и т.д.) уже импортированы в корректирующий стиль.
+% Если возникнут конфликты с вашими пакетами, попробуйте их отключить и сверстать
+% текст как есть.
+%
+%
+
+
+% Было б удобно при верстке сборника, чтобы названия рисунков разных авторов не пересекались.
+% Чтоб минимизировать такое пересечение, рисунки можно поместить в отдельную подпапку с
+% названием - фамилией автора или названием статьи.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % Указание папки с изображениями в форматах png, pdf.
+% или
+% \graphicspath{{great-problem-solving-paper-pics/}} % Указание папки с изображениями в форматах png, pdf.
+
+
+\begin{document}
+
+% Текст оформляется в соответствии с классом article, используя дополнения
+% AMS.
+%
+\fi
+
+\title{Оптимальное управление манипулятором}
+% Первый автор
+\author{Ю.~Ф.~Долгий  
+  \and  % разделяет авторов, в тексте выглядит как запятая.
+% Второй автор
+  И.~А.~Чупин 
+  %\and
+} % обязательное поле
+
+% Аффилиации пишутся в следующей форме, соединяя каждый институт при помощи \and.
+\institute{Уральский федеральный университет, Екатеринбург, Россия\\
+  \email{jury.dolgy@urfu.ru, mr.tchupin@yandex.ru}
+% \and Другие авторы...
+}
+
+\maketitle
+
+\begin{abstract}
+Разработка эффективных способов и алгоритмов управления манипуляторов связана с оптимизацией времени выполнения рабочей операции. В \cite{Chernousko} при решении задач быстродействия для различных моделей манипуляторов используется принцип максимума Понтрягина. Задача нахождения моментов переключения релейных управлений для плоского движения груза в \cite{Akulenko} решена при условии медленного вращения руки манипулятора. В настоящей работе предлагается метод решения последней задачи без дополнительных ограничений.
+
+\keywords{оптимальное управление, принцип максимума Понтрягина, манипулятор} % в конце списка точка не ставится
+\end{abstract}
+
+\section{Основные результаты} % не обязательное поле
+
+Плоское движение манипулятора описывается уравнениями \cite{Chernousko}
+\begin{equation}
+	\begin{gathered}
+	 \left( J_1+J_2+m_2 x^2\right)\ddot{\varphi}+2 m_2 x \dot{x} \dot{\varphi} = M(t), \\
+	 m_2 \left( \ddot{x}-x \dot{\varphi}^2 \right) = F(t),	
+	\end{gathered}
+\label{sys}
+\end{equation}
+где $\varphi$ -- угол поворота руки, $x$ -- координата центра масс руки, $m_2$ -- масса руки, $J_1$ -- суммарный момент вала и направляющей руки, $J_2$ -- момент инерции руки.
+
+Управление манипулятором осуществляется при помощи момента сил $M$ относительно оси вала и горизонтальной силы $F$ приложенной к руке. Требуется найти программные управления, переводящие систему \eqref{sys} из заданного начального состояния
+\begin{equation*}
+	\varphi(0) = 0, \quad \dot{\varphi}(0) = 0, \quad x(0)=x_0>0, \quad \dot{x}(0)=0
+	\label{nachusl}
+\end{equation*}
+в заданное конечное состояние
+\begin{equation*}
+	\varphi(T_{\varphi})=\varphi_T>0, \quad \dot{\varphi}(T_{\varphi}) = 0, \quad x(T_x) = x_T > x_0, \quad \dot{x}(T_x)=0,
+	\label{endusl} 
+\end{equation*}
+при условии, что для программных управлений выполняются ограничения
+\begin{equation*}
+	\begin{gathered}
+	|M(t)|\leq M_0, \quad t \in (O, T_{\varphi}], \quad M(t)=0, t > T_{\varphi}\\
+	|F(t)|\leq F_0, \quad t \in (O, T_{x}], \quad F(t)=0, t > T_{x}, T_{\varphi}<T_x.\\
+	\end{gathered}
+\end{equation*}
+В предлагаемой постановке задачи времена перехода в заданное конечное состояние по координатам $\varphi$ и $x$ могут быть различными. После прихода в конечное состояние значения координат не меняются.
+
+В \cite{Akulenko} рассматривалась ослабленная задача программного управления, в которой в конечном состоянии нет требования нулевых скоростей. Используя условие медленного вращения руки, во втором уравнении системы \eqref{sys} отбрасывалось нелинейное слагаемое. В результате при нахождении релейных управлений использовались аналитические методы интегрирования дифференциальных уравнений.
+
+В настоящей работе релейные управления определяются формулами
+\begin{equation*}
+	M(t) =
+	 		\begin{cases}
+			M_0, & 0 < t \leq t_{\varphi}\\
+			- M_0, & t_{\varphi} < t \leq T_{\varphi} 
+		\end{cases},
+	\quad
+	F(t) =
+		\begin{cases}
+			F_0, & 0 < t \leq t_x\\
+			- F_0, & t_x < t \leq T_x 
+		\end{cases}.
+\end{equation*}
+Решается задача нахождения моментов переключения релейных управлений.
+
+\begin{theorem} Пусть выполнено условие
+\begin{equation*}
+	x(T_{\varphi}, T_{\varphi}) + \frac{m_2\,\dot{x}^2 (T_{\varphi}, T_{\varphi})}{2 \,F_0} \leq x_T.
+\end{equation*}
+Тогда моменты переключения релейных управлений определяются системой уравнений
+\begin{equation*}
+\int_{0}^{T_{\varphi}} \frac{M_0 \, \alpha(s, T_{\varphi})\,ds}{J_1 + J_2 + m_2\,x^2(s, T_{\varphi})}=\varphi_T,
+\end{equation*}
+\begin{equation*}
+	T_x = T_{\varphi} - \frac{m_2\, \dot{x}(T_{\varphi}, T_{\varphi})}{F_0} + 2 \sqrt{\frac{m_2^2\, \dot{x}^2(T_{\varphi}, T_{\varphi})}{2\,F_0^2} + \frac{m_2}{F_0}\left( x_T - x(T_{\varphi}, T_{\varphi}) \right)},
+\end{equation*}
+\begin{equation*}
+	t_x = T_{\varphi} - \frac{m_2\, \dot{x}(T_{\varphi}, T_{\varphi})}{F_0} +  \sqrt{\frac{m_2^2\, \dot{x}^2(T_{\varphi}, T_{\varphi})}{2\,F_0^2} + \frac{m_2}{F_0}\left( x_T - x(T_{\varphi}, T_{\varphi}) \right)}.
+\end{equation*}
+Здесь $x(t, T_{\varphi}), \, 0 \leq t \leq T_{\varphi}$ -- решение дифференциального уравнения 
+\begin{equation*}
+	\ddot{x} - \frac{M_0^2\,\alpha^2(t, T_{\varphi})\,x}{\left(J_1 + J_2 + m_2\,x^2 \right)^2} = \frac{F_0}{m_2},
+\end{equation*}
+удовлетворяющее начальным условиям $x(0, T_{\varphi}) = 0$, $\dot{x}(0, T_{\varphi}) = 0$.
+\end{theorem}
+
+\section{Заключение} 
+Предложенный метод использовался при построении оптимальных по быстродействию программных управлений. Для нахождения моментов переключения релейных управлений применялись численные методы.
+
+% Рисунки и таблицы оформляются по стандарту класса article. Например,
+
+
+
+% Современные издательства требуют использовать кавычки-елочки << >>.
+
+% В конце текста можно выразить благодарности, если этого не было
+% сделано в ссылке с заголовка статьи, например,
+%Работа выполнена при поддержке РНФ, проект \textnumero~22-21-00714.
+%
+
+% Список литературы оформляется подобно ГОСТ-2008.
+% Примеры оформления находятся по этому адресу -
+%     https://narfu.ru/agtu/www.agtu.ru/fad08f5ab5ca9486942a52596ba6582elit.html
+%
+
+\begin{thebibliography}{9} % или {99}, если ссылок больше десяти.
+
+\bibitem{Chernousko} Черноусько~Ф.Л., Болотник~Н.Н., Градецкий~В.Г. Манипуляционные роботы: динамика, управление, оптимизация. М.:~Наука,~1989.
+
+\bibitem{Akulenko} Акуленко~Д.Д., Болотник~Н.Н., Каплунов~А.А. Некоторые режимы управления промышленными роботами~// Изв. АН СССР. Техн. Кибернетика. 1985
+
+%\bibitem{Gantmakher} Гантмахер~Ф.Р. Теория матриц. М.:~Наука,~1966.
+
+
+%\bibitem{Kholl} Современные численные методы решения обыкновенных дифференциальных уравнений~/ Под~ред.~Дж.~Холл, Дж.~Уатт. М.:~Мир,~1979.
+
+%\bibitem{Aleksandrov1} Александров~А.Ю. Об устойчивости сложных систем в критических случаях~// Автоматика и телемеханика. 2001. \textnumero~9. С.~3--13.
+
+%\bibitem{Moreau1977} Moreau~J.-J. Evolution problem associated with a moving convex set in a Hilbert space~// J.~Differential~Eq. 1977. Vol.~26. Pp.~347--374.
+
+%\bibitem{Semenov} Семенов~А.А. Замечание о вычислительной сложности известных предположительно односторонних функций~// Тр.~XII Байкальской междунар. конф. <<Методы оптимизации и их приложения>>. Иркутск, 2001. С.~142--146.
+
+\end{thebibliography}
+
+% После библиографического списка в русскоязычных статьях необходимо оформить
+% англоязычный заголовок.
+
+
+
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

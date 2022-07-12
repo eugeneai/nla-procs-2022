@@ -1,0 +1,129 @@
+\begin{englishtitle}
+\title{On the Spectrum of One Class of Integral-Functional Operators in Solving  Nonlinear Volterra  Loaded Equations}
+% First author
+\author{Nikolay Sidorov, 
+             Lev Sidorov}
+\institute{ISU, Irkutsk, Russia\\
+  \email{sidorovisu@gmail.com, lev.ryan.lev@gmail.com}}
+% etc
+
+\maketitle
+
+\begin{abstract}
+	
+
+\keywords{Integral-functional operator, eigenfunctions, integer analytic functions, Volterra equations}
+
+~\\
+
+The eigenvalues and eigenfunctions are constructed for the following operators:
+$$ Ax = \int\limits_a^b f(x)dx + a(t)x_{\alpha},$$
+where  $x_{\alpha} = x ( \alpha (t))$  or  $x_{\alpha} = \int\limits_a^bx(t)d\alpha(t)$  is Stieltjes functional  (load), $a(t)$ and  $\alpha(t)$ 
+are given functions.
+
+
+%В ряде простых случаев собственные функции таких операторов легко построить в классе целых аналитических функций.
+
+\begin{example}
+	For operators $Ax = \int\limits_0^bx(s)ds + x(\dfrac{t}{2})$  eigenvalue $\lambda = 1$.  Corresponding eigenfunction  $\phi(t)$  for  $ t \in \mathbb{R}$  is constructed as following series
+	
+	$$\sum_{n=0}^{\infty} a_n\cdot t^n$$
+	
+	$$a_{0} = 1, a_{n} = \frac{2^{n}}{n(2^{n}-1)}a_{n-1}, n = 1, 2, ...$$
+\end{example}
+
+
+%Излагаемый аналитический метод построения собственнных чисел и собственных функций оператора $A$ используется при построении разветвляющихся решений нелинейных интегральных уравнений Вольтерра рассмотренных в работе [ДифУр 2021 №12 
+The presented analytical method for constructing eigennumbers and eigenfunctions of the operator $A$ is used in constructing branching solutions of the nonlinear Volterra integral equations considered in [1].
+
+\begin{thebibliography}{99}
+	\bibitem{1}
+	% Format for Journal Reference
+	Sidorov N.A., Sidorov D.N.  {\it Nonlinear Volterra Equations with Loads and Bifurcation Parameters: Existence Theorems and Construction of Solutions.} Diff Equat. 2021.  Vol. 57. 1640--1651.
+	% Format for books
+	
+	% etc
+\end{thebibliography}
+
+\end{abstract}
+\end{englishtitle}
+
+\iffalse
+
+\documentclass[12pt]{llncs}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage[russian]{nla}
+
+%\usepackage[english,russian]{nla}
+
+% \graphicspath{{pics/}} %Set the subfolder with figures (png, pdf).
+
+%\usepackage{showframe}
+\begin{document}
+%\selectlanguage{russian}
+\fi
+
+\title{О роли спектра одного класса интегрально-функциональных операторов в решении нелинейных уравнений  Вольтерра с нагрузками}
+% Первый автор
+\author{Н.~А.~Сидоров 
+  \and
+% Второй автор
+  Л.~Д.~Сидоров 
+} % обязательное поле
+\institute{Иркутский государственный университет (ИГУ), Иркутск, Россия\\
+  \email{sidorovisu@gmail.com, lev.ryan.lev@gmail.com}}
+
+\maketitle
+
+\begin{abstract}
+
+\keywords{ Интегрально-функциональный оператор, собственные функции, целые аналитические функции, уравнения Вольтерра }
+\end{abstract}
+
+Строятся собственные числа и собственные функции операторов вида:
+$$ Ax = \int\limits_a^b f(x)dx + a(t)x_{\alpha},$$
+где $x_{\alpha} = x ( \alpha (t))$  или $x_{\alpha} = \int\limits_a^bx(t)d\alpha(t)$ -- функционал Стилтьеса, называемый в приложениях нагрузкой, $a(t)$ и $\alpha(t)$ -- заданные функции.
+
+В ряде простых случаев собственные функции таких операторов легко построить в классе целых аналитических функций.
+
+\begin{example}
+	 У оператора $Ax = \int\limits_0^bx(s)ds + x\bigl(\dfrac{t}{2}\bigr)$ собственное число $\lambda = 1$, а соответствующая собственная функция $\phi(t)$ при $ t \in \mathbb{R}$ строится в виде сходящегося ряда:
+	 
+	 	$$\sum_{n=0}^{\infty} a_n\cdot t^n$$
+	 	
+    	$$a_{0} = 1, a_{n} = \frac{2^{n}}{n(2^{n}-1)}a_{n-1}, \,\, n = 1, 2, ...$$
+\end{example}
+
+
+Излагаемый аналитический метод построения собственнных чисел и собственных функций оператора $A$ используется при построении разветвляющихся решений нелинейных интегральных уравнений Вольтерра, рассмотренных в работе [1].
+
+%Sidorov, N.A., Sidorov, D.N. Nonlinear Volterra Equations with Loads and Bifurcation Parameters: Existence Theorems and Construction of Solutions. Diff Equat 57, 1640–1651 (2021). https://doi.org/10.1134/S0012266121120107
+
+%Aida-zade, Kamil R., and Vagif M. Abdullayev. "Solution to a class of inverse problems for a system of loaded ordinary differential equations with integral conditions." Journal of Inverse and Ill-posed Problems 24.5 (2016): 543-558.
+
+%Abdullayev, V. M., & Aida-zade, K. R. (2017). Optimization of loading places and load response functions for stationary systems. Computational Mathematics and Mathematical Physics, 57(4), 634-644.
+
+%Kozhanov, A. I. (2004). Nonlinear loaded equations and inverse problems. Zhurnal Vychislitel'noi Matematiki i Matematicheskoi Fiziki, 44(4), 694-716.
+% Список литературы.
+\begin{thebibliography}{99}
+\bibitem{1}
+% Format for Journal Reference
+Sidorov N.A., Sidorov D.N.  {  Nonlinear Volterra Equations with Loads and Bifurcation Parameters: Existence Theorems and Construction of Solutions.} Diff Equat. 2021.  Vol. 57. Pp. 1640--1651.
+% Format for books
+
+% etc
+\end{thebibliography}
+
+
+
+
+
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

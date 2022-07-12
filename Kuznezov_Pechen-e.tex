@@ -1,0 +1,176 @@
+
+
+\iffalse
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the template file for the 6th International conference
+% NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+% June 25-30, 2018
+% Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The preparation of the article is based on the standard llncs class
+% (Lecture Notes in Computer Sciences), which is adjusted with style
+% file of the conference.
+%
+% There are two ways of compilation of the file into PDF
+% 1. Use pdfLaTeX (pdflatex), (LaTeX+DVIPS will not work);
+% 2. Use LuaLaTeX (XeLaTeX will work too).
+% When using LuaLaTeX You will need TTF or OTF CMU fonts
+% (Computer Modern Unicode). The fonts are installed with 'cm-unicode' package in
+% a distribution of LaTeX % (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+% either by downloading and installing these fonts system wide, the address of their page is
+% http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+% The second option won't work in XeLaTeX.
+%
+% For MiKTeX (LaTeX distribution for Windows),
+%  1. Package 'cm-unicode' is installed manually with the MiKTeX administration Console.
+%  2. For the compilation of this example, namely, the stub figure, one will also need to
+% download package 'pgf' manually. This package uses in the popular
+% package tikz.
+%  3. Tests showed that the rest of the required packages MiKTeX loads automatically (if
+%     it is allowed). The 'auto download' option is
+%     configured in 'Settings' section in MiKTeX Console.
+%
+%
+% The easiest way to compile an article is to use pdfLaTeX, but
+% the final layout of the book will be compiled with LuaLaTeX,
+% as a result will be of better quality thanks to the package 'microtype' and
+% use vector OTF instead of standard raster fonts of pdfLaTeX.
+%
+% In the case of questions and problems with the article compilation,
+% write letters to e-mail: eugeneai@irnok.net, Cherkashin Evgeny.
+%
+% New version of the correcting style file will be available at the website:
+%     https://github.com/eugeneai/nla-style
+%     file - nla.sty
+%
+% Further instructions are in the text body of the template. The template itself
+% is an article example.
+%
+% The LaTeX2e format is used!
+
+% 12 points font size is used.
+\documentclass[12pt]{llncs}
+
+% MY PACKAGES
+\usepackage{amssymb}
+%%%%%%%%%%%%%
+
+% The correcting style file is added.
+\usepackage{todonotes}
+
+\usepackage{nla} % This package is needed for compiling
+                 % this template, it should be removed
+                 % from your article.
+
+% Many popular packages (amsXXX, graphicx, etc.) are already imported in the style file.
+% If there is a conflict with your packages, try disabling them and compile
+% the text.
+
+% It would be convenient in the layout of the proceedings if the file names
+% of the figures of different authors do not clash.
+% To minimize the clash, the drawings can be placed in a separate subfolder
+% named after the author or the title of the paper.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % specifies the folder with images in png, pdf formats.
+% or
+% \graphicspath{{great-problem-solving-paper-pics/}}.
+
+\begin{document}
+
+% Text should be formatted in accordance with the 'article' class, using extensions like
+% AMS. 
+%
+\fi
+
+\title{On Controllability of a Highly Degenerate Four-level Quantum System with a ``Chained'' Coupling Hamiltonian\thanks{This work was supported by the Russian Science Foundation under grant № 22-11-00330, https://rscf.ru/en/project/22-11-00330/}}
+% First author
+\author{Sergey Kuznetsov 
+  \and
+  Alexander Pechen 
+}
+\institute{Department of Mathematical Methods for Quantum Technologies,\\ Steklov Mathematical Institute 
+of Russian Academy of Sciences, Moscow, Russia\\
+  \email{kuznetsov.sa@phystech.edu, apechen@gmail.com}
+}
+% etc
+
+\maketitle
+
+\begin{abstract}
+The presented work is devoted to the quantum controllability problem for closed four-level systems with three excited states having the same energy and driven by a electromagnetic control field which allows transitions only between adjacent basis states. These systems are faced in up-to-date analysis of higher order traps in quantum control landscapes and, due to our main result, turn out to be completely controllable without physically relevant restrictions on matrix elements of the corresponding interaction Hamiltonian.
+
+\keywords{quantum control, controllability, four-level quantum systems}
+\end{abstract}
+
+% at the end of the list, there should be no final dot
+\section{The considered problem and the main results}
+Our work \cite{nnKuznetsov} investigates controllability~\cite{nnAlbertini,nnBoscain,nnTurinici} of a specific class of four-level quantum systems defined by the following Hamiltonian
+\begin{equation}
+     H = H_{0} + u (t) V
+\end{equation}
+with
+\begin{equation}\label{SK_hamiltonians}
+    H_{0} =\Omega \begin{pmatrix} -3 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \end{pmatrix}, \quad V = \begin{pmatrix} 0 & v_{12} & 0 & 0 \\
+    v_{12}^{*} & 0 & v_{23} & 0 \\
+    0 & v_{23}^{*} & 0 & v_{34} \\
+    0 & 0 & v_{34}^{*} & 0 \end{pmatrix}
+\end{equation}
+where $H_{0}$, $ V $ are time-invariant bare and coupling Hamiltonians respectively, while $ u(t) \in L^{2} \left( [0, T], \, \mathbb{R} \right) $ is an arbitrary function of time which represents the coherent control. We consider that $ H $ describes dynamics of the quantum system under this control in terms of the corresponding unitary evolution operator $ U_{t}^{u} $ and the Schr\"{o}dinger equation
+\begin{equation}
+    \frac{d}{dt} U_{t}^{u} = -i H U_{t}^{u}, \qquad U_{t = 0}^{u} = \mathbb I_{N}
+\end{equation}
+The presented system belongs to a family of quantum systems which, inter alia, are faced when exploring the quantum control landscapes problem~\cite{Pechen}. For this reason, it is necessary to obtain more information on its controllability.
+
+The considered quantum system has been approached before in~\cite{nnSchirmer}, but only for real-valued coefficients in $ V $. This talk presents the results of~\cite{nnKuznetsov}, where, as our main contribution, we investigate properties of this system with regards to complete controllability for arbitrary non-zero complex values of the coefficients $v_{12}, v_{23}, v_{34}$. We use the criteria by Polack, Thomas and Tannor to reveal that the system is irreducible~\cite{Polack}, which is a necessary condition for a quantum system to be controllable. We also show that this property holds for the similar systems of higher dimensions. After that, we apply a special recurrent algorithm~\cite{nnAlessandro} to generate a basis of the system's dynamical Lie algebra and explore its structure. Defining the following commutators
+\begin{equation}
+    \begin{split}
+        & C_{0}^{1} = - i H_{0} \\
+        & C_{0}^{2} = - i V \\
+        & C_{1}^{1} = \left[C_{0}^{1}, C_{0}^{2}\right] \\
+        & C_{k}^{n} = \begin{cases}
+            \displaystyle \left[ C_{0}^{1}, C_{k-1}^{n} \right], \, 1 \leqslant n \leqslant 2^{k-2} \\
+            \displaystyle \left[ C_{0}^{2}, C_{k-1}^{n - 2^{k-2}} \right], \, 2^{k-2}+1 \leqslant n \leqslant 2^{k-1} \\
+        \end{cases} (k \geqslant 2)
+    \end{split}
+\end{equation}
+we prove that the set 
+\begin{equation}
+    \begin{split}
+        & C_{0}^{1}, \  C_{1}^{1}, \  C_{2}^{1}, \ C_{2}^{2}, \ C_{3}^{2} \\
+        & C_{3}^{4}, \  C_{4}^{2}, \  C_{4}^{4}, \ C_{4}^{6}, \ C_{5}^{4} \\
+        & C_{5}^{14}, C_{5}^{16}, C_{6}^{20}, C_{6}^{26}, C_{6}^{30}
+    \end{split}
+\end{equation}
+constitutes a basis in the space of $ 4 \times 4 $ skew-Hermitian traceless matrices. It allows us to conclude that the considered algebra is isomorphic to the Lie algebra $\mathfrak{su}(4) $ and, via a well-known theorem on complete controllability~\cite{nnAlbertini}, that the corresponding system is controllable with no additional restrictions on the coefficients in $ H $. 
+
+\begin{thebibliography}{9} % or {99}, if there is more than ten references.
+\bibitem{nnKuznetsov} %0
+Kuznetsov S.A., Pechen A.N., On controllability of a highly degenerate four-level quantum system with a ``chained'' coupling Hamiltonian. Lobachevskii Journal of Mathematics. 2022. (in press).
+\bibitem{nnAlbertini} %1
+Albertini F., D'Alessandro D. Notions of controllability for bilinear multilevel quantum systems. IEEE~Trans.~Automat.~Control. 2003. Vol.~48, no.~8. Pp.~1399--1403.
+\bibitem{nnBoscain} %2
+Boscain U., Gauthier J-P., Rossi F., Sigalotti M. Approximate controllability, exact controllability, and conical eigenvalue intersections for quantum mechanical systems. Commun.~Mat-h.~Phys. 2015. Vol.~333. Pp.~1225--1239.
+\bibitem{nnTurinici} %3
+Turinici G., Rabitz H. Quantum wavefunction controllability. Chem.~Phys. 2001. Vol.~267. Pp.~1--9.
+\bibitem{Pechen} %4
+Pechen A.N., Tannor D.J. Are there traps in quantum control landscapes?. Phys.~Rev.~Lett. 2011. Vol~106. P.~120402.
+\bibitem{nnSchirmer} %5
+Schirmer S.G., Fu H., Solomon A.I. Complete controllability of quantum systems. Phys.~Rev.~A. 2001. Vol.~63, no~6. P.~063410.
+\bibitem{Polack} %6
+Polack T., Thomas H., Tannor D.J. Uncontrollable quantum systems: A classification scheme based on Lie subalgebras. Phys.~Rev.~A. 2009. Vol.~79, no~5. P.~053403.
+\bibitem{nnAlessandro} %7
+D'Alessandro D. Introduction to Quantum Control and Dynamics, 2nd Edition. Boca Raton, Chapman and Hall/CRC. 2021.
+
+\end{thebibliography}
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

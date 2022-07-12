@@ -1,0 +1,149 @@
+
+\iffalse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the template file for the 6th International conference
+% NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+% June 25-30, 2018
+% Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The preparation of the article is based on the standard llncs class
+% (Lecture Notes in Computer Sciences), which is adjusted with style
+% file of the conference.
+%
+% There are two ways of compilation of the file into PDF
+% 1. Use pdfLaTeX (pdflatex), (LaTeX+DVIPS will not work);
+% 2. Use LuaLaTeX (XeLaTeX will work too).
+% When using LuaLaTeX You will need TTF or OTF CMU fonts
+% (Computer Modern Unicode). The fonts are installed with 'cm-unicode' package in
+% a distribution of LaTeX % (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+% either by downloading and installing these fonts system wide, the address of their page is
+% http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+% The second option won't work in XeLaTeX.
+%
+% For MiKTeX (LaTeX distribution for Windows),
+%  1. Package 'cm-unicode' is installed manually with the MiKTeX administration Console.
+%  2. For the compilation of this example, namely, the stub figure, one will also need to
+% download package 'pgf' manually. This package uses in the popular
+% package tikz.
+%  3. Tests showed that the rest of the required packages MiKTeX loads automatically (if
+%     it is allowed). The 'auto download' option is
+%     configured in 'Settings' section in MiKTeX Console.
+%
+%
+% The easiest way to compile an article is to use pdfLaTeX, but
+% the final layout of the book will be compiled with LuaLaTeX,
+% as a result will be of better quality thanks to the package 'microtype' and
+% use vector OTF instead of standard raster fonts of pdfLaTeX.
+%
+% In the case of questions and problems with the article compilation,
+% write letters to e-mail: eugeneai@irnok.net, Cherkashin Evgeny.
+%
+% New version of the correcting style file will be available at the website:
+%     https://github.com/eugeneai/nla-style
+%     file - nla.sty
+%
+% Further instructions are in the text body of the template. The template itself
+% is an article example.
+%
+% The LaTeX2e format is used!
+
+% 12 points font size is used.
+\documentclass[12pt]{llncs}
+% The correcting style file is added.
+\usepackage{todonotes}
+\usepackage{nla} % This package is needed for compiling
+                 % this template, it should be removed
+                 % from your article.
+
+% Many popular packages (amsXXX, graphicx, etc.) are already imported in the style file.
+% If there is a conflict with your packages, try disabling them and compile
+% the text.
+%
+% It would be convenient in the layout of the proceedings if the file names
+% of the figures of different authors do not clash.
+% To minimize the clash, the drawings can be placed in a separate subfolder
+% named after the author or the title of the paper.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % specifies the folder with images in png, pdf formats.
+% or
+% \graphicspath{{great-problem-solving-paper-pics/}}.
+
+\begin{document}
+
+\fi
+
+\title{Traps in Quantum Control Landscapes}
+\author{Boris Volkov  \and Alexander Pechen }
+\institute{Steklov Mathematical Institute of Russian Academy of Sciences, Moscow, Russia
+\and
+The National University of Science and Technology MISIS, Moscow, Russia\\
+\email{borisvolkov1986@gmail.com}, \email{apechen@gmail.com}
+}
+\maketitle
+
+\begin{abstract} Traps in quantum control landscapes are controls that complicate the search of globally optimal controls of the quantum objective functional. In particular, points of local but not global optima of the objective functional are traps. In this talk, we discuss the classification of traps and their presence or absence for various quantum control problems.
+\keywords{quantum control, control landscape, qubit, phase shift gate}
+\end{abstract}
+
+Quantum control, that is control of single quantum systems such as atoms or molecules, is an important tool necessary for modern quantum technologies~\cite{Glaser2015,Koch2022,Moore2011}. A particularly important problem in quantum control is to develop methods for finding globally optimal controls, that is, controls which are the best for achieving a desired control objective~\cite{Rabitz2004}. Traps are controls which complicate the search for such globally optimal controls.
+
+In our talk we discuss our results on the analysis of traps for closed quantum controlled system whose dynamics is described by the Schr\"odinger equation:
+\begin{equation}
+\label{Shred}
+i\frac{dU^f_t}{dt}=(H_0+f(t)V)U^f_t,\qquad U^f_{t=0}=\mathbb I.
+\end{equation}
+Here $H_0$ and $V$ ($[H_0,V]\neq 0$) are the free and interaction Hamiltonians (i.e., Hermitian $n\times n$-matrices) and $f\in L^2([0,T],\mathbb{R})$ is coherent control. 
+A typical problem of quantum control can be formulated as the problem 
+of maximizing  the objective functional  which is determined by the state of the quantum system. Some examples of  objective functionals are the following.
+\begin{enumerate}
+\item Let $O$ be a quantum observable (system’s Hermitian operator) and $\rho_0$ an initial quantum density matrix (so that $\rho_0\geq 0$ and $\mathrm{Tr}(\rho_0)=1$). The objective functional of the expectation of a system observable $O$ is:
+\begin{equation}
+\label{JO}
+J_O[f]=\mathrm{Tr}(O U^f_T\rho_0 U^{f \dagger}_T)\to\max. \
+\end{equation}
+\item The  objective functional  of the generation of a quantum gate  $W\in \mathrm{SU}(n)$ is:
+\begin{equation}
+\label{JW}
+J_W[f]=|\mathrm{Tr}(W^\dagger U^f_T)|^2\to\max.\; 
+\end{equation}
+\end{enumerate}
+
+Traps (real traps) are  point of local but not global optima of the objective functional~\cite{Rabitz2004,PechenTannor2011}. In more general sense traps are singular controls  that  could complicate the search for global optima of the objective functional. We provide a classification of traps, in which the $n$-th order trap is determined by the Taylor expansion of the objective functional up to the $n$-th order.  Examples of $n$-th order  traps in the landscape of the problem of maximizing the quantum functional~(\ref{JO}) for some special multilevel quantum systems were found in~\cite{PechenTannor2011,PechenTannor2012}. Some examples of real traps for multilevel quantum systems were found in~\cite{deFouquieresSchirmer}.
+It is known that traps are absent in the quantum control landscapes for 2-level systems for sufficiently large time (see~\cite{PechenIl'in2014,PechenIl'in2016}).
+We consider the problem of  controlled generation of single-qubit phase shift quantum gates. In this case  without loss of generality we can consider the objective functional~(\ref{JW}) with  $W=e^{i\varphi_W\sigma_z}$, where  $\sigma_z$ is  the Pauli $z$-matrix and $\varphi_W\in(0,\pi]$.  We show that control landscape for this problem for short times is also free of traps. We also discuss the detailed structure of quantum control landscape for this problem~\cite{VolkovMorzhinPechen,VolkovPechen}. 
+
+The work is partially supported by the projects of the Ministry of Science and Higher Education of the Russian Federation No. 075-15-2020-788 and 0718-2020-0025 and by the Russian Science Foundation grant No. 22-11-00330.
+
+\begin{thebibliography}{99} % or {99}, if there is more than ten references.
+\bibitem{Glaser2015}  Glaser~S.J., Boscain~U., Calarco~T., Koch~C.P., K\"{o}ckenberger~W., Kosloff~R., Kuprov~I., Luy~B., Schirmer~S., Schulte-Herbr\"{u}ggen~T., Sugny~D., Wilhelm~F.K. Training Schr\"{o}dinger's cat: Quantum optimal control. Eur.~Phys.~J.~D.~2015. Vol.~69. P.~279.
+
+\bibitem{Koch2022} Koch~C.P., Boscain~U., Calarco~T., Dirr G., Filipp S., Glaser~S.J., Kosloff~R., Montangero S.,
+Schulte-Herbr\"{u}ggen~T.,  Sugny~D., Wilhelm~F.K.  Quantum optimal control in quantum technologies. Strategic report on current status, visions and goals for research in Europe, arXiv:2205.12110
+
+\bibitem{Moore2011}
+K. W. Moore, A. Pechen, X.-J. Feng, J. Dominy, V.J. Beltrani, H. Rabitz, “Why is chemical synthesis and property optimization easier than expected?”, Physical Chemistry Chemical Physics, 13:21 (2011), 10048–10070
+
+\bibitem{Rabitz2004} Rabitz~H.\,A., Hsieh~M.\,M., Rosenthal\,C.\,M.  Quantum optimally controlled transition landscapes. Science. 2004. Vol.~303, no 5666. Pp.~1998--2001.
+
+\bibitem{PechenTannor2011} Pechen~A.\,N., Tannor~D.\,J. Are there traps in quantum control landscapes? Phys. Rev. Lett.~2011. Vol.~106. P.~120402.
+
+\bibitem{PechenTannor2012}
+Pechen~A.\,N., Tannor~D.\,J. Quantum control landscape for a Lambda-atom in the vicinity of second-order traps. Israel Journal of Chemistry.~2012.  Vol.~52. Pp.~467--472.
+
+\bibitem{deFouquieresSchirmer}
+de Fouquieres~P., Schirmer~S.\,G. A closer look at quantum control landscapes and their implication for control optimization. Infin. Dimens. Anal. Quantum Probab. Relat. Top.~2013. Vol.~16, no 3. P. 1350021.
+
+\bibitem{PechenIl'in2014}
+Pechen~A.\,N., Il'in~N.\,B. Coherent control of a qubit is trap-free. Proc. Steklov Inst. Math.~2014 Vol.~285, no~1.  Pp.~233--240. 
+
+\bibitem{PechenIl'in2016}
+Il'in~N.B., Pechen~A.N.  On extrema of the objective functional for short-time generation of single-qubit quantum gates. Izvestiya: Mathematics.~2016 Vol.~80, no~6. Pp.~1200--1212
+
+\bibitem{VolkovMorzhinPechen} Volkov~B.\,O.,  Morzhin~O.\,V., Pechen~A.\,N. Quantum control landscape for ultrafast generation of single-qubit phase shift quantum gates. J. Phys. A: Math. Theor. 2021. Vol. 54, no~21. P. 215303.
+
+\bibitem{VolkovPechen} Volkov~B.\,O., Pechen~A.\,N. On the detailed structure of quantum control landscape for fast single qubit phase-shift gate generation, arXiv:2204.13671.
+
+\end{thebibliography}
+%\end{document}

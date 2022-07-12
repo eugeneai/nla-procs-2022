@@ -1,0 +1,168 @@
+\begin{englishtitle}
+\title{On the Reduction of a Singular Linear-quadratic 
+	Control Problem to the Problem of Calculus of Variations\thanks{Результаты получены в рамках госзадания Минобрнауки России по проекту "Теория и методы исследования эволюционных уравнений и управляемых систем с их приложениями", \textnumero гос регистрации: ~121041300060-4.}}
+% First author
+\author{V.F. Chistyakov}
+\institute{ISDCT SB RAS, Irkutsk, Russia\\
+  \email{chist@icc.ru}
+ }
+% etc
+
+\maketitle
+
+\begin{abstract}
+
+\keywords{optimal control, calculus of variations, differential algebraic equations}
+\end{abstract}
+\end{englishtitle}
+
+\iffalse
+
+
+\documentclass[12pt]{llncs}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage[russian]{nla}
+
+%\usepackage[english,russian]{nla}
+
+% \graphicspath{{pics/}} %Set the subfolder with figures (png, pdf).
+
+%\usepackage{showframe}
+\begin{document}
+%\selectlanguage{russian}
+\fi
+
+\title{О сведении вырожденной линейно-квадратичной задачи управления к задачам вариационного исчисления}
+% Первый автор
+\author{В.~Ф.~Чистяков
+ % Второй автор
+%  И.~О.~Фамилия\inst{2}
+%  \and
+% Третий автор
+%  И.~О.~Фамилия\inst{2}
+} % обязательное поле
+\institute{ИДСТУ СО РАН, Иркутск, Россия\\
+  \email{chist@icc.ru}
+}
+% Другие авторы...
+
+\maketitle
+
+%\begin{abstract}
+%В докладе рассматривается сведение вырожденной линейно-квадратичной задачи
+%управления к задачам вариационного исчисления
+
+%\keywords{оптимальное управление, вариационное исчисление, диф\-фе\-рен\-ци\-ально-алебраические уравнения}
+%\end{abstract}
+
+%\section{Основные результаты} % не обязательное поле
+
+В последние два десятилетия появилось большое число публикаций, в которых исследуются
+свойства так называемых ``анормальных''\ задач оптимального управления (ОУ) и вариационного исчисления (ВИ).
+Под ``анормальными''\ задачами часто понимаются задачи ОУ или ВИ, у которых 
+система обыкновенных дифференциальных уравнений (ОДУ), вытекающая из принципов максимума Понтрягина или Лагранжа имеет особенности.
+
+Наиболее исследованным классом ``анормальных''\ задач  ОУ  являются линейно- квадратичные задачи, когда функционал качества
+\begin{equation}\label{post1}
+\Phi (u)=\int\limits_{\alpha}^{\beta}[\left\langle A(t)u,u \right\rangle +2
+\left\langle B(t)u,x \right\rangle+\left\langle  C(t)x,x \right\rangle ]dt,
+\end{equation}
+а связи имеют вид линейной системы ОДУ
+\begin{equation}\label{post2}
+\Lambda_1x=A_1(t)\dot x+A_0(t)x= H(t)u,\ t\in T=[\alpha,\ \beta],
+\end{equation}
+\begin{equation}\label{post3}
+x(\alpha)=a,
+\end{equation}
+где $A(t)-(m\times m)$-матрица, $B(t)-(n\times m)$-матрица,
+$C(t)-(n\times n)$-матрица,
+$\left\langle  .\ ,. \right\rangle -$скалярное
+произведение в пространствах ${\bf R}^q,\ q=1,2,\ ...\ $,
+$A_1(t),\  A_0(t)-(n\times n)$-матрицы,
+$H(t)-(n\times m)$-матрицa, $x\equiv x(t)-n$-мерная вектор-функция состояния системы, гладкая на  $T$,
+$\dot {x}\equiv dx/dt$, $u\equiv u(t)-m$-мерная вектор-функция управления, $a -$известный вектор из ${\bf R}^n$.
+Обычно предполагают, что нарушается усиленное условие Лежандра на  дискретном множестве отрезка $T$ \cite{aru} или множестве $T_1\subseteq T$ с ненулевой мерой \cite{dmit2021}, \cite{kurmerz}.
+
+В докладе предполагается,  что
+\begin{equation}\label{post4}
+1. \ \det A_1(t)=0 \ \forall t\in T,\ 2. \ \det A(t)=0 \ \forall t\in T,
+\end{equation}
+и входные данные в формулах (\ref{post1}), (\ref{post2}) обладают гладкостью,
+необходимой при дальнейших рассуждениях.
+Системы ОДУ вида (\ref{post2}), удовлетворяющие условию 1 из формулы (\ref{post4}), называют в настоящее время диф\-фе\-ренциально- ал\-геб\-раическими уравнениями (ДАУ).
+
+При выполнении условий (\ref{post4}) система ОДУ, вытекающая из принципов максимума Понтрягина или Лагранжа является ДАУ.
+Множество допустимых управлений в докладе имеет вид
+\begin{equation}\label{post31}
+u\equiv u(t)\in {\bf U}=\{u: {\bf C}^{\infty }(T), \ u^{(i)}(\alpha )=u^{(i)}(\beta )=0,\ i=\overline{0,q}\},
+\end{equation}
+где  $q-$некоторое целое число, $u^{(i)}(t)=(d/dt)^iu(t)$, $u^{(0)}(t)=u(t)$.
+
+
+
+В ряде работ (см., например, \cite{kurmerz}) предполагается выпуклость
+подынтегрального выражения в (\ref{post1}), что эквивалентно выполнению
+соотношения
+$
+\begin{pmatrix}{A}(t) & {B(t)}\cr  {B}^\top(t) &
+	{C}(t)\end{pmatrix}\geq 0\ \forall t\in T.
+$
+В докладе не предполагается выполнение этого условия и исследуется задача общего вида.
+
+В докладе на основе теории ДАУ излагаются результаты, относительно свойств задачи (\ref{post1})-(\ref{post3}), удовлетворяющей условиям (\ref{post4}), начатые в статьях \cite{chistpesh}, \cite{chist2Fu2020}.
+
+Основными задачами исследования являются:
+\par \noindent
+1) {\it  поиск условий, при выполнении которых  $\Phi (u)\geq 0\ \forall u\in {\bf U}$};
+\par \noindent
+2)
+{\it поиск условий, при  которых из неравенства $\Phi (u)-\Phi (u^\ast)\leq \varepsilon ,$
+	вытекают соотношения:\\ \centerline {$\Vert u^\ast(t)-u(t)\Vert _{{\bf L}_{2}(T)}^2\leq \kappa_0 \varepsilon $ или $\Vert x^\ast(t)-x(t)\Vert _{{\bf L}_{2}(T)}^2\leq \kappa_1\varepsilon $},
+	\vskip 0.15cm
+	\par \noindent
+	где $\varepsilon\in [0,\varepsilon_0],\ \varepsilon_0 -$некоторое положительное число,
+	$\kappa_0= const>0,\  \kappa_1= const>0$.}
+
+Иначе говоря ищутся условия, при выполнении которых малым изменениям
+функционала $\Phi (u)$ соответствуют малые  изменения управления или траектории.
+
+
+% Список литературы.
+\begin{thebibliography}{99}
+
+\bibitem{aru} Арутюнов А.В. Условия экстремума. Анормальные и вырожденные
+задачи. М.: Факториал, 1997.
+
+\bibitem{dmit2021}
+Дмитрук А.В.,  Мануйлович Н.А. {\it О минимизации вырожденных интегральных квадратичных функционалов}. Оптимальное управление и дифференциальные игры, Сборник статей., Труды МИАН. 2012. \textnumero 315.  C.~108–127.
+
+\bibitem{kurmerz} Kurina G.A., M{\"a}rz R. {\it On linear-quadratic optimal control
+problems for time varying descriptor systems}. SIAM J. Control Optim. 2006. Vol.~42. No ~6. Pp. 2062-2077.
+
+\bibitem{chistpr1992}
+Чистяков В.Ф. {\it О связи свойств вырожденной задачи вариационного исчисления и уравнения Якоби}.  Методы оптимизации. Новосибирск: Наука, 1992. С.~189-197.
+
+\bibitem{chistpesh}
+Чистяков В.Ф., Пешич М. {\it К вопросу о свойствах тождественно вырожденной задачи Лагранжа}. 
+Автоматика и телемеханика. 2009. \textnumero 1. С.~85–103.
+
+\bibitem{chist2Fu2020}
+Chistyakov V.F., Chistyakova E.V., Fuong T.Z. {\it On the Relation between the Properties of a Degenerate Linear-Quadratic Control Problem and the Euler–Poisson Equation}. Computational Mathematics and Mathematical Physics. 2020. Vol. 60. No 3. Pp. 390-403. 
+	
+
+
+\end{thebibliography}
+
+
+
+
+
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

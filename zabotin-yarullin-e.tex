@@ -1,0 +1,223 @@
+\iffalse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the template file for the 6th International conference
+% NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+% June 25-30, 2018
+% Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The preparation of the article is based on the standard llncs class
+% (Lecture Notes in Computer Sciences), which is adjusted with style
+% file of the conference.
+%
+% There are two ways of compilation of the file into PDF
+% 1. Use pdfLaTeX (pdflatex), (LaTeX+DVIPS will not work);
+% 2. Use LuaLaTeX (XeLaTeX will work too).
+% When using LuaLaTeX You will need TTF or OTF CMU fonts
+% (Computer Modern Unicode). The fonts are installed with 'cm-unicode' package in
+% a distribution of LaTeX % (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+% either by downloading and installing these fonts system wide, the address of their page is
+% http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+% The second option won't work in XeLaTeX.
+%
+% For MiKTeX (LaTeX distribution for Windows),
+%  1. Package 'cm-unicode' is installed manually with the MiKTeX administration Console.
+%  2. For the compilation of this example, namely, the stub figure, one will also need to
+% download package 'pgf' manually. This package uses in the popular
+% package tikz.
+%  3. Tests showed that the rest of the required packages MiKTeX loads automatically (if
+%     it is allowed). The 'auto download' option is
+%     configured in 'Settings' section in MiKTeX Console.
+%
+%
+% The easiest way to compile an article is to use pdfLaTeX, but
+% the final layout of the book will be compiled with LuaLaTeX,
+% as a result will be of better quality thanks to the package 'microtype' and
+% use vector OTF instead of standard raster fonts of pdfLaTeX.
+%
+% In the case of questions and problems with the article compilation,
+% write letters to e-mail: eugeneai@irnok.net, Cherkashin Evgeny.
+%
+% New version of the correcting style file will be available at the website:
+%     https://github.com/eugeneai/nla-style
+%     file - nla.sty
+%
+% Further instructions are in the text body of the template. The template itself
+% is an article example.
+%
+% The LaTeX2e format is used!
+
+% 12 points font size is used.
+\documentclass[12pt]{llncs}
+
+% The correcting style file is added.
+\usepackage{todonotes}
+
+\usepackage{nla} % This package is needed for compiling
+                 % this template, it should be removed
+                 % from your article.
+
+% Many popular packages (amsXXX, graphicx, etc.) are already imported in the style file.
+% If there is a conflict with your packages, try disabling them and compile
+% the text.
+%
+% It would be convenient in the layout of the proceedings if the file names
+% of the figures of different authors do not clash.
+% To minimize the clash, the drawings can be placed in a separate subfolder
+% named after the author or the title of the paper.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % specifies the folder with images in png, pdf formats.
+% or
+% \graphicspath{{great-problem-solving-paper-pics/}}.
+
+\begin{document}
+
+% Text should be formatted in accordance with the 'article' class, using extensions like
+% AMS.
+%
+\fi
+
+\title{One variant of the Two-Stage Cutting-Plane Method}
+% First author
+\author{Igor Zabotin 
+  \and
+  Oksana Shulgina 
+  \and
+  Rashid Yarullin 
+}
+\institute{ Kazan (Volga region) Federal University, Kazan, Russia\\
+  \email{iyazabotin@mail.ru, onshul@mail.ru, yarullinrs@gmail.com}}
+% etc
+
+\maketitle
+
+\begin{abstract}
+We propose a cutting-plane method for solving conditional minimization problem. In this method each main iteration point is constructed by two stage. 
+A set is fixed to approximate the feasible set at the first stage, and it is performed an approximation of the epigraph of the objective function on the basis of some auxiliary points. 
+The first stage is finished, when the approximation quality of the epigraph is quite good. 
+At the second stage, the next main iteration point is constructed by cutting the previous ones from the set which approximates the feasible set, and it is performed a process to update the set which approximates the epigraph. 
+Computational aspects of the proposed method are discussed.
+
+\keywords{cutting-plane method, epigraph, convex function, nonlinear programming problem}
+\end{abstract}
+
+% at the end of the list, there should be no final dot
+\section{Introduction}
+The method proposed here belongs to the class of cutting-plane methods (for example, [1,\,2]).
+The developed method uses approximation by polyhedral sets of both the feasible set and the epigraph of the objective function in the optimization process. 
+Each point of the main sequence is constructed in two stages. 
+Some set is fixed to approximate the feasible set at the first stage, and it is performed an approximation of the epigraph of the objective function on the basis of some auxiliary points.
+When the approximation quality of the epigraph becomes acceptable in a certain sense, the first stage is completed. 
+Further, the main iteration point is found at the second stage, and by cutting this point another set is constructed which approximates the feasible set.
+Note that after finding the main iteration point, it is possible to update the set which approximates the epigraph by discarding any number of previously constructed cutting planes.
+
+ 
+\section{Problem Settings and Minimization Method}
+We solve the following optimization problem:
+$$
+\min\, \{ f(x) : x \in D\},
+$$
+where 
+$D=\bigcap \limits_{j\in J=\{1, \dots m\}} D_j$,
+the sets $D_j$, $j\in J$, are convex and closed from an $n$-dimensional Euclidian space $R_n$, 
+${\rm int}\, D_j \ne \emptyset$, $f(x)$ is a convex function on the 
+$R^n$.
+Note that it is possible to put 
+${\rm int}\, D =\emptyset$.
+
+Suppose that $X^*=\{x\in D : f(x) = f^*\}\ne\emptyset$, $x^*\in X^*$, ${\rm epi}\, (f, R_n)$
+$= \{ (x, \gamma) \in$ $R_{n+1}$ $: x \in R_n, \gamma \ge f(x) \}$, $W(z, Q)$ is a set of normalized generalized support vectors for the set $Q$ at the point $z$, 
+$K=\{0, 1, \dots\}$.
+
+The proposed method constructs a points $x_k$, $k\in K$, for solving the optimization problem as follows. 
+Choose points $v^j \in {\rm int }\, D_j$, $j\in J$, and $v \in {\rm int\, epi} \, (f, R_n)$. Construct  a  convex closed bounded set $M_0 \subset R_n$ and a convex closed set $G_0 \subseteq$ $R_{n+1}$ such that $x^* \in M_0$, ${\rm epi} \, (f, R_n)\subset G_0$. 
+Define numbers 
+$\bar{\gamma}$, $\varepsilon_k$, $\tau_k$, $k\in K$ such that 
+$\bar{\gamma}\le f(x)$ for all $x\in M_0$, $\varepsilon_k > 0$, $\tau_k \ge 0$, $k\in K$,
+$\varepsilon_k \to 0$, $k\to \infty$, $\tau_k \to 0$, $k \to \infty$,
+$1\le q < +\infty$. Assign $i=0$, $k=0$.
+
+%1
+1. Find a solution $u_i = (y_i, \gamma_i)$, where $y_i \in R_n$, $\gamma_i \in R_1$, of the problem
+$
+\min \{ \gamma : x\in M_k, (x, \gamma)\in G_i, \gamma \ge \bar{\gamma}\}.
+$
+If $y_i\in D$, $f(y_i) = \gamma_i$, then $y_i\in X^*$, and the method is stopped.
+
+%2
+2. A point $\bar{u}_i\notin {\rm int \, epi}\, (f, R_n)$ is found from the interval $(v, u_i]$ such that there exists a point $z_i \in {\rm epi\,} (f, R_n)$ satisfied
+$\|u_i - z_i \| \le q \| u_i - \bar{u_i}\|$.
+Choose a finite set $A_i \subset W(\bar{u_i}, {\rm epi\,}(f, R_n)).$
+
+%3
+3. If the inequality
+\begin{equation}\label{eqno4}
+\|u_i - \bar{u}_i \| > \varepsilon_k \| v - \bar{u}_i\|
+\end{equation}
+is determined, then 
+$G_{i+1} = G_i \cap \{u \in R_{n+1} : \langle a, u - \bar{u}_i\rangle \le 0 \,\forall a \in A_i \},$
+and go to Step 1 by incrementing $i$. Otherwise, Step 4 is performed.
+
+%4
+4. Choose $r_i\le i$ and $\tilde{y}_i\in M_k$ such that 
+$f(\tilde{y}_i)\le f(y_i) + \tau_k$.
+Assign $i_k=i$, $x_k=\tilde{y}_i$, $\sigma_k=\gamma_i$,
+\begin{equation}\label{eqno5}
+G_{i+1} = G_{r_i} \cap \{ u\in R_{n+1} : \langle a, u - \bar{u}_i\rangle \le 0 \, \forall a \in A_i\}.
+\end{equation}
+
+5. If $x_k \in D$, then assign $M_{k+1} = M_k$, and go to Step 9. Otherwise, Step 6 is performed.
+
+%6
+6. Form a set
+$J_k = \{ j \in J : x_k \notin D_j\}$.
+For each $j\in J_k$ the point $\bar{x}_k^j \notin {\rm int\,} D_j$ is chosen from the interval $(v^j, x_k)$ such that there exists a point $z_k^j\in D_j$ satisfied
+$\|x_k - z_k^j\|\le q \|x_k - \bar{x}_k^j\|$.
+
+%7
+7. Find a number $j_k \in J_k$ according to 
+$\| x_k - \bar{x}_k^{j_k}\|=\max \limits_{j\in J_k} \| x_k - \bar{x}_k^j\|.$
+
+%8
+8. Choose a finite set 
+$B_k \subset W(\bar{x}_k^{j_k}, D_{j_k})$.
+$M_{k+1} = M_k \cap \{ x\in R_n : \langle b, x - \bar{x}_k^{j_k}\rangle \le 0 \, \forall b \in B_k\}$.
+
+9. Increment $i$ and $k$ by one, and go to Step 1.
+
+$M_0$, $G_0$ are naturally chosen as polyhedral sets. Then for all $i$, $k\in K$ the problem 
+$\min \{ \gamma : x\in M_k, (x, \gamma)\in G_i, \gamma \ge \bar{\gamma}\}$ will be a linear programming problem. Note that this problem is solvable, because $x^*\in M_k$, $(x^*, f^*)\in G_i$ for all $i$, $k\in K$. The optimality criterion introduced in Step 1 of the method follows from the obvious inequality $\gamma_i\le f^*$, $i\in K$.
+
+It is possibility to choose the points $\bar{u}_i$  and $\bar{x}_k^j$, $j \in J_k$, according to Steps 2, 6. In particular, they can be boundary points of the sets ${\rm epi}\, (f, R_n)$ and $D_j$ respectively. In Step 5 it is admissible  to assign, for example,  $x_k=\tilde{y}_{i_k}=y_{i_k}$.
+
+The above-mentioned updates of the set which approximates the epigraph can be performed at iterations $i = i_k$ as follows. When performing (\ref{eqno4}), the approximation quality of the epigraph is considered unsatisfactory, and $G_{i + 1}$ is constructed on the basis of $G_i$.
+If 
+$\|u_i - \bar{u}_i \| \le \varepsilon_k \| v - \bar{u}_i\|,$
+then the main iteration point $x_k$ is fixed and the set $G_{i_k+1}$ is constructed according to (\ref{eqno5}) on the basis of any sets $G_0, \dots, G_{i_k}$. In accordance with $r_{i_k} < i_k$ discarding of the cutting planes occurs. It is proved that for each $k\in K$ inequality (\ref{eqno4}) is performed  for a finite amount of numbers $i\in K$. This means that for each $k\in K$ the number $i_k$ will be fixed, i.e. it will be possible to update the set $G_{i_k+1}$, and, in addition, the point $x_k$ will be constructed.
+
+In accordance with [3] the following assertions are proved.
+\begin{theorem}
+Any limit point of the sequence $\{x_k\}$, $k\in K$, belongs to $D$.
+If $(\tilde{x}, \tilde{\sigma})$ is a limit point of the sequence $\{(x_k, \sigma_k)\}$, $k\in K$, then $\tilde{x}\in X^*$, $\tilde{\sigma}=f^*$.
+\end{theorem}
+
+
+
+\begin{thebibliography}{3} % or {99}, if there is more than ten references.
+\bibitem{Bulatov1977}
+Bulatov V.P. Embedding Methods in Optimization Problems. Nauka, Novosibirsk, 1977.~[In Russian]
+
+\bibitem{Zabotin2015}
+Zabotin I.Ya., Yarullin R.S. Cutting-plane method based on epigraph approximation with discarding the cutting planes. Autom. Remote Control.~2015. Vol.~76. Pp.~1966--1975.
+
+\bibitem{Zabotin2011}
+Zabotin I.Ya. On the several algorithms of immersion-severances for the problem of mathematical programming. Izv. Irk. gos. un.~2011. Vol. 4, no~2. Pp.~91--101. [In Russian]
+
+\end{thebibliography}
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

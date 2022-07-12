@@ -1,0 +1,117 @@
+\begin{englishtitle} % Настраивает LaTeX на использование английского языка
+% Этот титульный лист верстается аналогично.
+\title{Optimization of Sphere Partitions and Estimates of the Chromatic Number for a Forbidden Interval of Distances\thanks{Работа выполнена при поддержке гранта ``Ведущие научные школы''  \textnumero~НШ-775.2022.1.1.}}
+% First author
+\author{Vsevolod Voronov 
+  \and
+  Viktoria Svistunova}
+\institute{Caucasus Mathematical Center of ASU, Maikop, Russia\\
+  \email{v-vor@yandex.ru}}
+% etc
+
+\maketitle
+
+\begin{abstract}
+The talk is devoted to the problem of optimization of some function on the set of partitions of the two-dimensional sphere into $s$ spherical polygons colored in $k$ colors. The objective is to maximize the ratio of the minimum of distances between polygons of the same color to the maximum of the diameters of polygons. The local minima can be found by the stochastic gradient descent algorithm. If the value of the function is strictly greater than one, one can derive an upper estimate of the chromatic number of the sphere with a forbidden interval of distances, i.e. the number of colors required to color an infinite graph whose vertices are points of the sphere, and whose edges connect points the distance between which belongs to some interval.
+
+\keywords{distance geometry, chromatic number of sphere, stochastic gradient descent, SAT approach} % в конце списка точка не ставится
+\end{abstract}
+\end{englishtitle}
+
+
+\iffalse
+
+\documentclass[12pt]{llncs}  % Необходимо использовать шрифт 12 пунктов.
+
+
+\usepackage{iftex}
+
+\ifPDFTeX
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} % Кодировка utf-8, cp1251 и т.д.
+\usepackage[english,russian]{babel}
+\fi
+
+
+
+\usepackage{todonotes} % Этот пакет нужен для верстки данного шаблона, его
+                       % надо убрать из вашей статьи.
+
+\usepackage[russian]{nla}
+
+
+
+\begin{document}
+
+\fi
+
+\title{Оптимизация разбиений сферы и оценки  хроматических чисел при запрещенном интервале расстояний}
+% Первый автор
+\author{В.~А.~Воронов   % \inst ставит циферку над автором.
+  \and  % разделяет авторов, в тексте выглядит как запятая.
+% Второй автор
+  В.~Р.~Свистунова  % обязательное поле
+}
+% Аффилиации пишутся в следующей форме, соединяя каждый институт при помощи \and.
+\institute{Кавказский математический центр АГУ, Майкоп, Россия \\
+  \email{v-vor@yandex.ru}
+% \and Другие авторы...
+}
+
+\maketitle
+
+\begin{abstract}
+Работа посвящена  задаче оптимизации некоторой функции на множестве разбиений  двумерной сферы на $s$ сферических многоугольников, раскрашенных в $k$ цветов. Требуется максимизировать отношение минимума расстояний между многоугольниками одного цвета к максимальному из диаметров многоугольников. Локальные минимумы в данной задаче могут быть найдены алгоритмом стохастического градиентного спуска. В том случае, если значение минимизируемой функции строго больше единицы, разбиение позволяет оценить хроматическое число сферы с запрещенным интервалом расстояний, т.е. количество цветов, необходимое для раскраски континуального графа, вершинами которого являются точки сферы, а ребрами соединены точки, расстояние между которыми принадлежит некоторому интервалу.
+
+\keywords{метрическая геометрия, хроматическое число сферы, стохастический градиентный спуск, SAT-решатели} % в конце списка точка не ставится
+\end{abstract}
+
+%\section{Постановка задачи} % не обязательное поле
+
+Рассматривается задача о поиске локально оптимального  (в указанном далее смысле) разбиения  сферы $S^{2}$ единичного радиуса на сферические многоугольники $Q_1, \dots, Q_s$, раскрашенные в $k \geq 8$ цветов, причем $s>k$. Обозначим разбиение $\mathcal{Q}=\{Q_1, \dots, Q_s \}$. Пусть $C=(c_1, \dots, c_s)$, $c_i \in \{1,2 \dots, k \}$---  цвет многоугольника $P_i$. Целевую функцию определим следующим образом:
+
+\begin{equation}
+    F(\mathcal{Q}; C) = \frac{\min_{i \neq j:\, c_i = c_j} \operatorname{dist}(Q_i,Q_j)}{\max_{1 \leq i \leq s} \operatorname{diam} Q_i} \rightarrow \operatorname{max}.
+\end{equation}
+
+Предложен следующий подход к поиску локально оптимальных решений:  каждой триангуляции сферы   можно сопоставить двойственное разбиение с вершинами $v_1, \dots , v_m$, определить некоторую раскраску и найти минимум в конечномерной задаче оптимизации с кусочно-гладкой функцией
+
+\begin{equation}
+    F_{\mathcal{Q},C}(V) = \frac{\min_{(i, j) \in E_1} \operatorname{dist}(v_i,v_j)}{\max_{(i,j) \in E_2} \operatorname{dist}(v_i,v_j)} \rightarrow \operatorname{max},     
+\end{equation}
+\[
+    v_i \in S^2, \quad i=1, \dots, m.
+\]
+
+\noindent где $E_1$ включает пары индексов вершин, выбранных из каждого отдельно взятого многоугольника, а $E_2$ содержит пары индексов вершин, принадлежащих двум несовпадающим одноцветным многоугольникам. 
+
+Отметим, что число локальных минимумов в задаче (1) как функция $s$ при фиксированом $k$ растет заведомо быстрее, чем число (двойственных) триангуляций сферы с $s$ вершинами и минимальной степенью вершины 5 (OEIS A081621). Каждой триангуляции $T$, кроме того, можно сопоставить некоторое множество допустимых раскрасок. Если предполагать, что диаметры $P_i$ отличаются достаточно мало, то раскраски, для которых целевая функция достигает глобального максимума, могут быть получены как раскраски степени графа $T^p$, где  $p>1$ --- целое число.  Тогда  одноцветные вершины находятся в графе $T$ на расстоянии строго больше $p$. 
+
+В том случае, если для некоторого разбиения $\mathcal{Q}$ и раскраски $C$ выполнено $F(\mathcal{Q}; C) = \alpha>1$, данная раскраска сферы не содержит пары одноцветных точек на расстоянии из некоторого интервала $(r_0, r_1)$, $r_1/r_0 = \alpha$, и, таким образом, позволяет получить некоторую верхнюю оценку хроматического числа двумерной сферы с запрещенным интервалом расстояний, а также измеримого хроматического числа сферы \cite{Simmons, Malen, Sirgedas}. В конечномерной задаче оптимизации (2) достаточно высокую эффективность показал алгоритм стохастического градиентного спуска и развивающий его алгоритм Adam \cite{Adam}. Для поиска раскрасок степени триангуляции использовался SAT-решатель Glucose 4.1 \cite{Glucose}. Последняя задача может представлять интерес в качестве бенчмарка для SAT-решателей: во некоторых случаях она является весьма трудоемкой, но доступной для существующих алгоритмов при использовании параллельных и распределенных вычислений. 
+
+
+\begin{thebibliography}{9} % или {99}, если ссылок больше десяти.
+
+\bibitem{Simmons} Simmons~G.J.  The chromatic number of the sphere. Journal of the Australian Mathematical Society. 1976. Vol.~21(4). Pp.~473--480.
+
+\bibitem{Malen} Malen~G. Measurable Chromatic Number of Spheres. arXiv preprint arXiv:1412.2091. 2014.
+
+\bibitem{Sirgedas} Sirgedas~T. The surface of a sufficiently large sphere has chromatic number at most 7~// arXiv preprint arXiv:2107.11900. 2021.
+
+\bibitem{Adam} Kingma~D.P., Ba~J. Adam: A method for stochastic optimization. arXiv preprint arXiv:1412.6980.  2014.
+
+\bibitem{Glucose} Audemard~G., Simon~L. On the glucose SAT solver. International Journal on Artificial Intelligence Tools. 2018. Vol. 27, no. 01. Pp. 1840001.
+
+\end{thebibliography}
+
+% После библиографического списка в русскоязычных статьях необходимо оформить
+% англоязычный заголовок.
+
+
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

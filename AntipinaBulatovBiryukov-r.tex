@@ -1,0 +1,195 @@
+\iffalse
+\documentclass[12pt]{llncs}  % Необходимо использовать шрифт 12 пунктов.
+
+% При использовании pdfLaTeX добавляется стандартный набор русификации babel.
+% Если верстка производится в LuaLaTeX, то следующие три строки надо
+% закомментировать, русификация будет произведена в корректирующем стиле автоматом.
+\usepackage{iftex}
+
+\ifPDFTeX
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} % Кодировка utf-8, cp1251 и т.д.
+\usepackage[english,russian]{babel}
+\fi
+
+% Для верстки в LuaLaTeX текст готовится строго в utf-8!
+
+% В операционной системе Windows для редактирования в кодировке utf-8
+% можно использовать программы notepad++ https://notepad-plus-plus.org/,
+% techniccenter http://www.texniccenter.org/,
+% SciTE (самая маленькая по объему программа) http://www.scintilla.org/SciTEDownload.html
+% Подойдет также и встроенный в свежий дистрибутив MiKTeX редактор
+% TeXworks.
+
+% Добавляется корректирующий стилевой файл строго после babel, если он был включен.
+% В параметре необходимо указать russian, что установит не совсем стандартные названия
+% разделов текста, настроит переносы для русского языка как основного и т.п.
+
+\usepackage{todonotes} % Этот пакет нужен для верстки данного шаблона, его
+                       % надо убрать из вашей статьи.
+
+\usepackage[russian]{nla}
+
+% Многие популярные пакеты (amsXXX, graphicx и т.д.) уже импортированы в корректирующий стиль.
+% Если возникнут конфликты с вашими пакетами, попробуйте их отключить и сверстать
+% текст как есть.
+%
+%
+
+
+% Было б удобно при верстке сборника, чтобы названия рисунков разных авторов не пересекались.
+% Чтоб минимизировать такое пересечение, рисунки можно поместить в отдельную подпапку с
+% названием - фамилией автора или названием статьи.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % Указание папки с изображениями в форматах png, pdf.
+% или
+% \graphicspath{{great-problem-solving-paper-pics/}}.
+
+
+\begin{document}
+
+% Текст оформляется в соответствии с классом article, используя дополнения
+% AMS.
+%
+\fi
+
+\begin{englishtitle} % Настраивает LaTeX на использование английского языка
+% Этот титульный лист верстается аналогично.
+\title{Block Integral Methods for the Numerical Solution of the Volterra Equation of the First Kind\thanks{Работа выполнена при поддержке РНФ \textnumero~22-11-00173.}}
+% First author
+\author{E.D. Antipina \inst{1,3}
+  \and
+  M.~V.~Bulatov\inst{2}
+  \and
+  V.~V.~Biryukov\inst{3}
+}
+\institute{Melentiev Energy Systems Institute SB RAS, Irkutsk, Russia\\
+  \email{kate19961231@gmail.com}
+  \and
+Matrosov Institute for System Dynamics and Control Theory SB RAS, Irkutsk, Russia\\
+\email{mvbul@icc.ru}
+  \and
+Irkutsk State University, Irkutsk, Russia\\
+\email{stukov.biryuckov2017@yandex.ru}}
+% etc
+
+% Аффилиации пишутся в следующей форме, соединяя каждый институт при помощи \and.
+
+\maketitle
+
+\begin{abstract}
+The paper considers an approximate solution of the Volterra integral equation of the first kind. This solution is built on the basis of block type methods. These methods were based on interpolation and extrapolation quadrature formulas. An example based on this method is considered.
+
+\keywords{
+Volterra equation, numerical solution, block type methods } % в конце списка точка не ставится
+\end{abstract}
+\end{englishtitle}
+
+\title{Блочные методы для численного решения интегрального уравнения Вольтерра I рода}
+% Первый автор
+\author{Е.~Д.~Антипина\inst{1,3}  % \inst ставит циферку над автором.
+  \and  % разделяет авторов, в тексте выглядит как запятая.
+% Второй автор
+  М.~В.~Булатов\inst{2}
+  \and
+% Третий автор
+  В.~В.~Бирюков\inst{3}
+} % обязательное поле
+
+% Аффилиации пишутся в следующей форме, соединяя каждый институт при помощи \and.
+\institute{ИСЭМ СО РАН, Иркутск, Россия \\
+  \email{kate19961231@gmail.com}
+  \and   % Разделяет институты и присваивает им номера по порядку.
+ИДСТУ СО РАН, Иркутск, Россия \\
+  \email{mvbul@icc.ru}
+    \and   % Разделяет институты и присваивает им номера по порядку.
+ИГУ, Иркутск, Россия \\
+  \email{stukov.biryuckov2017@yandex.ru}
+% \and Другие авторы...
+}
+
+\maketitle
+
+\begin{abstract}
+В работе рассмотрено приближенное решение интегрального уравнения Вольтерра I рода. Данные решение строится на основе методов блочного типа. В основу этих методов были заложены интерполяционные и экстраполяционные квадратурные формулы. Рассмотрен пример на основе данного метода.
+
+\keywords{уравнение Вольтерра, численное решение,  методы блочного типа} % в конце списка точка не ставится
+\end{abstract}
+
+\section{Основные результаты} % не обязательное поле
+
+Рассматривается уравнение Вольтерра I рода
+\begin{equation}\label{aa1}
+\int\limits_0^t K(t,s)x(s)ds=y(t),\; t=[0,T]
+\end{equation}
+где $x(t)$ -- искомая функция, $K(t,t)\neq 0$, $K(t,s)\in C_{[0,T]}$, $y(t) \in C_{[0,T]}$, $y(0)=0$.
+Для решения уравнения (\ref{aa1}) были построены численные схемы с применение различных методов. Например, методов правых \cite{Kar}  и средних \cite{Bul} прямоугольников, а также применялись коллокационно-вариационные подходы \cite{Bul_Mark}.
+
+
+Для построения решения (\ref{aa1}) будем применять метод блочного типа по следующей схеме:
+\begin{enumerate} 
+  \item вводим равномерную сетку $t_i=ih$, где $h=\frac{T}{n}$ -- шаг сетки, $i=\overline{1,n}$;
+  \item полагаем, что подынтегральная функция представима в виде интерполяционного многочлена Лагранжа $L_k$, где $k\geq 0$ (в зависимости от порядка точности выбираем степень многочлена);
+  \item интегрируем, полученный многочлен на промежутках от $0$ до $ih$, где $i=\overline{1,n}$ (в случае, когда степень многочлена Лагранжа больше $i+1$, необходимо представить считаемый интеграл в виде суммы интегралов, длина промежутков которых  больше $r\cdot k\cdot h$ но меньше $r\cdot i\cdot h$, где $r \in \mathbb{N}$),
+  \item строим численную схему.
+
+\end{enumerate}
+
+Рассмотрим работу данного метода на примере.
+
+Пусть (\ref{aa1}) рассматривается на отрезке $[0,3h]$, где $h=1$. Также положим, что $k=2$. Теперь мы можем найти $L_2(t,x_0,x_1,x_2)$, где $x_i=x(jh)$, $j=\overline{0,2}$. Таким образом 
+\begin{equation}\label{aa2}
+L_2(t,x_0,x_1,x_2)=\frac{t^2}{2h^2}(x_0-2x_1+y_2)-\frac{t}{2h}(3x_0-4x_1+x_2)+x_0.
+\end{equation}
+
+Далее, проинтегрировав (\ref{aa2}) на промежутках, получаем
+\begin{equation}
+\int \limits_0^{h} L_2dt=
+\frac{5}{12}x_0 h+\frac{2}{3}x_1 h-\frac{1}{12}x_2 h,
+\int \limits_0^{2h} L_2dt=
+\frac{1}{3}x_0 h+\frac{4}{3}x_1 h+\frac{1}{3}x_2 h,
+\end{equation}
+
+\begin{equation}\label{aa3}
+\int \limits_0^{3h} L_2dt=
+\frac{3}{4}x_0 h+\frac{9}{4}x_2 h.
+\end{equation}
+
+Теперь, используя, полученные коэффициенты, мы можем построить численную схему, представивв ее в операторном виде
+\begin{equation*}
+h\cdot Ax=y,
+\end{equation*}
+где $x$ -- вектор искомых значений, $y$ -- вектор известных значений, $A$ -- матрица коэффициентов
+\begin{equation*}
+A=
+\begin{pmatrix}
+   5/12 & 2/3&  -1/12\\
+   1/3  & 4/3&  1/3\\
+   4/3& 0&  9/4\\
+\end{pmatrix}.
+\end{equation*}
+Теперь, подставляя $y$, можно найти $x$.
+
+\begin{thebibliography}{9} % или {99}, если ссылок больше десяти.
+
+\bibitem{Kar} Каракеев~Т.Т., Мустафаева~Н.Т. Численное решение линейных интегральных уравнений Вольтерра первого рода // Journal of Advanced Research in Technical Science. 2018. \textnumero~8.  С.~56--62. 
+
+\bibitem{Bul} Булатов, М. В. Численное решение систем интегральных уравнений первого рода // Вычислительные технологии. 2001. Т.~6. \textnumero~4.  С.~3--8.
+
+\bibitem{Bul_Mark} Булатов~М.В.,Маркова~Е.В.  Коллокационно-вариационные подходы к решению интегральных уравнений Вольтерра I рода // Ж. вычисл. матем. и матем. физ. 2022. Т.~62. С.~105--112.
+
+
+\end{thebibliography}
+
+% После библиографического списка в русскоязычных статьях необходимо оформить
+% англоязычный заголовок.
+
+
+
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

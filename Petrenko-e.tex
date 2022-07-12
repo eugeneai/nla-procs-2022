@@ -1,0 +1,202 @@
+\iffalse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the template file for the 6th International conference
+% NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+% June 25-30, 2018
+% Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The preparation of the article is based on the standard llncs class
+% (Lecture Notes in Computer Sciences), which is adjusted with style
+% file of the conference.
+%
+% There are two ways of compilation of the file into PDF
+% 1. Use pdfLaTeX (pdflatex), (LaTeX+DVIPS will not work);
+% 2. Use LuaLaTeX (XeLaTeX will work too).
+% When using LuaLaTeX You will need TTF or OTF CMU fonts
+% (Computer Modern Unicode). The fonts are installed with 'cm-unicode' package in
+% a distribution of LaTeX % (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+% either by downloading and installing these fonts system wide, the address of their page is
+% http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+% The second option won't work in XeLaTeX.
+%
+% For MiKTeX (LaTeX distribution for Windows),
+%  1. Package 'cm-unicode' is installed manually with the MiKTeX administration Console.
+%  2. For the compilation of this example, namely, the stub figure, one will also need to
+% download package 'pgf' manually. This package uses in the popular
+% package tikz.
+%  3. Tests showed that the rest of the required packages MiKTeX loads automatically (if
+%     it is allowed). The 'auto download' option is
+%     configured in 'Settings' section in MiKTeX Console.
+%
+%
+% The easiest way to compile an article is to use pdfLaTeX, but
+% the final layout of the book will be compiled with LuaLaTeX,
+% as a result will be of better quality thanks to the package 'microtype' and
+% use vector OTF instead of standard raster fonts of pdfLaTeX.
+%
+% In the case of questions and problems with the article compilation,
+% write letters to e-mail: eugeneai@irnok.net, Cherkashin Evgeny.
+%
+% New version of the correcting style file will be available at the website:
+%     https://github.com/eugeneai/nla-style
+%     file - nla.sty
+%
+% Further instructions are in the text body of the template. The template itself
+% is an article example.
+%
+% The LaTeX2e format is used!
+
+% 12 points font size is used.
+\documentclass[12pt]{llncs}
+
+% The correcting style file is added.
+\usepackage{todonotes}
+
+\usepackage{nla} % This package is needed for compiling
+                 % this template, it should be removed
+                 % from your article.
+
+% Many popular packages (amsXXX, graphicx, etc.) are already imported in the style file.
+% If there is a conflict with your packages, try disabling them and compile
+% the text.
+%
+% It would be convenient in the layout of the proceedings if the file names
+% of the figures of different authors do not clash.
+% To minimize the clash, the drawings can be placed in a separate subfolder
+% named after the author or the title of the paper.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % specifies the folder with images in png, pdf formats.
+% or
+% \graphicspath{{great-problem-solving-paper-pics/}}.
+
+\begin{document}
+
+% Text should be formatted in accordance with the 'article' class, using extensions like
+% AMS.
+%
+\fi
+\title{A Note on Differential-algebraic Equations with Hysteresis Phenomena}
+% First author
+\author{Pavel Petrenko
+}
+\institute{IDSCT SB RAS, Irkusk, Russia\\
+  \email{petrenko.pavels@gmail.com}}
+
+% etc
+
+\maketitle
+
+\begin{abstract}
+In this note, we investigate some class of differential-algebraic equations (DAE) with hysteresis phenomena. We consider non-stationary DAE with non-linearity of hysteresis type (modeled by a sweeping process). For such a DAE, we design an equivalent structural form (in the sense of solutions), and prove a necessary and sufficient condition for the existence and uniqueness of a solution to an initial value problem.
+
+\keywords{differential-algebraic equations, hysteresis, sweeping process}
+\end{abstract}
+
+% at the end of the list, there should be no final dot
+\section{The main results}
+
+Consider the following system of ordinary differential equations (ODE) paired with a sweeping process \cite{pppKM2000,pppMoreau1977} of a rate independent hysteresis type  (modeled by the play operator \cite{pppBS1996,pppKr1991}):
+\begin{align} \label{ppppss1}
+ & A(t)\dot{x}(t)=B(t)x(t)+C(t)y(t), \ \ \ x(t_0)=x_0,   
+\\[0.5em] & 
+\begin{array}{c}
+  -\ddot{y}(t)\in \mathcal{N}_{Q(t)}\big(\dot{y}(t)\big), \\[0.5em] 
+ {y}(t_0)=y_0, \ \  \  \dot{y}(t_0)=y_1\in Q(t_0).  
+  \end{array} \label{ppppss2}
+\end{align}
+Here, $A(t), B(t), C(t) \in \mathbb R^{(n\times n)}$ are given matrices, wherein $\det A(t) \equiv 0$, $T=[t_0,t_1]$ is a given time interval, $x(t), y(t) \in {\mathbb R}^n$ are unknown functions; $Q(t)=x(t)-Z$ is a ``moving set'', where $Z$ is a given closed convex subset of ${\mathbb R}^n$, and $\mathcal{N}_{Q}\big(q\big)$ denotes the normal cone to a closed convex set $Q$ at a point $q$.
+
+By a solution of (\ref{ppppss1}), (\ref{ppppss2}) we mean a pair of absolutely continuous ($W^{1,1}$) functions $(x, y)$ satisfying (\ref{ppppss1}), (\ref{ppppss2}) for almost all (a.e.) $t \in T$ with respect to (w.r.t.) the usual Lebesgue measure.
+
+
+Let's consider time-varying ODE system not resolved with respect to the derivative
+\begin{equation}\label{pppdau}
+A(t)x'(t)=B(t)x(t) + U(t)f(t), \;\;\; t \in T \subset {\mathbb R},
+\end{equation}
+where $A(t), B(t), U(t) \in \mathbb R^{(n\times n)}$ are given matrices, wherein $\det A(t) \equiv 0$, $f(t) \in {\mathbb R}^n$ is some continuous on $T$ function; $x(t) \in {\mathbb R}^n$ is unknown function of a state. Such systems are called differential-algebraic equations (DAE). 
+
+%Under some assumptions \cite{pppSCH2008} there exists a linear differential operator
+\begin{lemma}{\rm \cite{pppSCH2008}}
+Let $A(t), B(t), C(t) \in \mathbb C^r(T),$ ${\rm rank} D_{r,z}(t) = \rho = {\rm const}$, there is a resolving minor in matrix $D_{r,x}(t)$. Then there exists linear differential operator
+$$
+{\mathcal R}=R_0(t) +R_1(t){{d}\over{dt}}+\ldots +R_r(t)\left( {{d}\over{dt}}\right) ^r
+$$
+with continuous on $T$ coefficients
+$R_j(t)\; (j=\overline{0,r})$, that reduces system (\ref{pppdau}) into the form
+$$
+\dot{x}_1(t) = J_1(t)x_1(t)+{\mathcal H}(t) \overline{u}(t),
+$$
+$$
+x_2(t) = J_2(t)x_1(t)+{\mathcal G}(t) \overline{u}(t),
+$$
+where $\left( x_1(t), x_2(t) \right)=Qx(t)$, $\overline{u}(t) = (u(t), \dot{u}(t),\ldots, u^{(r)}(t))$, r is unresolvability index for DAE (\ref{pppdau}). Matrices $D_{r,x}, D_{r,z}$, $J_1(t), J_2(t)$, ${\mathcal H}(t), {\mathcal G}(t)$ are determined by formulas cited in \cite{pppSCH2008}.
+\end{lemma}
+
+
+
+
+The following proposition gives a necessary and sufficient condition for the existence of a unique solution to system (\ref{ppppss1}), (\ref{ppppss2}). %(or rather (\ref{ppppss3})--(\ref{ppppss5})).
+\begin{theorem}
+Let all the assumptions of Lemma 1 are satisfied. 
+Then problem (\ref{ppppss1}), (\ref{ppppss2}) solvable on $T$ iff
+%\begin{equation}\label{ppppss55}
+%\left(\begin{array}{cc}
+%0 & 0\\ 0 & E_{n-k}
+%\end{array} \right)Qx_0=
+%\left(\begin{array}{c} 
+%0 \\
+% J_2(t_0)z_1(t_0) + {\mathcal{G}(t_0)}\overline{y}(t_0)
+%\end{array} \right).
+%\end{equation}
+\begin{equation}\label{pss55}
+z_2(t_0) = 
+J_2(t_0)z_1(t_0) + {\mathcal{G}(t_0)}\overline{y}(t_0).
+\end{equation}
+Moreover, if a solution to problem (\ref{ppppss1}), (\ref{ppppss2}) exists, then it is unique. Here
+$(z_1(t), z_2(t)) = Qx(t), \; z_1(t) \in {\mathbb R}^k, z_2(t) \in {\mathbb R}^{n-k}$, $\overline{y}(t) = (y(t), \dot{y}(t), \ldots, y^{(r)}(t))$.
+\end{theorem} 
+% The figures and tables are drawn according to the standard class 'article'.
+
+
+% Two picture formats are supported:
+%\includegraphics[width=0.7\linewidth]{figure.pdf} % Raster format
+%\includegraphics[width=0.7\linewidth]{figure.png} % Vector and raster format
+%
+% Vector drawings can be drawn in Inkscape editor
+% https://inkscape.org/ru/download/
+% The usual format of the editor is SVG, so the drawings must be exported in
+% PDF or PNG (with a resolution of minimum 150 dpi, and maximum of 300 dpi).
+
+
+% At the end of the text, acknowledgments are expressed, if you haven't
+% made a footnote from the title. For example, we can write
+%The research is carried on with support of RFBR (RNF, other funds), project No.~00-00-00000.
+
+\begin{thebibliography}{9} % or {99}, if there is more than ten references.
+
+
+\bibitem{pppKM2000} Kunze  M., Marques  M.D.M. An Introduction to Moreau’s Sweeping Process. In  Brogliato B. (eds) Impacts in Mechanical Systems. Lecture Notes in Physics. Vol.~551. Springer, Berlin, Heidelberg, 2000.
+ 
+\bibitem{pppMoreau1977} Moreau, J.-J. Evolution problem associated with a moving convex set in a Hilbert space. J. Differential Eq.~1977. Vol.~26. Pp.~347--374.  
+
+
+\bibitem{pppBS1996} Brokate  M.,  Sprekels  J. Hysteresis and Phase Transitions. Ser. Appl. Math. Sci. Vol.~121.  Springer-Verlag, New York, 1996. 
+
+
+
+\bibitem{pppKr1991} Krej\u{c}\'{\i} P..  Vector hysteresis models. European J. Appl. Math.~1996. Vol.~2. Pp.~281--292.
+
+
+\bibitem{pppSCH2008} Scheglova  A.   Controllability of nonlinear algebraic differential systems. Automat. Telemekh.~2008. Vol.~10, Pp.~57--80.
+
+
+
+\end{thebibliography}
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

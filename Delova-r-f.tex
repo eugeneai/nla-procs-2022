@@ -1,0 +1,234 @@
+\begin{englishtitle} % Настраивает LaTeX на использование английского языка
+% Этот титульный лист верстается аналогично.
+\title{On Multidimensional Oscillations of a Cold Plasma with Account for Electron-ion Collisions\thanks{Работа выполнена при поддержке Фонда развития теоретической физики и математики «БАЗИС» (проект 21-8-2-16-1) и Министерства образования и науки Российской Федерации
+в рамках программы Московского центра
+Фундаментальной и прикладной математики по договору \textnumero~075-15-2019-1621.}}
+% First author
+\author{M.~I.~Delova
+  \and
+  O.~S.~Rozanova
+}
+\institute{Lomonosov Moscow State University, Moscow, Russia\\
+  \email{mashadelova@yandex.ru}
+}
+% etc
+
+\maketitle
+
+\begin{abstract}
+The influence of the intensity of electron-ion collisions on the centrally symmetric oscillations of a cold plasma in a multidimensional space is investigated. Taking into account electron-ion collisions leads to the appearance of a special term in the system of cold plasma hydrodynamic equations. This term corresponds to the friction force between particles arising from the movement of electrons in a cold plasma. For arbitrarily small constant non-negative value of the electron-ion collision intensity factor, it is proved that there exists a neighborhood of the zero stationary solution in the $C^1$ norm such that the solution of the Cauchy problem with initial data from this neighborhood remains globally smooth in time. This result contrasts with the situation of zero collision intensity factor, where any small deviation from the zero equilibrium position leads to a loss of smoothness.
+\keywords{ cold plasma hydrodynamic equations in multidimensional space, cold plasma, plasma oscillations, intensity of electron-ion collisions} % в конце списка точка не ставится
+\end{abstract}
+\end{englishtitle}
+
+
+\iffalse
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  This is the template file for the 6th International conference
+%  NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+%  June 25-30, 2018
+%  Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  Верстка статьи осуществляется на основе стандартного класса llncs
+%  (Lecture Notes in Computer Sciences), который корректируется стилевым
+%  файлом конференции.
+%
+%  Скомпилировать файл в PDF можно двумя способами:
+%  1. Использовать pdfLaTeX (pdflatex), (LaTeX+DVIPS не работает);
+%  2. Использовать LuaLaTeX (XeLaTeX будет работать тоже).
+%  При использовании LuaLaTeX потребуются TTF- или OTF-шрифты CMU
+%  (Computer Modern Unicode). Шрифты устанавливаются либо пакетом
+%  дистрибутива LaTeX cm-unicode
+%              (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+%  либо загрузкой и установкой в операционной системе, адрес страницы:
+%              http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+%  Второй вариант не будет работать в XeLaTeX.
+%
+%  В MiKTeX (дистрибутив LaTeX для ОС Windows):
+%  1. Пакет cm-unicode устанавливается вручную в программе MiKTeX Console.
+%  2. Для верстки данного примера, а именно, картинки-заглушки необходимо,
+%     также вручную, загрузить пакет pgf. Этот пакет используется популярным
+%     пакетом tikz.
+%  3. Тест показал, что остальные пакеты MiKTeX грузит автоматически (если
+%     ему разрешено автоматически грузить пакеты). Режим автозагрузки
+%     настраивается в разделе Settings в MiKTeX Console.
+%
+%
+%  Самый простой способ сверстать статью - использовать pdfLaTeX, но
+%  окончательный вариант верстки сборника будет собран в LuaLaTeX,
+%  так как результат получится лучшего качества, благодаря пакету microtype и
+%  использованию векторных шрифтов OTF вместо растровых pdfLaTeX.
+%
+%  В случае возникновения вопросов и проблем с версткой статьи,
+%  пишите письма на электронную почту: eugeneai@irnok.net, Черкашин Евгений.
+%
+%  Новые варианты корректирующего стиля будут доступны на сайте:
+%        https://github.com/eugeneai/nla-style
+%        файл - nla.sty
+%
+%  Дальнейшие инструкции - в тексте данного шаблона. Он одновременно
+%  является примером статьи.
+%
+%  Формат LaTeX2e!
+
+\documentclass[12pt]{llncs}  % Необходимо использовать шрифт 12 пунктов.
+
+% При использовании pdfLaTeX добавляется стандартный набор русификации babel.
+% Если верстка производится в LuaLaTeX, то следующие три строки надо
+% закомментировать, русификация будет произведена в корректирующем стиле автоматом.
+\usepackage{iftex}
+
+\ifPDFTeX
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} % Кодировка utf-8, cp1251 и т.д.
+\usepackage[english,russian]{babel}
+\fi
+
+% Для верстки в LuaLaTeX текст готовится строго в utf-8!
+
+% В операционной системе Windows для редактирования в кодировке utf-8
+% можно использовать программы notepad++ https://notepad-plus-plus.org/,
+% techniccenter http://www.texniccenter.org/,
+% SciTE (самая маленькая по объему программа) http://www.scintilla.org/SciTEDownload.html
+% Подойдет также и встроенный в свежий дистрибутив MiKTeX редактор
+% TeXworks.
+
+% Добавляется корректирующий стилевой файл строго после babel, если он был включен.
+% В параметре необходимо указать russian, что установит не совсем стандартные названия
+% разделов текста, настроит переносы для русского языка как основного и т.п.
+
+\usepackage{todonotes} % Этот пакет нужен для верстки данного шаблона, его
+                       % надо убрать из вашей статьи.
+
+\usepackage[russian]{nla}
+
+% Многие популярные пакеты (amsXXX, graphicx и т.д.) уже импортированы в корректирующий стиль.
+% Если возникнут конфликты с вашими пакетами, попробуйте их отключить и сверстать
+% текст как есть.
+%
+%
+
+
+% Было б удобно при верстке сборника, чтобы названия рисунков разных авторов не пересекались.
+% Чтоб минимизировать такое пересечение, рисунки можно поместить в отдельную подпапку с
+% названием - фамилией автора или названием статьи.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % Указание папки с изображениями в форматах png, pdf.
+% или
+% \graphicspath{{great-problem-solving-paper-pics/}}.
+
+\usepackage{bm}
+\def\dfrac#1#2{\displaystyle{#1\over #2}}
+\def\Div{\mbox{div}\,}
+\def\bB{{\bf B}}
+\def\bx{{\bf x}}
+\def\bE{{\bf E}}
+\def\bv{{\bf v}}
+\def\br{{\bf r}}
+\def\bp{{\bf p}}
+\def\bV{{\bf V}}
+
+\fi
+
+
+
+%\newtheorem{thm}{Теорема}
+%\theoremstyle{thm}
+%\newtheorem{utv}{Утверждение}
+%\theoremstyle{utv}
+
+%\begin{document}
+
+% Текст оформляется в соответствии с классом article, используя дополнения
+% AMS.
+%
+
+\title{О многомерных колебаниях холодной  плазмы с учетом электрон-ионных соударений}
+% Первый автор
+\author{М.~И.~Делова  % \inst ставит циферку над автором.
+  \and  % разделяет авторов, в тексте выглядит как запятая.
+% Второй автор
+  О.~С.~Розанова
+} % обязательное поле
+
+% Аффилиации пишутся в следующей форме, соединяя каждый институт при помощи \and.
+\institute{Московский государственный университет имени М. В. Ломоносова, Москва, Россия \\
+  \email{mashadelova@yandex.ru}
+}
+
+\maketitle
+
+\begin{abstract}
+Исследовано влияние интенсивности электрон-ионных соударений на центральносимметричные колебания холодной плазмы в многомерном пространстве. Учет элек\-трон-ионных соударений приводит к появлению в системе уравнений гидродинамики холодной плазмы члена, который соответствует силе трения между частицами, возникающей при движении электронов в холодной плазме. Показано, что для любого сколь угодно малого постоянного неотрицательного значения коэффициента интенсивности электрон-ионных соударений существует такая окрестность нулевого стационарного решения в норме $C^1$, что решение задачи Коши с начальными данными, принадлежащими этой окрестности, остается глобально по времени гладким. Этот результат контрастирует с ситуацией нулевого коэффициента интенсивности соударений, когда  любое малое отклонение от нулевого положения равновесия приводит к потере гладкости. 
+
+\keywords{уравнения гидродинамики холодной плазмы в многомерном пространстве, холодная плазма, плазменные колебания, эффект опрокидывания, интенсивность электрон-ионных соударений} % в конце списка точка не ставится
+\end{abstract}
+
+\section{Основные результаты} % не обязательное поле
+Рассмотрим плазму как холодную, идеальную, электронную жидкость, пренебрегая движением ионов. Тогда система уравнений гидродинамики холодной плазмы имеет вид (см. \cite{Ginzburg}):
+\begin{equation*}
+\begin{array}{l}
+\dfrac{\partial n }{\partial t} + \mbox{div}\,(n \bv)=0\,,\quad
+\dfrac{\partial \bp }{\partial t} + \left( \bv \cdot \nabla \right) \bp
+= e \, \left( {\bf E} + \dfrac{1}{c} \left[\bv \times  {\bf B}\right]\right) - \nu_e \bp \,,\quad
+\gamma = \sqrt{ 1+ \dfrac{|\bp|^2}{m^2c^2} }\,\vspace{0.5em}\\
+\bv = \dfrac{\bp}{m \gamma}\,,\quad
+\dfrac1{c} \frac{\partial {\bf E} }{\partial t} = - \dfrac{4 \pi}{c} e n \bv
+ + {\rm rot}\, {\bf B}\,,\quad \tag{1}
+\dfrac1{c} \frac{\partial {\bf B} }{\partial t}  =
+ - {\rm rot}\, {\bf E}\,, \quad \mbox{div}\, {\bf B}=0\,,
+\end{array}
+\end{equation*}
+где
+$e, m$ -- заряд и масса электрона ($e < 0$),
+$c$ -- скорость света;
+$ n, \bp, \bv$ -- концентрация, импульс и скорость
+электронов;
+$\gamma$ -- лоренцевский фактор;
+$ {\bf E}, {\bf B} $ -- векторы электрического и магнитного полей;
+$\nu_e$ -- интенсивность электрон-ионных соударений. 
+
+Для центральносимметричных решений исходная система (1) с помощью введения новых переменных может быть приведена к виду
+\begin{equation*}
+\frac{\partial \bV}{\partial \theta}+ ( \bV \cdot \nabla ) \bV=- {\bf  E} -\nu \bV,\quad \frac{\partial  {\bf  E}}{\partial \theta}+\bV \mbox{div}\,  {\bf  E}= \bV, \quad (\bV, {\bf  E})|_{\theta=0}=(\bV^0,  {\bf  E}^0) \in C^2(\mathbb{R}^d). \tag{2}
+\end{equation*}
+Функции $\bV=F(\theta,r){\bf r}$, ${\bf  E}=G(\theta,r){\bf r}$ имеют смысл векторов скорости электронов и напряженности электрического поля, ${\bf r} $ -- радиус-вектор, $r=|{\bf r}|$, $\theta \in \mathbb{R_+}$ -- время, $\nu$ -- коэффициент интенсивности электрон-ионных соударений, $d$ -- размерность пространства.
+
+В теории холодной плазмы важно найти условия на начальные данные, при которых решение будет являться глобально гладким по времени, так как в противном случае, после потери гладкости решения математическая модель холодной плзамы становится неприменимой. Основной результат работы сформулирован в следующей теореме:
+
+\begin{theorem}
+Для сколь угодно малых значений $\nu>0$ существует такое $\varepsilon(\nu)>0$, что решение задачи Коши (2) с начальными данными такими, что
+$\| {\bf V}^0(r),{\bf E}^0(r)\|_{C^1(\Omega)}<\varepsilon, \: r \in \Omega - \text{любой отрезок, принадлежащий } \overline{ \mathbb{R}}_+,$
+сохраняет исходную $C^1$-гладкость при всех $\theta>0.$
+\end{theorem}
+Здесь в качестве нормы в пространстве $C^1(\Omega)$ рассматривается $ \|f\|_{C^1(\Omega)}=\sum\limits_{i=0}^1 \sup\limits_{r \in \Omega}|f^{(i)}(r)|.$
+
+Полученный результат контрастирует с ситуацией нулевого коэффициента интенсивности электрон-ионных соударений\cite{Rozanova}, когда при любых нетривиальных малых начальных данных будет наблюдаться эффект опрокидования колебаний. Таким образом, учет в данной модели интенсивности электрон-ионных соударений оказывает влияние на гладкость решений. Помимо этого доказано, что при любом сколь угодно малом коэффициенте интенсивности электрон-ионных соударений всякое гладкое решение стабилизируется к нулевому стационарному состоянию в течение бесконечного времени.
+
+
+% Список литературы оформляется подобно ГОСТ-2008.
+% Примеры оформления находятся по этому адресу -
+%     https://narfu.ru/agtu/www.agtu.ru/fad08f5ab5ca9486942a52596ba6582elit.html
+%
+
+\begin{thebibliography}{9} % или {99}, если ссылок больше десяти.
+\bibitem{Ginzburg}  Гинзбург В.Л., Рухадзе А.А. Волны в магнитоактивной плазме. М.:~Наука,~ 1975.  
+
+\bibitem{Rozanova} Rozanova O.S. On the behavior of multidimensional axisymmetric solutions of repulsive Euler-Poisson equations~//  arXiv:2201.11099. 
+\end{thebibliography}
+
+% После библиографического списка в русскоязычных статьях необходимо оформить
+% англоязычный заголовок.
+
+
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

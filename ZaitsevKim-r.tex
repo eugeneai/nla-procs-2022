@@ -1,0 +1,303 @@
+\begin{englishtitle} % Настраивает LaTeX на использование английского языка
+% Этот титульный лист верстается аналогично.
+\title{On Matrix Eigenvalue Spectrum Assignment for High-order Linear Systems by Static Output Feedback\thanks{Работа выполнена при поддержке Минобрнауки РФ в рамках государственного задания \textnumero~075-01265-22-00, проект FEWS-2020-0010.}}
+% First author
+\author{Vasilii Zaitsev 
+  \and
+  Inna Kim 
+ % \and
+ % Name FamilyName3\inst{1}
+}
+\institute{UdSU, Izhevsk, Russia\\
+  \email{verba@udm.ru, kimingeral@gmail.com}
+  %\and
+%Affiliation, City, Country\\
+%\email{email}
+}
+% etc
+
+\maketitle
+
+\begin{abstract}
+For linear time-invariant control systems defined by a linear differential equation of the $n$th order with a multidimensional state, input and output, necessary and sufficient conditions for the solvability of the problem of assigning an arbitrary matrix spectrum by means of static output feedback are obtained.
+
+\keywords{linear control system, eigenvalue spectrum assignment,
+linear static output feedback} % в конце списка точка не ставится
+\end{abstract}
+\end{englishtitle}
+
+\iffalse
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  This is the template file for the 6th International conference
+%  NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+%  June 25-30, 2018
+%  Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  Верстка статьи осуществляется на основе стандартного класса llncs
+%  (Lecture Notes in Computer Sciences), который корректируется стилевым
+%  файлом конференции.
+%
+%  Скомпилировать файл в PDF можно двумя способами:
+%  1. Использовать pdfLaTeX (pdflatex), (LaTeX+DVIPS не работает);
+%  2. Использовать LuaLaTeX (XeTeX не будет работать).
+%  При использовании LuaLaTeX потребуются TTF- или OTF-шрифты CMU
+%  (Computer Modern Unicode). Шрифты устанавливаются либо пакетом
+%  дистрибутива LaTeX cm-unicode
+%              (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+%  либо загрузкой и установкой в операционной системе, адрес страницы:
+%  http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+%
+%  В MiKTeX (дистрибутив LaTeX для ОС Windows):
+%  1. Пакет cm-unicode устанавливается вручную в программе MiKTeX Console.
+%  2. Для верстки данного примера, а именно, картинки-заглушки необходимо,
+%     также вручную, загрузить пакет pgf. Этот пакет используется популярным
+%     пакетом tikz.
+%  3. Тест показал, что остальные пакеты MiKTeX грузит автоматически (если
+%     ему разрешено автоматически грузить пакеты). Режим автозагрузки
+%     настраивается в разделе Settings в MiKTeX Console.
+%
+%
+%  Самый простой способ сверстать статью - использовать pdfLaTeX, но
+%  окончательный вариант верстки сборника будет собран в LuaLaTeX,
+%  так как результат получится лучшего качества.
+%
+%  В случае возникновения вопросов и проблем с версткой статьи,
+%  пишите письма на электронную почту: eugeneai@irnko.net, Черкашин Евгений
+%
+%  Новые варианты корректирующего стиля будут доступны на сайте:
+%        https://github.com/eugeneai/nla-style
+%        файл - nla.sty
+%
+%  Дальнейшие инструкции - в тексте данного шаблона. Он одновременно
+%  является примером статьи.
+%
+%  Формат LaTeX2e!
+
+\documentclass[12pt]{llncs}  % Необходимо использовать шрифт 12 пунктов.
+
+% При использовании pdfLaTeX добавляется стандартный набор русификации babel.
+% Если верстка производится в LuaLaTeX, то следующие три строки надо
+% закомментировать, русификация будет произведена в корректирующем стиле автоматом.
+\usepackage[T2A]{fontenc}
+\usepackage[cp1251]{inputenc} % Кодировка utf-8, win1251 (cp1251) не тестировалась.
+\usepackage[english,russian]{babel}
+
+% Для верстки в LuaLaTeX текст готовится строго в utf-8!
+
+% В операционной системе Windows для редактирования в кодировки utf-8
+% можно использовать программы notepad++ https://notepad-plus-plus.org/,
+% techniccenter http://www.texniccenter.org/,
+% SciTE (самая маленькая по объему программа) http://www.scintilla.org/SciTEDownload.html
+% Подойдет также и встроенный в свежий дистрибутив MiKTeX редактор
+% TeXworks.
+
+% Добавляется корректирующий стилевой файл строго после babel, если он был включен.
+% В параметре необходимо указать russian, что установит не совсем стандартные названия
+% разделов текста, настроит переносы для русского языка как основного и т.п.
+
+\usepackage{todonotes} % Удрать из вашей статьи, нужен для верстки данного шаблона.
+
+\usepackage[russian]{nla}
+
+% Многие популярные пакеты (amsXXX, graphicx и т.д.) уже импортированы в корректирующий стиль.
+% Если возникнут конфликты с вашими пакетами, попробуйте их отключить и сверстать
+% текст как есть.
+%
+%
+
+
+% Было б удобно при верстке сборника, чтобы названия рисунков разных авторов не пересекались.
+% Чтоб минимизировать такое пересечение, рисунки можно поместить в отдельную подпапку с
+% названием - фамилией автора или названием статьи.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % Указание папки с изображениями в форматах png, pdf.
+% или
+% \graphicspath{{great-problem-solving-paper-pics/}} % Указание папки с изображениями в форматах png, pdf.
+
+
+\begin{document}
+
+% Текст оформляется в соответствии с классом article, используя дополнения
+% AMS.
+%
+\fi
+
+\title{О назначении матричного спектра \\ линейных систем высших порядков \\ статической обратной связью по выходу}
+% Первый автор
+\author{В.~А.~Зайцев   % \inst ставит циферку над автором.
+  \and  % разделяет авторов, в тексте выглядит как запятая.
+% Второй автор
+  И.~Г.~Ким 
+ % \and
+% Третий автор
+  %И.~О.~Фамилия\inst{1}
+} % обязательное поле
+
+% Аффилиации пишутся в следующей форме, соединяя каждый институт при помощи \and.
+\institute{УдГУ, Ижевск, Россия\\
+  \email{verba@udm.ru, kimingeral@gmail.com}
+%  \and   % Разделяет институты и присваивает им номера по порядку.
+%Институт (название в краткой форме), Город, Страна\\
+%\email{email@examle.com}
+% \and Другие авторы...
+}
+
+\maketitle
+
+\begin{abstract}
+Для линейных стационарных управляемых систем высших порядков получены необходимые и достаточные условия разрешимости задачи назначения произвольного матричного спектра
+посредством статической обратной связи по выходу.
+
+\keywords{линейная система управления, управление спектром, обратная связь по выходу} % в конце списка точка не ставится
+\end{abstract}
+
+Пусть $\mathbb{K}=\mathbb{C}$ или $\mathbb{K}=\mathbb{R}$; $\mathbb{K}^n=\{x={\rm col}\,(x_1,\ldots,x_n): x_i\in\mathbb{K}\}$~--- линейное пространство вектор-столбцов над полем $\mathbb{K}$; $M_{m,n}(\mathbb{K})$~--- пространство матриц размерности $m\times n$ над полем $\mathbb{K}$; $M_n(\mathbb{K}):=M_{n,n}(\mathbb{K})$; $I\in M_n(\mathbb{K})$~--- единичная матрица.
+
+Рассмотрим линейную управляемую систему \cite{LAIA}
+\begin{gather}\label{010}
+x^{(n)}+\sum\limits_{i=1}^n
+A_{i}x^{(n-i)}=\sum\limits_{\alpha=1}^m\sum\limits_{l=p}^n
+B_{l\alpha}u_{\alpha}^{(n-l)},\\
+\label{020}
+ y_{\beta}=\sum\limits_{\nu=1}^p C_{\nu \beta}x^{(\nu-1)},\quad
+\beta=\overline{1,k}.
+\end{gather}
+Здесь $s,n,m,k\in\mathbb{N}$ --- заданные числа, $p\in\{\overline{1,n}\}$;
+$x\in\mathbb{K}^s$ --- фазовый вектор,
+$u_{\alpha}\in\mathbb{K}^s$~--- векторы управления,
+$y_{\beta}\in\mathbb{K}^s$ --- векторы выходных сигналов, $A_i$,
+$B_{l\alpha}$, $C_{\nu\beta}\in M_{s}(\mathbb{K})$, $i=\overline{1,n}$,
+$l=\overline{p,n}$, $\nu=\overline{1,p}$, $\alpha=\overline{1,m}$,
+$\beta=\overline{1,k}$. Построим векторы $u={\rm
+col}(u_1,\ldots,u_m)\in\mathbb{K}^{ms}$, $y={\rm
+col}(y_1,\ldots,y_k)\in\mathbb{K}^{ks}$. 
+Будем строить управление в системе \eqref{010}, \eqref{020} по принципу линейной статической обратной связи по выходу
+\begin{gather}\label{025}
+u=Qy.
+\end{gather}
+Здесь $Q=\{Q_{\alpha\beta}\}\in M_{ms,ks}(\mathbb{K})$,
+$Q_{\alpha\beta}\in M_s(\mathbb{K})$, $\alpha=\overline{1,m}$,
+$\beta=\overline{1,k}$.
+
+
+{\bf Определение 1.} Скажем, что для системы
+\eqref{010}, \eqref{020} {\it разрешима задача назначения
+произвольного матричного спектра посредством линейной статической
+обратной связи по выходу} \eqref{025}, если для любых матриц
+$\Gamma_i\in M_s(\mathbb{K})$, $i=\overline{1,n}$, существует
+матрица обратной связи $Q\in M_{ms,ks}(\mathbb{K})$ такая, что
+замкнутая система \eqref{010}, \eqref{020}, \eqref{025}
+имеет вид 
+\begin{equation*}\label{53-050}
+x^{(n)}+\Gamma_{1}x^{(n-1)}+ \ldots  + \Gamma_{n}x  = 0.
+\end{equation*}
+
+По системе \eqref{010}, \eqref{020} построим блочные матрицы $B=\{B_{l\alpha}\}\in
+M_{ns,ms}(\mathbb{K})$, $l=\overline{1,n}$, $\alpha=\overline{1,m}$,
+$C=\{C_{\nu \beta}\}\in M_{ns,ks}(\mathbb{K})$, $\nu=\overline{1,n}$,
+$\beta=\overline{1,k}$, где $B_{l\alpha}=0\in
+M_s(\mathbb{K})$ при $l<p$ и $C_{\nu \beta}=0\in
+M_s(\mathbb{K})$ при
+$\nu>p$. 
+
+Обозначим  $\mathcal{J}:=J\otimes I\in M_{ns}(\mathbb{K})$, где
+$I\in M_s(\mathbb{K})$, $J\in M_n(\mathbb{K})$~--- первый единичный
+косой ряд, $\otimes$ --- прямое (кронекерово) произведение матриц. 
+
+Пусть $X$, $Y$ --- блочные
+матрицы с блоками размерности $s$ такие, что число (блочных)
+столбцов матрицы $X$ совпадает с числом (блочных) строк матрицы $Y$:
+\begin{gather*}
+\begin{aligned}
+X&=\{X_{ij}\}\in M_{qs,rs}(\mathbb{K}), && X_{ij}\in M_s(\mathbb{K}), && i=\overline{1,q}, && j=\overline{1,r}; \\
+Y&=\{Y_{j\nu}\}\in M_{rs,ts}(\mathbb{K}), && Y_{j \nu}\in
+M_s(\mathbb{K}), && j=\overline{1,r}, && \nu=\overline{1,t}.
+\end{aligned}
+\end{gather*}
+ Для матриц $X$ и $Y$ определим операцию блочного умножения по следующему правилу:
+$$
+Z=X \star Y:=\{Z_{i\nu}\}, \quad Z_{i\nu}:=\sum_{j=1}^r
+X_{ij}\otimes Y_{j \nu} \quad i=\overline{1,q},  \quad
+\nu=\overline{1,t}.
+$$
+Имеем $Z_{i\nu}\in M_{s^2}(\mathbb{K})$, $i=\overline{1,q}$,
+$\nu=\overline{1,t}$, поэтому $Z:=X \star Y \in M_{qs^2,
+ts^2}(\mathbb{K})$. 
+
+Введем отображение %${\rm VECCR}_s,\,
+${\rm VECRR}_s:M_{qs,rs}(\mathbb{K})\to M_{s,qrs}(\mathbb{K})$,
+которое разворачивает матрицу $X=\{X_{ij}\}\in
+M_{qs,rs}(\mathbb{K})$ по
+блочным строкам 
+в блочную строку с блоками размерности $s$:
+$
+%{\rm VECCR}_s\,X=[X_{11},\ldots,X_{q1},\ldots,X_{1r},\ldots,X_{qr}], \\
+{\rm VECRR}_s\,X=[X_{11},\ldots,X_{1r},\ldots,X_{q1},\ldots,X_{qr}].
+$
+ Рассмотрим матрицы
+$C^T\star B$, $C^T\star \mathcal{J}B$, $\ldots$, 
+$C^T\star \mathcal{J}^{n-1}B$.
+%Имеем  $C^T\in M_{ks,ns}(\mathbb{K})$, $B\in M_{ns,ms}(\mathbb{K})$,
+%следовательно, $C^T\star \mathcal{J}^{i-1}B \in$
+%$M_{ks^2,ms^2}(\mathbb{K})$ для всех $i=\overline{1,n}$. 
+Построим матрицы ${\rm VECRR}_{s^2}(C^T\star \mathcal{J}^{i-1}B) \in
+M_{s^2,kms^2}(\mathbb{K})$, $i=\overline{1,n}$, и матрицу
+\begin{equation*}\label{030}
+\Theta=\left[\begin{matrix}
+{\rm VECRR}_{s^2}(C^T\star B)\\
+{\rm VECRR}_{s^2}(C^T\star \mathcal{J}B)\\
+\ldots\ldots\ldots\ldots\ldots\ldots\ldots \\
+{\rm VECRR}_{s^2}(C^T\star \mathcal{J}^{n-1}B)
+\end{matrix}\right]\in M_{ns^2,kms^2}(\mathbb{K}).
+\end{equation*}
+
+
+{\bf Теорема 1.} {\it Для системы \eqref{010},
+\eqref{020} разрешима задача назначения произвольного матричного
+спектра посредством линейной статической обратной связи по выходу
+\eqref{025} тогда и только тогда, когда}
+\begin{equation*}
+ {\rm rank}\,\Theta = ns^2.
+\end{equation*}
+
+
+
+
+
+
+
+% Современные издательства требуют использовать кавычки-елочки << >>.
+
+% В конце текста можно выразить благодарности, если этого не было
+% сделано в ссылке с заголовка статьи, например,
+%Работа выполнена при поддержке Минобрнауки РФ в рамках государственного задания \textnumero~075-01265-22-00, проект FEWS-2020-0010.
+%
+
+% Список литературы оформляется подобно ГОСТ-2008.
+% Примеры оформления находятся по этому адресу -
+%     https://narfu.ru/agtu/www.agtu.ru/fad08f5ab5ca9486942a52596ba6582elit.html
+%
+
+\begin{thebibliography}{9} % или {99}, если ссылок больше десяти.
+\bibitem{LAIA} Zaitsev~V., Kim~I. Matrix eigenvalue spectrum assignment for linear control systems by
+static output feedback. Linear Algebra and its Applications. 2021.
+Vol.~613. Pp.~115--150. 
+
+\end{thebibliography}
+
+% После библиографического списка в русскоязычных статьях необходимо оформить
+% англоязычный заголовок.
+
+
+
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

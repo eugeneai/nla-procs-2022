@@ -1,0 +1,206 @@
+\begin{englishtitle} % Настраивает LaTeX на использование английского языка
+% Этот титульный лист верстается аналогично.
+\title{On the Solution of the Hamilton-Jacobi Equation with State Constraints Given by Zeros of the Coefficients at the Exponential Terms of the Hamiltonian}
+% First author
+\author{Lyubov Shagalova}
+\institute{ IMM UrB  RAS, Yekaterinburg, Russia\\
+  \email{shag@imm.uran.ru}}
+  
+\maketitle
+
+\begin{abstract}
+The Cauchy problem for the Hamilton-Jacobi equation with a Hamiltonian depending on the state and momentum variables is considered. In this case, the dependence on the momentum  is exponential. The state space is one-dimensional. The problem is considered in the strip determined by zeros of the monotone functions of the state variable which are the coefficients at the exponential terms of the Hamiltonian. The existence and uniqueness theorem for the viscosity solution of the problem under consideration is proved. 
+
+\keywords{Hamilton-Jacobi equation, viscosity solution, state constraints, method of characteristics} % в конце списка точка не ставится
+\end{abstract}
+\end{englishtitle}
+
+
+\iffalse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  This is the template file for the 6th International conference
+%  NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+%  June 25-30, 2018
+%  Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  Верстка статьи осуществляется на основе стандартного класса llncs
+%  (Lecture Notes in Computer Sciences), который корректируется стилевым
+%  файлом конференции.
+%
+%  Скомпилировать файл в PDF можно двумя способами:
+%  1. Использовать pdfLaTeX (pdflatex), (LaTeX+DVIPS не работает);
+%  2. Использовать LuaLaTeX (XeTeX не будет работать).
+%  При использовании LuaLaTeX потребуются TTF- или OTF-шрифты CMU
+%  (Computer Modern Unicode). Шрифты устанавливаются либо пакетом
+%  дистрибутива LaTeX cm-unicode
+%              (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+%  либо загрузкой и установкой в операционной системе, адрес страницы:
+%  http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+%
+%  В MiKTeX (дистрибутив LaTeX для ОС Windows):
+%  1. Пакет cm-unicode устанавливается вручную в программе MiKTeX Console.
+%  2. Для верстки данного примера, а именно, картинки-заглушки необходимо,
+%     также вручную, загрузить пакет pgf. Этот пакет используется популярным
+%     пакетом tikz.
+%  3. Тест показал, что остальные пакеты MiKTeX грузит автоматически (если
+%     ему разрешено автоматически грузить пакеты). Режим автозагрузки
+%     настраивается в разделе Settings в MiKTeX Console.
+%
+%
+%  Самый простой способ сверстать статью - использовать pdfLaTeX, но
+%  окончательный вариант верстки сборника будет собран в LuaLaTeX,
+%  так как результат получится лучшего качества.
+%
+%  В случае возникновения вопросов и проблем с версткой статьи,
+%  пишите письма на электронную почту: eugeneai@irnko.net, Черкашин Евгений
+%
+%  Новые варианты корректирующего стиля будут доступны на сайте:
+%        https://github.com/eugeneai/nla-style
+%        файл - nla.sty
+%
+%  Дальнейшие инструкции - в тексте данного шаблона. Он одновременно
+%  является примером статьи.
+%
+%  Формат LaTeX2e!
+
+\documentclass[12pt]{llncs}  % Необходимо использовать шрифт 12 пунктов.
+
+% При использовании pdfLaTeX добавляется стандартный набор русификации babel.
+% Если верстка производится в LuaLaTeX, то следующие три строки надо
+% закомментировать, русификация будет произведена в корректирующем стиле автоматом.
+\usepackage[T2A]{fontenc}
+\usepackage[cp1251]{inputenc} % Кодировка utf-8, win1251 (cp1251) не тестировалась.
+\usepackage[english,russian]{babel}
+
+% Для верстки в LuaLaTeX текст готовится строго в utf-8!
+
+% В операционной системе Windows для редактирования в кодировки utf-8
+% можно использовать программы notepad++ https://notepad-plus-plus.org/,
+% techniccenter http://www.texniccenter.org/,
+% SciTE (самая маленькая по объему программа) http://www.scintilla.org/SciTEDownload.html
+% Подойдет также и встроенный в свежий дистрибутив MiKTeX редактор
+% TeXworks.
+
+% Добавляется корректирующий стилевой файл строго после babel, если он был включен.
+% В параметре необходимо указать russian, что установит не совсем стандартные названия
+% разделов текста, настроит переносы для русского языка как основного и т.п.
+
+\usepackage{todonotes} % Удрать из вашей статьи, нужен для верстки данного шаблона.
+
+\usepackage[russian]{nla}
+
+% Многие популярные пакеты (amsXXX, graphicx и т.д.) уже импортированы в корректирующий стиль.
+% Если возникнут конфликты с вашими пакетами, попробуйте их отключить и сверстать
+% текст как есть.
+%
+%
+
+
+% Было б удобно при верстке сборника, чтобы названия рисунков разных авторов не пересекались.
+% Чтоб минимизировать такое пересечение, рисунки можно поместить в отдельную подпапку с
+% названием - фамилией автора или названием статьи.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % Указание папки с изображениями в форматах png, pdf.
+% или
+% \graphicspath{{great-problem-solving-paper-pics/}} % Указание папки с изображениями в форматах png, pdf.
+
+
+\begin{document}
+
+% Текст оформляется в соответствии с классом article, используя дополнения
+% AMS.
+%
+\fi
+
+\title{О решении уравнения Гамильтона -- Якоби с фазовыми ограничениями, задаваемыми нулями коэффициентов при экспоненциальных слагаемых гамильтониана}%\thanks{Работа выполнена при поддержке РФФИ (РНФ, другие фонды), проект \textnumero~00-00-00000.}}
+% Первый автор
+\author{Л.~Г.~Шагалова%\inst{1}  % \inst ставит циферку над автором.
+  %\and  % разделяет авторов, в тексте выглядит как запятая.
+% Второй автор
+ % И.~О.~Фамилия\inst{2}
+  %\and
+% Третий автор
+ % И.~О.~Фамилия\inst{1}
+} % обязательное поле
+
+% Аффилиации пишутся в следующей форме, соединяя каждый институт при помощи \and.
+\institute{ИММ УрО РАН, Екатеринбург, Россия\\
+  \email{shag@imm.uran.ru}
+  %\and   % Разделяет институты и присваивает им номера по порядку.
+%Институт (название в краткой форме), Город, Страна\\
+%\email{email@examle.com}
+% \and Другие авторы...
+}
+
+\maketitle
+
+\begin{abstract}
+Рассматривается задача Коши для уравнения Гамильтона -- Якоби с гамильтонианом, зависящим от фазовой и импульсной переменной.
+При этом зависимость от импульсной переменной экспоненциальна. Фазовое пространство одномерно. Задача рассматривается в полосе, определяемой нулями монотонных функций фазовой переменной, которые являются коэффициентами при экспоненциальных слагаемых гамильтониана. Доказана теорема существования и единственности вязкостного решения рассматриваемой задачи.
+
+\keywords{уравнение Гамильтона -- Якоби, вязкостное решение, фазовые ограничения, метод характеристик } % в конце списка точка не ставится
+\end{abstract}
+
+Рассматривается задача Коши для уравнения Гамильтона -- Якоби с фазовыми ограничениями следующего вида
+\begin{equation}\label{eqn1}
+\frac{\partial u}{\partial t} + H\left(x, \frac{\partial u}{\partial x}\right)=0, \quad  t \in (0,T), \, x \in [x_*, x^*]
+\end{equation}
+\begin{equation}\label{eqn2}
+u(0,x)=u_0(x),  \quad x \in R.
+\end{equation}
+Здесь $T > 0$~-- заданный момент времени, $u_0(\cdot)$~-- непрерывно дифференцируемая функция.
+
+Заданы непрерывно дифференцируемые функции $h(\cdot): R \rightarrow R$, \quad $f(\cdot): R \rightarrow R$, \quad $g(\cdot):R \rightarrow R$. При этом $f(\cdot)$ является строго возрастающей, а $g(\cdot)$ --- cтрого убывающей, и существуют точки $x_*$ и $x^*$, \quad $x_* < x^*$ такие, что
+$$
+f(x_*)=0, \quad g(x^*)=0.$$
+
+Таким образом, отрезок $[x_*, x^*]$ в (\ref{eqn1}) определяется нулями функций $f(\cdot)$ и $g(\cdot)$. Задача~(\ref{eqn1}), (\ref{eqn2}) рассматривается в случае, когда гамильтониан имеет вид
+\begin{equation}\label{hama}
+H(x,p)=h(x)+f(x)e^p +g(x)e^{-p}.
+\end{equation}
+Поскольку на отрезке $[x_*, x^*]$ функции $f(\cdot)$ и $g(\cdot)$ неотрицательны, гамильтониан (\ref{hama}) является выпуклым по импульсной переменной $p$.
+
+Задачи с экспоненциальной зависимостью гамильтониана нетипичны для теории уравнений Гамильтона -- Якоби. Вместе с тем, такие задачи возникают в прикладных исследованиях (см., например, \cite{Saak}). При этом для таких задач не выполнены известные условия, для которых доказаны теоремы существования вязкостных \cite{Crandall} решений. Для ряда подобных задач вязкостных решений не существует, поэтому приходится вводить новые обобщенные решения \cite{SubbShag}.
+
+Для задачи (\ref{eqn1}),(\ref{eqn2}),(\ref{hama}) доказана теорема существования и единственности вязкостного решения. Доказательство теоремы базируется на решении задач вариационного исчисления с подвижными границами \cite{Clarke}, исследовании характеристической системы уравнения (\ref{eqn1}), (\ref{hama}) с начальным условием (\ref{eqn2}) и применении метода обобщенных характеристик \cite{Subbotina}.
+
+
+
+% Современные издательства требуют использовать кавычки-елочки << >>.
+
+
+% Список литературы оформляется подобно ГОСТ-2008.
+% Примеры оформления находятся по этому адресу -
+%     https://narfu.ru/agtu/www.agtu.ru/fad08f5ab5ca9486942a52596ba6582elit.html
+%
+
+\begin{thebibliography}{9} % или {99}, если ссылок больше десяти.
+
+\bibitem{Saak} Saakian~D.B., Rozanova~O., Akmetzhanov~A. Dynamics of the Eigen and the Crow-Kimura models for molecular
+evolution. Physical Review E. 2008. Vol~78. 041908.
+
+\bibitem{Crandall} Crandall~M.G., Lions~P.-L. Viscosity solutions of Hamilton–Jacobi equations. Trans. Amer. Math. Soc.  1983. Vol.~277, no.~1. P.~1--42.
+
+\bibitem{SubbShag} Cубботина~Н.Н., Шагалова~Л.Г. О решении задачи Коши для уравнения Гамильтона~-– Якоби с фазовыми ограничениями~// Труды Института математики и механики УрО РАН. 2011.  Т.~17, \textnumero~2. C.~191--208.
+    
+\bibitem{Clarke} Clarke~F.H. Tonelli’s regurarity theory in the calculus of variations: Recent progress. Optimization and Related Fields. Lecture Notes in Mathematics. 1986. Vol.~1190. P.~163--179.
+    
+\bibitem{Subbotina} Subbotina~N.N. The method of characteristics for Hamilton–Jacobi equation and its applications in dynamical optimization. Modern Mathematics and its Applications.  2004.  Vol.~20. P.~2955--3091.
+    
+
+\end{thebibliography}
+
+% После библиографического списка в русскоязычных статьях необходимо оформить
+% англоязычный заголовок.
+
+
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

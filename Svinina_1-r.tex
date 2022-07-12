@@ -1,0 +1,112 @@
+\begin{englishtitle} % Настраивает LaTeX на использование английского языка
+% Этот титульный лист верстается аналогично.
+\title{On the Numerical Solution of Linear Multidimensional Differential-algebraic Systems\thanks{Работа выполнена в рамках базового проекта ``Теория и методы исследования эволюционных уравнений и управляемых систем с их приложениями'', \textnumero~121041300060-4.}}
+% First author
+\author{Svetlana Svinina}
+\institute{ISDCT 	SB RAS, Irkutsk, Russia\\
+  \email{svinina@icc.ru}}
+% etc
+
+\maketitle
+
+\begin{abstract}
+An initial-boundary value problem for a linear multidimensional differential-algebraic system of hyperbolic and parabolic types is considered. For its numerical solution, an additive spline-collocation difference scheme is used. The results of numerical experiments are presented.
+
+\keywords{differential-algebraic system, additive difference schemes, index, spline-collocation method, hyperbolic and parabolic systems} 
+\end{abstract}
+\end{englishtitle}
+
+
+\iffalse
+\documentclass[12pt]{llncs}  
+\usepackage[T2A]{fontenc}
+\usepackage[cp1251]{inputenc} 
+\usepackage[english,russian]{babel}
+\usepackage{todonotes}
+\usepackage[russian]{nla}
+
+\begin{document}
+\fi
+
+\title{О численном решении линейных многомерных дифференциально-алгебраических систем}
+\author{С.~В.~Свинина 
+ }
+
+% Аффилиации пишутся в следующей форме, соединяя каждый институт при помощи \and.
+\institute{ ИДСТУ СО РАН, Иркутск, Россия\\
+  \email{svinina@icc.ru}}
+
+\maketitle
+
+\begin{abstract}
+Рассматривается начально-краевая задача для линейной многомерной диф\-фе\-рен\-ци\-аль\-но-алгебраической системы гиперболического и параболического типов. Для её численного решения применяются аддитивная сплайн-кол\-ло\-ка\-ци\-онная разностная схема. Представлены результаты численных экспериментов.
+
+
+\keywords{дифференциально-алгебраическая система, аддитивные разностные схемы, индекс, сплайн-коллокационный метод, гиперболические и параболические системы} 
+\end{abstract}
+
+Среди уравнений газовой динамики хорошо известны системы с вырожденной матрицей при старшей производной. Такие системы называют не разрешёнными относительно старшей производной и относят к системам более общего вида, которые в современной литературе получили название дифференциально-алгебраических систем. 
+В докладе рассматривается линейная многомерная дифференциально-алгебраическая система: 
+\begin{equation}\label{e_1}
+A(x,t) \frac{\partial u}{\partial t}+Lu=f(x,t), \ \ \mbox{где}\ \ Lu=\sum_{\alpha=1}^{p}B_{\alpha}(x,t) \frac{\partial u}{\partial x_{\alpha}} +C(x,t)u,
+\end{equation}
+заданная в цилиндре $\mathcal{U}_{T}=G\times\{t:\ t_{0}\leq t\leq T\}$, основанием которого является $p$-мерный прямоугольный параллелепипед
+$G=\{x=(x_{1},x_{2},\dots,x_{p}):\ x_{\alpha,0}\leq x_{\alpha}\leq I_{\alpha},\ \ \alpha=\overline{1,p}\}$, $(x,t)\in \mathcal{U}_{T}$. 
+В системе (\ref{e_1}) $f(x,t)$ и $u(x,t)$ -- заданная и искомая, соответственно, $n$-мерные  вектор-функ\-ции: 
+$f(x,t)=(f^{1}(x,t),f^{2}(x,t),\dots,f^{n}(x,t))^{\top}$ и
+$u(x,t)=(u^{1}(x,t),u^{2}(x,t),\dots,u^{n}(x,t))^{\top}$;
+$A(x,t)$, $B_{\alpha}(x,t)$ и $C(x,t)$ -- заданные квадратные матрицы-функции порядка $n$:
+$$
+\det A(x,t)=0,\ \ \ \det B_{\alpha}(x,t)=0\ \ \forall \alpha=\overline{1,p},\ (x,t)\in \mathcal{U}_{T}.
+$$
+Начально-краевые условия имеют следующий вид:
+$$
+\begin{array}{c}
+u(x,t_{0})=\phi(x), \\
+u(x_{1},\dots,x_{\alpha,0},\dots,x_{p},t)=\psi_{\alpha}(x_{1},\dots,x_{\alpha-1},x_{\alpha+1},\dots,x_{p},t),
+\ \ \alpha=\overline{1,p}.
+\end{array}
+$$
+При численном решении многомерных систем наиболее популярны методы расщепления~\cite{Sam}-\cite{Vab}. К ним относят методы переменных направлений и локально-одномерные методы. 
+В этом случае система (\ref{e_1}) записывается в расщеплённом виде
+$$
+\sum_{\alpha=1}^{p}\mathfrak{L}_{\alpha}u=0,\ \ \ \mathfrak{L}_{\alpha}u=\frac{1}{p}A(x,t)\frac{\partial u}{\partial t}+L_{\alpha}u-f_{\alpha}(x,t), 
+$$
+где
+$L_{\alpha}u=B_{\alpha}(x,t) \frac{\partial u}{\partial x_{\alpha}} +C_{\alpha}(x,t)u$,
+$\sum_{\alpha=1}^{p}C_{\alpha}(x,t)=C(x,t),\ \ \ \sum_{\alpha=1}^{p}f_{\alpha}(x,t)=f(x,t)$.
+На каждом отрезке $\Delta_{\alpha}$, где $\alpha=\overline{1,p}$ последовательно решаются одномерные диф\-фе\-рен\-ци\-аль\-но-алгебраические системы
+\begin{equation}\label{e_2} 
+\sum_{\alpha=1}^{p}\mathfrak{L}_{\alpha}v_{(\alpha)}=\frac{1}{p}A(x,t)\frac{\partial v_{(\alpha)}}{\partial t}+L_{\alpha}v_{(\alpha)}-f_{\alpha}(x,t)=0,\ \ x\in G,\ \ t\in \Delta_{\alpha},\ \ \alpha=\overline{1,p}
+\end{equation}
+с начально-краевыми условиями: 
+$$
+v_{(\alpha)}(x_{1},\dots,x_{\alpha, 0},\dots,x_{p},t)=\psi_{\alpha}(x_{1},\dots,x_{\alpha-1},x_{\alpha+1},\dots,x_{p},t),
+$$
+$$
+v_{(1)}(x,t_{0})=\phi(x),\ \ \ \ v_{(\alpha)}(x,t_{i_{0}+(\alpha-1)/p})=v_{(\alpha-1)}(x,t_{i_{0}+(\alpha-1)/p}),\ \ \ \alpha=\overline{2,p},
+$$
+$$
+v_{(1)}(x,t_{i_{0}})=v_{(p)}(x,t_{i_{0}}).
+$$
+Каждая система из (\ref{e_2}) аппроксимируется сплайн-коллокационной разносной схемой~\cite{Sv}. В итоге получаются разностные схемы, которые названы аддитивными сплайн-кол\-ло\-ка\-ци\-он\-ными разностными схемами. Такие разностные схемы имеют высокий порядок точности по временной и пространственным переменным. 
+
+\begin{thebibliography}{9} 
+\bibitem{Sam} Самарский~А.А. Об одном экономичном разностном методе решения многомерного параболического уравнения в произвольной области~// Ж. вычисл. матем. и матем. физ. 1962. Т.~2. \textnumero~5. C.~787--811.
+\bibitem{Kov} Ковеня~В.М. Разностные методы решения многомерных задач: Курс лекций~/ Новосиб. гос. ун-т. Новосибирск,~2004.
+\bibitem{Vab} Вабищевич~П.Н. Аддитивные операторно-разностные схемы (схемы расщепления). М.:~КРАСАНД,~2013.
+\bibitem{Sv}  Гайдомак С.В. Об устойчивости неявной сплайн-коллокационной разностной схемы для линейных дифференциально-алгебраических уравнений с частными производными~// Ж. вычисл. матем. и матем. физ. 2013.  Т.~53. \textnumero~9. C.~1460--1479.   
+\end{thebibliography}
+
+% После библиографического списка в русскоязычных статьях необходимо оформить
+% англоязычный заголовок.
+
+
+
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

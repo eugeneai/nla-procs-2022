@@ -1,0 +1,141 @@
+\iffalse
+% This is LLNCS.DEM the demonstration file of
+% the LaTeX macro package from Springer-Verlag
+% for Lecture Notes in Computer Science,
+% version 2.4 for LaTeX2e as of 16. April 2010
+%
+\documentclass[12pt]{llncs}
+\usepackage{iftex}
+\usepackage{nla}
+%\usepackage{showframe}
+%
+%
+\begin{document}
+%
+\fi
+\title{Variational Optimality Condition in Control \\ of Hyperbolic Systems with \\ Boundary Delay Parameters}
+%
+\titlerunning{Hamiltonian Mechanics}  % abbreviated title (for running head)
+%                                     also used for the TOC unless
+%                                     \toctitle is used
+%
+\author{Alexander~Arguchintsev, Vasilisa~Poplevko}
+%
+\authorrunning{Alexander Arguchintsev et al.} % abbreviated author list (for running head)
+%
+%%%% list of authors for the TOC (use if author list has to be modified)
+\tocauthor{Alexander Arguchintsev, Vasilisa Poplevko}
+%
+\institute{Institute of Mathematics and Information Technologies, Irkutsk State University,\\ 
+Irkutsk, Russia,\\
+\email{arguch@math.isu.ru}}
+
+\maketitle              % typeset the title of the contribution
+
+\begin{abstract}
+This paper deals with an optimal control of a first-order hyperbolic system, in which the boundary condition at one of the ends is determined from a controlled system of ordinary differential equations (ODEs) with a constant state delay. The system of ODEs on the boundary is linear in state, but the matrix of coefficients at phase variables depends on control functions. Therefore, the optimality condition of Pontryagin's maximum principle type in this problem is a necessary but not sufficient optimality condition. The main result of the work is in reduction of the original problem to the problem of optimal control of a system of ODEs. The proposed approach is based on the use of an exact (without remainder terms) increment formula of the objective functional. The corresponding statement is formulated as a variational optimality condition.
+\keywords{hyperbolic systems, boundary delay, variational optimality condition, reduction of optimal control problems}
+\end{abstract}
+%
+\section{Problem statement}
+%
+We consider a system
+\begin{equation} \label{aE1}
+x_{t} + B(s,t)x_{s} = F(s,t)x + f(s,t),
+\end{equation}
+$$
+(s, t) \in \Pi, \;\; \Pi= S\times T, \;\; S= [s_{0}, s_{1}], \;\;  T= [t_{0}, t_{1}].
+$$
+Here $x= x(s, t)$ is $n - $ dimensional vector-function, $B= B(s,t)$ is a matrix of order $(n\times n)$, We suppose that system (\ref{aE1}) is written in an invariant form, that is $B$ is a diagonal matrix. Diagonal elements $b_{i}(s,t)$ of $B$ are of constant sign in $\Pi$:
+$$
+b_{i}(s,t)>0, \;\; i=1,2, \ldots, m_{1};
+$$
+$$
+b_{i}(s,t)=0,\;\; i=m_{1}+ 1, m_{1}+ 2, \ldots, m_{2};
+$$
+$$
+b_{i}(s,t)<0, \;\; i=m_{2}+ 1, m_{2}+2, \ldots, n.
+$$
+We consider two subvectors $ x^{+}=(x_{1}, x_{2}, \ldots, x_{m_{1}}),  \;  x^{-}= (x_{m_{2}+1}, x_{m_{2}+2}, \ldots, x_{n}),
+$
+which correspond to the positive and negative diagonal elements of  matrix $B$.
+
+The initial-boundary conditions for the system (\ref{aE1}) are given in the form:
+\begin{equation} \label{aE2}
+\frac{dx^{+}(s_{0}, t)}{dt} = A(u(t), t) x^{+}(s_{0}, t-\alpha) + d(u(t), t), \;\;\; t\in T,
+\end{equation}
+$$
+x(s, t_{0}) = x^0 (s), \;\; s\in S, \;\;\; x^{-}(s_{1}, t) = \nu(t), \;\; t\in T,
+$$
+$$
+x^{+}(s_{0}, t) = q(t), \;\;  t\in [-\alpha; t_{0}];  \;\; \alpha>0,
+$$
+where $\alpha$ is a constant, which is a state delay. Thus, the boundary conditions at $s=s_{0}$ are determined from the controlled system of ordinary differential equations with delay.
+
+We consider bounded and measurable $r$ - dimensional control vector functions $u(t)$ on $T$ satisfying almost everywhere  the inclusion-type restrictions
+\begin{equation} \label{aE3}
+u(t)\in U\subset E^r, \;\;\; t\in T,
+\end{equation}
+$U$ is a compact set.
+
+The objective functional is given in the following form
+\begin{equation} \label{aE4}
+J(u)= \int_{s} \langle c(s), x(s, t_{1}) \rangle ds \rightarrow \; {\rm min}, \;\;\; u\in U.
+\end{equation}
+
+%
+\section{Variational optimality condition}
+%
+Under two arbitrary different admissible processes $\{u,x\}$ and $ \{\tilde{u}=u+ \triangle u, \tilde{x}=x+ \triangle x\}$ we get exact increment formula (without remainder terms) which allows us to reduce the original problem of optimal control of a hyperbolic system to the optimal control problem for the system of ODEs
+$$
+I(v)= - \int_{T} \langle p(t, u), A(v(t), t) - A(u((t), t))z(t-\alpha, v) +
+$$
+\begin{equation} \label{aE10}
+d(v(t), t) - d(u(t), t) \rangle dt \rightarrow \; {\rm min},
+\end{equation}
+\begin{equation} \label{aE11}
+\dot{z} = A(v(t), t), z(t-\alpha)+ d(v(t), t) ,  \;\; t\in T;
+\end{equation}
+$$
+z(t) = 0, \; t \in [t_0-\alpha, t_0]; \;\;  v(t) \in U.
+$$
+Here $p(t,u)$ is a solution of the one adjoint problem.
+
+This result enables us to formulate a new variational optimality condition.
+
+\begin{theorem}
+A control $u^{*}(t)$ is optimal in the problem  (\ref{aE1})--(\ref{aE4}) if and only if the function $v^{*}=u^{*}(t)$  is optimal in problem (\ref{aE10})--(\ref{aE11}) for any fixed admissible $u(t)$.
+\end{theorem}
+
+The reduced problem can be solved using a wide range of efficient methods used for this class of optimal control problems in systems of ODEs (for example, see reviews \cite{Gol,B,Sr}). This approach was proposed in \cite{Arg1} for classic optimal control problems with fixed boundary conditions and without delay. Two symmetric variational conditions were proved. Delay parameters lead to only one variational optimality condition.
+
+\paragraph{Notes and Comments.}
+The reported study was funded by RFBR and the Government of the Irkutsk Region, project
+number 20-41-385002, and by RFBR, project number 20-07-00407.
+%
+% ---- Bibliography ----
+%
+\begin{thebibliography}{5}
+%
+\bibitem{Gol}
+Golfetto  W.A., Silva Fernandes  S. 
+A Review of Gradient Algorithms for Numerical Ccomputation of Optimal Trajectories.
+J. Aerosp. Technol. Manag. 2012. Vol. 4. Pp. 131--143.
+
+\bibitem{B}
+Biral  F., Bertolazzi  E., Bosetti  P. 
+Notes on Nnumerical Methods for Solving Optimal Control Pproblems.
+IEEJ J. of Industry Appl. 2016. Vol.  5, no. 2. Pp. 154--166.
+
+\bibitem{Sr}
+Srochko  V.A., Aksenyushkina  E.V., Antonik  V.G. 
+Resolution of a Llinear-Quadratic Optimal Ccontrol Pproblem Based on Finite-dimensional Models.
+The Bulletin of Irkutsk State University. Ser. Mathematics. 2021. Vol. 37. Pp. 3--16.
+
+\bibitem{Arg1}
+Arguchintsev  A., Poplevko  V. 
+An Optimal Control Problem by a Hybrid System of Hyperbolic and Ordinary Differential Equations.
+Games 12, 23, 2021 https://doi.org/10.3390/g12010023 
+
+\end{thebibliography}
+%\end{document}

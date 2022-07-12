@@ -1,0 +1,126 @@
+
+\iffalse
+\documentclass[12pt]{llncs}
+\usepackage{todonotes}
+\usepackage{nla}
+
+\begin{document}
+\fi
+
+\title{On Optimizing Coherent and Incoherent Controls in 
+Some Open Quantum Systems\thanks{The talk presents the results partially supported by the Russian Science Foundation under grant no. 22-11-00330 (https://rscf.ru/en/project/22-11-00330/), 
+Ministry of Science and Higher Education of the Russian Federation (project no. 075-15-2020-788).}} 
+
+\author{Oleg V. Morzhin 
+}
+\institute{Steklov Mathematical Institute of Russian Academy of Sciences,\\
+	Department of Mathematical Methods for Quantum Technologies, Moscow, Russia  
+  \and
+National University of Science and Technology ``MISiS'', Moscow, Russia\\
+\email{morzhin.oleg@yandex.ru}}  
+
+\maketitle
+
+\begin{abstract}
+The talk is devoted to describing our various results for optimizing 
+coherent and incoherent controls in some open quantum systems. 
+Along the way, various important aspects of such optimization are noted. 
+
+\keywords{quantum control, coherent control, incoherent control, optimization, qubit, two-level quantum system}
+
+\sloppy
+
+\end{abstract}
+
+Quantum optimal control is an important interdisciplinary direction 
+\cite{ccMoore2011,ccKoch_arXiv2022,ccDAlessandroBook2021,ccMorzhinRMS2019,ccMIPTCourseQCS}, 
+where quantum-mechanical equations (Schr\"{o}dinger, von Neumann equations, etc.) 
+are considered with controls, which represent various external actions including
+laser light, for modelling such changes of a quantum object 
+that some set of objective criteria is satisfied, e.g., time-minimal
+steering to a given target density matrix, $\rho_0 \to \rho_{\rm target}$. 
+
+A powerful method of {\it incoherent control} of open quantum systems, possibly with simultaneous
+coherent control, was proposed and studied for various quantum systems in~\cite{ccPechenPRA2006,ccPechenPRA2011}. As the main result, approximate controllability in the set of all density matrices for generic quantum systems was shown~\cite{ccPechenPRA2011} as well as the ability to generate all-to-one Kraus maps previously studied for quantum control in~\cite{ccWuJPA2007}. Reachable sets for a qubit driven by coherent and incoherent controls are explicitly described using geometric control theory~\cite{ccLokutsievskiyJPA2021}. This method of incoherent control forms the base of this talk. 
+
+For the open-loop control type, this talk describes various results for optimizing
+coherent and  incoherent controls in some open quantum systems. The talk discusses results of the works~\cite{ccMorzhinLJM2019,ccMorzhinPhysPartNucl2020,ccMorzhinProcSteklov2021,ccMorzhin_arXiv2022}, etc., and describes using, e.g., 
+the Pontryagin maximum principle, Gabasov second order necessary condition for 
+optimality~\cite{ccMorzhinPhysPartNucl2020},
+various optimization methods. The following important aspects are noted:
+(a)~importance to take into account the specific of a certain class of quantum optimal control problems
+for adaption or creation of such methods that allow to approximately solve these problems
+(e.g., the fundamental result proposed in the article~\cite{ccPechenPRA2011}
+for approximate steering $\rho_0 \to \rho_{\rm target}$, 
+approximate controllability for $N$-level open quantum systems driven by coherent and incoherent controls  
+is based on analysis of the matrix specific including eigenvalues of $\rho_{\rm target}$, while
+the work~\cite[Sec.~4]{ccMorzhin_arXiv2022} modifies this steering method for $N=2$
+by using a wider class of incoherent controls that 
+complicates the method, but makes it possible to reduce the duration, 
+at that one can choose between the original and modified methods taking into account his requirements); 
+(b)~such possible ``underwater rocks'' for optimization methods that the situation when some control satisfies 
+the stationarity condition / Pontryagin maximum principle, but this control is not globally 
+optimal (e.g.,~\cite[Sec.~7]{ccMorzhinProcSteklov2021}, \cite[Sec.~3]{ccMorzhin_arXiv2022}), unreachability of $\rho_{\rm target}$ for a given final time;
+(c)~analyzing profiles of control processes numerically obtained that are claim to be approximately 
+global solutions (e.g., see Fig.~4--6 in \cite{ccMorzhinLJM2019}).
+
+\begin{thebibliography}{99}   
+
+\bibitem{ccMoore2011}
+Moore K.W., Pechen A., Feng X.-J., Dominy~J., Beltrani~V.J., Rabitz~H. 
+Why is chemical synthesis and property optimization easier than expected? 
+Physical Chemistry Chemical Physics. 2011. Vol.~13, no~21. Pp.~10048--10070.
+
+\bibitem{ccKoch_arXiv2022}
+Koch C.P., Boscain U., Calarco~T., 
+Dirr~G., Filipp~S., Glaser~S.J., Kosloff~R., Montangero~S., 
+Schulte-Herbr\"{u}ggen~T., Sugny~D., Wilhelm~F.K. Quantum optimal control in quantum technologies. Strategic report on current status, visions and goals for research in Europe. 
+2022. https://arxiv.org/abs/2205.12110
+
+\bibitem{ccDAlessandroBook2021} 
+D'Alessandro D. Introduction to Quantum Control and Dynamics. 2nd~ed. Boca Raton, Chapman and Hall/CRC, 2021.
+
+\bibitem{ccMorzhinRMS2019}  
+Morzhin O.V., Pechen A.N. Krotov method for optimal control of closed quantum systems. Russian Math. Surveys. 2019. Vol.~74, no~5. Pp.~851--908.
+
+\bibitem{ccMIPTCourseQCS}
+Pechen A.N., Morzhin O.V. Lecture course ``Control of quantum systems'',
+MIPT chair ``Methods of Modern Mathematics'' based at Steklov Mathematical Institute.  
+http://www.mathnet.ru/conf1849 (2020), http://www.mathnet.ru/conf1989 (2021).
+ 
+\bibitem{ccPechenPRA2006}    
+Pechen A., Rabitz H. Teaching the environment to control quantum 
+systems. Phys. Rev.~A. 2006. Vol.~73, no~6. Art.~no~062102.  
+
+\bibitem{ccPechenPRA2011} 
+Pechen A. Engineering arbitrary pure and mixed quantum 
+states. Phys. Rev.~A. 2011. Vol.~84, no.~4. Art.~no~042106. 
+
+\bibitem{ccWuJPA2007}
+Wu R., Pechen A., Brif C., Rabitz H. Controllability of open quantum systems 
+with Kraus-map dynamics. J.~Phys.~A: Math. Theor.  2007. Vol.~40, no~21. Pp.~5681--5693.
+
+\bibitem{ccLokutsievskiyJPA2021} 
+Lokutsievskiy L., Pechen A. Reachable sets for two-level open quantum systems 
+driven by coherent and incoherent controls. J.~Phys.~A: Math. Theor. 
+2021. Vol.~54, no~39. Art. no~395304.
+
+\bibitem{ccMorzhinLJM2019}
+Morzhin O.V., Pechen A.N. Maximization of the overlap between 
+density matrices for a two-level open quantum system driven 
+by coherent and incoherent controls. Lobachevskii J. Math. 2019. Vol.~40, no~10.  Pp.~1532--1548.
+
+\bibitem{ccMorzhinPhysPartNucl2020}
+Morzhin O.V., Pechen A.N. Maximization of the Uhlmann--Jozsa 
+fidelity for an open two-level quantum system with coherent and 
+incoherent controls. Phys. Part. Nucl. 2020. Vol.~51, no~4. Pp.~464--469.
+
+\bibitem{ccMorzhinProcSteklov2021}
+Morzhin O.V., Pechen A.N. On reachable and controllability sets for
+time-minimal control of an open two-level quantum system. Proc. Steklov Inst. Math. 2021. Vol.~313. Pp.~149--164. 
+
+\bibitem{ccMorzhin_arXiv2022}
+Morzhin O.V., Pechen A.N. On optimization of coherent and incoherent controls for two-level quantum systems.  2022. https://arxiv.org/abs/2205.02521 
+
+\end{thebibliography}
+%\end{document} 

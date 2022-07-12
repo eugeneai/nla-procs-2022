@@ -1,0 +1,256 @@
+\begin{englishtitle} % Настраивает LaTeX на использование английского языка
+% Этот титульный лист верстается аналогично.
+\title{Oskolkov Models and Sobolev-type Equations in Magnetohydrodynamics}
+% First author
+\author{T.G. Sukacheva}
+\institute{The Yaroslav-the-Wise Novgorod State University (NovSU), 	Veliky Novgorod, Russia\\
+South Ural State University (SUSU NRU), Chelyabinsk, Russia\\
+  \email{tamara.sukacheva@novsu.ru}
+  }
+% etc
+
+\maketitle
+
+\begin{abstract}
+Various Oskolkov models are considered that describe the motion of an incompressible viscoelastic Kelvin-Voigt fluid in the Earth's magnetic field. The study is carried out within the framework of the theory of semilinear Sobolev-type  equations based on the concept of a degenerate resolving semigroup of operators. Existence theorems for a unique solution, which is a quasi-stationary semitrajectory, are obtained. Descriptions of the corresponding phase spaces are given.
+
+\keywords{Oskolkov models, Sobolev-type equations, phase space, quasi-stationary semi-trajectories, incompressible viscoelastic Kelvin-Voigt fluid} % в конце списка точка не ставится
+\end{abstract}
+\end{englishtitle}
+
+\iffalse
+
+%  ооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооорротоооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооортоооо %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  This is the template file for the 6th International conference
+%  NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+%  June 25-30, 2018
+%  Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  Верстка статьи осуществляется на основе стандартного класса llncs
+%  (Lecture Notes in Computer Sciences), который корректируется стилевым
+%  файлом конференции.
+%
+%  Скомпилировать файл в PDF можно двумя способами:
+%  1. Использовать pdfLaTeX (pdflatex), (LaTeX+DVIPS не работает);
+%  2. Использовать LuaLaTeX (XeTeX не будет работать).
+%  При использовании LuaLaTeX потребуются TTF- или OTF-шрифты CMU
+%  (Computer Modern Unicode). Шрифты устанавливаются либо пакетом
+%  дистрибутива LaTeX cm-unicode
+%              (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+%  либо загрузкой и установкой в операционной системе, адрес страницы:
+%  http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+%
+%  В MiKTeX (дистрибутив LaTeX для ОС Windows):
+%  1. Пакет cm-unicode устанавливается вручную в программе MiKTeX Console.
+%  2. Для верстки данного примера, а именно, картинки-заглушки необходимо,
+%     также вручную, загрузить пакет pgf. Этот пакет используется популярным
+%     пакетом tikz.
+%  3. Тест показал, что остальные пакеты MiKTeX грузит автоматически (если
+%     ему разрешено автоматически грузить пакеты). Режим автозагрузки
+%     настраивается в разделе Settings в MiKTeX Console.
+%
+%
+%  Самый простой способ сверстать статью - использовать pdfLaTeX, но
+%  окончательный вариант верстки сборника будет собран в LuaLaTeX,
+%  так как результат получится лучшего качества.
+%
+%  В случае возникновения вопросов и проблем с версткой статьи,
+%  пишите письма на электронную почту: eugeneai@irnko.net, Черкашин Евгений
+%
+%  Новые варианты корректирующего стиля будут доступны на сайте:
+%        https://github.com/eugeneai/nla-style
+%        файл - nla.sty
+%
+%  Дальнейшие инструкции - в тексте данного шаблона. Он одновременно
+%  является примером статьи.
+%
+%  Формат LaTeX2e!
+
+\documentclass[12pt]{llncs}  % Необходимо использовать шрифт 12 пунктов.
+
+% При использовании pdfLaTeX добавляется стандартный набор русификации babel.
+% Если верстка производится в LuaLaTeX, то следующие три строки надо
+% закомментировать, русификация будет произведена в корректирующем стиле автоматом.
+\usepackage[T2A]{fontenc}
+\usepackage[cp1251]{inputenc} % Кодировка utf-8, win1251 (cp1251) не тестировалась.
+\usepackage[english,russian]{babel}
+
+% Для верстки в LuaLaTeX текст готовится строго в utf-8!
+
+% В операционной системе Windows для редактирования в кодировки utf-8
+% можно использовать программы notepad++ https://notepad-plus-plus.org/,
+% techniccenter http://www.texniccenter.org/,
+% SciTE (самая маленькая по объему программа) http://www.scintilla.org/SciTEDownload.html
+% Подойдет также и встроенный в свежий дистрибутив MiKTeX редактор
+% TeXworks.
+
+% Добавляется корректирующий стилевой файл строго после babel, если он был включен.
+% В параметре необходимо указать russian, что установит не совсем стандартные названия
+% разделов текста, настроит переносы для русского языка как основного и т.п.
+
+%\usepackage{todonotes} % Удрать из вашей статьи, нужен для верстки данного шаблона.
+
+\usepackage[russian]{nla}
+
+% Многие популярные пакеты (amsXXX, graphicx и т.д.) уже импортированы в корректирующий стиль.
+% Если возникнут конфликты с вашими пакетами, попробуйте их отключить и сверстать
+% текст как есть.
+%
+%
+
+
+% Было б удобно при верстке сборника, чтобы названия рисунков разных авторов не пересекались.
+% Чтоб минимизировать такое пересечение, рисунки можно поместить в отдельную подпапку с
+% названием - фамилией автора или названием статьи.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % Указание папки с изображениями в форматах png, pdf.
+% или
+% \graphicspath{{great-problem-solving-paper-pics/}} % Указание папки с изображениями в форматах png, pdf.
+
+
+\begin{document}
+
+% Текст оформляется в соответствии с классом article, используя дополнения
+% AMS.
+%
+\fi
+
+\title{Модели Осколкова и уравнения соболевского типа в магнитогидродинамике}
+% Первый автор
+\author{Т.~Г.~Сукачева}  % \inst ставит циферку над автором.
+
+
+
+% Аффилиации пишутся в следующей форме, соединяя каждый институт при помощи \and.
+\institute{Новгородский государственный университет имени Ярослава Мудрого (НовГУ), Великий Новгород, Российская Федерация\\
+Южно-Уральский государственный университет (ЮУрГУ НИУ),
+Челябинск, Российская федерация\\
+  \email{tamara.sukacheva@novsu.ru}}
+
+\maketitle
+
+\begin{abstract}
+Рассматриваются различные модели Осколкова, описывающие движение несжимаемой вязкоупругой жидкости Кельвина-Фойгта в магнитном поле Земли. Исследование проводится в рамках теории полулинейных уравнений соболевского типа на основе понятия вырожденной разрешающей полугруппы операторов. Получены теоремы существования единственного решения, являющегося квазистационарной полутраекторией. Приводятся описания соответствующих фазовых пространств.
+
+\keywords{модели Осколкова, уравнения соболевского типа, фазовое пространство, квазистационарные полутраектории, несжимаемая вязкоупругая жидкость Кельвина--Фойгта} % в конце списка точка не ставится
+\end{abstract}
+
+
+Система уравнений Осколкова
+\begin{equation}
+\begin{array}{l}
+(1-\kappa\nabla^2)v_t=\nu\nabla^2v-(v\cdot\nabla)v+\displaystyle\sum_{l=1}^K \beta_{l}\nabla^{2} w_{l}-\frac{1}{\rho}\nabla p-2\Omega\times v+
+\\  \frac{1}{\rho\mu}(\nabla\times b)\times b+f^{1},  \\
+\mathop{\mathop\nabla\cdot v=0, \quad \nabla\cdot b=0, \quad b_t=\delta\nabla^2b+\nabla\times(v\times b)+f^{2}.
+\quad}\limits^{\ }\\
+\mathop{\mathop{\dfrac{\partial w_{l}}{\partial t}=v+\alpha_{l}w_{l}, \quad \alpha_{l}\in {\mathbb{R_-}}, \quad \beta_{l}\in {\mathbb{R_+}}, \quad l=\overline{1,~K},\quad}\limits^{\ }}
+\limits^{\ }
+\end{array}
+\label{u1}
+\end{equation}%(1)
+моделирует поток несжимаемой вязкоупругой жидкости Кельвина--Фойгта  ненулевого порядка $K$ \cite{OAPN} в магнитном поле Земли.  Здесь вектор-функции $v=(v_1(x,t),
+\ldots,v_n(x,t))$ и $b=(b_1(x,t),
+\ldots,b_n(x,t))$
+характеризуют скорость жидкости и магнитную индукцию соответственно, $p=p(x,t)$~-- давление, $\kappa$~-- коэффициент упругости, $\nu$~-- коэффициент вязкости, $\Omega$~-- угловая
+скорость, $\delta$~-- магнитная вязкость, $\mu$~-- магнитная проницаемость, $\rho$~-- плотность, параметры $\beta_{l}, \quad l=\overline{1,~K}$~-- определяют время ретардации (запаздывания) давления. Свободные члены
+$f^{1}=(f^{1}_{1},\ldots , f^{1}_{n}),~ f^{1}_{i}=f^{1}_{i}(x,t), f^{2}=f^{2}(x,t)$
+отвечают внешнему воздействию на жидкость.
+
+Рассмотрим первую начально-краевую задачу для системы (1)
+\begin{equation}
+\begin{array}{l}
+v(x,0)=v_0(x), \quad b(x,0)=b_0(x),  \quad  w_{l}(x,0)=w_{l0}(x) \quad x\in D,\\
+\mathop{\mathop{
+v(x,t)=0, \quad b(x,t)=0, \quad  w_{l}(x,t)=0 \quad  (x,t)\in\partial D\times\mathbb{R}_+.
+%, \quad l=\overline{1,~K}
+\quad}\limits^{\ }}
+\end{array}
+\label{u2}
+\end{equation}%(2)
+Здесь $l=\overline{1,~K};$ \quad $D\subset\mathbb{R}^n,$
+$n=2,3,$~-- ограниченная область с границей $\partial D$ класса ~$C^\infty.$
+
+Заметим, что задачи такого типа возникают, например, в геофизике \cite{HROP}.
+Ранее вырожденные автономные модели магнитогидродинамики
+%в автономном случае
+изучались в работах \cite{STGF}, \cite{STGFN}. В неавтономном случае исследование проводилось, например, в
+%было начато в
+%\cite{KAOTGS}  и продолжено в
+\cite{KS19}.
+
+Задача (1), (2) исследуется в рамках теории полулинейных уравнений соболевского типа.
+%Основным ннструментом исследования служит
+Исследование проводится
+на основе понятия относительно $p$-секториального оператора и порожденной им разрешающей вырожденной полугруппы операторов %\cite{SGAKOT},
+\cite{SGALST}. Доказана теорема существования единственного решения указанной задачи, являющегося квазистационарной полутраекторией, и получено описание ее расширенного фазового пространства.
+% Полученная теорема обобщает соответствующие результаты \cite{KAOTGS}.
+ Обзор %этих и других
+ результатов по исследованию моделей Осколкова в рамках теории уравнений соболевского типа содержится в   \cite{STG22}.
+ % Список литературы оформляется подобно ГОСТ-2008.
+% Примеры оформления находятся по этому адресу -
+%     https://narfu.ru/agtu/www.agtu.ru/fad08f5ab5ca9486942a52596ba6582elit.html
+%
+
+\begin{thebibliography}{99} % или {99}, если ссылок больше десяти.
+\bibitem{OAPN}
+ Осколков~А. П. Начально-краевые задачи для уравнений движения жидкостей Кельвина-Фойгта и Олдройта// Тр. Мат. института им. В. А. Стеклова. 1988. Т. 179. С. 126-164.
+
+\bibitem{HROP}
+Hide~R.
+On planetary atmospheres and interiors// Mathematical Problems in the Geophisical Sciences, 1, W.H.Raid, ed. Am. Math. Soc., Providence R.I., 1971.
+
+\bibitem{STGF}
+Sukacheva~T.G., Kondyukov~A.O.
+Phase Space of a Model of Magnetohydrodynamics. 
+%Differentsial’nye Uravneniya,
+Differential Equations.
+2015.  Vol.~51, №~4. Pp.~502-509. %DOI: 10.1134/S0012266115040072
+
+%\bibitem{KSIKAO}
+%{\it Kadchenko~S.~I.} Numerical study of a flow of viscoelastic fluid of Kelvin-Voigt having zero order in a magnetic field/  S. I. Kadchenko  A. O %Kondyukov // Journal of Computational and Engineering Mathematics.   2016.   Vol.~3, №~2.   P.~40--47.
+
+\bibitem{STGFN}
+Сукачева~Т.Г.,  Кондюков~А.О.
+Фазовое пространство модели магнитогидродинамики ненулевого порядка // Дифф. уравнения.  2017.  Т.~53, №~8.  С.~1083--1090.
+
+%\bibitem{KAOTGS}
+%Kondyukov~A.O.,  Sukacheva~T. G., Kadchenko~S. I. ,  Ryazanova~L. S.
+%Computational experiment for a class of mathematical models of magnetohydrodynamics // Вестник ЮУрГУ. Серия: Математическое моделирование и %программирование. 2017. Т.~10, №~1.   С.~149--155.
+
+\bibitem{KS19}
+Kondyukov~A.O., Sukacheva~T.G. A Non-stationary Model of the Incompressible Viscoelastic Kelvin-Voigt Fluid of Non-zero Order in the  Magnetic Field of the Earth // Вестник ЮУрГУ. Серия: Математическое моделирование и программирование. 2019.
+  Т.~12,  №~3.  С.~42-51.
+
+%\bibitem{SGAKOT}
+%{\it Свиридюк Г.А.}
+%К общей теории полугрупп операторов/Г.А. Свиридюк/ УМН.   1994.   Т.~49, № 4.   С.~47~--~74.
+
+\bibitem{SGALST}
+Sviridyuk~G.A., Fedorov V.E.
+Linear Sobolev Type Equations and Degenerate Semigroups of Operators -- Utrecht. Boston. K\"oln. Tokyo. : VSP, 2003.
+% -- 179~p.
+
+\bibitem{STG22}
+ Sukacheva~T.G. Oskolkov models and Sobolev-type equations. Bulletin of the South Ural State University. Ser. Mathematical Modelling, Programming
+\& Computer Software (Bulletin SUSU MMCS). 2022. Vol. 15, № 1. Pp. 5--22.
+%DOI: 10.14529/mmp220101
+
+
+
+\end{thebibliography}
+
+% После библиографического списка в русскоязычных статьях необходимо оформить
+% англоязычный заголовок.
+
+
+
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

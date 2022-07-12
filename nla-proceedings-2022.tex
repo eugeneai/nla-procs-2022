@@ -1,0 +1,695 @@
+% This is LLNCS.DEM the demonstration file of
+% the LaTeX macro package from Springer-Verlag
+% for Lecture Notes in Computer Science,
+% version 2.4 for LaTeX2e as of 16. April 2010
+%
+
+%\iffalse
+
+\documentclass[12pt,final]{llncs}
+\usepackage{iftex}
+\usepackage{calc}
+\usepackage{lastpage}
+
+%\fi % above for final
+
+%\documentclass[12pt]{llncs}
+%\usepackage{todonotes}
+%\usepackage{nla}
+
+\ifPDFTeX
+\usepackage{amsmath,amssymb}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\fi
+\usepackage{amscd}
+\usepackage{amsfonts,amsmath,array}
+\usepackage{amssymb}
+%\usepackage[dvips]{graphicx}
+\usepackage{graphicx}
+\usepackage{longtable,cite,wrapfig}
+% \usepackage{makeidx}
+
+
+ \usepackage[russian]{nla}
+ \usepackage{bm}
+ \usepackage{euscript}
+ \usepackage{upgreek}
+ \usepackage{fancyhdr}
+ \usepackage{lastpage}
+
+ \usepackage{enumitem}
+ \usepackage{pifont}
+
+ \setlist[itemize]{label=\ding{113}}
+
+%\usepackage{showframe}
+%
+%\usepackage{makeidx}  % allows for indexgeneration
+%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{\normalsize{\textrm{\thepage}}}
+\rfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\pagestyle{fancy}
+% \usepackage{etoolbox} % for "\patchcmd" macro
+% \makeatletter
+% \patchcmd{\ps@headings}{\rlap{\thepage}}{}{}{}
+% \patchcmd{\ps@headings}{\llap{\thepage}}{}{}{}
+% \makeatother
+% \pagestyle{headings}
+
+\RequirePackage{algorithm}
+\RequirePackage{algpseudocode}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% below from files 2022
+\newcommand{\rd}{\mathbb{R}^d}
+\newcommand{\prd}{\mathcal{P}^p(\rd)}
+\newcommand{\pp}{\mathbb{P}}
+\usepackage{amssymb}
+
+
+
+% Delova-r-f:
+\usepackage{bm}
+\def\dfrac#1#2{\displaystyle{#1\over #2}}
+%\def\Div{\mbox{div}\,}
+%\def\bB{{\bf B}}
+\def\bx{{\bf x}}
+%\def\bE{{\bf E}}
+\def\bV{{\bf V}}
+\def\bv{{\bf v}}
+\def\br{{\bf r}}
+\def\bp{{\bf p}}
+%\def\bV{{\bf V}}
+
+
+%Lade:
+%\usepackage{amsmath}
+\newcommand{\Si}[1][\theta]{\sin_{\Omega}{#1}}
+
+\newcommand{\So}[1][\theta^o]{\sin_{\Omega^o}{#1}}
+
+\newcommand{\Ci}[1][\theta]{\cos_{\Omega}{#1}}
+
+\newcommand{\Co}[1][\theta^o]{\cos_{\Omega^o}{#1}}
+
+\newcommand{\Ti}[1][\theta]{\tan_{\Omega}{#1}}
+
+\newcommand{\To}[1][\theta^o]{\tan_{\Omega^o}{#1}}
+
+\newcommand{\ATi}{\arctan_{\Omega}\theta}
+
+\newcommand{\ATo}[1][\theta^o]{\arctan_{\Omega^o}{#1}}
+
+
+%Yufereva:
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% above from files 2022
+
+
+\begin{document}%
+%
+\frontmatter          % for the preliminaries
+\setcounter{page}{1}
+%
+%\pagestyle{headings}  % switches on printing of running heads
+%\addtocmark{~} % additional mark in the TOC
+%
+
+\begin{center}
+{\bf
+  \thispagestyle{empty}
+  \pagestyle{fancy}
+
+   	Matrosov Institute for System Dynamics and Control Theory of  SB RAS\\[0.3em]
+
+ 	Sobolev Institute of Mathematics  of SB RAS\\[0.3em]
+
+  Krasovskii Institute of Mathematics and Mechanics of UrB RAS\\[0.3em]
+
+ 	Irkutsk State University\\[0.3em]
+ 	Mathematical center in Akademgorodok   }
+
+
+%\vspace{2cm}
+\vfill
+
+{  \Large Proceedings of the 7th International Conference on\\[0.3em]
+
+Nonlinear Analysis and Extremal Problems\\[0.3em]
+
+  (NLA-2022)\\[0.2em] }
+
+{\Large  Irkutsk, Russia, July 15--22, 2022 }
+
+% \vspace{4cm}
+\vfill
+\vfill
+
+
+
+Irkutsk\\
+ISDCT SB RAS\\
+2022
+
+\end{center}
+
+\newpage
+
+\thispagestyle{empty}
+\noindent{}UDC \ 517.9
+
+ \vspace{3cm}
+
+Proceedings of the 7th International Conference on Nonlinear
+Analysis and Extremal Problems  (NLA-2022). Irkutsk\;:
+ISDCT SB RAS, 2022, \pageref{LastPage}~p.\\
+ISBN 978-5-6041814-2-3
+
+ \vspace{1cm}
+
+This volume contains proceedings of the 7th International Conference ``Nonlinear
+Ana\-ly\-sis and Extremal Problems''  (NLA-2022). The conference talks present recent developments in
+various fields of nonlinear analysis,  partial differential equations, dynamical systems,
+calculus of variations, mathematical control theory, and optimization.
+
+This volume is intended for researchers specializing in the corresponding fields of  ma\-the\-ma\-tics.
+
+  \vspace{1cm}
+
+NLA-2022  is a satellite of the International Congress of Mathematicians 2022 (ICM 2022)
+
+ \vfill
+
+  \vfill
+
+ Scientific Editor: Prof. A.\;A. Tolstonogov\\[0.3em]
+
+ Editors: E.\;Yu. Baturina, O.\;N. Samsonyuk\\[0.3em]
+
+ Computer layout by E.\;A. Cherkashin
+
+ \vfill
+
+
+
+ \begin{flushright}
+ \copyright ISDCT SB RAS, 2022
+  \end{flushright}
+
+
+
+\chapter*{Preface}
+%
+
+
+
+
+ \begin{englisharticle}
+
+This volume contains proceedings of the 7th  International Conference ``Nonlinear Analysis and Extremal Problems'' (NLA-2022) that takes place in Irkutsk, Russia. NLA-2022 is a satellite of the International Congress of Mathematicians 2022 (ICM 2022) and is held on 15-22 July 2022. NLA-2022 aims at sharing recent advances in various areas of modern nonlinear analysis and exposing young researchers to some fast-paced topics in the field.
+
+The main topics of the  conference are
+\begin{itemize}
+\item Nonlinear analysis and its applications,
+\item Partial differential equations,
+\item Dynamical systems,
+\item Calculus of variations,
+\item Mathematical control theory,
+\item Optimization
+\end{itemize}
+The conference featured six lecture courses devoted to various aspects of theoretical and applied nonlinear analysis and control theory:
+\begin{itemize}
+\item \emph{``Geometry and topology of the spaces of measures''}\\ by  \textbf{Vladimir I. Bogachev} (Lomonosov Moscow State University, Russia),\smallskip
+\item \emph{``Variational analysis and optimization theory: selected topics''}\\ by \textbf{Alexander Y. Kruger} (Federation University Australia, Australia),\smallskip
+\item \emph{``Introduction to sub-Riemannian and sub-Finsler geometries from the optimal control viewpoint''}\\ by  \textbf{Lev V. Lokutsievskiy} (Steklov Mathematical Institute of RAS, Russia),
+\item \emph{``Controllability and optimality''}\\ by \textbf{Georgii G. Magaril-Il'yaev} (Lomonosov Moscow State University, Russia),
+\item \emph{``Optimal control of sweeping processes''}\\ by \textbf{Boris Sh. Mordukhovich} (Wayne State University, USA),
+\item \emph{``Nonlinear Fokker-Planck-Kolmogorov equations''}\\ by \textbf{Stanislav V. Shaposhnikov} (Lomonosov Moscow State University, Russia).\smallskip
+\end{itemize}
+
+
+
+
+
+
+
+
+ \end{englisharticle}
+
+%
+\chapter*{Organization}
+\vspace{-2em}
+ \begin{englisharticle}
+NLA-2022 is organized by Matrosov
+Institute for System Dynamics and Control Theory of SB RAS in cooperation with
+Sobolev Institute of Mathematics  of SB RAS,
+  Krasovskii Institute of Mathematics and Mechanics of UB RAS,
+ 	Irkutsk State University, and Mathematical center in Akademgorodok (Novosibirsk).
+ \end{englisharticle}
+
+
+%
+\vspace{-1em}
+\section*{Program Commitee}
+ \begin{englisharticle}
+
+\textbf{Chairs:   }
+
+\begin{tabular}{@{}p{6cm}@{}p{10cm}@{}}
+  Alexander A. Tolstonogov &   Matrosov
+Institute for System Dynamics and Control Theory of SB RAS (Russia)\\
+Igor V. Bychkov &   Matrosov
+Institute for System Dynamics and Control Theory of SB RAS (Russia)
+\end{tabular}
+
+\textbf{Committee members:}
+
+\begin{tabular}{@{}p{5.5cm}@{}p{0.5cm}@{}p{10cm}@{}}
+Vladimir I. Bogachev & & Lomonosov Moscow State University  (Russia)\\[0.5em]
+Alexander G. Chentsov  &&  Krasovskii Institute of Mathematics and Mechanics of UrB RAS (Russia)\\[0.5em]
+Gennadii V. Demidenko &&  Sobolev Institute of Mathematics of SB RAS (Russia)\\[0.5em]
+Ivan A. Finogenko &&  Matrosov
+Institute for System Dynamics and Control Theory of SB RAS (Russia)  (Russia)\\[0.5em]
+Alexander L. Kazakov &&  Matrosov
+Institute for System Dynamics and Control Theory of SB RAS (Russia) (Russia)\\[0.5em]
+Yuri S. Ledyaev & & Western Michigan University  (USA)	\\[0.5em]
+Nikolai Yu. Lukoyanov &&  Krasovskii Institute of Mathematics and Mechanics of UrB RAS (Russia)\\[0.5em]
+Georgii G. Magaril-Il'yaev &&  Lomonosov Moscow State University  (Russia)\\[0.5em]
+Manuel~D.P.~Monteiro   && University of Lisbon  (Portugal)\\ 
+~~~~~~~~~ Marques && ~\\[0.5em]
+Boris Sh. Mordukhovich &&  Wayne State University  (USA)\\[0.5em]
+Alla A. Shcheglova &&  Matrosov
+Institute for System Dynamics and Control Theory of SB RAS (Russia)\\[0.5em]
+Vladimir N. Ushakov &&  Krasovskii Institute of Mathematics and Mechanics of UrB RAS (Russia)
+ \end{tabular}
+
+
+
+
+
+
+
+
+
+ \end{englisharticle}
+
+\vspace{-1em}
+%
+
+%
+\section*{Organizing Committee}
+
+ \begin{englisharticle}
+{\bf Chair:}   Vladimir A. Dykhta\\[0.5em]
+%${}$\hspace{\parindent}
+{\bf Secretary:}   Nikolay I. Pogodaev\\[0.5em]
+${}$\hspace{\parindent}\textbf{Committee members:\\[0.5em]}
+\begin{tabular}{@{${}$\hspace{\parindent}}p{5cm}@{}p{5cm}@{}p{5cm}@{}}
+Anton S. Anikin&
+  Elena V. Chistyakova &
+  Alexey A. Kumachev\\
+Anna A. Lempert &
+Taras I. Madzhara &
+Nadezhda S. Maltugueva \\
+Pavel S. Petrenko &
+Olga N. Samsonyuk&
+Stepan P. Sorokin \\
+Pavel S. Sorokovikov &
+Maxim V. Staritsyn&
+Tatiana S. Zarodnyuk
+\end{tabular}
+
+
+
+
+ \end{englisharticle}
+
+
+
+ \begin{englisharticle}
+  \tableofcontents
+ \end{englisharticle}
+\thispagestyle{fancy}
+%
+\mainmatter              % start of the contributions
+
+%
+
+
+\input{AnanyevYurovskikhIrk-r}
+
+ \begin{englisharticle}
+\input{anikin-e}
+\end{englisharticle}
+
+
+
+\input{AntipinaBulatovBiryukov-r}
+
+ \begin{englisharticle}
+\input{Arguchintsev_Poplevko-e}
+\end{englisharticle}
+
+
+\input{aristov-r}
+
+\input{Artemeva_Korpusov-r}
+
+ \begin{englisharticle}
+\input{Averboukh_Khlopin-e}
+\end{englisharticle}
+
+
+ \begin{englisharticle}
+\input{Barsbold-e}
+\end{englisharticle}
+
+
+\input{Berdyshev_Kostousov_Popov-r}
+
+\input{Bondar-Mingnarov-r}
+
+ \begin{englisharticle}
+\input{ChistyakovaEV-e}
+\end{englisharticle}
+
+
+\input{Chistyakov-r}
+
+\input{Delova-r-f}
+
+\input{DemidenkoGV-r}
+
+\input{Demidov-r-f}
+
+
+\input{DolgiyChupin-r}
+
+ \begin{englisharticle}
+\input{Dubovitskii-r}
+\end{englisharticle}
+
+ \begin{englisharticle}
+\input{Finogenko_IA-e}
+\end{englisharticle}
+
+
+
+ \begin{englisharticle}
+\input{Gaiko-e}
+\end{englisharticle}
+
+
+ \begin{englisharticle}
+\input{Gorokhovik-e}
+\end{englisharticle}
+
+
+\input{Grazhdantseva,Solodusha-r}
+
+ \begin{englisharticle}
+\input{IvanovNO-e}
+\end{englisharticle}
+
+
+\input{Izmestev-r}
+
+ \begin{englisharticle}
+\input{Karamzin-e}
+\end{englisharticle}
+
+
+ \begin{englisharticle}
+\input{Kazakov_Kuznetsov-e}
+\end{englisharticle}
+
+
+\input{Khlopin-r}
+
+\input{Kondyukov-r}
+
+ \begin{englisharticle}
+\input{Koroleva-e}
+\end{englisharticle}
+
+
+\input{Kosov_Semenov-r}
+
+ \begin{englisharticle}
+\input{Kuznezov_Pechen-e}
+\end{englisharticle}
+
+
+\input{Ladeyshchikov-r-f}
+
+ \begin{englisharticle}
+\input{Lazarev-e}
+\end{englisharticle}
+
+\input{Mamatov-r}
+
+\input{RavshanovMamatov-r}
+
+\input{MatveevaII-r}
+
+
+ \begin{englisharticle}
+\input{Morzhin-e}
+\end{englisharticle}
+
+
+\input{Muhutdinova-r}
+
+ \begin{englisharticle}
+\input{MuravnikA-e}
+\end{englisharticle}
+
+
+ \begin{englisharticle}
+\input{Myachkova-e}
+\end{englisharticle}
+
+
+\input{Obukhovskii_Petrosyan_Soroca-r}
+
+ \begin{englisharticle}
+\input{OrlovAV-e}
+\end{englisharticle}
+
+ \begin{englisharticle}
+\input{OsipovA-e}
+\end{englisharticle}
+
+
+ \begin{englisharticle}
+\input{Osipov_Ivan-e}
+\end{englisharticle}
+
+ \begin{englisharticle}
+\input{Petrenko-e}
+\end{englisharticle}
+
+
+ \begin{englisharticle}
+\input{PetruhanovPechen-e}
+\end{englisharticle}
+
+
+\input{Provorotov-r}
+
+ \begin{englisharticle}
+\input{Prudnikov-e-def}
+\end{englisharticle}
+
+
+
+
+\input{RogalevAN-r}
+
+
+\begin{englisharticle}
+\input{Rudoy-e}
+\end{englisharticle}
+
+ \begin{englisharticle}
+\input{Rudzko-e}
+\end{englisharticle}
+
+
+ \begin{englisharticle}
+\input{Sakkaravarthi-e}
+\end{englisharticle}
+
+ \begin{englisharticle}
+\input{Samsonyuk-e}
+\end{englisharticle}
+
+\input{Serkov_Chentsov-r}
+
+\input{ShagalovaLG-r}
+
+\input{Shaihiev-r}
+
+ \begin{englisharticle}
+\input{ShamolinMV-e}
+\end{englisharticle}
+
+
+\input{SidorovLev-r}
+
+\input{SkvortsovaMA-r}
+
+\input{SolovarovaLS-r}
+
+\input{Sorokovikov-r}
+
+ \begin{englisharticle}
+\input{Staritsyn-e-f}
+\end{englisharticle}
+
+
+
+
+ \begin{englisharticle}
+\input{Strekalovsky-e}
+\end{englisharticle}
+
+
+\input{Subbotina-r}
+
+\input{SukachevaTG-r}
+
+\input{Svinina_1-r}
+
+
+ \begin{englisharticle}
+\input{Tyatyushkin-e}
+\end{englisharticle}
+
+
+\input{ushakov-r}
+
+
+ \begin{englisharticle}
+\input{Volkov_Pechen-e}
+\end{englisharticle}
+
+
+\input{voronov-r}
+
+\input{Yskak-r}
+
+\begin{englisharticle}
+\input{Yufereva-r}
+\end{englisharticle}
+
+
+ \begin{englisharticle}
+\input{Zabotin-Kazaeva-e}
+\end{englisharticle}
+
+
+ \begin{englisharticle}
+\input{zabotin-yarullin-e}
+\end{englisharticle}
+
+
+\input{ZaitsevKim-r}
+
+
+
+
+ \begin{englisharticle}
+\input{zarodnyuk-e}
+\end{englisharticle}
+
+
+\input{Zizov-r}
+
+\input{Zotova-r}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+\newpage
+\thispagestyle{empty}
+ \begin{englisharticle}
+\begin{center}
+${}$
+\vfill
+
+
+
+
+{\bf  Proceedings of the 7th International Conference on\\[0.3em]
+ Nonlinear Analysis and Extremal Problems\\[0.3em]  (NLA-2022)}
+
+\vfill\vfill
+
+
+%Passed for printing June 30, 2022.\\ Format $60\times 84$ $1/8$. Conventional printed sheets 19,65.\\[0.5em]
+
+Published in Matrosov Institute for System Dynamics and Control Theory  
+of\\ the Siberian Branch of the Russian Academy of Science\\[0.5em]
+
+Publisher's address: 134, Lermontova str., Irkutsk, Russia, 664033
+
+%\label{lastpage}
+\end{center}
+
+ \end{englisharticle}
+
+\iffalse
+\clearpage
+\addtocmark[2]{Author Index} % additional numbered TOC entry
+\renewcommand{\indexname}{Author Index}
+%\printindex
+\clearpage
+\addtocmark[2]{Subject Index} % additional numbered TOC entry
+\markboth{Subject Index}{Subject Index}
+\renewcommand{\indexname}{Subject Index}
+%\input{subjidx.ind}
+\fi
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

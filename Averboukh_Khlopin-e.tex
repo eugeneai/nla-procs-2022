@@ -1,0 +1,148 @@
+\iffalse
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the template file for the 6th International conference
+% NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+% June 25-30, 2018
+% Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The preparation of the article is based on the standard llncs class
+% (Lecture Notes in Computer Sciences), which is adjusted with style
+% file of the conference.
+%
+% There are two ways of compilation of the file into PDF
+% 1. Use pdfLaTeX (pdflatex), (LaTeX+DVIPS will not work);
+% 2. Use LuaLaTeX (XeLaTeX will work too).
+% When using LuaLaTeX You will need TTF or OTF CMU fonts
+% (Computer Modern Unicode). The fonts are installed with 'cm-unicode' package in
+% a distribution of LaTeX % (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+% either by downloading and installing these fonts system wide, the address of their page is
+% http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+% The second option won't work in XeLaTeX.
+%
+% For MiKTeX (LaTeX distribution for Windows),
+%  1. Package 'cm-unicode' is installed manually with the MiKTeX administration Console.
+%  2. For the compilation of this example, namely, the stub figure, one will also need to
+% download package 'pgf' manually. This package uses in the popular
+% package tikz.
+%  3. Tests showed that the rest of the required packages MiKTeX loads automatically (if
+%     it is allowed). The 'auto download' option is
+%     configured in 'Settings' section in MiKTeX Console.
+%
+%
+% The easiest way to compile an article is to use pdfLaTeX, but
+% the final layout of the book will be compiled with LuaLaTeX,
+% as a result will be of better quality thanks to the package 'microtype' and
+% use vector OTF instead of standard raster fonts of pdfLaTeX.
+%
+% In the case of questions and problems with the article compilation,
+% write letters to e-mail: eugeneai@irnok.net, Cherkashin Evgeny.
+%
+% New version of the correcting style file will be available at the website:
+%     https://github.com/eugeneai/nla-style
+%     file - nla.sty
+%
+% Further instructions are in the text body of the template. The template itself
+% is an article example.
+%
+% The LaTeX2e format is used!
+
+% 12 points font size is used.
+\documentclass[12pt]{llncs}
+
+% The correcting style file is added.
+\usepackage{todonotes}
+
+\usepackage{nla} % This package is needed for compiling
+                 % this template, it should be removed
+                 % from your article.
+
+% Many popular packages (amsXXX, graphicx, etc.) are already imported in the style file.
+% If there is a conflict with your packages, try disabling them and compile
+% the text.
+%
+% It would be convenient in the layout of the proceedings if the file names
+% of the figures of different authors do not clash.
+% To minimize the clash, the drawings can be placed in a separate subfolder
+% named after the author or the title of the paper.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % specifies the folder with images in png, pdf formats.
+% or
+% \graphicspath{{great-problem-solving-paper-pics/}}.
+
+\newcommand{\rd}{\mathbb{R}^d}
+\newcommand{\prd}{\mathcal{P}^p(\rd)}
+\newcommand{\pp}{\mathbb{P}}
+\usepackage{amssymb}
+
+
+\begin{document}
+
+% Text should be formatted in accordance with the 'article' class, using extensions like
+% AMS.
+%
+\fi
+
+\title{Necessary Optimality Condition\\ for Deterministic Mean Field Type Control Problem\thanks{The work was performed as part of research conducted
+		in the Ural Mathematical Center with the financial support
+		of the Ministry of Science and Higher Education of the Russian Federation
+		(Agreement number 075-02-2022-874).}}
+% First author
+\author{Yurii Averboukh 
+  \and
+  Dmitry Khlopin 
+}
+\institute{IMM UrB RAS, Yekaterinburg, Russia\\
+  \email{ayv@imm.uran.ru}}
+% etc
+
+\maketitle
+
+\begin{abstract}
+We consider the mean field type optimal control problem in the case where the evolution of each agent is driven by an ordinary differential equation. We consider this problem within Lagrangian, Kantarovich and Eulerian approach. The main results are the necessary optimality condition in the form of Pontryagin maximum principle for all aforementioned approaches and the link between the local minima.
+
+\keywords{mean field type control, Pontryagin maximum principle, Lagrangian approach, Kantorovich approach, Eulerian approach}
+\end{abstract}
+
+% at the end of the list, there should be no final dot
+The talk is concerned with the optimal control problem for the system of infinitely many identical agents who are governed by the ordinary differential equation
+\begin{equation*}\label{eq:system}
+	\frac{d}{dt}x(t)=f(t,x(t),m(t),u(t)),\ \ t\in [0,T],\ \ x(t)\in\rd, \ \ m(t)\in\prd,\ \ u(t)\in U. 
+\end{equation*} Here $x(t)$ is the state,  $u(t)$ is the control of the agent at time $t$, while $m(t)$ describes the distribution of all agents at time $t$. We fix the initial distribution of agents $m_0$. The purpose of control is to maximize the averaged  individual cost. We assume that the individual cost is equal to
+\begin{equation*}\label{system:payoff}
+	\sigma(x(T),m(T))+\int_0^Tf_0(t,x(t),m(t),u(t))dt.
+\end{equation*} 
+
+We start with the Lagrangian approach. It presumes that a standard probability space $(\Omega,\mathcal{F},\pp)$ is given. Additionally, elements of $\Omega$ now serve as labels of agents. Thus, the control process within the Lagrangian formulation is a pair of processes $(X,u_L)$, while the dynamics obeys the equations
+\[\frac{d}{dt}X(t,\omega)=f(t,X(t,\omega), X(t)\sharp \pp, u_L(t,\omega)).\] Here $X(t)\sharp\pp$ stands for the push-forward measure, i.e., for any Borel set $E\subset\rd$, $(X(t)\sharp\pp)(E)\triangleq \pp(\{\omega:X(t,\omega)\in E)\})$.
+The payoff within the Lagrangian approach is given by 
+\[J_L(X,u)\triangleq \mathbb{E}\left[\sigma(X(T),X(T)\sharp \pp)+\int_0^T f_0(t,X(t),X(t)\sharp \pp,u_L(t))dt\right].\]
+
+The second approach is named after Kantorovich one. This formalization deals with the probabilities defined on the set of curves $\Gamma\triangleq C([0,T];\rd)$. A Kantorovich control process is a pair $(\eta,u_K)$, where $\eta$ is a probability on $\Gamma$, whereas $u_K$ is a function defined on  $[0,T]\times\Gamma$ with values in $U$, such that $\eta$ is concentrated on the curves satisfying
+\[\frac{d}{dt}\gamma(t)=f(t,\gamma(t),e_t\sharp \eta,u_K(t,\gamma(\cdot))).\] Here, $e_t\sharp\eta$ is a push-forward of the measure $\eta$ through the evaluation operator $e_t$, i.e., for any measurable $E\subset\rd$, $(e_t\sharp\eta)(E)=\eta(\{\gamma(\cdot):\gamma(t)\in E\})$. 
+The payoff within the Kantorovich approach is computed by
+  \[J_K(\eta,u_K)\triangleq \int_{\Gamma}\sigma(\gamma(T),e_T\sharp \eta)\eta(d\gamma)+\int_\Gamma\int_0^T f_0(\gamma(t),e_t\sharp \eta,u_K(t,\gamma))  dt \,\eta(d\gamma).\]
+
+Finally, the Eulerian approach implies that the control process is $(m(\cdot),u_E)$, where for each $t$, $m(t)$ is a probability on $\rd$, $u(t,x)$ is a measurable feedback strategy, satisfying the continuity equation
+\[\frac{\partial}{\partial t}m(t)+\operatorname{div}(v(t,x)m(t))=0\] in the distributional sense for the velocity field $v(t,x)\triangleq f(t,x,m(t),u(t,x))$. The payoff in this case is equal to
+\[J_E(\mu,u_E)\triangleq \int_{\rd}\sigma(x,m(T))m(T,dx)+ \int_0^T\int_{\rd} f_0(t,x,m(t),u_E(t,x)) m(t,dx)dt.\]
+
+The main results of the talk are the following.
+\begin{itemize}
+	\item We show that, for any given  local minimizer within the Kantorovich approach, there exists a least one corresponding local minimizer within the Lagrangian approach. Additionally, if $f$ is affine w.r.t. $u$ and $f_0$ is convex w.r.t. $u$, one can construct a local Lagrangian minimizer that corresponds to the given Eulerian local minimizer.
+	\item We obtain the Pontryagin maximum principle for the Lagrangian approach. In this case the costate variable depends on $\omega$ and $t$, while the costate equation includes not only derivative w.r.t. $x$ but also the term depending on intrinsic derivative w.r.t. measure (see for details of intrinsic  derivatives \cite{Lions}).
+	\item Using the link between the local minimizers in various approaches we deduce the Pontryagin maximum principle in the Kantorovich and Eulerian processes. In the latter case, the costate equation is replaced by the joint continuity equation of state and costate variables. To illustrate the general theory, we consider the mean field type linear-quadratic regulator and prove that the optimal control in this case is given by a linear feedback. Additionally,  we give a precise formula for this strategy via solutions of Riccati differential equations.
+\end{itemize}
+
+\begin{thebibliography}{9} % or {99}, if there is more than ten references.
+	\bibitem{Lions}  Cardaliaguet P.,  Delarue F.,  Lasry J.-M.,  Lions P.-L. The Master Equation and the Convergence Problem in Mean Field Games. Princeton University Press, Princeton, 2019.
+\end{thebibliography}
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

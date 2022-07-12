@@ -1,0 +1,120 @@
+\begin{englishtitle}
+\title{Exact Solutions of a Nonclassical Nonlinear Partial Equation\thanks{Исследование выполнено за счет гранта Российского научного фонда № 22-21-00449.}}
+% First author
+\author{Anatoly Aristov}
+\institute{MSU, Moscow, Russia\\
+   \and
+FRCCSC, Moscow, Russia\\
+\email{ai\_aristov@mail.ru}}
+% etc
+
+\maketitle
+
+\begin{abstract}
+A nonclassical nonlinear partial equation is studied. 15 sets of exact solutions of it are built. Their properties are analysed.
+
+\keywords{nonlinear partial equations, exact solutions}
+\end{abstract}
+\end{englishtitle}
+
+\iffalse
+\documentclass[12pt]{llncs}  % Необходимо использовать шрифт 12 пунктов.
+
+% При использовании pdfLaTeX добавляется стандартный набор русификации babel.
+% Если верстка производится в LuaLaTeX, то следующие три строки надо
+% закомментировать, русификация будет произведена в корректирующем стиле автоматом.
+\usepackage[T2A]{fontenc}
+\usepackage[cp1251]{inputenc} % Кодировка utf-8, win1251 (cp1251) не тестировалась.
+\usepackage[english,russian]{babel}
+
+% Для верстки в LuaLaTeX текст готовится строго в utf-8!
+
+% В операционной системе Windows для редактирования в кодировки utf-8
+% можно использовать программы notepad++ https://notepad-plus-plus.org/,
+% techniccenter http://www.texniccenter.org/,
+% SciTE (самая маленькая по объему программа) http://www.scintilla.org/SciTEDownload.html
+% Подойдет также и встроенный в свежий дистрибутив MiKTeX редактор
+% TeXworks.
+
+% Добавляется корректирующий стилевой файл строго после babel, если он был включен.
+% В параметре необходимо указать russian, что установит не совсем стандартные названия
+% разделов текста, настроит переносы для русского языка как основного и т.п.
+
+\usepackage{todonotes} % Удрать из вашей статьи, нужен для верстки данного шаблона.
+
+\usepackage[russian]{nla}
+%\usepackage[english,russian]{nla}
+
+% \graphicspath{{pics/}} %Set the subfolder with figures (png, pdf).
+
+%\usepackage{showframe}
+\begin{document}
+%\selectlanguage{russian}
+\fi
+
+\title{Точные решения неклассического нелинейного уравнения в частных производных}
+% Первый автор
+\author{А.~И.~Аристов
+  } % обязательное поле
+\institute{МГУ им. М.В. Ломоносова, Москва, Россия\\
+    \and
+ФИЦ ИУ РАН, Москва, Россия\\
+\email{ai\_aristov@mail.ru}
+}
+
+
+
+
+\maketitle
+
+\begin{abstract}
+В работе построено 15 классов точных решений одного нелинейного уравнения в частных производных. Проанализированы их качественные свойства.
+
+\keywords{нелинейные уравнения в частных производных, точные решения}
+\end{abstract}
+
+%\section{Основные результаты} % не обязательное поле
+
+Работа посвящена построению точных решений уравнения
+$$
+\frac{\partial}{\partial t}\Delta u+D[u]=0,\label{1}
+$$
+где
+$$
+D[u]=\alpha\frac{\partial}{\partial x}\left(\frac{\partial u}{\partial y}\frac{\partial u}{\partial z}\right)+
+\beta\frac{\partial}{\partial y}\left(\frac{\partial u}{\partial x}\frac{\partial u}{\partial z}\right)+
+\gamma\frac{\partial}{\partial z}\left(\frac{\partial u}{\partial x}\frac{\partial u}{\partial y}\right),
+$$
+$u$ --- действительнозначная функция трех координат и времени.
+Предполагается, что $\alpha+\beta+\gamma=0$, причём эти коэффициенты не все равны нулю.
+
+Нелинейные уравнения в частных производных, содержащие смешанные производные высоких порядков по времени и по пространственным
+переменным, редко встречаются в литературе о точных решениях (например, [1]), тогда как имеются обширные исследования их качественных
+свойств (например, [2]). Данное уравнение предложено в [1, гл. 3, \S 7]: оно может описывать спиновые волны в магнетиках при отсутствии
+внешнего магнитного поля.
+
+Здесь построено 15 классов точных решений данного уравнения. Проанализированы их качественные свойства. При этом применялись
+методы обобщенного и функционального разделения переменных, поиск решений специального вида.
+
+
+% Список литературы.
+\begin{thebibliography}{99}
+\bibitem{1}
+Полянин А.Д., Зайцев В.Ф., Журов А.И. Метода решения нелинейных уравнений математической физики и механики. М.: Физматлит, 2005.
+% Format for books
+\bibitem{2}
+Свешников А.Г., Альшин А.Б., Корпусов М.О., Плетнер Ю.Д. Линейные и нелинейные уравнения соболевского типа. М.: Физматлит, 2007.
+
+\end{thebibliography}
+
+
+
+
+
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

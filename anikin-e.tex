@@ -1,0 +1,137 @@
+
+
+
+\iffalse
+% !TeX spellcheck = en_US
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the template file for the 6th International conference
+% NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+% June 25-30, 2018
+% Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The preparation of the article is based on the standard llncs class
+% (Lecture Notes in Computer Sciences), which is adjusted with style
+% file of the conference.
+%
+% There are two ways of compilation of the file into PDF
+% 1. Use pdfLaTeX (pdflatex), (LaTeX+DVIPS will not work);
+% 2. Use LuaLaTeX (XeLaTeX will work too).
+% When using LuaLaTeX You will need TTF or OTF CMU fonts
+% (Computer Modern Unicode). The fonts are installed with 'cm-unicode' package in
+% a distribution of LaTeX % (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+% either by downloading and installing these fonts system wide, the address of their page is
+% http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+% The second option won't work in XeLaTeX.
+%
+% For MiKTeX (LaTeX distribution for Windows),
+%  1. Package 'cm-unicode' is installed manually with the MiKTeX administration Console.
+%  2. For the compilation of this example, namely, the stub figure, one will also need to
+% download package 'pgf' manually. This package uses in the popular
+% package tikz.
+%  3. Tests showed that the rest of the required packages MiKTeX loads automatically (if
+%     it is allowed). The 'auto download' option is
+%     configured in 'Settings' section in MiKTeX Console.
+%
+%
+% The easiest way to compile an article is to use pdfLaTeX, but
+% the final layout of the book will be compiled with LuaLaTeX,
+% as a result will be of better quality thanks to the package 'microtype' and
+% use vector OTF instead of standard raster fonts of pdfLaTeX.
+%
+% In the case of questions and problems with the article compilation,
+% write letters to e-mail: eugeneai@irnok.net, Cherkashin Evgeny.
+%
+% New version of the correcting style file will be available at the website:
+%     https://github.com/eugeneai/nla-style
+%     file - nla.sty
+%
+% Further instructions are in the text body of the template. The template itself
+% is an article example.
+%
+% The LaTeX2e format is used!
+
+% 12 points font size is used.
+\documentclass[12pt]{llncs}
+
+% The correcting style file is added.
+\usepackage{todonotes}
+
+\usepackage{nla} % This package is needed for compiling
+                 % this template, it should be removed
+                 % from your article.
+
+% Many popular packages (amsXXX, graphicx, etc.) are already imported in the style file.
+% If there is a conflict with your packages, try disabling them and compile
+% the text.
+%
+% It would be convenient in the layout of the proceedings if the file names
+% of the figures of different authors do not clash.
+% To minimize the clash, the drawings can be placed in a separate subfolder
+% named after the author or the title of the paper.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % specifies the folder with images in png, pdf formats.
+% or
+% \graphicspath{{great-problem-solving-paper-pics/}}.
+
+\begin{document}
+
+% Text should be formatted in accordance with the 'article' class, using extensions like
+% AMS.
+%
+\fi
+
+\title{About one Modification of Broyden-family Quasi-Newton Methods}
+% First author
+\author{Anton Anikin}
+\institute{ISDCT SB RAS, Irkutsk, Russia\\
+  \email{anikin@icc.ru}
+}
+% etc
+
+\maketitle
+
+\begin{abstract}
+\keywords{unimodal optimization, BFGS-family methods, inexact line-search}
+\end{abstract}
+
+Quasi-Newton-type algorithms are still one of the most popular and effective approaches to solving a wide range of applied finite-dimensional optimization problems. The most famous representative of this family is, perhaps, the BFGS algorithm, named after its creators -- Broyden–Fletcher–Goldfarb–Shanno, who published their work on this topic in 1970 \cite{broyden_1970}, \cite{fletcher_1970}, \cite{goldfarb_1970}, \cite{shanno_1970}. The most important stage in the development of Broyden-family methods, in our opinion, was the creation of its memory-limited version -- L-BFGS method \cite{nocedal_1989}, which made it possible to radically increase the dimensions of the optimization problems being solved.
+
+The paper considers an attempt to modify BFGS-type methods aimed at increasing their practical effectiveness on non-convex optimization problems. The basis of the proposed modifications is the use of ``correctly-done'' scaling of the descent direction, as well as specialized (extremely economical) variants of line-search algorithms. The main idea of the proposed approach is to simplify the iteration as much as possible in the sense of reducing the number of calls to the function oracle. The ideal situation from this point of view is one where each iteration of the method requires a single oracle call and at the same time relaxation of the minimized functional is provided.
+
+To study the properties of the proposed methods modifications, various variants of the well-known atomic-molecular potentials - Morse, Keating, etc., as well as some variants of convolutional neural networks with different architectures and dimensions were used. The conducted numerical experiments have confirmed not only the operability of the proposed ideas, but also their high computational efficiency in solving some types of non-convex op\-ti\-mi\-za\-tion problems. The results obtained inspire cautious optimism and hope for further improvement of the presented approaches, as well as adaptation of the experience of other finite-dimensional optimization specialists engaged in similar areas. %, for example \cite{andrei_2020}.
+
+\begin{thebibliography}{5}
+
+\bibitem{broyden_1970}
+Broyden  C.G. 
+The convergence of a class of double-rank minimization algorithms. Journal of the Institute of Mathematics and Its Applications. 1970. Vol. 6. Pp. 76--90.
+
+\bibitem{fletcher_1970}
+Fletcher  R. 
+A New Approach to Variable Metric Algorithms. Computer Journal. 1970. Vol. 13, no. 3. Pp. 317--322.
+
+\bibitem{goldfarb_1970}
+Goldfarb  D. 
+A Family of Variable Metric Updates Derived by Variational Means. Mathematics of Computation. 1970. Vol. 24, no. 109. Pp. 23--26.
+
+\bibitem{shanno_1970}
+Shanno  D.F.  Conditioning of quasi-Newton methods for function minimization. Mathematics of Computation. 1970. Vol. 24, no. 111. Pp. 647--656.
+
+\bibitem{nocedal_1989}
+Liu  D.C., Nocedal  J. 
+On the limited-memory BFGS method for large scale optimization.
+Mathematical Programming B. 1989. Vol. 45. Pp. 503--528.
+
+%\bibitem{andrei_2020}
+%Andrei  N. A double parameter self-scaling memoryless BFGS method
+%for unconstrained optimization. Computational and Applied Mathematics. 2020.  Vol. 39, no. 159.
+
+\end{thebibliography}
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

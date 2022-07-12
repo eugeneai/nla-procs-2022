@@ -1,0 +1,186 @@
+
+
+\iffalse
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the template file for the 6th International conference
+% NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+% June 25-30, 2018
+% Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The preparation of the article is based on the standard llncs class
+% (Lecture Notes in Computer Sciences), which is adjusted with style
+% file of the conference.
+%
+% There are two ways of compilation of the file into PDF
+% 1. Use pdfLaTeX (pdflatex), (LaTeX+DVIPS will not work);
+% 2. Use LuaLaTeX (XeLaTeX will work too).
+% When using LuaLaTeX You will need TTF or OTF CMU fonts
+% (Computer Modern Unicode). The fonts are installed with 'cm-unicode' package in
+% a distribution of LaTeX % (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+% either by downloading and installing these fonts system wide, the address of their page is
+% http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+% The second option won't work in XeLaTeX.
+%
+% For MiKTeX (LaTeX distribution for Windows),
+%  1. Package 'cm-unicode' is installed manually with the MiKTeX administration Console.
+%  2. For the compilation of this example, namely, the stub figure, one will also need to
+% download package 'pgf' manually. This package uses in the popular
+% package tikz.
+%  3. Tests showed that the rest of the required packages MiKTeX loads automatically (if
+%     it is allowed). The 'auto download' option is
+%     configured in 'Settings' section in MiKTeX Console.
+%
+%
+% The easiest way to compile an article is to use pdfLaTeX, but
+% the final layout of the book will be compiled with LuaLaTeX,
+% as a result will be of better quality thanks to the package 'microtype' and
+% use vector OTF instead of standard raster fonts of pdfLaTeX.
+%
+% In the case of questions and problems with the article compilation,
+% write letters to e-mail: eugeneai@irnok.net, Cherkashin Evgeny.
+%
+% New version of the correcting style file will be available at the website:
+%     https://github.com/eugeneai/nla-style
+%     file - nla.sty
+%
+% Further instructions are in the text body of the template. The template itself
+% is an article example.
+%
+% The LaTeX2e format is used!
+
+% 12 points font size is used.
+\documentclass[12pt]{llncs}
+
+% The correcting style file is added.
+\usepackage{todonotes}
+
+\usepackage{nla} % This package is needed for compiling
+                 % this template, it should be removed
+                 % from your article.
+
+% Many popular packages (amsXXX, graphicx, etc.) are already imported in the style file.
+% If there is a conflict with your packages, try disabling them and compile
+% the text.
+%
+% It would be convenient in the layout of the proceedings if the file names
+% of the figures of different authors do not clash.
+% To minimize the clash, the drawings can be placed in a separate subfolder
+% named after the author or the title of the paper.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % specifies the folder with images in png, pdf formats.
+% or
+% \graphicspath{{great-problem-solving-paper-pics/}}.
+
+\begin{document}
+
+% Text should be formatted in accordance with the 'article' class, using extensions like
+% AMS.
+%
+\fi
+
+\title{On Analytical Solvability of the Problem with a Given Zero Front for the Nonlinear Parabolic Predator-Prey System\thanks{The reported study was funded by RFBR (project No. 20-07-00407); RFBR and the Government of the Irkutsk Region (project No. 20-41-385002).}}
+% First author
+\author{A.~L.~Kazakov 
+  \and
+  P.~A.~Kuznetsov 
+}
+\institute{ ISDCT SB RAS, Irkutsk, Russia\\
+  \email{kazakov@icc.ru,~kuznetsov@icc.ru}
+}
+
+
+\maketitle
+
+\begin{abstract}
+We consider a boundary value problem for a non-linear degenerate parabolic system of predator-prey type. The formulation assumes solutions have a zero front, a curve where unknown functions vanish. The existence and uniqueness theorem for a nontrivial analytical solution is proved. The solution is constructed in the form of Taylor series with recurrent formulas for coefficients. The series convergence  is proved by the majorant method using the Cauchy-Kovalevskaya theorem. We give a counterexample that shows the impossibility of specifying the initial conditions for the considered system in the general case. It is an analog of the well-known counterexample to the Cauchy-Kovalevskaya theorem.
+
+\keywords{degenerate parabolic system, predator-prey model, zero front, existence theorem, Taylor series, majorant}
+\end{abstract}
+
+% at the end of the list, there should be no final dot
+%\section{The main results}
+
+Let us consider the problem
+\begin{equation}\label{Kuz02}
+%\begin{array}{lc}
+u_t=\alpha_1u_x+\beta_1(uv_{xx}+v_xu_x)+f(u,v),~~%\\
+%~\\
+v_t=\alpha_2v_x-\beta_2(vu_{xx}+u_xv_x)+g(v,u),
+%\end{array}
+\end{equation}
+\begin{equation}\label{Kuz03}
+u(t,x)|_{x=a(t)}=v(t,x)|_{x=a(t)}=0.
+\end{equation}
+Here $u$ and $v$ are unknown functions, $a(t)$, $f,g$ are specified sufficiently smooth functions, and $f(0,0)=g(0,0)=0$; $\alpha_1,\alpha_2,\beta_{1},\beta_{2}\in\mathbb{R}$.
+
+In mathematical biology, one-dimensional system \eqref{Kuz02} of two second-order quasilinear para\-bo\-lic equations describes the population dynamics of two interacting species: predators and prey \cite{Mur2003}. This system is a generalization of the well-known Lotka–Volterra model \cite{Arn2012}, which is a pair of first-order nonlinear ordinary differential equations.
+
+System \eqref{Kuz02} consists of two one-dimensional second order quasilinear parabolic equations, which are a nonlinear generalization of Fisher's equation (also known as the Kolmogorov-Petrovsky-Piskunov equation) \cite{Kolm1937}. The boundary conditions \eqref{Kuz03} lead to the appearance of a zero front as a curve $x=a(t)$, on which the parabolic type of the system \eqref{Kuz02} degenerates. Solutions with a zero front, in particular, are one part of the so-called heat or diffusion waves \cite{Sam1987}. Such solutions have been considered mainly for single nonlinear heat (filtration, diffusion) equations. Previously, we studied the analytical solvability of the problem with a specified zero front for the reaction-diffusion system \cite{KazKuzSpev2021}.
+
+For problem \eqref{Kuz02}, \eqref{Kuz03}, the following theorem holds.
+
+%\vspace{10pt}
+
+\newpage
+
+\noindent {\bf Theorem.} {\it Let
+	\begin{enumerate}
+		\item $a(t)$ and $F,G$ are analytical functions at points $t=0$ and $(0,0)$, respectively;
+		\item $a'(0)+\alpha_{i}\neq0$, $\beta_{i}\neq0$; $i=1,2$; $F(0,0)=G(0,0)=0$.
+	\end{enumerate}
+	Then problem \eqref{Kuz02}, \eqref{Kuz03} has a unique nontrivial analytical solution in the neighborhood of the curve $x=a(t)$.}
+
+The proof is carried out in two stages. At the first stage, we construct a solution in the form of formal Taylor series by powers of the variable $z=x-a(t)$:
+
+\begin{equation}\label{Kuz06}
+u(t,z)=\sum\limits_{n=0}^{\infty}u_n(t)\frac{z^n}{n!},~u_n(t)=\frac{\partial^nu}{\partial z^n}\Big|_{z=0}; ~~v(t,z)=\sum\limits_{n=0}^{\infty}v_n(t)\frac{z^n}{n!},~v_n(t)=\frac{\partial^nv}{\partial z^n}\Big|_{z=0}.
+\end{equation}
+Differentiating the system with respect to $z$ and assuming $z=0$, we obtain recurrent coefficient formulas.
+
+At the second stage, the convergence of the series \eqref{Kuz06} is proved using the majorant method. The constructed majorant problem is reduced to the Kovalevskaya-type one. Thus, we obtain solutions that can be useful to verify numerical calculations performed, for example, by the collocation method (see \cite{KazKuzSpev2021}).
+
+The following counterexample shows the importance of  boundary conditions specifying with respect to $x$. Consider the problem with initial conditions
+\begin{equation}\label{Kuz13}
+u(t,x)|_{t=0}=-x^l,~~v(t,x)|_{t=0}=x^l,~~l\in\mathbb{N}.
+\end{equation}
+
+\noindent {\bf Proposition.} {\it Let in system \eqref{Kuz02} $\beta_{1}=\beta_{2}=\beta\neq0,~~\alpha_{1}=\alpha_{2}=0,~~f,g\equiv0$.
+	Then problem \eqref{Kuz02}, \eqref{Kuz13} can either has a non-trivial analytical solution $($for $l=1,2$$)$ or doesn't have it $($for $l\geq3$$)$.}
+
+This counterexample demonstrates that the analytical solvability of the initial-boundary problem for system \eqref{Kuz02} depends on the choice of boundary conditions. Convergence of the series
+\begin{equation}\label{Kuz14}
+u(t,x)=\sum\limits_{n=0}^{\infty}u_n(x)\frac{t^n}{n!},~u_n(x)=\frac{\partial^nu}{\partial t^n}\Big|_{t=0}; ~~v(t,x)=\sum\limits_{n=0}^{\infty}v_n(x)\frac{t^n}{n!},~v_n(x)=\frac{\partial^nv}{\partial t^n}\Big|_{t=0}
+\end{equation}
+depends on whether the growth of the coefficients $u_n$, $v_n$ is higher than the factorial one. In other words, setting the initial conditions for the considered system is, generally speaking, impossible. The proposition is an analogue of the well-known counterexample to the Cauchy-Kovalevskaya theorem.
+
+\begin{thebibliography}{9} % или {99}, если ссылок больше десяти.
+	\bibitem{Mur2003}Murray~J.D. Mathematical Biology II: Spatial Models and Biomedical Applications. Interdisciplinary Applied Mathematics. Vol. 18. Springer, New York, 2003.
+	
+	\bibitem{Arn2012}Arnold~V.I. Ordinary Differential Equations. Springer-Verlag, Berlin, Heidelberg. 1992.
+	
+	\bibitem{Kolm1937}Kolmogorov~A.N., Petrovskii~I.G., Piskunov~N.S. A study of the diffusion equation with increase in the amount of substance, and its application to a biological problem. Bull. Moscow Univ. Math. Mech.~1937. Vol.~1, no~6. Pp.~1--26.
+	
+	%\bibitem{DiB1993}DiBenedetto E. Degenerate Parabolic Equations. New York: Springer-Verlag, 1993.
+	
+	%\bibitem{Zel1966}Зельдович~Я.Б., Райзер~Ю.П. Физика ударных волн и высокотемпературных гидродинамических явлений. М.: Физматлит, 1966. 632~с.
+	
+	\bibitem{Sam1987}Samarskii A.A., Galaktionov V.A., Kurdyumov S.P., Mikhailov A.P. Blow-up in Quasilinear Parabolic Equations. Walter de Gruyte, Berlin, 1995.
+	
+	%\bibitem{Sid2001}Сидоров~А.Ф. Избранные труды: Математика. Механика. М.:~Физматлит. 2001. 576~с.
+	
+	%\bibitem{KazKuzLem2020}Kazakov~A.L., Kuznetsov~P.A., Lempert~A.A. Analytical solutions to the singular problem for a system of nonlinear parabolic equations of the reaction-diffusion type~// Symmetry, 2020, vol.~12, is.~6, pp.~999.
+	
+	\bibitem{KazKuzSpev2021}Kazakov A.L., Kuznetsov P.A., Spevak L.F. Construction of solutions to a boundary value problem with a singularity for a nonlinear parabolic system. Journal of Applied and Industrial Mathematics.~2021. Vol.~15, no~4. Pp.~1--13.
+	
+	%Казаков~А.Л., Кузнецов~П.А., Спевак~Л.Ф. Построение решений краевой задачи с вырождением для нелинейной параболической системы~// Сибирский журнал индустриальной математики, 2021. Т.~24, №~4(88). С.~64--78.
+
+\end{thebibliography}
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

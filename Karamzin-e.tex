@@ -1,0 +1,133 @@
+\iffalse
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the template file for the 6th International conference
+% NONLINEAR ANALYSIS AND EXTREMAL PROBLEMS
+% June 25-30, 2018
+% Irkutsk, Russia
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The preparation of the article is based on the standard llncs class
+% (Lecture Notes in Computer Sciences), which is adjusted with style
+% file of the conference.
+%
+% There are two ways of compilation of the file into PDF
+% 1. Use pdfLaTeX (pdflatex), (LaTeX+DVIPS will not work);
+% 2. Use LuaLaTeX (XeLaTeX will work too).
+% When using LuaLaTeX You will need TTF or OTF CMU fonts
+% (Computer Modern Unicode). The fonts are installed with 'cm-unicode' package in
+% a distribution of LaTeX % (https://www.ctan.org/tex-archive/fonts/cm-unicode),
+% either by downloading and installing these fonts system wide, the address of their page is
+% http://canopus.iacp.dvo.ru/%7Epanov/cm-unicode/
+% The second option won't work in XeLaTeX.
+%
+% For MiKTeX (LaTeX distribution for Windows),
+%  1. Package 'cm-unicode' is installed manually with the MiKTeX administration Console.
+%  2. For the compilation of this example, namely, the stub figure, one will also need to
+% download package 'pgf' manually. This package uses in the popular
+% package tikz.
+%  3. Tests showed that the rest of the required packages MiKTeX loads automatically (if
+%     it is allowed). The 'auto download' option is
+%     configured in 'Settings' section in MiKTeX Console.
+%
+%
+% The easiest way to compile an article is to use pdfLaTeX, but
+% the final layout of the book will be compiled with LuaLaTeX,
+% as a result will be of better quality thanks to the package 'microtype' and
+% use vector OTF instead of standard raster fonts of pdfLaTeX.
+%
+% In the case of questions and problems with the article compilation,
+% write letters to e-mail: eugeneai@irnok.net, Cherkashin Evgeny.
+%
+% New version of the correcting style file will be available at the website:
+%     https://github.com/eugeneai/nla-style
+%     file - nla.sty
+%
+% Further instructions are in the text body of the template. The template itself
+% is an article example.
+%
+% The LaTeX2e format is used!
+
+% 12 points font size is used.
+\documentclass[12pt]{llncs}
+
+% The correcting style file is added.
+\usepackage{todonotes}
+
+\usepackage{nla} % This package is needed for compiling
+                 % this template, it should be removed
+                 % from your article.
+
+% Many popular packages (amsXXX, graphicx, etc.) are already imported in the style file.
+% If there is a conflict with your packages, try disabling them and compile
+% the text.
+%
+% It would be convenient in the layout of the proceedings if the file names
+% of the figures of different authors do not clash.
+% To minimize the clash, the drawings can be placed in a separate subfolder
+% named after the author or the title of the paper.
+%
+% \graphicspath{{ivanov-petrov-pics/}} % specifies the folder with images in png, pdf formats.
+% or
+% \graphicspath{{great-problem-solving-paper-pics/}}.
+
+\begin{document}
+
+% Text should be formatted in accordance with the 'article' class, using extensions like
+% AMS.
+%
+\fi
+
+\title{On the Issue of Normality in State-constrained Optimal Control Problems\thanks{The research is supported by FCT, Portugal.}}
+% First author
+\author{Dmitry Karamzin\inst{1}
+  \and
+  Fernando Lobo Pereira\inst{2}
+}
+\institute{Federal Research Center Computer Science and Control RAS, Moscow, Russia\\
+  \email{d.yu.karamzin@gmail.com}
+  \and
+Engineering Faculty of University of Porto, Portugal\\
+\email{flp@fe.up.pt}}
+% etc
+
+\maketitle
+
+\begin{abstract}
+Normality condition in the maximum principle for state-constrained optimal control problems is investigated. The approach based on the controllability matrix is applied.
+
+\keywords{Maximum principle, normality condition, controllability Gramian}
+\end{abstract}
+
+% at the end of the list, there should be no final dot
+\section{The main results}
+
+In this presentation, the normality condition in state-constrained optimal control problems is investigated, that is, such a condition which ensures
+that $\lambda^0>0$ in the Pontryagin maximum principle, where $\lambda^0$ is the Lagrange multiplier for the minimising functional. For this purpose, a conventional approach is applied which is based on the notion of controllability matrix. The strict positiveness of such a matrix is the key condition for normality of the control process in question.
+
+There exists a vast array of work and literature investigating normality in state-constrained control problems, see, for example, the sources \cite{Rampazzo_Vinter_1999,Frankowska_2009,Bettiol_e_al_2016}. In these sources, the issue of normality has been studied based on the Inward/Outward Pointing Conditions (IPC/OPC). The advantage of this approach is the simplicity and verifiability of normality for a given data. At the same time, a restriction on the endpoints is put forward, as one of them is generally supposed to be free. In the current work, we do not impose any a priori restriction on the endpoint constraints, and in particular, the control problem with fixed endpoints can be examined for normality.
+
+{\small {\bf Acknowledgements.} The authors acknowledge the support of  ARISE AL, Ref. LA/P/0112/2020, SYSTEC-Base, Ref. UIDB/00147/2020, and Programmatic, Ref. UIDP/00147/2020, and projects SNAP, Ref. NORTE-01-0145-FEDER-000085, and MAGIC, Ref. PTDC/EEI-AUT/32485/2017, COMPETE2020-POCI and FCT/MCTES (PIDDAC)}.
+
+
+
+\begin{thebibliography}{9}
+
+\bibitem{Rampazzo_Vinter_1999}
+Rampazzo  F., Vinter  R.B.  A theorem on existence of neighbouring trajectories satisfying a state constraint, with applications to optimal control. IMA Journal of Mathematical Control and Information. 1999. Vol. 16, no. 4, 335--351.
+
+\bibitem{Frankowska_2009}
+Frankowska  H.  Normality of the maximum principle for absolutely continuous solutions to Bolza problems under state constraints. Control and Cybernetics. 2009. Vol. 38, no. 4, 1327--1340.
+
+\bibitem{Bettiol_e_al_2016}
+Bettiol  P., Khalil  N., Vinter  R.B.  Normality of Generalized Euler-Lagrange Conditions for State Constrained Optimal Control Problems. Journal of Convex Analysis. 2016.  Vol. 23. Pp. 291--311.
+
+\end{thebibliography}
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

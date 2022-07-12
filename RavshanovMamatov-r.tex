@@ -1,0 +1,156 @@
+\begin{englishtitle} % Настраивает LaTeX на использование английского языка
+% Этот титульный лист верстается аналогично.
+\title{Algorithm for Solving one Maximin Problem with Connected Variables}
+% First author
+\author{Akmal Mamatov \inst{1}
+ \and
+  Islom Ravshanov \inst{2}
+ % \and
+ % Name FamilyName3\inst{1}
+}
+\institute{Samarkand state university, Samarkand, Uzbekistan\\
+  \email{akmm1964@rambler.ru}
+  \and
+Samarkand branch of TUIT, Samarkand, Uzbekistan\\
+\email{islomravshanov048@gmail.com}}
+% etc
+
+\maketitle
+
+\begin{abstract}
+In the paper presents a simple algorithm for solving one maximin problem with connected variables.
+
+
+\keywords{players, maximin problem, algorithm } % в конце списка точка не ставится
+\end{abstract}
+\end{englishtitle}
+
+\iffalse
+
+\documentclass[12pt]{llncs}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage[russian]{nla}
+
+%\usepackage[english,russian]{nla}
+
+% \graphicspath{{pics/}} %Set the subfolder with figures (png, pdf).
+
+%\usepackage{showframe}
+\begin{document}
+
+% Текст оформляется в соответствии с классом article, используя дополнения
+% AMS.
+%
+\fi
+
+\title{Алгоритм решения одной максиминной задачи со связанными переменными}
+\author{А.~Р.~Маматов\inst{1}  
+  \and 
+  И.~А.~Равшанов\inst{2}
+}
+
+% etc
+\institute{СамГУ имени Ш. Рашидова, Самарканд, Узбекистан\\
+  \email{akmm1964@rambler.ru}
+  \and   
+Самаркандский филиал ТУИТ, Самарканд, Узбекистан\\
+ \email{islomravshanov048@gmail.com}
+ }
+
+\maketitle
+
+
+
+
+
+
+
+\begin{abstract}
+Приведен простой алгоритм решения одной максиминной задачи со связанными переменными.
+\keywords{игроки, максиминная задача, алгоритм } % в конце списка точка не ставится
+\end{abstract}
+
+\section{Основные результаты} % не обязательное поле
+
+Пусть имеется два игрока, которые выбирают векторы $x$ и $y$ соответственно из множеств
+$$\quad X=\{x\mid fn \leq x \leq fv \}, Y(x)=\{y\mid gn \leq y \leq gv,\quad Ax+By = b\},$$
+поочередно, сначала первый игрок выбирает $x$, затем, зная $x$,
+второй игрок выбирает $y$  с целями : первого игрока - максимизировать функцию
+$\varphi(x)=\min_{y\in Y(x)}\Psi(x,y)$, второго игрока - минимизировать $\Psi(x,y):\Psi(x,y)=c'x+d'y,$ если $x\in X,y\in Y(x);\Psi(x,y)=+ \infty$ если $x\in X, Y(x)=\emptyset$.
+
+Здесь \begin{math}c=c(J),  x=x(J), \quad fn=fn(J),\quad fv=fv(J) \in \mathbb{R}^n, d=d(K),  y=y(K),gn=gn(K), gv=gv(K) \in \mathbb{R}^l, b\in \mathbb{R}^m, A=A(I,J) \in \mathbb{R}^{mxn}, B=B(I,K)\in \mathbb{R}^{mxl},  rankB<l, I=\{1,2,...,m\}, J=\{1,2,...,n\},
+K=\{1,2,...,l\}.\end{math}
+
+Тогда имеем максиминную задачу со связанными переменными [1,2]:
+$$\varphi(x)=\min_{y\in Y(x)}\Psi(x,y)\rightarrow \max_{x\in X}\eqno(1)$$
+
+Вектор$\quad x\in X$ называется стратегией первого игрока, а вектор $y\in Y(x)$ ---$x$-стратегией второго игрока.
+
+Предлагается простой алгоритм решения задачи (1), который могут быть эффективным (удобным) при $C_{l}^{m}=[l!]/[m!(l-m)!]\gg 2^n$.
+
+{\bf{Алгоритм.}}
+Пусть $x^1$ начальная вершина параллелепипеда
+$$\quad X=\{x\mid fn\leq x \leq fv \}. $$
+Положим $z:=1, f:=-\infty.$.
+
+Шаг 1. При $x=x^1$ решаем задачу $$d'y\rightarrow \min_{y\in Y(x^1)}\eqno(2) $$ двойственным опорным методом [3].
+
+Если $Y(x^1)$ пусто, то положим $x^0:=x^1, f:=+\infty,$и переходим к шагу 3. В противном случае, при оптимальном опорном коплане $\{\delta,K_{op}\}$ среди остальных вершин параллелепипеда $X=\{x\mid fn \leq x \leq fv \}$  выбираем те, для которых соответствующие псевдопланы $y(K_{op})$ являются планами (их количество обозначим через $z_1$ и положим $z:=z+z_1$). При этих вершинах вмести с соответствующими планами задачи (2) подсчитываем значение целевой функции задачи (1), тоже самое вычисляем для вершины $x^1$, а также определяем вершину $x^2$ среди них (и соответствующей $y^2$) , при которой $\varphi(x)$, достигает максимального значения. Эти вершины в дальнейшим исключим  из рассмотрения. Если $c'x^2+d'y^2 \leq f$, то переходим к шагу 2. В противном случае положим $x^0:=x^2, y^0:=y^2, f:=c'x^0+d'y^0$ и переходим к шагу 2.
+
+Шаг 2. Положим $z:=z+1$.Если $z>2^n$, то переходим к шагу 3. В противном случае перейдем к следующую вершину параллелепипеда $X=\{x\mid f_*\leq x \leq f^*\} $, обозначим ее $x^1$ и переходим к шагу 1.
+
+Шаг 3. $x^0, f$--- соответственно оптимальная стратегия первого игрока и значение целевой функции задачи (1) $\varphi(x^0).$
+
+Эффективность (удобство) алгоритма основан на следующих соображений:
+
+1. В задачах (2) при различных вершинах параллелепипеда $X=\{x\mid fn \leq x \leq fv \}$ матрица основных ограничений постоянный $B$.
+
+2. С помощью одного оптимального опорного коплана задачи (2) $\{\delta,K_{op}\}$ есть возможность построения оптимальных планов задачи (2) при различных вершинах параллелепипеда $X=\{x\mid fn \leq x \leq fv \}$,  в связи с чем могуть уменьшится количеств решаемых задач при вершинах параллелепипеда $X=\{x\mid fn \leq x \leq fv \}$ .
+
+Алгоритм иллюстрируется в задаче (1) при следующих значениях параметров:
+
+\begin{math}c=-1,fn=-10, fv=3,d'=(-2;1;0;0;0),\end{math}
+\begin{math}gn=(0;0;0;0;0),gv=(6;7;100;100;100),\end{math}
+\begin{math} A=
+\left(
+\begin {array}{c}
+1\\
+-1\\
+2
+\end{array}
+\right), B= \left(
+\begin {array}{ccccc}
+-1& 1& 1& 0& 0\\
+1& 1& 0& 1& 0\\
+1& -1& 0& 0& 1
+\end{array}
+\right), b'=(4;10;5).
+\end{math}
+\begin{thebibliography}{9} % или {99}, если ссылок больше десяти.
+
+\bibitem{Ivanilov1972} Иванилов Ю.П. Двойственные полуигры // Известия АН СССР. Серия
+техническая кибернетика.1972. \textnumero~4. С.~3--9.
+
+\bibitem{Mamatov2006} Маматов А.Р.лгоритм решения одной игры двух лиц
+с передачей информации ~// ЖВМиМФ, 2006, Т.46, №10, С. 1784-1789.
+
+\bibitem{Gabasov1} Габасов Р., Кириллова Ф.М., Тятюшкин А. И. Конструктивные
+методы оптимизации. Ч.1. Линейные задачи. Минск:Университетское, 1984.
+
+
+\end{thebibliography}
+
+% После библиографического списка в русскоязычных статьях необходимо оформить
+% англоязычный заголовок.
+
+
+
+
+%\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
