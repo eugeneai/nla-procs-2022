@@ -20,39 +20,7 @@
 	\end{englishtitle}
 	
 
-\iffalse
-\documentclass[12pt]{llncs}  % Необходимо использовать шрифт 12 пунктов.
 
-% При использовании pdfLaTeX добавляется стандартный набор русификации babel.
-% Если верстка производится в LuaLaTeX, то следующие три строки надо
-% закомментировать, русификация будет произведена в корректирующем стиле автоматом.
-\usepackage[T2A]{fontenc}
-\usepackage[cp1251]{inputenc} % Кодировка utf-8, win1251 (cp1251) не тестировалась.
-\usepackage[english,russian]{babel}
-
-% Для верстки в LuaLaTeX текст готовится строго в utf-8!
-
-% В операционной системе Windows для редактирования в кодировки utf-8
-% можно использовать программы notepad++ https://notepad-plus-plus.org/,
-% techniccenter http://www.texniccenter.org/,
-% SciTE (самая маленькая по объему программа) http://www.scintilla.org/SciTEDownload.html
-% Подойдет также и встроенный в свежий дистрибутив MiKTeX редактор
-% TeXworks.
-
-% Добавляется корректирующий стилевой файл строго после babel, если он был включен.
-% В параметре необходимо указать russian, что установит не совсем стандартные названия
-% разделов текста, настроит переносы для русского языка как основного и т.п.
-
-\usepackage{todonotes} % Удрать из вашей статьи, нужен для верстки данного шаблона.
-
-\usepackage[russian]{nla}
-
-% \graphicspath{{pics/}} %Set the subfolder with figures (png, pdf).
-
-%\usepackage{showframe}
-\begin{document}
-%\selectlanguage{russian}
-\fi
 
 \title{О необходимых условиях при минимизации пределов %\thanks{Работа выполнена при поддержке РФФИ (РНФ, другие фонды), проект \textnumero~00-00-00000.}
 }
@@ -171,15 +139,19 @@ $
   \geq 0\qquad \forall u\in B(\mathbb{R}_+,U),\]
   то для $(\hat{y},\hat{u})$ можно считать выполненным и  более сильное краевое условие
 	\begin{equation*}
-%-{\psi}(0)\in N(x_0;\mathcal{C}_{ \mathrm{as}})+\bigcap_{\{(\theta_n)_{n\in\mathbb{N}}\in\mathbb{R}_+{}^\mathbb{N}\,|\,\theta_n\uparrow\infty\}}
-%\mathop{\hbox{  \rm{Limsup}}}_{\substack
-%	{x_n\to x_0,\ \lambda_n\downarrow {\lambda}\\ {J}(x_n,\hat{u};\theta_n)-{J}(x_0,\hat{u};\theta_n)\to 0}
-%}
-%\Big\{\lambda_n\frac{\partial {J}}{\partial x}(x_n,\hat{u};\theta_n)
-%\Big\}.
+-{\psi}(0)\in N(x_0;\mathcal{C}_{ \mathrm{as}})+\bigcap_{\{(\theta_n)_{n\in\mathbb{N}}\in\mathbb{R}_+{}^\mathbb{N}\,|\,\theta_n\uparrow\infty\}}
+\mathop{\hbox{  \rm{Limsup}}}_{\substack
+	{x_n\to x_0,\ \lambda_n\downarrow {\lambda}\\ {J}(x_n,\hat{u};\theta_n)-{J}(x_0,\hat{u};\theta_n)\to 0}
+}
+\Big\{\lambda_n\frac{\partial {J}}{\partial x}(x_n,\hat{u};\theta_n)
+\Big\}.
 \label{khlopin_ALL2}
 \end{equation*}
 }
+
+
+
+
 
 
  Без условия трансверсальности необходимость принципа максимума Понтрягина хорошо известна; см. \cite{Halkin}. Основная особенность теоремы выше ---  краевые условия, необходимость которых не требует каких-либо асимптотических предположений. 
@@ -204,25 +176,25 @@ $
 		Более того, если при всех  $\theta> 0$
 		точка $z$ принадлежит замыканию $\Omega_\theta$, то
 				\begin{align*}
-%		N\Big(z; \mathop{  \rm{Limsup}}_{\theta\uparrow\infty} \Omega_\theta\Big)
-%		\subset
-%		\bigcap_{\{(\theta_n)_{n\in\mathbb{N}}\in\mathbb{R}_+^\mathbb{N}\,|\,\theta_n\uparrow\infty\}}
-%		        \mathop{  \rm{Limsup}}_{{z}_n\to {z}}{N}({z}_n;\Omega_{\theta_n}).
-%		        %\qquad\forall z\in\cup_{\theta>0} \mathop{  \rm{cl}}\Omega_\theta.
+		N\Big(z; \mathop{  \rm{Limsup}}_{\theta\uparrow\infty} \Omega_\theta\Big)
+		\subset
+		\bigcap_{\{(\theta_n)_{n\in\mathbb{N}}\in\mathbb{R}_{+}^{\mathbb{N}}\,|\,\theta_n\uparrow\infty\}}
+		        \mathop{  \rm{Limsup}}_{{z}_n\to {z}}{N}({z}_n;\Omega_{\theta_n}).
+		        %\qquad\forall z\in\cup_{\theta>0} \mathop{  \rm{cl}}\Omega_\theta.
 		\end{align*}
 	}
-	
+
 	\begin{thebibliography}{99}
 \bibitem{Halkin}
-Halkin H. {\it   Necessary conditions for optimal control problems with infinite horizons}. Econometrica. 1974. Vol.~42. P.~267--272.
+Halkin H. {    Necessary conditions for optimal control problems with infinite horizons}. Econometrica. 1974. Vol.~42. Pp.~267--272.
 
 \bibitem{arxiv}
-Khlopin~D.V. {\it Necessary conditions in infinite-horizon control problem
+Khlopin~D.V. {  Necessary conditions in infinite-horizon control problem
 	that need no asymptotic assumptions}. arXiv preprint arXiv:1910.12092
 
 \bibitem{Ledyaev}
- Ledyaev Y.S., Treiman J.S. {\it Sub-and supergradients of envelopes, semicontinuous clo-
-sures, and limits of sequences of functions.} Russ. Math. Surv. 2012. Vol.~67. P.~345--373.
+ Ledyaev Y.S., Treiman J.S. {  Sub-and supergradients of envelopes, semicontinuous clo-
+sures, and limits of sequences of functions.} Russ. Math. Surv. 2012. Vol.~67. Pp.~345--373.
 	\end{thebibliography}
 	
 	

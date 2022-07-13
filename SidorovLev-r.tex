@@ -17,7 +17,7 @@
 ~\\
 
 The eigenvalues and eigenfunctions are constructed for the following operators:
-$$ Ax = \int\limits_a^b f(x)dx + a(t)x_{\alpha},$$
+$$ Ax = \int\limits_0^t K(x,s) x(s)dx + a(t)x_{\alpha},$$
 where  $x_{\alpha} = x ( \alpha (t))$  or  $x_{\alpha} = \int\limits_a^bx(t)d\alpha(t)$  is Stieltjes functional  (load), $a(t)$ and  $\alpha(t)$ 
 are given functions.
 
@@ -25,7 +25,7 @@ are given functions.
 %В ряде простых случаев собственные функции таких операторов легко построить в классе целых аналитических функций.
 
 \begin{example}
-	For operators $Ax = \int\limits_0^bx(s)ds + x(\dfrac{t}{2})$  eigenvalue $\lambda = 1$.  Corresponding eigenfunction  $\phi(t)$  for  $ t \in \mathbb{R}$  is constructed as following series
+	For operators $Ax = \int\limits_0^t x(s)ds + x\left(\displaystyle\frac{t}{2}\right)$  eigenvalue $\lambda = 1$.  Corresponding eigenfunction  $\phi(t)$  for  $ t \in \mathbb{R}$  is constructed as following series
 	
 	$$\sum_{n=0}^{\infty} a_n\cdot t^n$$
 	
@@ -33,7 +33,6 @@ are given functions.
 \end{example}
 
 
-%Излагаемый аналитический метод построения собственнных чисел и собственных функций оператора $A$ используется при построении разветвляющихся решений нелинейных интегральных уравнений Вольтерра рассмотренных в работе [ДифУр 2021 №12 
 The presented analytical method for constructing eigennumbers and eigenfunctions of the operator $A$ is used in constructing branching solutions of the nonlinear Volterra integral equations considered in [1].
 
 \begin{thebibliography}{99}
@@ -83,13 +82,13 @@ The presented analytical method for constructing eigennumbers and eigenfunctions
 \end{abstract}
 
 Строятся собственные числа и собственные функции операторов вида:
-$$ Ax = \int\limits_a^b f(x)dx + a(t)x_{\alpha},$$
+$$ Ax = \int\limits_0^t K(x,s) x(s)dx + a(t)x_{\alpha},$$
 где $x_{\alpha} = x ( \alpha (t))$  или $x_{\alpha} = \int\limits_a^bx(t)d\alpha(t)$ -- функционал Стилтьеса, называемый в приложениях нагрузкой, $a(t)$ и $\alpha(t)$ -- заданные функции.
 
 В ряде простых случаев собственные функции таких операторов легко построить в классе целых аналитических функций.
 
 \begin{example}
-	 У оператора $Ax = \int\limits_0^bx(s)ds + x\bigl(\dfrac{t}{2}\bigr)$ собственное число $\lambda = 1$, а соответствующая собственная функция $\phi(t)$ при $ t \in \mathbb{R}$ строится в виде сходящегося ряда:
+	 У оператора $Ax = \int\limits_0^t x(s)ds + x\left(\displaystyle\frac{t}{2}\right)$ собственное число $\lambda = 1$, а соответствующая собственная функция $\phi(t)$ при $ t \in \mathbb{R}$ строится в виде сходящегося ряда:
 	 
 	 	$$\sum_{n=0}^{\infty} a_n\cdot t^n$$
 	 	
@@ -108,7 +107,7 @@ $$ Ax = \int\limits_a^b f(x)dx + a(t)x_{\alpha},$$
 %Kozhanov, A. I. (2004). Nonlinear loaded equations and inverse problems. Zhurnal Vychislitel'noi Matematiki i Matematicheskoi Fiziki, 44(4), 694-716.
 % Список литературы.
 \begin{thebibliography}{99}
-\bibitem{1}
+\bibitem{sid1}
 % Format for Journal Reference
 Sidorov N.A., Sidorov D.N.  {  Nonlinear Volterra Equations with Loads and Bifurcation Parameters: Existence Theorems and Construction of Solutions.} Diff Equat. 2021.  Vol. 57. Pp. 1640--1651.
 % Format for books
