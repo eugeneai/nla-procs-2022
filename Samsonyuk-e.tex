@@ -1,7 +1,7 @@
 
 
-
 \iffalse
+
 % !TeX spellcheck = en_US
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -77,13 +77,14 @@
 
 \begin{document}
 
+ 
+
 % Text should be formatted in accordance with the 'article' class, using extensions like
 % AMS.
 %
 \fi
 
-\title{A Numerical Scheme for Solving of a Bilinear Optimal Impulsive Control Problem with Intermediate State Constraints\thanks{This work is financially supported by the project of ISDCT SB RAS ``Theory and methods for studying  of evolutionary equations and control systems with applications,'' no.~121041300060-4.}}
-% First author
+\title{A scheme for numerical  solving of a bilinear optimal impulsive control problem with intermediate state constraints\thanks{This work is financially supported by the Ministry of Education and Science of the Russian Federation (state registration No.~121041300060-4.}}
 \author{Olga Samsonyuk}
 \institute{ISDCT SB RAS, Irkutsk, Russia\\
   \email{olga.samsonyuk@icc.ru}
@@ -93,25 +94,38 @@
 \maketitle
 
 \begin{abstract}
+This note addresses a  scheme for numerical solving of a bilinear  optimal impulsive control problem with intermediate state constraints.  The scheme is based on optimality conditions using compound monotone functions of the Lyapunov type.
 
-\keywords{impulsive control, trajectory of bounded variation, Lyapunov type function, optimality condition, numerical solution method}
+\keywords{impulsive control,  optimality conditions, numerical scheme}
 \end{abstract}
 
+Let us consider the optimal impulsive control problem  $(P)$: $\ J=l(q)\rightarrow \min,$
+\begin{align}
+& d{x}_1(t)=f_1(t)dt+\big(ax_2(t)+b\big)\mu_1(t),  
+ \ \  d{x}_2(t)=f_2(t)dt+\big(cx_1(t)+d\big)\mu_2(t),  
+ \label{nla3}\\ 
+ &  x_1(0)=x_{10}, \  x_2(0)=x_{20}, \ \   q_j\in Q_j,\  j=0,\ldots,N   .\label{nla5}
+\end{align}
+Here, $T=[0,t_1]$ is a given time interval,  $\mu=(\mu_1, \mu_2)$ is a nonnegative bounded Borel measure on $T$,  $x_1(\cdot)$,  $x_2(\cdot)$,  $V(\cdot)$ are right continuous on $(0,t_1]$ and have bounded total variation on $T$,    $(\theta_0,\theta_1,\ldots,\theta_N)$ are given points such that $0=\theta_0<\theta_1<\ldots<\theta_N=t_1$, $q=\big(q_0,q_1,\ldots,q_N\big)$, where $ q_j=\big(x_1(\theta_j),x_2(\theta_j),V(\theta_j)\big)$, $j=0,\ldots,N$. The constraint sets $Q_j$, $j=0,\ldots,N$, are compact subsets from ${\mathbb R}^3$. The solution's concept to (\ref{nla3}) is given in \cite{samnla2}.
 
-This talk is devoted to a numerical scheme for solving of a bilinear  optimal impulsive control problem with intermediate phase constraints. This scheme is based on optimality conditions using compound monotone functions of the Lyapunov type \cite{samnla1,samnla2}.
-
+We propose a compound Lyapunov type function described by a continuous  piecewise smooth function $\varphi(t,x_1,x_2,V;t_0,y_{10},y_{20})$ such that $\varphi = \big\{ \varphi_i\big\}_{i=1,\ldots,7} ,$ where functions $\varphi_i$ are defined on   domains with disjoint interiors. The function $\varphi$ is such that: (i)    $\varphi_i$, $i=1,\ldots,7,$ are strongly monotone with respect to  (\ref{nla3})  on every interval $(\theta_{j-1},\theta_j]$, $j=\overline{1,N}$  ($t_0=\theta_{j-1}$); (ii)    $\varphi$ is weakly premonotone with respect to    (\ref{nla3}) on   $(\theta_{j-1},\theta_j]$, $j=\overline{1,N}$, and satisfies the condition
+$
+\big\{(x_1,x_2)\ |\  \varphi(t_0,x_1,x_2,0;t_0,y_{10},y_{20})\leq 0\big\}=\{y_{10},y_{20}\}.
+$ 
+The function $\varphi$ gives an approximation of the reachable set and allows us to use the optimality conditions with compound monotone functions of the Lyapunov type   from   \cite{samnla2,samnla1}. Based on these conditions, we propose a scheme for numerical solving of the problem $(P)$.
 
 \begin{thebibliography}{5}
+%\bibitem{MilRub2013nla3} Miller  B.M.,   Rubinovich E.Ya.  Discontinuous solutions in the optimal control problems and their representation by singular space-time transformations. Autom. Remote Control. 2013. Vol. 74. Pp. 1969--2006.
+\bibitem{samnla2} Samsonyuk O.N., Sorokin S.P. Optimality conditions for impulsive
+processes with intermediate state constraints.  The 15th International Conference on
+Stability and Oscillations of Nonlinear Control Systems (Pyatnitskiy's Conference)
+(STAB), Moscow, Russia, 3--5  June 2020.  IEEE, 2020.  %DOI: 10.1109/STAB49150.2020.9140658
 \bibitem{samnla1} Samsonyuk O.N. Optimality conditions for optimal impulsive control
 problems with multipoint state constraints. Journal of Global Optimization. 2020. Vol.
-76, no. 3. Pp. 625--644. DOI: 10.1007/s10898-019-00868-w 
-
-\bibitem{samnla2} Samsonyuk O.N., Sorokin S.P. Optimality Conditions for Impulsive
-Processes with Intermediate State Constraints.  The 15th International Conference on
-Stability and Oscillations of Nonlinear Control Systems (Pyatnitskiy's Conference)
-(STAB), Moscow, Russia, 3--5  June 2020.  IEEE, 2020.  DOI: 
-10.1109/STAB49150.2020.9140658
+76, no. 3. Pp. 625--644. %DOI: 10.1007/s10898-019-00868-w 
 \end{thebibliography}
+
+
 %\end{document}
 
 %%% Local Variables:

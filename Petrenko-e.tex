@@ -1,4 +1,5 @@
 \iffalse
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % This is the template file for the 6th International conference
@@ -77,11 +78,12 @@
 % AMS.
 %
 \fi
-\title{A Note on Differential-algebraic Equations with Hysteresis Phenomena}
+
+\title{A note on differential-algebraic equations with hysteresis phenomena\thanks{The research is supported by the Ministry of Education and Science of the Russian Federation (state registration No.~121041300060-4.}}
 % First author
-\author{Pavel Petrenko
+\author{Pavel Petrenko 
 }
-\institute{IDSCT SB RAS, Irkusk, Russia\\
+\institute{ISDCT SB RAS, Irkutsk, Russia\\
   \email{petrenko.pavels@gmail.com}}
 
 % etc
@@ -97,51 +99,51 @@ In this note, we investigate some class of differential-algebraic equations (DAE
 % at the end of the list, there should be no final dot
 \section{The main results}
 
-Consider the following system of ordinary differential equations (ODE) paired with a sweeping process \cite{pppKM2000,pppMoreau1977} of a rate independent hysteresis type  (modeled by the play operator \cite{pppBS1996,pppKr1991}):
-\begin{align} \label{ppppss1}
+Consider the following system of ordinary differential equations (ODE) paired with a sweeping process \cite{KM2000,Moreau1977} of a rate independent hysteresis type  (modeled by the play operator \cite{BS1996,Kr1991,PSS2020}):
+\begin{align} \label{pss1}
  & A(t)\dot{x}(t)=B(t)x(t)+C(t)y(t), \ \ \ x(t_0)=x_0,   
 \\[0.5em] & 
 \begin{array}{c}
   -\ddot{y}(t)\in \mathcal{N}_{Q(t)}\big(\dot{y}(t)\big), \\[0.5em] 
  {y}(t_0)=y_0, \ \  \  \dot{y}(t_0)=y_1\in Q(t_0).  
-  \end{array} \label{ppppss2}
+  \end{array} \label{pss2}
 \end{align}
 Here, $A(t), B(t), C(t) \in \mathbb R^{(n\times n)}$ are given matrices, wherein $\det A(t) \equiv 0$, $T=[t_0,t_1]$ is a given time interval, $x(t), y(t) \in {\mathbb R}^n$ are unknown functions; $Q(t)=x(t)-Z$ is a ``moving set'', where $Z$ is a given closed convex subset of ${\mathbb R}^n$, and $\mathcal{N}_{Q}\big(q\big)$ denotes the normal cone to a closed convex set $Q$ at a point $q$.
 
-By a solution of (\ref{ppppss1}), (\ref{ppppss2}) we mean a pair of absolutely continuous ($W^{1,1}$) functions $(x, y)$ satisfying (\ref{ppppss1}), (\ref{ppppss2}) for almost all (a.e.) $t \in T$ with respect to (w.r.t.) the usual Lebesgue measure.
+By a solution of (\ref{pss1}), (\ref{pss2}) we mean a pair of absolutely continuous ($W^{1,1}$) functions $(x, y)$ satisfying (\ref{pss1}), (\ref{pss2}) for almost all (a.e.) $t \in T$ with respect to (w.r.t.) the usual Lebesgue measure.
 
 
 Let's consider time-varying ODE system not resolved with respect to the derivative
-\begin{equation}\label{pppdau}
+\begin{equation}\label{dau}
 A(t)x'(t)=B(t)x(t) + U(t)f(t), \;\;\; t \in T \subset {\mathbb R},
 \end{equation}
 where $A(t), B(t), U(t) \in \mathbb R^{(n\times n)}$ are given matrices, wherein $\det A(t) \equiv 0$, $f(t) \in {\mathbb R}^n$ is some continuous on $T$ function; $x(t) \in {\mathbb R}^n$ is unknown function of a state. Such systems are called differential-algebraic equations (DAE). 
 
-%Under some assumptions \cite{pppSCH2008} there exists a linear differential operator
-\begin{lemma}{\rm \cite{pppSCH2008}}
+%Under some assumptions \cite{SCH2008} there exists a linear differential operator
+\begin{lemma}{\rm \cite{SCH2008}}
 Let $A(t), B(t), C(t) \in \mathbb C^r(T),$ ${\rm rank} D_{r,z}(t) = \rho = {\rm const}$, there is a resolving minor in matrix $D_{r,x}(t)$. Then there exists linear differential operator
 $$
 {\mathcal R}=R_0(t) +R_1(t){{d}\over{dt}}+\ldots +R_r(t)\left( {{d}\over{dt}}\right) ^r
 $$
 with continuous on $T$ coefficients
-$R_j(t)\; (j=\overline{0,r})$, that reduces system (\ref{pppdau}) into the form
+$R_j(t)\; (j=\overline{0,r})$, that reduces system (\ref{dau}) into the form
 $$
 \dot{x}_1(t) = J_1(t)x_1(t)+{\mathcal H}(t) \overline{u}(t),
 $$
 $$
 x_2(t) = J_2(t)x_1(t)+{\mathcal G}(t) \overline{u}(t),
 $$
-where $\left( x_1(t), x_2(t) \right)=Qx(t)$, $\overline{u}(t) = (u(t), \dot{u}(t),\ldots, u^{(r)}(t))$, r is unresolvability index for DAE (\ref{pppdau}). Matrices $D_{r,x}, D_{r,z}$, $J_1(t), J_2(t)$, ${\mathcal H}(t), {\mathcal G}(t)$ are determined by formulas cited in \cite{pppSCH2008}.
+where $\left( x_1(t), x_2(t) \right)=Qx(t)$, $\overline{u}(t) = (u(t), \dot{u}(t),\ldots, u^{(r)}(t))$, r is unresolvability index for DAE (\ref{dau}). Matrices $D_{r,x}, D_{r,z}$, $J_1(t), J_2(t)$, ${\mathcal H}(t), {\mathcal G}(t)$ are determined by formulas cited in \cite{SCH2008}.
 \end{lemma}
 
 
 
 
-The following proposition gives a necessary and sufficient condition for the existence of a unique solution to system (\ref{ppppss1}), (\ref{ppppss2}). %(or rather (\ref{ppppss3})--(\ref{ppppss5})).
+The following proposition gives a necessary and sufficient condition for the existence of a unique solution to system (\ref{pss1}), (\ref{pss2}). %(or rather (\ref{pss3})--(\ref{pss5})).
 \begin{theorem}
 Let all the assumptions of Lemma 1 are satisfied. 
-Then problem (\ref{ppppss1}), (\ref{ppppss2}) solvable on $T$ iff
-%\begin{equation}\label{ppppss55}
+Then problem (\ref{pss1}), (\ref{pss2}) solvable on $T$ iff
+%\begin{equation}\label{pss55}
 %\left(\begin{array}{cc}
 %0 & 0\\ 0 & E_{n-k}
 %\end{array} \right)Qx_0=
@@ -154,7 +156,7 @@ Then problem (\ref{ppppss1}), (\ref{ppppss2}) solvable on $T$ iff
 z_2(t_0) = 
 J_2(t_0)z_1(t_0) + {\mathcal{G}(t_0)}\overline{y}(t_0).
 \end{equation}
-Moreover, if a solution to problem (\ref{ppppss1}), (\ref{ppppss2}) exists, then it is unique. Here
+Moreover, if a solution to problem (\ref{pss1}), (\ref{pss2}) exists, then it is unique. Here
 $(z_1(t), z_2(t)) = Qx(t), \; z_1(t) \in {\mathbb R}^k, z_2(t) \in {\mathbb R}^{n-k}$, $\overline{y}(t) = (y(t), \dot{y}(t), \ldots, y^{(r)}(t))$.
 \end{theorem} 
 % The figures and tables are drawn according to the standard class 'article'.
@@ -177,23 +179,79 @@ $(z_1(t), z_2(t)) = Qx(t), \; z_1(t) \in {\mathbb R}^k, z_2(t) \in {\mathbb R}^{
 \begin{thebibliography}{9} % or {99}, if there is more than ten references.
 
 
-\bibitem{pppKM2000} Kunze  M., Marques  M.D.M. An Introduction to Moreau’s Sweeping Process. In  Brogliato B. (eds) Impacts in Mechanical Systems. Lecture Notes in Physics. Vol.~551. Springer, Berlin, Heidelberg, 2000.
+%\bibitem[Adly, Haddad and Thibault, 2014]{AHT2014}  Adly, S.,  Haddad, T. and  Thibault, L. (2014). Convex sweeping process in the framework of measure differential inclusions and evolution variational inequalities. {\em Mathematical Programming B}, Springer,  \textbf{148}(1), pp.~5--47.
+
+%\bibitem[Acary, Bonnefon and Brogliato, 2011]{ABB2011}  Acary, V.,  Bonnefon, O. and  Brogliato, B. (2011). {\em Nonsmooth Modelling and Simulation for Switched Circuits.} Springer Science+Business Media B.V.  
+
+%\bibitem[Brogliato, 1999]{Brog1999}  Brogliato, B. (1999). {\em Nonsmooth Mechanics. Models, Dynamics and Control}. Springer, London.
+\bibitem{KM2000} Kunze  M., Marques  M.D.M. An Introduction to Moreau's Sweeping Process. In  Brogliato B. (eds) Impacts in Mechanical Systems. Lecture Notes in Physics. Vol.~551. Springer, Berlin, Heidelberg, 2000.
  
-\bibitem{pppMoreau1977} Moreau, J.-J. Evolution problem associated with a moving convex set in a Hilbert space. J. Differential Eq.~1977. Vol.~26. Pp.~347--374.  
+\bibitem{Moreau1977} Moreau  J.-J. Evolution problem associated with a moving convex set in a Hilbert space. J. Differential Eq.~1977. Vol.~26. Pp.~347--374.  
+
+%\bibitem[Brokate and Krej\u{c}\'{\i},  Schnabel, 2004]{BrKrSch2004}  Brokate, M.,     Krej\u{c}\'{\i},  P. and Schnabel, H. (2004). On uniqueness in evolution quasivariational   inequalities.   {\em J. Convex Anal.}, \textbf{11}, pp.~111--130.
+
+\bibitem{BS1996} Brokate  M.,   Sprekels  J. Hysteresis and Phase Transitions. Ser. Appl. Math. Sci. Vol.~121.  Springer-Verlag, New York, 1996. 
+
+%\bibitem[Gantmacher, 1988]{G1988} Gantmacher F.R. (1988). {\em The theory of matrices}. Nauka, Moscow (in Russian).
+
+%\bibitem[Goncharova and Staritsyn, 2017]{GS2017} Goncharova, E. and Staritsyn, M. (2017). Relaxation and Optimization of Impulsive Hybrid Systems: Inspired by Impact Mechanics. In {\em Proceedings of the 14th International Conference on Informatics in Control, Automation and Robotics}, \textbf{1}, pp.~474--485.
+
+%\bibitem[Goncharova and Staritsyn, 2018]{GS2018} Goncharova, E. and Staritsyn, M. (2018). On BV-extension of Asymptotically Constrained Control-affine Systems and Complementarity Problem for Measure Differential Equations. {\em Discrete and Continuous Dynamical Systems-Series S.}, \textbf{11}(6), pp.~1061--1070. 
+%DOI: 10.3934/dcdss.2018061. 
+
+%\bibitem[Facchinei and Pang, 2003]{FP2003} Facchinei, F.  and Pang, J.S. (2003). {\em Finite-Dimensional Variational Inequalities and Complementarity Problems}. Springer, New York. 
+
+%\bibitem[Heemels,   Schumacher and Weiland, 2000]{HSW2000} Heemels, W.P.M.H., Schumacher, J.M., Weiland, S. (2000). Linear complementarity systems. {\em SIAM J. Appl. Math.}, \textbf{60}, pp.~1234--1269.
+
+%\bibitem[Karamzin, Oliveira, Pereira and Silva, 2015]{KOPS2015} Karamzin, D.Yu., Oliveira, V.A., Pereira, F.L., and Silva, G.N. (2015). On the properness of the extension of dynamic optimization problems to allow impulsive controls. {\em ESAIM: Control, Optimisation and Calculus of Variations}, \textbf{21}(3), pp.~857--875.
+
+%\bibitem[Kopfova and Recupero, 2016]{KopRec2015} Kopfova, J. and Recupero, V. (2016). BV-norm continuity of sweeping processes driven by a set with constant shape.  ArXiv: 1512.08711  
+
+\bibitem{Kr1991} Krej\u{c}\'{\i}.  Vector hysteresis models. European J. Appl. Math.~1996. Vol.~2. Pp.~281--292.
 
 
-\bibitem{pppBS1996} Brokate  M.,  Sprekels  J. Hysteresis and Phase Transitions. Ser. Appl. Math. Sci. Vol.~121.  Springer-Verlag, New York, 1996. 
+
+
+%\bibitem[Miller, 1996]{Miller1996} Miller, B. (1996). The generalized solutions of nonlinear optimization problems with impulse control. {\em SIAM J. Control Optim.}, \textbf{34}, pp.~142--440.
+
+%\bibitem[Miller and Rubinovich, 2013]{MR2013} Miller, B.M. and Rubinovich E.Ya. (2013). Discontinuous solutions in the optimal control problems and their representation by singular space-time transformations. {\em Autom. Remote Control}, \textbf{74}, pp.~1969--2006.
 
 
 
-\bibitem{pppKr1991} Krej\u{c}\'{\i} P..  Vector hysteresis models. European J. Appl. Math.~1996. Vol.~2. Pp.~281--292.
+%\bibitem[Pang and Stewart, 2008]{PS2008} Pang, J.S. and Stewart, D.E. (2008). Differential variational inequalities. {\em Math. Progam. Ser. A.} \textbf{113}, pp.~345--424.  
+
+%\bibitem[Petrenko, 2018]{P2018} Petrenko, P.S. (2018). Robust controllability of nonstationary differential-algebraic Equations with unstructured uncertainty {\em Journal of Mathematical Sciences}, \textbf{239}(2), pp.~123--134.
+
+%\bibitem[Recupero, 2011]{Rec2011} Recupero, V. (2011).  BV solutions of the rate independent inequalities.   {\em Ann. Scuola Norm. Sup. Pisa Cl. Sci.} \textbf{X}(5),  pp.~269--315.
+
+%\bibitem[Recupero, 2015]{Rec2015} Recupero, V. (2015). BV continuous sweeping processes. {\em J. Differential Equation}, \textbf{259}, pp.~4253--4272.
+
+%\bibitem[Samsonyuk, 2019]{SOp2019} Samsonyuk, O.N. (2019). The space-time representation for impulsive control problems with hysteresis.   {\em Communications in Computer and Information Science}, \textbf{974}, pp.~351--366. %DOI: 10.1007/978-3-030-10934-9_25.
+
+%\bibitem[Samsonyuk and Timoshin, 2018]{SamT2018} Samsonyuk, O.N. and Timoshin, S.A. (2018). BV solutions of rate independent processes driven by impulsive controls. {\em IFAC-Papers OnLine}, \textbf{51}(32), pp.~361--366. 
+%DOI: 10.1016/j.ifacol.2018.11.410.
+
+%\bibitem[Samsonyuk and Timoshin, 2019]{SamT2019} Samsonyuk, O.N. and Timoshin, S.A. (2019). Optimal control problems with states of bounded variation and hysteresis. {\em Journal of Global Optimization}, \textbf{74}(3), pp.~565--596. %DOI: 10.1007/s10898-019-00752-7.
+
+\bibitem{PSS2020} Petrenko P., Samsonyuk O., Staritsyn M. A note on Differential-Algebraic Systems with Impulsive and Hysteresis Phenomena. Cybernetics  and Physics.~2020. Vol.~9, no.~1. Pp.~51--56.
+
+\bibitem{SCH2008} Scheglova, A. Controllability of nonlinear algebraic differential systems. Automat. Telemekh.~2008. Vol.~10. Pp.~57--80 (Russian).
+
+ 
+%\bibitem[Sesekin and Zavalishchin, 1997]{SZ1997} Sesekin, A. and Zavalishchin, S. (1997). {\em Dynamic Impulse Systems: Theory and Applications}. Kluwer Academic Publishers, Dordrecht.
+
+%\bibitem[Song,  Krauss,  Kumar and Dupont]{SKKD2001} Song, P., Krauss, P., Kumar, V., Dupont, P. (1999). Analysis of rigid-body dynamic models for simulation of systems with frictional contacts. {\em J. Appl. Mech.}, \textbf{68}, pp.~118--128.
 
 
-\bibitem{pppSCH2008} Scheglova  A.   Controllability of nonlinear algebraic differential systems. Automat. Telemekh.~2008. Vol.~10, Pp.~57--80.
+% \bibitem[Staritsyn, 2018]{St2018} Staritsyn, M. (2018). Quasi-solutions of complementarity systems with measures and related mixed-constrained optimal impulsive control problems. In {\em Proc. of the 14th Viennese Conf. ``Optimal Control and Dynamic Games''} Vienna, Austria, July 3-6,  p.~160.
 
+%\bibitem[Staritsyn and Goncharova, 2019]{GS2019} Staritsyn, M. and Goncharova, E. (2019). On complementarity measure-driven dynamical systems, {\em Lecture Notes in Electrical Engineering}, \textbf{495}, pp.~699--718. 
 
+%\bibitem[Stewart, 2000]{Stew2000} Stewart, D.E. (2000). Rigid-body dynamics with friction and impact. {\em SIAM Rev.}, \textbf{42}, pp.~3--39.
 
 \end{thebibliography}
+
+
 %\end{document}
 
 %%% Local Variables:
